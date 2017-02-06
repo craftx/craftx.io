@@ -1,5 +1,9 @@
 .tmp
 .temp
 .idea
-.phpintel
+.vscode
 .DS_Store
+#
+#
+/.env
+/vendor
