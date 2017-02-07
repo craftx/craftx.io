@@ -1024,6 +1024,56 @@
             "time": "2017-01-30T17:41:17+00:00"
         },
         {
+            "name": "michelf/php-smartypants",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-smartypants.git",
+                "reference": "47d17c90a4dfd0ccf1f87e25c65e6c8012415aad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-smartypants/zipball/47d17c90a4dfd0ccf1f87e25c65e6c8012415aad",
+                "reference": "47d17c90a4dfd0ccf1f87e25c65e6c8012415aad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "https://daringfireball.net/"
+                }
+            ],
+            "description": "PHP SmartyPants",
+            "homepage": "https://michelf.ca/projects/php-smartypants/",
+            "keywords": [
+                "dashes",
+                "quotes",
+                "spaces",
+                "typographer",
+                "typography"
+            ],
+            "time": "2016-12-13T01:01:17+00:00"
+        },
+        {
             "name": "mikehaertl/php-shellcommand",
             "version": "1.2.2",
             "source": {
@@ -1299,28 +1349,29 @@
         },
         {
             "name": "selvinortiz/doxter",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/selvinortiz/doxter.git",
-                "reference": "6ab181aea901c6b6d0c4776ee2e086ea6647e00d"
+                "reference": "612ae1108dbf0c18c33b9d300dbcd8266de32975"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selvinortiz/doxter/zipball/6ab181aea901c6b6d0c4776ee2e086ea6647e00d",
-                "reference": "6ab181aea901c6b6d0c4776ee2e086ea6647e00d",
+                "url": "https://api.github.com/repos/selvinortiz/doxter/zipball/612ae1108dbf0c18c33b9d300dbcd8266de32975",
+                "reference": "612ae1108dbf0c18c33b9d300dbcd8266de32975",
                 "shasum": ""
             },
             "require": {
                 "erusev/parsedown": "^1.6",
-                "erusev/parsedown-extra": "^0.7.1"
+                "erusev/parsedown-extra": "^0.7.1",
+                "michelf/php-smartypants": "^1.8"
             },
             "type": "craft-plugin",
             "extra": {
                 "name": "Doxter",
                 "class": "selvinortiz\\doxter\\Doxter",
                 "handle": "doxter",
-                "version": "3.0.4",
+                "version": "3.0.5",
                 "schemaVersion": "3.0.0",
                 "developer": "Selvin Ortiz",
                 "developerUrl": "https://selvinortiz.com",
@@ -1328,6 +1379,7 @@
                 "documentationUrl": "https://github.com/selvinortiz/doxter/blob/master/README.md",
                 "changelogUrl": "https://raw.githubusercontent.com/selvinortiz/doxter/CHANGELOG.md",
                 "hasCpSection": false,
+                "hasSettings": false,
                 "components": {
                     "api": "selvinortiz\\doxter\\services\\DoxterService"
                 }
@@ -1354,7 +1406,7 @@
                 "doxter",
                 "plugin"
             ],
-            "time": "2017-02-03T07:40:23+00:00"
+            "time": "2017-02-06T19:24:13+00:00"
         },
         {
             "name": "selvinortiz/patrol",
