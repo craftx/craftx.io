@@ -2,6 +2,7 @@
 .temp
 .idea
 .vscode
+.vagrant
 .DS_Store
 #
 #
