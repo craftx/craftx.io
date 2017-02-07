@@ -1349,16 +1349,16 @@
         },
         {
             "name": "selvinortiz/doxter",
-            "version": "3.0.5",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/selvinortiz/doxter.git",
-                "reference": "612ae1108dbf0c18c33b9d300dbcd8266de32975"
+                "reference": "f981636a6af5dcd5c75d1107e6657bb87403cf3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selvinortiz/doxter/zipball/612ae1108dbf0c18c33b9d300dbcd8266de32975",
-                "reference": "612ae1108dbf0c18c33b9d300dbcd8266de32975",
+                "url": "https://api.github.com/repos/selvinortiz/doxter/zipball/f981636a6af5dcd5c75d1107e6657bb87403cf3d",
+                "reference": "f981636a6af5dcd5c75d1107e6657bb87403cf3d",
                 "shasum": ""
             },
             "require": {
@@ -1371,7 +1371,7 @@
                 "name": "Doxter",
                 "class": "selvinortiz\\doxter\\Doxter",
                 "handle": "doxter",
-                "version": "3.0.5",
+                "version": "3.0.6",
                 "schemaVersion": "3.0.0",
                 "developer": "Selvin Ortiz",
                 "developerUrl": "https://selvinortiz.com",
@@ -1406,7 +1406,7 @@
                 "doxter",
                 "plugin"
             ],
-            "time": "2017-02-06T19:24:13+00:00"
+            "time": "2017-02-07T05:27:22+00:00"
         },
         {
             "name": "selvinortiz/patrol",
