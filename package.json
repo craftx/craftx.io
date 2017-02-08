@@ -1,0 +1,112 @@
+{
+  "name": "craftx.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:selvinortiz/craftx.io.git",
+  "author": "selvin@craftx.io",
+  "license": "MIT",
+  "scripts": {
+    "build": "gulp clean && gulp build",
+    "watch": "gulp clean && gulp build && gulp watch"
+  },
+  "config": {
+    "clean": [
+      "web/dist"
+    ],
+    "js": {
+      "watch": "src/js/**/*.js",
+      "source": {
+        "app": "src/js/app.js",
+        "vendor": [
+          "node_modules/vue/dist/vue.js",
+          "node_modules/prismjs/prism.js",
+          "node_modules/prismjs/components/prism-php.js",
+          "node_modules/prismjs/components/prism-twig.js"
+        ]
+      },
+      "output": {
+        "dir": "web/dist",
+        "app": "app.js",
+        "vendor": "vendor.js"
+      }
+    },
+    "sass": {
+      "watch": "src/sass/**/*.scss",
+      "source": {
+        "app": "src/sass/app.scss",
+        "vendor": "src/sass/vendor.scss"
+      },
+      "output": {
+        "dir": "web/dist",
+        "app": "app.css",
+        "vendor": "vendor.css"
+      },
+      "options": {
+        "app": {
+          "includePaths": [
+            "src/sass"
+          ]
+        },
+        "vendor": {
+          "includePaths": [
+            "node_modules",
+            "node_modules/bulma",
+            "node_modules/font-awesome/scss"
+          ]
+        }
+      }
+    },
+    "rev": {
+      "manifest": "./web/dist/versions.json",
+      "options": {
+        "base": "web/dist",
+        "merge": true
+      }
+    },
+    "fonts": {
+      "source": [
+        "src/fonts/*",
+        "node_modules/font-awesome/fonts/*"
+      ],
+      "output": {
+        "dir": "web/dist/fonts"
+      }
+    },
+    "images": {
+      "source": "src/images/**/*.{png,gif,jpg,jpeg,svg}",
+      "output": {
+        "dir": "web/dist/images"
+      }
+    },
+    "templates": {
+      "watch": "src/templates/**/*.{js,css,twig,php}",
+      "source": "src/templates/**/*.twig",
+      "output": {
+        "dir": "templates"
+      }
+    }
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-minify": "^0.0.14",
+    "gulp-rev": "^7.1.2",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-sass": "^3.0.0",
+    "gulp-sync": "^0.1.4",
+    "normalize-scss": "^6.0.0",
+    "prismjs": "^1.6.0",
+    "vue": "^2.1.10"
+  },
+  "description": "Craft Training for Busy Developers",
+  "dependencies": {
+    "bulma": "^0.3.1"
+  }
+}

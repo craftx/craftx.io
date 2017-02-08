@@ -1,0 +1,31 @@
+{% extends '_/master.html' %}
+
+{% set id = 'blog-tags' %}
+{% set title = 'Articles by Tag' %}
+
+{% set content %}
+
+	{# @see config/routes.php #}
+	{% set tag = craft.tags.search(tag).limit(1).first() %}
+	{% set entries = craft.entries.section('blog').relatedTo(tag).find() %}
+
+	{% if entries is not iterable %}
+		{% exit 404 %}
+	{% endif %}
+
+	<div class="grid">
+		<section class="row">
+			<main class="col col8">
+				<h2 class="text-section leader">Articles tagged with <strong>{{ tag.title }}</strong></h2>
+				<div class="entries">
+					{% for entry in entries %}
+						<div class="container-badge {{ loop.first ? 'leader' : null }}">
+							{% include '_/partials/entry' with {entry: entry} %}
+						</div>
+					{% endfor %}
+				</div>
+			</main>
+	        {% include '_/partials/blog-sidebar.html' %}
+		</section>
+	</div>
+{% endset %}

@@ -1,0 +1,69 @@
+
+	<aside class="col {{ col is defined ? col : 'col4 last' }}">
+		<h4><span class="icon-search"></span> Search</h4>
+		<div class="block">
+			<form method="get" action="{{ siteUrl }}blog/search">
+				<input name="q" type="search" class="field field-block" placeholder="Keywords..." value="{{ query is defined ? query }}">
+				<button type="submit" class="btn btn-primary btn-block">Go</button>
+			</form>
+		</div>
+
+		<hr class="divider">
+
+		<h4><span class="icon-bookmark"></span> Popular</h4>
+		<ul class="block-sidebar">
+			{% set stories = craft.topStories.getTopStories(5) %}
+
+			{% for story in stories %}
+				<li>
+					{% if entry is defined and entry.title == story.title %}
+						<a href="{{ story.url }}" class="selected"><span class="icon-right-open-mini"></span> {{ story.title }}</a>
+					{% else %}
+						<a href="{{ story.url }}">{{ story.title }}</a>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+
+		<hr class="divider">
+
+		<h4><span class="icon-unfold"></span> Categories</h4>
+		<ul class="block-sidebar">
+			{% for category in craft.categories.group('blog').limit(20) %}
+				<li>
+					{% if
+						category.slug == craft.request.getSegment(3)
+						or
+						(entry is defined and category.slug == entry.categories.first().slug) %}
+						<a href="{{ category.url }}" class="selected"><span class="icon-right-open-mini"></span> {{ category.title }}</a>
+					{% else %}
+						<a href="{{ category.url }}">{{ category.title }}</a>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+
+		<hr class="divider">
+
+		<h4><span class="icon-tags"></span> Tags</h4>
+		<p class="block-center">
+			{% set entryTags = [] %}
+			{% if entry is defined %}
+				{% for entryTag in entry.tags %}
+				    {% set entryTags = entryTags|merge([entryTag.slug]) %}
+				{% endfor %}
+			{% endif %}
+
+			{% for tag in craft.tags.group('blog') %}
+				{%- if
+					tag.slug == craft.request.getSegment(3)
+					or
+					(tag.slug in entryTags) -%}
+					<a href="/blog/tags/{{ tag.slug }}" class="selected-link">{{ tag }}</a>
+				{%- else -%}
+					<a href="/blog/tags/{{ tag.slug }}">{{ tag }}</a>
+				{%- endif -%}
+				{%- if not loop.last %} / {% endif %}
+			{% endfor %}
+		</p>
+	</aside>

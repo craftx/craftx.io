@@ -1,0 +1,35 @@
+// $color-primary: #fa3;
+$color-primary: #00966C;
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+$color-secondary: #464748;
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-dark: darken($color-secondary, 10%);
+$color-tertiary: #c03d27;
+$color-tertiary-light: lighten($color-tertiary, 10%);
+$color-tertiary-dark: darken($color-tertiary, 10%);
+$color-faded: #a6a7a8;
+$color-faded-more: #d6d7d8;
+$color-faded-most: #e6e7e8;
+$color-navbar-border: darken($color-primary, 2%);
+$color-navbar-link: $color-primary;
+$color-navbar-link-background: transparent;
+$color-navbar-link-hover: #fff;
+$color-navbar-link-hover-background: $color-primary;
+$color-navbar-link-selected: #fff;
+$color-navbar-link-selected-background: $color-primary;
+$color-navbar-toggle: $color-primary;
+$color-navbar-toggle-background: transparent;
+$color-navbar-toggle-hover: #fff;
+$color-navbar-toggle-hover-background: $color-primary;
+
+$xs: 470px;
+$sm: 710px;
+$md: 1070px;
+$lg: 1910px;
+$xl: 2290px;
+
+$column-pad: 20px;
+
+// Font Awesome
+$fa-font-path: '/dist/fonts';

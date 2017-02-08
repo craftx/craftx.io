@@ -1,0 +1,25 @@
+<aside class="col {{ col is defined ? col : 'col4 last' }}">
+
+    {% cache using key 'sidebar' unless craft.config.get('env') is not 'live' %}
+        {% set author = craft.users.id(1).limit(1).first() %}
+
+        {% if author %}
+
+            <div class="block-image">
+                <img src="/img/selvinortiz-square-lowres.jpg" alt="{{ author.getName() }}">
+            </div>
+            <div class="block-centered">{{ author.bio.getHtml() }}</div>
+
+        {% endif %}
+    {% endcache %}
+
+    <nav class="navbar navbar__sidebar">
+        <div class="content">
+            <ul>
+                <li><a href="http://twitter.com/selvinortiz" title="Selvin Ortiz on Twitter"><span class="icon-twitter">&nbsp;@selvinortiz</span></a></li>
+                <li><a href="http://github.com/selvinortiz" title="Selvin Ortiz on Github"><span class="icon-github">&nbsp;&gt;selvinortiz</span></a></li>
+                <li><a href="http://linkedin.com/in/selvinortiz" title="Selvin Ortiz on Linked In"><span class="icon-linkedin-circled">&nbsp;/selvinortiz</span></a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>

@@ -1,0 +1,54 @@
+.segment {
+    padding: $column-pad 0;
+}
+.segment--header {
+    padding: 0;
+}
+.segment--hero {
+    border-top: 2px solid $color-faded-more;
+    border-bottom: 2px solid $color-faded-more;
+    background: lighten($color-faded-most, 3%) url(/dist/images/CraftXPattern.png) repeat;
+
+    .hero__subheadline {
+        color: lighten($color-secondary, 3%);
+        font-size: 1.4em;
+    }
+    .hero__icons {
+        margin: ($column-pad * 2) 0;
+        a, a:link, a:visited {
+            color: $color-faded;
+        }
+        a:hover, a:active, a:focus {
+            color: lighten($color-faded, 5%);
+        }
+        i.fa {
+            font-size: 2.5em;
+        }
+    }
+}
+
+.segment--shouts {
+    background-color: $color-primary;
+    .shout {
+        padding: 1em 2em;
+        background-color: #fff;
+    }
+}
+
+@media md {
+    .segment {
+        padding: ($column-pad * 2) 0;
+    }
+    .segment--hero {
+        .hero__subheadline {
+            max-width: $md;
+            margin: 0 auto;
+        }
+        .buttons {
+            margin: ($column-pad * 2) 0;
+        }
+    }
+    .segment--shouts {
+        padding: 40px 0;
+    }
+}

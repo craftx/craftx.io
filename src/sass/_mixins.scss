@@ -1,0 +1,63 @@
+/**
+ * For elements that contain floated children
+ * -------------
+ */
+@mixin float-container {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/**
+ * Media Queries
+ * -------------
+ */
+@mixin xs() {
+    @media all and (min-width: $xs) {
+        @content;
+    }
+}
+@mixin sm() {
+    @media all and (min-width: $sm) {
+        @content;
+    }
+}
+@mixin md() {
+    @media all and (min-width: $md) {
+        @content;
+    }
+}
+@mixin lg() {
+    @media all and (min-width: $lg) {
+        @content;
+    }
+}
+@mixin xl() {
+    @media all and (min-width: $xl) {
+        @content;
+    }
+}
+
+@mixin xs-only() {
+    @media all and (min-width: $xs) and (max-width: $sm) {
+        @content;
+    }
+}
+@mixin sm-only() {
+    @media all and (min-width: $sm) and (max-width: $md) {
+        @content;
+    }
+}
+@mixin md-only() {
+    @media all and (min-width: $md) and (max-width: $lg) {
+        @content;
+    }
+}
+@mixin lg-only() {
+    @media all and (min-width: $lg) and (max-width: $xl) {
+        @content;
+    }
+}
+// xl-only is redundant > use @include xl

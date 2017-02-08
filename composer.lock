@@ -400,16 +400,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.0-beta.2",
+            "version": "3.0.0-beta.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "8ce70e4115a6b1ccdd2ac3e2c476910d2b49da5c"
+                "reference": "aa20909615f02dc8e61cd0e3d27a8fad526e4af9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/8ce70e4115a6b1ccdd2ac3e2c476910d2b49da5c",
-                "reference": "8ce70e4115a6b1ccdd2ac3e2c476910d2b49da5c",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/aa20909615f02dc8e61cd0e3d27a8fad526e4af9",
+                "reference": "aa20909615f02dc8e61cd0e3d27a8fad526e4af9",
                 "shasum": ""
             },
             "require": {
@@ -424,7 +424,7 @@
                 "bower-asset/selectize": "0.12.4",
                 "bower-asset/timepicker": "1.11.9",
                 "bower-asset/velocity": "1.4.2",
-                "craftcms/server-check": "1.0.7",
+                "craftcms/server-check": "1.0.8",
                 "creocoder/yii2-nested-sets": "0.9.0",
                 "danielstjules/stringy": "2.3.2",
                 "guzzlehttp/guzzle": "6.2.2",
@@ -461,7 +461,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2017-02-03T00:16:31+00:00"
+            "time": "2017-02-07T20:41:29+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -506,16 +506,16 @@
         },
         {
             "name": "craftcms/server-check",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/server-check.git",
-                "reference": "6648b1beae7ec19f294a8459a3da5ed24ec8e900"
+                "reference": "5b211e89d7d6741282e28556ba2f9992a3ec547f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/6648b1beae7ec19f294a8459a3da5ed24ec8e900",
-                "reference": "6648b1beae7ec19f294a8459a3da5ed24ec8e900",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/5b211e89d7d6741282e28556ba2f9992a3ec547f",
+                "reference": "5b211e89d7d6741282e28556ba2f9992a3ec547f",
                 "shasum": ""
             },
             "require": {
@@ -534,14 +534,12 @@
             "description": "Craft CMS Server Check",
             "homepage": "https://craftcms.com/",
             "keywords": [
-                "Craft",
-                "check",
                 "cms",
                 "craftcms",
                 "requirements",
-                "server"
+                "yii2"
             ],
-            "time": "2017-01-30T18:48:52+00:00"
+            "time": "2017-02-06T22:43:02+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -1222,12 +1220,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "3db4b0df21d1f527304650e717c66af48981f1c4"
+                "reference": "fb2df84af4af2721089a64453bfbbc7dfd23869b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/3db4b0df21d1f527304650e717c66af48981f1c4",
-                "reference": "3db4b0df21d1f527304650e717c66af48981f1c4",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/fb2df84af4af2721089a64453bfbbc7dfd23869b",
+                "reference": "fb2df84af4af2721089a64453bfbbc7dfd23869b",
                 "shasum": ""
             },
             "conflict": {
@@ -1236,6 +1234,7 @@
                 "aws/aws-sdk-php": ">=3,<3.2.1",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
                 "cakephp/cakephp": ">=3,<3.0.15|>=2,<2.4.99|>=2.5,<2.5.99|>=2.6,<2.6.12|>=1.3,<1.3.18|>=2.7,<2.7.6|>=3.1,<3.1.4",
+                "cart2quote/module-quotation": ">=4.1.6,<=4.4.5|>=5,<5.4.4",
                 "cartalyst/sentry": "<2.1",
                 "codeigniter/framework": "<=3.0.6",
                 "composer/composer": "<=1.0.0-alpha11",
@@ -1271,7 +1270,7 @@
                 "phpmailer/phpmailer": ">=5,<5.2.22",
                 "pusher/pusher-php-server": "<2.2.1",
                 "sabre/dav": ">=1.6,<1.6.99|>=1.7,<1.7.11|>=1.8,<1.8.9",
-                "shopware/shopware": "<4.4|>=5,<5.2.15",
+                "shopware/shopware": "<4.4|>=5,<5.2.16",
                 "silverstripe/cms": ">=3.1,<3.1.11|>=3,<=3.0.11",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
                 "silverstripe/framework": ">=3,<3.3",
@@ -1345,7 +1344,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2017-01-24T18:32:04+00:00"
+            "time": "2017-02-07T09:04:40+00:00"
         },
         {
             "name": "selvinortiz/doxter",
@@ -2139,16 +2138,16 @@
     "packages-dev": [
         {
             "name": "laravel/homestead",
-            "version": "v4.0.4",
+            "version": "v4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "133c09dd2872af46efa0324a5c985a8c707efc69"
+                "reference": "a1bcbde2462d8ac1fa608cd6f00b46623aabd705"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/133c09dd2872af46efa0324a5c985a8c707efc69",
-                "reference": "133c09dd2872af46efa0324a5c985a8c707efc69",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/a1bcbde2462d8ac1fa608cd6f00b46623aabd705",
+                "reference": "a1bcbde2462d8ac1fa608cd6f00b46623aabd705",
                 "shasum": ""
             },
             "require": {
@@ -2181,7 +2180,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2017-02-06T03:10:50+00:00"
+            "time": "2017-02-07T19:06:26+00:00"
         },
         {
             "name": "psr/log",
