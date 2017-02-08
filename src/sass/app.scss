@@ -7,6 +7,12 @@
 // @import "segments";
 // @import "typography";
 // @import "nav";
+.title + .subtitle {
+    margin-top: 20px;
+}
+.section--hero {
+    background: #e6e7e8 url(/dist/images/CraftXPattern.png) repeat;
+}
 .nav-item img {
     max-height: 2.5rem;
 }

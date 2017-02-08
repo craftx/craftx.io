@@ -23,25 +23,17 @@
         {% if content is defined %}
             {{ content }}
         {% endif %}
-
-        <footer class="segment">
-            <div class="grid">
-                <div class="row">
-                    <div class="full column">
-                        <p>&copy;{{ "now"|date("Y") }} {{ siteName }}, All Content Copyrighted.</p>
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="/terms">Terms</a>
-                                </li>
-                                <li>
-                                    <a href="/privacy">Privacy</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+        <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+            <p>&copy;{{ "now"|date("Y") }} {{ siteName }}, All Content Copyrighted.</p>
+            <p>
+                <a href="/terms">Terms</a>
+                |
+                <a href="/privacy">Privacy</a>
+            </p>
             </div>
+        </div>
         </footer>
     </div>
     <script src="/dist/vendor.js"></script>
