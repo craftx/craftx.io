@@ -2,8 +2,8 @@
 ip: "192.168.10.10"
 memory: 2048
 cpus: 1
-hostname: craftx.dev
-name: craftx.dev
+hostname: craftx-vm
+name: craftx-vm
 provider: virtualbox
 
 authorize: ~/.ssh/id_rsa.pub
@@ -14,7 +14,8 @@ keys:
 folders:
     - map: "/Users/selvinortiz/dev/www/sco/craftx.dev"
       to: "/home/vagrant/craftx.dev"
-
+    - map: "/Users/selvinortiz/dev/prj"
+      to: "/home/vagrant/dev/prj"
 sites:
     - map: craftx.dev
       to: "/home/vagrant/craftx.dev/web"

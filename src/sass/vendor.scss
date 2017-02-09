@@ -1,21 +1,5 @@
-// @import "vars";
 // @import "normalize"; @include normalize();
-
-$color-primary: #00966C;
-$color-primary-light: lighten($color-primary, 10%);
-$color-primary-dark: darken($color-primary, 10%);
-$color-secondary: #464748;
-$color-secondary-light: lighten($color-secondary, 10%);
-$color-secondary-dark: darken($color-secondary, 10%);
-$color-tertiary: #c03d27;
-$color-tertiary-light: lighten($color-tertiary, 10%);
-$color-tertiary-dark: darken($color-tertiary, 10%);
-
-$primary: $color-primary;
-$text: $color-secondary;
-
-$fa-font-path: '/dist/fonts';
-
+@import "vars";
 @import "font-awesome";
 @import "bulma";
 // @import "vendor/prism";

@@ -1,4 +1,4 @@
-// @import "vars";
+@import "vars";
 // @import "mixins";
 // @import "grid";
 // @import "fonts";
@@ -13,6 +13,12 @@
 .section--hero {
     background: #e6e7e8 url(/dist/images/CraftXPattern.png) repeat;
 }
+.section--features {
+    .title, .subtitle {
+        color: #fff;
+    }
+    background-color: $color-secondary;
+}
 .nav-item img {
-    max-height: 2.5rem;
+    max-height: 3rem;
 }

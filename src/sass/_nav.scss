@@ -78,12 +78,6 @@
 
 @include md {
     .navbar {
-        .navbar__brand {
-            img {
-                height: 64px;
-                width: auto;
-            }
-        }
         .navbar__toggle {
             display: none;
         }

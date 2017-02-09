@@ -1,7 +1,7 @@
 <nav class="nav is-medium has-shadow">
   <div class="container">
   <div class="nav-left">
-    <a class="nav-item">
+    <a href="/" class="nav-item nav__brand" title="Craft X">
       <img src="/dist/images/CraftX.svg" alt="Craft X Logo">
     </a>
   </div>
@@ -17,26 +17,32 @@
   <!-- This "nav-menu" is hidden on mobile -->
   <!-- Add the modifier "is-active" to display it on mobile -->
   <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
-    <a class="nav-item">
-      Home
-    </a>
-    <a class="nav-item">
-      Learn
-    </a>
-    <span class="nav-item">
-      <a class="button" >
-        <span class="icon">
-          <i class="fa fa-sign-in"></i>
+    {% if user %}
+        <span class="nav-item">
+          <a href="/@{{ user.username }}" class="button is-primary" title="Dashboard">
+            <span class="icon"><i class="fa fa-map-signs"></i></span>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="/logout" class="button" title="Logout">
+            <span class="icon"><i class="fa fa-sign-out"></i></span>
+            <span>Logout</span>
+          </a>
         </span>
-        <span>Login</span>
-      </a>
-      <a class="button is-primary">
-        <span class="icon">
-          <i class="fa fa-graduation-cap"></i>
+      {% else %}
+        <a href="/" class="nav-item" title="Craft X">Home</a>
+        <span class="nav-item">
+          <a href="/login" class="button" title="Login">
+            <span class="icon"><i class="fa fa-sign-in"></i></span>
+            <span>Login</span>
+          </a>
+
+          <a title="/signup" class="button is-info" title="Sign up today and start hacking Craft CMS">
+            <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+            <span>Sign Up</span>
+          </a>
         </span>
-        <span>Sign Up</span>
-      </a>
-    </span>
+      {% endif %}
   </div>
   </div>
 </nav>

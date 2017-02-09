@@ -4,5 +4,10 @@
 .section--hero {
   background: #e6e7e8 url(/dist/images/CraftXPattern.png) repeat; }
 
+.section--features {
+  background-color: #464748; }
+  .section--features .title, .section--features .subtitle {
+    color: #fff; }
+
 .nav-item img {
-  max-height: 2.5rem; }
+  max-height: 3rem; }
