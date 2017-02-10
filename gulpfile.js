@@ -3,26 +3,38 @@
 const gulp = require('gulp');
 const config = require('./package.json').config;
 const plugins = require('gulp-load-plugins')();
+const browserify = require('browserify');
+const babelify = require('babelify');
+const watchify = require('watchify');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
 
-gulp.task('js:app', () => {
-  return gulp.src(config.js.source.app)
-    .pipe(plugins.concat(config.js.output.app))
-    // .pipe(plugins.rev())
-    // .pipe(gulp.dest(config.js.output.dir)) 
-    // .pipe(plugins.rev.manifest(config.rev.manifest, config.rev.options))
-    .pipe(gulp.dest(config.js.output.dir))
+const bundler = watchify(browserify('./src/js/app.js').transform(babelify, {presets: ['es2015']}));
+
+function bundle() {
+  return bundler.bundle()
+    .on('error', plugins.util.log)
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest('./web/dist/'))
     .pipe(plugins.livereload());
+}
+
+gulp.task('js:build', function () {
+  const bundler = browserify('./src/js/app.js').transform(babelify, {presets: ['es2015']});
+
+  return bundler.bundle()
+    .on('error', plugins.util.log)
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest('./web/dist/'));
 });
 
-gulp.task('js:vendor', () => {
-  return gulp.src(config.js.source.vendor)
-    .pipe(plugins.concat(config.js.output.vendor))
-    .pipe(plugins.minify({mangle: true, ext: {src: '.debug.js', min: '.js'}}))
-    // .pipe(plugins.rev()) 
-    // .pipe(gulp.dest(config.js.output.dir)) 
-    // .pipe(plugins.rev.manifest(config.rev.manifest, config.rev.options))
-    .pipe(gulp.dest(config.js.output.dir))
-    .pipe(plugins.livereload());
+gulp.task('js', () => {
+  bundle();
+  bundler.on('update', bundle);
+  bundler.on('log', plugins.util.log);
 });
 
 gulp.task('sass:app', () => {
@@ -60,14 +72,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('templates', () => {
-    // const revs = require(config.rev.manifest); 
-
-    // console.log(revs);
     return gulp.src(config.templates.source)
-        // .pipe(plugins.injectString.replace('@inject:' + config.js.output.vendor, revs[config.js.output.vendor]))
-        // .pipe(plugins.injectString.replace('@inject:' + config.js.output.app, revs[config.js.output.app]))
-        // .pipe(plugins.injectString.replace('@inject:' + config.sass.output.vendor, revs[config.sass.output.vendor]))
-        // .pipe(plugins.injectString.replace('@inject:' + config.sass.output.app, revs[config.sass.output.app]))
         .pipe(gulp.dest(config.templates.output.dir))
         .pipe(plugins.livereload());
 });
@@ -80,16 +85,17 @@ gulp.task('clean', () => {
 gulp.task('watch', (callback) => {
   plugins.livereload.listen();
 
-  gulp.watch(config.js.watch, ['js:app', 'templates']);
+  bundle();
+  gulp.watch(config.js.watch, bundle);
   gulp.watch(config.sass.watch, ['sass:app', 'templates']);
   gulp.watch(config.templates.watch, ['templates']);
   gulp.watch(config.images.source, ['images']);
 });
 
 gulp.task('default', (callback) => {
-  plugins.runSequence(['js:app', 'sass:app'], 'images', 'templates', callback);
+  plugins.runSequence(['js', 'sass:app'], 'images', 'templates', callback);
 });
 
 gulp.task('build', (callback) => {
-  plugins.runSequence(['js:app', 'js:vendor'], ['sass:app', 'sass:vendor'], 'fonts', 'images', 'templates', callback);
+  plugins.runSequence(['js:build'], ['sass:app', 'sass:vendor'], 'fonts', 'images', 'templates', callback);
 });

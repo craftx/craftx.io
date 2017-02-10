@@ -15,7 +15,7 @@ return [
         'defaultWeekStartDay' => 0,
 
         // Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
-        'enableCsrfProtection' => false,
+        'enableCsrfProtection' => true,
 
         // Whether "index.php" should be visible in URLs (true, false, "auto")
         'omitScriptNameInUrls' => true,
