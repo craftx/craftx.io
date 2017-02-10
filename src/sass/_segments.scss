@@ -35,6 +35,13 @@
     }
 }
 
+.segment--subscribe {
+    padding: 0
+    form {
+        margin-top: $column-pad * 2;
+    }
+}
+
 @media md {
     .segment {
         padding: ($column-pad * 2) 0;

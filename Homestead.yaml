@@ -14,8 +14,8 @@ keys:
 folders:
     - map: "/Users/selvinortiz/dev/www/sco/craftx.dev"
       to: "/home/vagrant/craftx.dev"
-    - map: "/Users/selvinortiz/dev/prj"
-      to: "/home/vagrant/dev/prj"
+    - map: "/Users/selvinortiz/dev/prj/swipe"
+      to: "/home/vagrant/craftx.dev/plugins/swipe"
 sites:
     - map: craftx.dev
       to: "/home/vagrant/craftx.dev/web"

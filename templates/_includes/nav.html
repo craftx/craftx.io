@@ -30,7 +30,10 @@
           </a>
         </span>
       {% else %}
-        <a href="/" class="nav-item" title="Craft X">Home</a>
+        {% if craft.app.request.segment(1) is not empty %}
+          <a href="/" class="nav-item" title="Craft X">Home</a>
+        {% endif %}
+
         <span class="nav-item">
           <a href="/login" class="button" title="Login">
             <span class="icon"><i class="fa fa-sign-in"></i></span>
