@@ -32,6 +32,9 @@ class Swipe extends Plugin {
     ];
 
     public function init() {
+
+        require_once(__DIR__.'/../vendor/autoload.php');
+
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
