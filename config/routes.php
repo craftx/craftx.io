@@ -19,5 +19,5 @@
  */
 
 return [
-
+    'code/<code:[a-zA-Z0-9\-]+>' => ['template' => 'index']
 ];
