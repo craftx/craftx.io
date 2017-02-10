@@ -7,15 +7,27 @@
 // @import "segments";
 // @import "typography";
 // @import "nav";
+.is-blinking {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
 .title + .subtitle {
     margin-top: 20px;
 }
 .section--hero {
-    background: #fff url(/dist/images/CraftXPattern.png) repeat top left;
+    background: #e6e7e8 url(/dist/images/HeroBackground.png) no-repeat center left;
+
+    .hero-buttons {
+        margin-top: $column-pad * 3;
+    }
 }
 .section--features {
-    .title, .subtitle {
-    }
+    background: url(/dist/images/CraftXPattern.png) repeat left top;
+
     // background-color: $color-secondary;
     border-top: 2px solid #e6e7e8;
     // border-bottom: 2px solid #e6e7e8;

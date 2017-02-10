@@ -1,9 +1,7 @@
 'use strict';
 
+Vue.prototype.$http = axios;
 Vue.config.delimiters = ['${', '}'];
-Vue.prototype.$http   = axios;
-
-// Emulate JSON
 
 var app = new Vue({
     el: '#app',
@@ -16,14 +14,14 @@ var app = new Vue({
         toggleMobileNav: function() {
             this.mobileNavIsActive = !this.mobileNavIsActive;
         },
-        subscribe: function(e) {
+        subscribe: function() {
             var app = this;
 
             this.subscribing = true;
             
             if (!this.email)
             {
-                this.__nay('Wait...', 'Email is required.');
+                this.__nay('Hey!', 'You should add your email address.');
 
                 this.subscribing = false;
 
@@ -41,18 +39,19 @@ var app = new Vue({
                 // OK
                 function(response) {
                     if (response.data.success) {
-                        app.__yay('Fantastic!', response.data.message);
+                        app.__yay('Doing Great!', response.data.message);
                         app.name = '';
                         app.email = '';
                     } else {
-                        app.__nay('Wait...', response.data.message);
+                        app.__nay('Wait!', response.data.message);
                     }
 
                     app.subscribing = false;
                 },
                 // Error
                 function(response) {
-                    app.__nay('Shoot...', 'I could not get you subscribed.');
+                    console.log(response);
+                    app.__nay('Oh No!', 'Looks like I could not get you subscribed:(');
 
                     app.subscribing = false;
                 }
