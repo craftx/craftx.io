@@ -1,0 +1,32 @@
+{% extends '_layouts/cp' %}
+
+{% set title = 'Swipe' %}
+{% set plans = craft.swipe.plans %}
+
+{% set extraPageHeaderHtml  %}
+    <div  class="buttons right">
+        <a href="{{ cpUrl('swipe/plans/new') }}" class="btn submit add icon">New Plan</a>
+    </div>
+{% endset %}
+
+{% block content %}
+    <h2>Plans</h2>
+    <table class="data fullwidth">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Interval</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plan in plans %}
+                <tr>
+                    <td><a href="{{ cpUrl('swipe/plans/edit/' ~ plan.id) }}">{{ plan.name }}</a></td>
+                    <td>{{ (plan.amount/100)|currency(plan.currency) }}</td>
+                    <td>{{ plan.intervalCount }} {{ plan.interval|capitalize }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

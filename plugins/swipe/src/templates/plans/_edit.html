@@ -1,0 +1,32 @@
+{% import '_includes/forms' as forms %}
+{% extends '_layouts/cp' %}
+
+{% set title = plan.id ? 'Edit Plan' : 'New  Plan' %}
+
+{% block content %}
+    <form method="post">
+        <input type="hidden" name="action" value="swipe/plans/save">
+        <input type="hidden" name="id" value="{{ plan.id }}">
+        <input type="hidden" name="redirect" value="{{ cpUrl('swipe/plans/edit/{id}') }}">
+
+        {{ csrfInput() }}
+
+        {{ forms.textField({
+            name: 'name',
+            label: 'Name',
+            value: plan.name,
+            errors: plan.errors('name'),
+            required: true,
+            instructions: 'Use a format such as **{Type} {Interval} Plan** as in **Student Monthly Plan**'|t|md
+        }) }}
+        {{ forms.textField({
+            name: 'amount',
+            label: 'Amount',
+            value: plan.amount,
+            errors: plan.errors('amount'),
+            required: true,
+            instructions: 'Use whole numbers to describe amounts in cents. For **$10.00**, you would type **1000**.'
+        }) }}
+        <button type="submit" class="btn submit">Save Plan</button>
+    </form>
+{% endblock %}
