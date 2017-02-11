@@ -76,8 +76,8 @@
       }
     },
     "templates": {
-      "watch": "src/templates/**/*.{js,css,html,php}",
-      "source": "src/templates/**/*.html",
+      "watch": "templates/**/*.{js,css,html,php}",
+      "source": "templates/**/*.html",
       "output": {
         "dir": "templates"
       }

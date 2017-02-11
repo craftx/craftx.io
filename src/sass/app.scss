@@ -7,13 +7,19 @@
 // @import "segments";
 // @import "typography";
 // @import "nav";
+body {
+    background-color: #e6e7e8;
+}
 body,p,h1,h3,h4,h5,h6,.title,.subtitle {
     font-weight: 300;
     line-height: 1.5;
-    word-spacing: .25em;
+    word-spacing: .2em;
 }
-.title, .subtitle {
-    text-shadow: 1px 1px 0 #f6f7f8;
+.is-inset {
+    text-shadow: 1px 2px 0 #fff;
+}
+.is-inset-inverted {
+    text-shadow: 1px 2px 0 #565758;
 }
 .is-heavy {
     font-weight: 500;
@@ -48,7 +54,6 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
 }
 .section--subscribe {
     border-top: 2px solid #d6d7d8;
-    border-bottom: 2px solid #d6d7d8;
     background-color: #e6e7e8;
     form {
         margin-top: $column-pad * 2;
@@ -69,4 +74,37 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
 }
 .footer {
     background-color: inherit;
+}
+
+@media all and (max-width: 560px) {
+    .control.is-grouped.subscribe-fields {
+        display: block;
+
+        .control {
+            margin: 0;
+            margin-top: $column-pad;
+        }
+        .button {
+            min-width: 100%;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .title {
+        &.is-1 {
+            font-size: 2.5rem;
+        }
+        &.is-2 {
+            font-size: 2.0rem;
+        }
+    }
+    .subtitle {
+        &.is-3 {
+            font-size: 1.7rem;
+        }
+        &.is-4 {
+            font-size: 1.5rem;
+        }
+    }
 }

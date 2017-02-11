@@ -33,15 +33,15 @@
             <div class="columns">
                 <div class="column is-half-desktop is-offset-one-quarter-desktop">
                     <div class="has-text-centered">
-                        <h2 class="title is-2">Craft X Spamletter</h2>
-                        <p class="subtitle is-4 is-heavy">
+                        <h2 class="title is-2 is-inset">Craft X Spam Blaster</h2>
+                        <p class="subtitle is-4 is-heavy is-inset">
                             Be notified about early access and the official launch.
                         </p>
-                        <p class="subtitle is-5">
+                        <p class="subtitle is-5 is-inset">
                             <span class="icon"><i class="fa fa-bookmark"></i></span>
                             My newsletter uses the <strong>Double Opt-in</strong> method.
                             Meaning, you will have to confirm that you want to subscribe.
-                            You are welcome<strong>;)</strong>
+                            You are welcome <strong>;)</strong>
                         </p>
                     </div>
 
@@ -49,11 +49,11 @@
                         <input type="hidden" name="action" value="swipe/newsletter/subscribe">
                         <input type="hidden" name="redirect" value="/newsletter/next">
                         {{ csrfInput() }}
-                        <div class="control is-grouped">
+                        <div class="control is-grouped subscribe-fields">
                             <div class="control has-icon is-expanded">
                                 <input v-model="email" class="input is-large" type="email" placeholder="Email">
                                 <span class="icon is-medium">
-                                    <i class="fa fa-at"></i>
+                                    <i class="fa fa-envelope-square"></i>
                                 </span>
                             </div>
                             <div class="control">
