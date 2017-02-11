@@ -19,28 +19,30 @@
   <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
     {% if user %}
         <span class="nav-item">
-          <a href="/@{{ user.username }}" class="button is-primary" title="Dashboard">
+          <a href="/@{{ user.username }}" class="button is-outlined is-primary is-heavy" title="Dashboard">
             <span class="icon"><i class="fa fa-map-signs"></i></span>
             <span>Dashboard</span>
           </a>
-
-          <a href="/logout" class="button" title="Logout">
+        </span>
+        <span class="nav-item">
+          <a href="/logout" class="button is-outlined is-primary is-heavy" title="Logout">
             <span class="icon"><i class="fa fa-sign-out"></i></span>
             <span>Logout</span>
           </a>
         </span>
       {% else %}
         {% if craft.app.request.segment(1) is not empty %}
-          <a href="/" class="nav-item" title="Craft X">Home</a>
+          <a href="/" class="nav-item is-heavy" title="Craft X">Home</a>
         {% endif %}
 
         <span class="nav-item">
-          <a href="/login" class="button" title="Login">
+          <a href="/login" class="button is-outlined is-primary is-heavy" title="Login">
             <span class="icon"><i class="fa fa-sign-in"></i></span>
             <span>Login</span>
           </a>
-
-          <a title="/signup" class="button is-info" title="Sign up today and start hacking Craft CMS">
+        </span>
+        <span class="nav-item">
+          <a title="/signup" class="button is-outlined is-info is-heavy" title="Sign up today and start hacking Craft CMS">
             <span class="icon"><i class="fa fa-graduation-cap"></i></span>
             <span>Sign Up</span>
           </a>

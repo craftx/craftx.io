@@ -1,3 +1,17 @@
+body, p, h1, h3, h4, h5, h6, .title, .subtitle {
+  font-weight: 300;
+  line-height: 1.5;
+  word-spacing: .25em; }
+
+.title, .subtitle {
+  text-shadow: 1px 1px 0 #f6f7f8; }
+
+.is-heavy {
+  font-weight: 500; }
+
+.is-tall {
+  line-height: 1.5; }
+
 .is-blinking {
   animation: blinker 1s linear infinite; }
 
@@ -14,7 +28,6 @@
     margin-top: 60px; }
 
 .section--features {
-  background: url(/dist/images/CraftXPattern.png) repeat left top;
   border-top: 2px solid #e6e7e8; }
 
 .section--subscribe {
