@@ -40,9 +40,6 @@ gulp.task('js', () => {
 gulp.task('sass:app', () => {
   return gulp.src(config.sass.source.app)
     .pipe(plugins.sass(config.sass.options.app).on('error', plugins.sass.logError))
-    // .pipe(plugins.rev())
-    // .pipe(gulp.dest(config.sass.output.dir))
-    // .pipe(plugins.rev.manifest(config.rev.manifest, config.rev.options))
     .pipe(gulp.dest(config.sass.output.dir))
     .pipe(plugins.livereload());
 });
@@ -53,9 +50,6 @@ gulp.task('sass:vendor', () => {
     .pipe(plugins.autoprefixer({
       browsers: ['last 3 versions']
     }))
-    // .pipe(plugins.rev()) 
-    // .pipe(gulp.dest(config.sass.output.dir))
-    // .pipe(plugins.rev.manifest(config.rev.manifest, config.rev.options))
     .pipe(gulp.dest(config.sass.output.dir))
     .pipe(plugins.livereload());
 });
