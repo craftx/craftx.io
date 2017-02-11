@@ -54,9 +54,20 @@
             </footer>
         </div>
         <script type="text/javascript">
-        window.csrfTokenName = "{{ craft.app.config.get('csrfTokenName')|e('js') }}";
-        window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";
+            window.csrfTokenName = "{{ craft.app.config.get('csrfTokenName')|e('js') }}";
+            window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";
         </script>
+
+        {% if scripts is defined and scripts is iterable %}
+            {% for script in scripts %}
+                <script src="{{ script }}"></script>
+            {% endfor %}
+        {% endif %}
+
+        {% if js is defined and js is not empty %}
+            {{ js }}
+        {% endif %}
+        
         <script src="/dist/app.js?v=1"></script>
     </body>
 </html>

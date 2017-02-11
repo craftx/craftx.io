@@ -3,7 +3,6 @@
 let Axios = require('axios');
 let Alert = require('sweetalert');
 let Vue = require('vue/dist/vue.min.js');
-
 let axiosConfig = {
     headers: {
         'X-Requested-With': 'XMLHttpRequest',
@@ -11,14 +10,71 @@ let axiosConfig = {
     }
 };
 
+let stripe = function() {
+    const handler = StripeCheckout.configure({
+      key: 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t',
+      image: 'https://s3.amazonaws.com/stripe-uploads/acct_1iX7iJje6sWpbRPTIHapmerchant-icon-1486581383463-Craft%20X%20Mark%20Tiny.png',
+      locale: 'auto',
+      token: function(token) {
+          /*
+          Object
+            card
+            :
+            Object
+            client_ip
+            :
+            "50.188.56.107"
+            created
+            :
+            1486798248
+            email
+            :
+            "selvin@craftx.io"
+            id
+            :
+            "tok_A67aQeIq2IQ16B"
+            livemode
+            :
+            false
+            object
+            :
+            "token"
+            type
+            :
+            "card"
+            used
+            :
+            false
+            __proto__
+            :
+            Obje
+           */
+      }
+    });
+
+  handler.open({
+    name: 'Craft X™',
+    image: '/dist/images/CraftXSmall.png',
+    description: 'Student Monthly Plan',
+    zipCode: true,
+    billingAddress: true,
+    amount: 499
+  });
+};
+
 let app = new Vue({
     el: '#app',
     data: {
         email: '',
+        checkingOut: false,
         subscribing: false,
         mobileNavIsActive: false
     },
     methods: {
+        clicked(e) {
+            this.checkingOut = true;
+            stripe();
+        },
         toggleMobileNav() {
             this.mobileNavIsActive = !this.mobileNavIsActive;
         },

@@ -3,11 +3,11 @@
         <div class="container">
             <h1 class="title is-1 is-inset">Craft Training for Busy Developers</h1>
             <h2 class="subtitle is-3 is-inset">
-            You need to be a productive Craft CMS developer and cannot afford to waste time.
-            <br>I will get you up and running and help you connect the dots as quickly as possible.
+                You need to be a productive Craft CMS developer and cannot afford to waste time.
+                <br>I will get you up and running and help you connect the dots as quickly as possible.
             </h2>
             <div class="hero-buttons">
-                <a href="#" class="button is-large is-info is-heavy is-inset-inverted" title="Sign up today and start hacking Craft CMS">
+                <button id="cta" @click.prevent="clicked" class="button is-large is-info is-heavy is-inset-inverted" :class="{ 'is-loading': checkingOut }">
                     <span class="icon is-blinking is-heavy">
                         <i class="fa fa-terminal"></i>
                     </span>
