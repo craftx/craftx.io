@@ -8,6 +8,7 @@
 
 return [
     '*' => [
+        'env' => '*',
         // Base site URL
         'siteUrl' => 'https://craftx.io',
 
@@ -27,6 +28,7 @@ return [
         'devMode' => false,
     ],
     '.dev' => [
+        'env' => 'dev',
         'siteUrl' => 'http://craftx.dev',
         'devMode' => true
     ]

@@ -1,4 +1,4 @@
-{% if code is defined and code == 'ZvfcJjMfUNnuVAvruNHeVdeMxJgWQhqkRdPCfpHrRQDgHEbYcyNvDynjpAdmgiUb' %}
+{% if craft.app.config.get('env') == 'dev' or code is defined and code == 'ZvfcJjMfUNnuVAvruNHeVdeMxJgWQhqkRdPCfpHrRQDgHEbYcyNvDynjpAdmgiUb' %}
     {% include '_special/index' %}
 {% else %}
     {% include '_special/temp/index' %}
