@@ -41,7 +41,7 @@
                         You are welcome <strong>;)</strong>
                     </p>
                 </div>
-                <form method="post" @submit.prevent="subscribe($event)">
+                <form method="post" @submit.prevent="subscribeToNewsletter($event)">
                     <input type="hidden" name="action" value="swipe/newsletter/subscribe">
                     <input type="hidden" name="redirect" value="/newsletter/next">
                     {{ csrfInput() }}

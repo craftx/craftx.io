@@ -6,13 +6,11 @@
                 You need to be a productive Craft CMS developer and cannot afford to waste time.
                 <br>I will get you up and running and help you connect the dots as quickly as possible.
             </h2>
-            <div class="hero-buttons">
-                <button id="cta" @click.prevent="clicked" class="button is-large is-info is-heavy is-inset-inverted" :class="{ 'is-loading': checkingOut }">
-                    <span class="icon is-blinking is-heavy">
-                        <i class="fa fa-terminal"></i>
-                    </span>
-                    <span>Start Hacking</span>
-                </a>
+            <div class="hero-buttons has-text-centered">
+                <button id="cta" @click.prevent="loadSubscriptionForm" class="button is-large is-info is-heavy is-inset-inverted" :class="{ 'is-loading': checkingOut }">
+                    <i class="fa fa-terminal is-blinking"></i>
+                    Start Hacking
+                </button>
             </div>
         </div>
     </div>

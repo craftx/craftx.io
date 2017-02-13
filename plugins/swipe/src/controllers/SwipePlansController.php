@@ -4,12 +4,16 @@ namespace selvinortiz\swipe\controllers;
 use Craft;
 use craft\web\Controller;
 
+use Imagine\Filter\Basic\Strip;
 use selvinortiz\swipe\models\SwipePlanModel;
 use function selvinortiz\swipe\swipe;
 
-class SwipePlansController extends Controller {
+class SwipePlansController extends Controller
+{
+    protected $allowAnonymous = ['actionSubscribe'];
 
-    public function actionEdit(string $id = '') {
+    public function actionEdit(string $id = '')
+    {
         $this->requireAdmin();
 
         $plan = swipe()->plans->one($id);
@@ -17,7 +21,8 @@ class SwipePlansController extends Controller {
         return $this->renderTemplate('swipe/plans/_edit', compact('id', 'plan'));
     }
 
-    public function actionSave() {
+    public function actionSave()
+    {
         $this->requireAdmin();
         $this->requirePostRequest();
 
@@ -29,7 +34,21 @@ class SwipePlansController extends Controller {
 
         if (swipe()->plans->savePlan($plan)) {
             Craft::$app->session->setNotice('Plan Saved');
+
             return $this->redirectToPostedUrl($plan);
         }
+    }
+
+    public function actionSubscribe()
+    {
+        $this->requirePostRequest();
+        $this->requireAcceptsJson();
+
+        $email = swipe()->api->getDecodedParam('email');
+        $token = swipe()->api->getDecodedParam('token');
+        $customer = swipe()->api->createCustomer($email, $token['id']);
+        $subscription = swipe()->api->createSubscription($customer->id, 'developer-monthly-plan');
+
+        return $this->asJson($subscription);
     }
 }

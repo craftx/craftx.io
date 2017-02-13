@@ -14,7 +14,6 @@ class SwipeNewsletterController extends Controller
 
     protected $allowAnonymous = ['actionSubscribe'];
 
-    private $_rawBodyParams = null;
     private $_alreadySubscribedError = 'Already subscribed.';
     private $_alreadySubscribedMessage = 'Looks like you should already be getting my newsletter.';
     private $_errorResponses = [
@@ -37,7 +36,7 @@ class SwipeNewsletterController extends Controller
         $this->requirePostRequest();
         $this->requireAcceptsJson();
 
-        $email = $this->getRawParam('email');
+        $email = swipe()->api->getDecodedParam('email');
 
         if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $this->asJson([
@@ -86,14 +85,5 @@ class SwipeNewsletterController extends Controller
         }
 
         return compact('title', 'message', 'success');
-    }
-
-    private function getRawParam(string $name, $default = null)
-    {
-        if (null === $this->_rawBodyParams) {
-            $this->_rawBodyParams = Json::decode(Craft::$app->request->getRawBody());
-        }
-
-        return $this->_rawBodyParams[$name] ?? $default;
     }
 }

@@ -1,0 +1,44 @@
+{
+    "token": {
+        "id": "tok_A6iSyFkSdGuA5j",
+        "object": "token",
+        "card": {
+            "id": "card_A6iSSyFDpxcMEi",
+            "object": "card",
+            "address_city": "Blaine",
+            "address_country": "United States",
+            "address_line1": "60 97TH LN NE",
+            "address_line1_check": "pass",
+            "address_line2": null,
+            "address_state": "MN",
+            "address_zip": "55434",
+            "address_zip_check": "pass",
+            "brand": "Visa",
+            "country": "US",
+            "cvc_check": "pass",
+            "dynamic_last4": null,
+            "exp_month": 1,
+            "exp_year": 2020,
+            "funding": "credit",
+            "last4": "4242",
+            "metadata": [],
+            "name": "Selvin Ortiz",
+            "tokenization_method": null
+        },
+        "client_ip": "50.188.56.107",
+        "created": 1486935418,
+        "email": "selvin@selvin.co",
+        "livemode": false,
+        "type": "card",
+        "used": false
+    },
+    "args": {
+        "billing_name": "Selvin Ortiz",
+        "billing_address_country": "United States",
+        "billing_address_country_code": "US",
+        "billing_address_zip": "55434",
+        "billing_address_line1": "60 97TH LN NE",
+        "billing_address_city": "Blaine",
+        "billing_address_state": "MN"
+    }
+}

@@ -15,6 +15,10 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
     line-height: 1.5;
     word-spacing: .2em;
 }
+.button {
+    line-height: 1;
+    word-spacing: .3em;
+}
 .is-inset {
     text-shadow: 1px 2px 0 #fff;
 }
@@ -43,6 +47,10 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
 
     .hero-buttons {
         margin-top: $column-pad * 3;
+        .button {
+            display: inline-block;
+            box-shadow: 0 5px 10px #a6a7a8;
+        }
     }
 }
 .section--features {
@@ -106,5 +114,11 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
         &.is-4 {
             font-size: 1.5rem;
         }
+    }
+}
+
+@media all and (min-width: 769px) {
+    .hero-buttons .button.is-large {
+        font-size: 2.5rem;
     }
 }

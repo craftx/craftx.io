@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b616f12a2fdd72bf0e62e700268df59d",
+    "content-hash": "c4814b5489abea0669bb39c17ebdadee",
     "packages": [
         {
             "name": "stripe/stripe-php",
