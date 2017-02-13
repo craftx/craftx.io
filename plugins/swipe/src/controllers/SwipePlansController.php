@@ -44,9 +44,9 @@ class SwipePlansController extends Controller
         $this->requirePostRequest();
         $this->requireAcceptsJson();
 
-        $email = swipe()->api->getDecodedParam('email');
-        $token = swipe()->api->getDecodedParam('token');
-        $customer = swipe()->api->createCustomer($email, $token['id']);
+        $email = swipe()->api->getDecodedParam('token.email');
+        $token = swipe()->api->getDecodedParam('token.id');
+        $customer = swipe()->api->createCustomer($email, $token);
         $subscription = swipe()->api->createSubscription($customer->id, 'developer-monthly-plan');
 
         return $this->asJson($subscription);

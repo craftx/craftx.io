@@ -9,6 +9,8 @@ use Stripe\Charge;
 use Stripe\Stripe;
 use Stripe\Customer;
 
+use SelvinOrtiz\Dot\Dot;
+
 use function selvinortiz\swipe\swipe;
 use Stripe\Subscription;
 
@@ -35,7 +37,7 @@ class SwipeService extends Component
         return Charge::create(compact('customer', 'amount', 'currency'));
     }
 
-    public function createSubscription(int $customer, string $plan): Subscription {
+    public function createSubscription(string $customer, string $plan): Subscription {
         return Subscription::create(compact('customer', 'plan'));
     }
 
@@ -59,6 +61,6 @@ class SwipeService extends Component
             $this->_decodedParams = Json::decode(Craft::$app->request->getRawBody());
         }
 
-        return $this->_decodedParams[$name] ?? $default;
+        return Dot::get($this->_decodedParams, $name, $default);
     }
 }
