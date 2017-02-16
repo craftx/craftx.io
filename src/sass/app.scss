@@ -15,6 +15,9 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
     line-height: 1.5;
     word-spacing: .2em;
 }
+.nav.nav--primary {
+    min-height: 5rem;
+}
 .button {
     line-height: 1;
     word-spacing: .3em;
@@ -23,7 +26,7 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
     text-shadow: 1px 2px 0 #fff;
 }
 .is-inset-inverted {
-    text-shadow: 1px 2px 0 #565758;
+    text-shadow: 1px 2px 0 #676869;
 }
 .is-heavy {
     font-weight: 500;
@@ -45,8 +48,8 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
     margin-top: 20px;
 }
 .section--hero {
-    background: #e6e7e8 url(/dist/images/HeroBackground.png) no-repeat center left;
-
+    background: #e6e7e8 url(/dist/images/HeroBackground.svg) no-repeat center left;
+    background-size: auto 90%;
     .hero-buttons {
         margin-top: $column-pad * 3;
         .button {
@@ -55,12 +58,32 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
         }
     }
 }
-.section--features {
-    // background: url(/dist/images/CraftXPattern.png) repeat left top;
+.section--why {
+    .title, .subtitle {
+        @extend .is-inset;
+    }
 
+    border-top: 2px solid #c6c7c8;
+    background-color: #d6d7d8;
+}
+.section--thanks {
+    .title, .subtitle {
+        color: #fff;
+        @extend .is-inset-inverted;
+    }
+    background-color: $info;
+    border-top: 2px solid darken($info, 10%);
+    border-bottom: 2px solid darken($info, 10%);
+}
+.section--features {
+
+    background-color: transparent;
     // background-color: $color-secondary;
-    border-top: 2px solid #e6e7e8;
+    border-top: 2px solid #c7c8c9;
     // border-bottom: 2px solid #e6e7e8;
+    .title, .subtitle {
+        @extend .is-inset;
+    }
 }
 .section--subscribe {
     border-top: 2px solid #d6d7d8;
@@ -76,6 +99,29 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
         color: #fff;
     }
 }
+
+.has-vertically-centered-items {
+    align-items: center;
+}
+
+.columns--clear-code, .columns--clean-sound, .columns--quick-pace {
+    min-height: 400px;
+}
+
+.columns--clear-code {
+    background: transparent url(/dist/images/clear-code.svg) no-repeat center center;
+    background-size: 256px;
+}
+.columns--clean-sound {
+    background: transparent url(/dist/images/clean-sound.svg) no-repeat center center;
+    background-size: 256px;
+}
+
+.columns--quick-pace {
+    background: transparent url(/dist/images/quick-pace.svg) no-repeat center center;
+    background-size: 256px;
+}
+
 .nav-item img {
     max-height: 3rem;
 }
@@ -115,6 +161,18 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
         }
         &.is-4 {
             font-size: 1.5rem;
+        }
+    }
+    .section--why {
+        .columns {
+            min-height: 10em;
+            text-align: center;
+        }
+        .column {
+            background-size: 128px;
+        }
+        .columns--clear-code, .columns--clean-sound, .columns--quick-pace {
+            min-height: 200px;
         }
     }
 }

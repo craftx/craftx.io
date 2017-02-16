@@ -6,15 +6,18 @@ body, p, h1, h3, h4, h5, h6, .title, .subtitle {
   line-height: 1.5;
   word-spacing: .2em; }
 
+.nav.nav--primary {
+  min-height: 5rem; }
+
 .button {
   line-height: 1;
   word-spacing: .3em; }
 
-.is-inset {
+.is-inset, .section--why .title, .section--why .subtitle, .section--features .title, .section--features .subtitle {
   text-shadow: 1px 2px 0 #fff; }
 
-.is-inset-inverted {
-  text-shadow: 1px 2px 0 #565758; }
+.is-inset-inverted, .section--thanks .title, .section--thanks .subtitle {
+  text-shadow: 1px 2px 0 #676869; }
 
 .is-heavy {
   font-weight: 500; }
@@ -36,15 +39,28 @@ body, p, h1, h3, h4, h5, h6, .title, .subtitle {
   margin-top: 20px; }
 
 .section--hero {
-  background: #e6e7e8 url(/dist/images/HeroBackground.png) no-repeat center left; }
+  background: #e6e7e8 url(/dist/images/HeroBackground.svg) no-repeat center left;
+  background-size: auto 90%; }
   .section--hero .hero-buttons {
     margin-top: 60px; }
     .section--hero .hero-buttons .button {
       display: inline-block;
       box-shadow: 0 5px 10px #a6a7a8; }
 
+.section--why {
+  border-top: 2px solid #c6c7c8;
+  background-color: #d6d7d8; }
+
+.section--thanks {
+  background-color: #9642be;
+  border-top: 2px solid #783499;
+  border-bottom: 2px solid #783499; }
+  .section--thanks .title, .section--thanks .subtitle {
+    color: #fff; }
+
 .section--features {
-  border-top: 2px solid #e6e7e8; }
+  background-color: transparent;
+  border-top: 2px solid #c7c8c9; }
 
 .section--subscribe {
   border-top: 2px solid #d6d7d8;
@@ -56,6 +72,24 @@ body, p, h1, h3, h4, h5, h6, .title, .subtitle {
   background: #464748; }
   .section--shouts .title, .section--shouts .subtitle {
     color: #fff; }
+
+.has-vertically-centered-items {
+  align-items: center; }
+
+.columns--clear-code, .columns--clean-sound, .columns--quick-pace {
+  min-height: 400px; }
+
+.columns--clear-code {
+  background: transparent url(/dist/images/clear-code.svg) no-repeat center center;
+  background-size: 256px; }
+
+.columns--clean-sound {
+  background: transparent url(/dist/images/clean-sound.svg) no-repeat center center;
+  background-size: 256px; }
+
+.columns--quick-pace {
+  background: transparent url(/dist/images/quick-pace.svg) no-repeat center center;
+  background-size: 256px; }
 
 .nav-item img {
   max-height: 3rem; }
@@ -83,7 +117,14 @@ body, p, h1, h3, h4, h5, h6, .title, .subtitle {
   .subtitle.is-3 {
     font-size: 1.7rem; }
   .subtitle.is-4 {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem; }
+  .section--why .columns {
+    min-height: 10em;
+    text-align: center; }
+  .section--why .column {
+    background-size: 128px; }
+  .section--why .columns--clear-code, .section--why .columns--clean-sound, .section--why .columns--quick-pace {
+    min-height: 200px; } }
 
 @media all and (min-width: 769px) {
   .hero-buttons .button.is-large {

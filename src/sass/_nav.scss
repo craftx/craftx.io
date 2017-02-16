@@ -1,3 +1,6 @@
+.nav.nav--primary {
+    min-height: 5rem !important;
+}
 .navbar {
     &:after, ul:after {
         content: "";
