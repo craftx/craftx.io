@@ -1,1 +1,20 @@
-<pre>Public {{ username }}</pre>
+{% extends '_layout' %}
+{% set id = 'index' %}
+{% set title = 'Craft Training for Busy Developers' %}
+
+{% set content %}
+{% include '_includes/hero' %}
+<section class="section section--profile">
+    <div class="container">
+        <div class="columns has-text-centered">
+            <div class="column">
+                <h2 class="title is-2">@{{ username  }}</h2>
+                <p class="subtitle is-4">
+                    {{ craft.app.user.identity.fullName }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endset %}

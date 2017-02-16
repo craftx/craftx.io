@@ -2,6 +2,7 @@
 namespace selvinortiz\swipe\controllers;
 
 use Craft;
+use craft\elements\User;
 use craft\web\Controller;
 
 use Imagine\Filter\Basic\Strip;
@@ -44,11 +45,20 @@ class SwipePlansController extends Controller
         $this->requirePostRequest();
         $this->requireAcceptsJson();
 
-        $email = swipe()->api->getDecodedParam('token.email');
         $token = swipe()->api->getDecodedParam('token.id');
+        $email = swipe()->api->getDecodedParam('token.email');
         $customer = swipe()->api->createCustomer($email, $token);
         $subscription = swipe()->api->createSubscription($customer->id, 'developer-monthly-plan');
 
+        $user = $this->createUser($customer);
         return $this->asJson($subscription);
+    }
+
+    public function createUser($customer) {
+        $user = new User();
+        $user->email = $customer->email;
+        $user->setFieldValue('billingId', $customer->id);
+
+        // @todo: More:)
     }
 }

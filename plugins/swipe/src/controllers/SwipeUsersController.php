@@ -19,6 +19,8 @@ class SwipeUsersController extends Controller {
             $template = $this->_dashboardTemplates;
         }
 
-        return $this->renderTemplate($template, compact('username'));
+        $avatarUrl = swipe()->api->getGravatar(Craft::$app->user->identity->email, 128);
+
+        return $this->renderTemplate($template, compact('username', 'avatarUrl'));
     }
 }

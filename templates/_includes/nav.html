@@ -19,13 +19,13 @@
   <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
     {% if user %}
         <span class="nav-item">
-          <a href="/@{{ user.username }}" class="button is-outlined is-primary is-heavy" title="Dashboard">
-            <span class="icon"><i class="fa fa-map-signs"></i></span>
+          <a href="/@{{ user.username }}" class="button is-outlined is-info is-heavy" title="Dashboard">
+            <span class="icon"><i class="fa fa-terminal is-blinking"></i></span>
             <span>Dashboard</span>
           </a>
         </span>
         <span class="nav-item">
-          <a href="/logout" class="button is-outlined is-primary is-heavy" title="Logout">
+          <a href="/logout" class="button is-outlined is-heavy" title="Logout">
             <span class="icon"><i class="fa fa-sign-out"></i></span>
             <span>Logout</span>
           </a>

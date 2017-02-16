@@ -63,4 +63,25 @@ class SwipeService extends Component
 
         return Dot::get($this->_decodedParams, $name, $default);
     }
+
+    /**
+     * @param string $email
+     * @param int    $size
+     *
+     * @source https://gravatar.com/site/implement/images/php/
+     *
+     * @return string
+     */
+    public function getGravatar(string $email, $size = 96) {
+        return "https://www.gravatar.com/avatar/{$this->hash($email)}?s={$size}&d=mm&r=g";
+    }
+
+    /**
+     * @param string $str
+     *
+     * @return string
+     */
+    private function hash(string $str): string {
+        return md5(strtolower(trim($str)));
+    }
 }

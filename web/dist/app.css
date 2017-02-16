@@ -1,4 +1,4 @@
-body {
+html, body {
   background-color: #e6e7e8; }
 
 body, p, h1, h3, h4, h5, h6, .title, .subtitle {
@@ -24,6 +24,9 @@ body, p, h1, h3, h4, h5, h6, .title, .subtitle {
 
 .is-blinking {
   animation: blinker 1s linear infinite; }
+
+.is-circle-image {
+  border-radius: 50%; }
 
 @keyframes blinker {
   50% {
