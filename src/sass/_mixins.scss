@@ -1,63 +1,41 @@
-/**
- * For elements that contain floated children
- * -------------
- */
-@mixin float-container {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-/**
- * Media Queries
- * -------------
- */
+/*
+ ------------------------------------------------------------
+ @media queries
+ ------------------------------------------------------------*/
 @mixin xs() {
-    @media all and (min-width: $xs) {
+    @media all and (max-width: 560px) {
         @content;
     }
 }
 @mixin sm() {
-    @media all and (min-width: $sm) {
+    @media all and (max-width: 768px) {
         @content;
     }
 }
 @mixin md() {
-    @media all and (min-width: $md) {
+    @media all and (min-width: 769px) {
         @content;
     }
 }
 @mixin lg() {
-    @media all and (min-width: $lg) {
+    @media all and (min-width: 1000px) {
         @content;
     }
 }
 @mixin xl() {
-    @media all and (min-width: $xl) {
+    @media all and (min-width: 1192px) {
         @content;
     }
 }
 
-@mixin xs-only() {
-    @media all and (min-width: $xs) and (max-width: $sm) {
-        @content;
-    }
-}
-@mixin sm-only() {
-    @media all and (min-width: $sm) and (max-width: $md) {
-        @content;
-    }
-}
 @mixin md-only() {
-    @media all and (min-width: $md) and (max-width: $lg) {
+    @media all and (min-width: 769px) and (max-width: 999px) {
         @content;
     }
 }
+
 @mixin lg-only() {
-    @media all and (min-width: $lg) and (max-width: $xl) {
+    @media all and (min-width: 1000px) and (max-width: 1191px) {
         @content;
     }
 }
-// xl-only is redundant > use @include xl

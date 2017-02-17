@@ -1,0 +1,40 @@
+
+<section class="section is-medium section--subscribe">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-half-desktop is-offset-one-quarter-desktop">
+                <div class="has-text-centered">
+                    <h2 class="title is-1 is-inset">Craft X Early Access</h2>
+                    <p class="subtitle is-3 is-inset">
+                        Be notified about early access and the official launch.
+                    </p>
+                    <p class="subtitle is-5 is-inset">
+                        <span class="icon"><i class="fa fa-bookmark"></i></span>
+                        My newsletter uses the <strong>Double Opt-in</strong> method.
+                        Meaning, you will have to confirm you get added to the list.
+                        You are welcome <strong>;)</strong>
+                    </p>
+                </div>
+                <form method="post" @submit.prevent="subscribeToNewsletter($event)">
+                    <input type="hidden" name="action" value="swipe/newsletter/subscribe">
+                    <input type="hidden" name="redirect" value="/newsletter/next">
+                    {{ csrfInput() }}
+                    <div class="control is-grouped subscribe-fields">
+                        <div class="control has-icon is-expanded">
+                            <input v-model="email" class="input is-large" type="email" placeholder="Email">
+                            <span class="icon is-medium">
+                                <i class="fa fa-envelope-square"></i>
+                            </span>
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button is-large is-primary" :class="{ 'is-loading': subscribing }">
+                            <span class="icon"><i class="fa fa-check-circle"></i></span>
+                            <span>Subscribe</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

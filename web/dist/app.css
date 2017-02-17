@@ -1,23 +1,106 @@
+/*
+ ------------------------------------------------------------
+ @imports
+ ------------------------------------------------------------*/
+/*
+ ------------------------------------------------------------
+ @colors
+ ------------------------------------------------------------*/
+/*
+ ------------------------------------------------------------
+ @grays
+ ------------------------------------------------------------*/
+/*
+ ------------------------------------------------------------
+ @spacing
+ ------------------------------------------------------------*/
+/*
+ ------------------------------------------------------------
+ @fontawesome configs
+ ------------------------------------------------------------*/
+/*
+ ------------------------------------------------------------
+ @bulma configs
+ ------------------------------------------------------------*/
+/*
+ ------------------------------------------------------------
+ @media queries
+ ------------------------------------------------------------*/
+.section--hero {
+  background: url(/dist/images/background-hero.svg) no-repeat left center, #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
+  background-size: auto 98%; }
+  .section--hero .hero-buttons {
+    margin-top: 40px; }
+    .section--hero .hero-buttons .button {
+      display: inline-block;
+      box-shadow: 0 5px 10px #a6a7a8; }
+
+.section--features {
+  background: #d6d7d8 url(/dist/images/pattern-noise.png);
+  border-top: 1px solid #c6c7c8; }
+  .section--features .title, .section--features .subtitle {
+    text-align: center; }
+  .section--features .icon-block {
+    min-height: 208px;
+    background-size: 128px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
+  .section--features .icon-block--clear-code {
+    background-image: url(/dist/images/icon-clear-code.svg); }
+  .section--features .icon-block--clean-sound {
+    background-image: url(/dist/images/icon-clean-sound.svg); }
+  .section--features .icon-block--quick-pace {
+    background-image: url(/dist/images/icon-quick-pace.svg); }
+
+.section--about {
+  background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
+  border-top: 1px solid #c6c7c8; }
+
+.section--thanks {
+  background-color: #9642be;
+  border-top: 2px solid #783499;
+  border-bottom: 2px solid #783499; }
+  .section--thanks .title, .section--thanks .subtitle {
+    color: #fff; }
+
+.section--subscribe {
+  border-top: 2px solid #d6d7d8;
+  background-color: #e6e7e8; }
+  .section--subscribe form {
+    margin-top: 40px; }
+
+@media all and (max-width: 768px) {
+  .title, .subtitle {
+    text-align: center; }
+  .section--hero {
+    padding: 0; } }
+
+@media all and (min-width: 769px) {
+  .section--features .title, .section--features .subtitle {
+    text-align: left; }
+  .section--features .icon-block {
+    min-height: 300px;
+    background-size: 256px; } }
+
+/*
+ ------------------------------------------------------------
+ @base
+ ------------------------------------------------------------*/
 body, p, h1, h3, h4, h5, h6, .title, .subtitle {
   font-weight: 300;
   line-height: 1.5;
   word-spacing: 0.3em; }
 
-body {
-  color: #262728;
-  background-color: #fff; }
-
-/**
- *********************
- * @overrides
- *********************
- */
+/*
+ ------------------------------------------------------------
+ @bulma overrides
+ ------------------------------------------------------------*/
 .nav.nav--primary {
   min-height: 5rem; }
 
-.title,
-.subtitle {
-  color: #363738; }
+.title, .subtitle {
+  color: inherit; }
 
 .title + .subtitle {
   margin-top: 20px; }
@@ -39,7 +122,11 @@ body {
 .footer {
   background-color: inherit; }
 
-.is-inset, .section--why .title, .section--why .subtitle, .section--features .title, .section--features .subtitle {
+/*
+ ------------------------------------------------------------
+ @utilities
+ ------------------------------------------------------------*/
+.is-inset, .section--about .title, .section--about .subtitle, .title, .subtitle {
   text-shadow: 1px 2px 0 #fff; }
 
 .is-inset-inverted, .section--thanks .title, .section--thanks .subtitle {
@@ -61,56 +148,13 @@ body {
   50% {
     opacity: 0; } }
 
-.section--hero {
-  background: #f6f7f8 url(/dist/images/HeroBackground.svg) no-repeat center left;
-  background-size: auto 90%; }
-  .section--hero .hero-buttons {
-    margin-top: 60px; }
-    .section--hero .hero-buttons .button {
-      display: inline-block;
-      box-shadow: 0 5px 10px #a6a7a8; }
-
-.section--why {
-  background: url(/dist/images/pattern-noise.png);
-  border-top: 2px solid #c6c7c8;
-  background-color: #d6d7d8; }
-  .section--why .columns--clear-code, .section--why .columns--clean-sound, .section--why .columns--quick-pace {
-    min-height: 400px; }
-  .section--why .columns--clear-code {
-    background: transparent url(/dist/images/icon-clear-code.svg) no-repeat center center;
-    background-size: 256px; }
-  .section--why .columns--clean-sound {
-    background: transparent url(/dist/images/icon-clean-sound.svg) no-repeat center center;
-    background-size: 256px; }
-  .section--why .columns--quick-pace {
-    background: transparent url(/dist/images/icon-quick-pace.svg) no-repeat center center;
-    background-size: 256px; }
-
-.section--thanks {
-  background-color: #9642be;
-  border-top: 2px solid #783499;
-  border-bottom: 2px solid #783499; }
-  .section--thanks .title, .section--thanks .subtitle {
-    color: #fff; }
-
-.section--features {
-  background-color: #e6e7e8;
-  border-top: 2px solid #c7c8c9; }
-
-.section--subscribe {
-  border-top: 2px solid #d6d7d8;
-  background-color: #e6e7e8; }
-  .section--subscribe form {
-    margin-top: 40px; }
-
-.section--shouts {
-  background: #464748; }
-  .section--shouts .title, .section--shouts .subtitle {
-    color: #fff; }
-
 .has-vertically-centered-items {
   align-items: center; }
 
+/*
+ ------------------------------------------------------------
+ @media queries
+ ------------------------------------------------------------*/
 @media all and (max-width: 560px) {
   .control.is-grouped.subscribe-fields {
     display: block; }
@@ -128,15 +172,10 @@ body {
   .subtitle.is-3 {
     font-size: 1.5rem; }
   .subtitle.is-4 {
-    font-size: 1.25rem; }
-  .section--why .columns {
-    min-height: 10em;
-    text-align: center; }
-  .section--why .column {
-    background-size: 128px; }
-  .section--why .columns--clear-code, .section--why .columns--clean-sound, .section--why .columns--quick-pace {
-    min-height: 200px; } }
+    font-size: 1.25rem; } }
 
 @media all and (min-width: 769px) {
+  .title, .subtitle {
+    font-size: initial; }
   .hero-buttons .button.is-large {
     font-size: 2.5rem; } }

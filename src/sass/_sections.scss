@@ -1,0 +1,79 @@
+.section--hero {
+    background:
+        url(/dist/images/background-hero.svg) no-repeat left center,
+        #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
+    background-size: auto 98%;
+    .hero-buttons {
+        margin-top: $column-pad2x;
+        .button {
+            display: inline-block;
+            box-shadow: 0 5px 10px $gray-a;
+        }
+    }
+}
+.section--features {
+    .title, .subtitle {
+        text-align: center;
+    }
+    background: #d6d7d8 url(/dist/images/pattern-noise.png);
+    border-top: 1px solid $gray-c;
+
+    .icon-block {
+        min-height: 208px;
+        background-size: 128px;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    .icon-block--clear-code {
+        background-image: url(/dist/images/icon-clear-code.svg);
+    }
+    .icon-block--clean-sound {
+        background-image: url(/dist/images/icon-clean-sound.svg);
+    }
+    .icon-block--quick-pace {
+        background-image: url(/dist/images/icon-quick-pace.svg);
+    }
+}
+.section--about {
+    background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
+    border-top: 1px solid $gray-c;
+    .title, .subtitle {
+        @extend .is-inset;
+    }
+}
+.section--thanks {
+    .title, .subtitle {
+        color: #fff;
+        @extend .is-inset-inverted;
+    }
+    background-color: $info;
+    border-top: 2px solid darken($info, 10%);
+    border-bottom: 2px solid darken($info, 10%);
+}
+.section--subscribe {
+    border-top: 2px solid $gray-d;
+    background-color: $gray-e;
+    form {
+        margin-top: $column-pad * 2;
+    }
+}
+@include sm {
+    .title, .subtitle {
+        text-align: center;
+    }
+    .section--hero {
+        padding: 0;
+    }
+}
+@include md {
+    .section--features {
+        .title, .subtitle {
+            text-align: left;
+        }
+        .icon-block {
+            min-height: 300px;
+            background-size: 256px;
+        }
+    }
+}

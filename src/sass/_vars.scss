@@ -1,16 +1,16 @@
-// $color-primary: #fa3;
+/*
+ ------------------------------------------------------------
+ @colors
+ ------------------------------------------------------------*/
 $color-primary: #00966C;
 $color-primary-light: lighten($color-primary, 10%);
 $color-primary-dark: darken($color-primary, 10%);
-$color-secondary: #464748;
+$color-secondary: #565758;
 $color-secondary-light: lighten($color-secondary, 10%);
 $color-secondary-dark: darken($color-secondary, 10%);
-$color-tertiary: #c03d27;
+$color-tertiary: #9642be;
 $color-tertiary-light: lighten($color-tertiary, 10%);
 $color-tertiary-dark: darken($color-tertiary, 10%);
-$color-faded: #a6a7a8;
-$color-faded-more: #d6d7d8;
-$color-faded-most: #e6e7e8;
 $color-navbar-border: darken($color-primary, 2%);
 $color-navbar-link: $color-primary;
 $color-navbar-link-background: transparent;
@@ -23,35 +23,40 @@ $color-navbar-toggle-background: transparent;
 $color-navbar-toggle-hover: #fff;
 $color-navbar-toggle-hover-background: $color-primary;
 
-$xs: 470px;
-$sm: 710px;
-$md: 1070px;
-$lg: 1910px;
-$xl: 2290px;
+/*
+ ------------------------------------------------------------
+ @grays
+ ------------------------------------------------------------*/
+$gray-f: #f6f7f8;
+$gray-e: #e6e7e8;
+$gray-d: #d6d7d8;
+$gray-c: #c6c7c8;
+$gray-b: #b6b7b8;
+$gray-a: #a6a7a8;
 
+/*
+ ------------------------------------------------------------
+ @spacing
+ ------------------------------------------------------------*/
 $column-pad: 20px;
+$column-pad2x: $column-pad * 2;
 
-// Font Awesome
+/*
+ ------------------------------------------------------------
+ @fontawesome configs
+ ------------------------------------------------------------*/
 $fa-font-path: '/dist/fonts';
 
-$color-primary: #00966C;
-$color-primary-light: lighten($color-primary, 10%);
-$color-primary-dark: darken($color-primary, 10%);
-$color-secondary: #464748;
-$color-secondary-light: lighten($color-secondary, 10%);
-$color-secondary-dark: darken($color-secondary, 10%);
-$color-tertiary: #9642be;
-$color-tertiary-light: lighten($color-tertiary, 10%);
-$color-tertiary-dark: darken($color-tertiary, 10%);
-
-$primary: $color-primary;
-$text: $color-secondary;
+/*
+ ------------------------------------------------------------
+ @bulma configs
+ ------------------------------------------------------------*/
+$text: #363738;
 $dark: $color-secondary;
 $info: $color-tertiary;
+$primary: $color-primary;
 $gray-dark: $color-secondary;
 $gray-darker: $color-secondary-dark;
-$gray-lighter: #e6e7e8;
+$gray-lighter: $gray-e;
 $size-normal: 1.25rem;
-
-$family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$fa-font-path: '/dist/fonts';
+$family-sans-serif: -apple-system, BlinkMacSystemFont, "Fira Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
