@@ -107,16 +107,16 @@
         },
         {
             "name": "bower-asset/garnishjs",
-            "version": "0.1.12.0",
+            "version": "0.1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pixelandtonic/garnishjs.git",
-                "reference": "6a295ac693ea94069f965b6522c976ec066e8b90"
+                "reference": "1c370857673bd9c8eb823927187460ffca86f41d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixelandtonic/garnishjs/zipball/6a295ac693ea94069f965b6522c976ec066e8b90",
-                "reference": "6a295ac693ea94069f965b6522c976ec066e8b90",
+                "url": "https://api.github.com/repos/pixelandtonic/garnishjs/zipball/1c370857673bd9c8eb823927187460ffca86f41d",
+                "reference": "1c370857673bd9c8eb823927187460ffca86f41d",
                 "shasum": null
             },
             "require": {
@@ -400,16 +400,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.0-beta.3",
+            "version": "3.0.0-beta.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "aa20909615f02dc8e61cd0e3d27a8fad526e4af9"
+                "reference": "0a1390f8d6c400e272b6e17ffd5bd81a7d1dfe40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/aa20909615f02dc8e61cd0e3d27a8fad526e4af9",
-                "reference": "aa20909615f02dc8e61cd0e3d27a8fad526e4af9",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/0a1390f8d6c400e272b6e17ffd5bd81a7d1dfe40",
+                "reference": "0a1390f8d6c400e272b6e17ffd5bd81a7d1dfe40",
                 "shasum": ""
             },
             "require": {
@@ -418,15 +418,22 @@
                 "bower-asset/d3-time-format": "2.0.3.0",
                 "bower-asset/element-resize-detector": "1.1.10",
                 "bower-asset/fabric": "1.7.3",
-                "bower-asset/garnishjs": "0.1.12",
+                "bower-asset/garnishjs": "0.1.13",
                 "bower-asset/jquery.payment": "3.0.0",
                 "bower-asset/picturefill": "3.0.2",
                 "bower-asset/selectize": "0.12.4",
                 "bower-asset/timepicker": "1.11.9",
                 "bower-asset/velocity": "1.4.2",
-                "craftcms/server-check": "1.0.8",
+                "craftcms/server-check": "1.0.9",
                 "creocoder/yii2-nested-sets": "0.9.0",
                 "danielstjules/stringy": "2.3.2",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "ext-pcre": "*",
+                "ext-pdo": "*",
+                "ext-zip": "*",
                 "guzzlehttp/guzzle": "6.2.2",
                 "league/flysystem": "1.0.34",
                 "mikehaertl/php-shellcommand": "1.2.2",
@@ -443,6 +450,11 @@
                 "codeception/mockery-module": "0.2.2",
                 "codeception/specify": "0.4.5",
                 "codeception/verify": "0.3.2"
+            },
+            "suggest": {
+                "ext-iconv": "Adds support for more character encodings than PHP’s built-in mb_convert_encoding() function, which Craft will take advantage of when converting strings to UTF-8.",
+                "ext-imagick": "Adds support for more image processing formats and options.",
+                "ext-intl": "Adds rich internationalization support."
             },
             "type": "library",
             "autoload": {
@@ -461,7 +473,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2017-02-07T20:41:29+00:00"
+            "time": "2017-02-17T23:10:28+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -506,16 +518,16 @@
         },
         {
             "name": "craftcms/server-check",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/server-check.git",
-                "reference": "5b211e89d7d6741282e28556ba2f9992a3ec547f"
+                "reference": "2e013a06c5fa07ff094cbbe5027dfce7c502ae30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/5b211e89d7d6741282e28556ba2f9992a3ec547f",
-                "reference": "5b211e89d7d6741282e28556ba2f9992a3ec547f",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/2e013a06c5fa07ff094cbbe5027dfce7c502ae30",
+                "reference": "2e013a06c5fa07ff094cbbe5027dfce7c502ae30",
                 "shasum": ""
             },
             "require": {
@@ -539,7 +551,7 @@
                 "requirements",
                 "yii2"
             ],
-            "time": "2017-02-06T22:43:02+00:00"
+            "time": "2017-02-13T23:15:38+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -1466,16 +1478,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.5",
+            "version": "v5.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "cd142238a339459b10da3d8234220963f392540c"
+                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
-                "reference": "cd142238a339459b10da3d8234220963f392540c",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
+                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
                 "shasum": ""
             },
             "require": {
@@ -1516,7 +1528,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-12-29T10:02:40+00:00"
+            "time": "2017-02-13T07:52:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2233,16 +2245,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "7a8405a9fc175f87fed8a3c40856b0d866d61936"
+                "reference": "0e5e6899f82230fcb1153bcaf0e106ffaa44b870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/7a8405a9fc175f87fed8a3c40856b0d866d61936",
-                "reference": "7a8405a9fc175f87fed8a3c40856b0d866d61936",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0e5e6899f82230fcb1153bcaf0e106ffaa44b870",
+                "reference": "0e5e6899f82230fcb1153bcaf0e106ffaa44b870",
                 "shasum": ""
             },
             "require": {
@@ -2292,20 +2304,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-06T12:04:21+00:00"
+            "time": "2017-02-16T14:07:22+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "b4d9818f127c60ce21ed62c395da7df868dc8477"
+                "reference": "9b98854cb45bc59d100b7d4cc4cf9e05f21026b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/b4d9818f127c60ce21ed62c395da7df868dc8477",
-                "reference": "b4d9818f127c60ce21ed62c395da7df868dc8477",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/9b98854cb45bc59d100b7d4cc4cf9e05f21026b9",
+                "reference": "9b98854cb45bc59d100b7d4cc4cf9e05f21026b9",
                 "shasum": ""
             },
             "require": {
@@ -2349,20 +2361,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-28T02:37:08+00:00"
+            "time": "2017-02-16T16:34:18+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "32646a7cf53f3956c76dcb5c82555224ae321858"
+                "reference": "0ab87c1e7570b3534a6e51eb4ca8e9f6d7327856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/32646a7cf53f3956c76dcb5c82555224ae321858",
-                "reference": "32646a7cf53f3956c76dcb5c82555224ae321858",
+                "url": "https://api.github.com/repos/symfony/process/zipball/0ab87c1e7570b3534a6e51eb4ca8e9f6d7327856",
+                "reference": "0ab87c1e7570b3534a6e51eb4ca8e9f6d7327856",
                 "shasum": ""
             },
             "require": {
@@ -2398,7 +2410,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-03T12:11:38+00:00"
+            "time": "2017-02-16T14:07:22+00:00"
         }
     ],
     "aliases": [],
