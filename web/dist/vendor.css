@@ -123,7 +123,7 @@ button,
 input,
 select,
 textarea {
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 code,
 pre {
@@ -132,7 +132,7 @@ pre {
   font-family: "Inconsolata", "Consolas", "Monaco", monospace; }
 
 body {
-  color: #363738;
+  color: #565758;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5; }
@@ -179,7 +179,7 @@ strong {
 
 pre {
   background-color: whitesmoke;
-  color: #363738;
+  color: #565758;
   font-size: 0.8em;
   white-space: pre;
   word-wrap: normal; }
@@ -547,7 +547,7 @@ a.box:active {
   .button.is-link {
     background-color: transparent;
     border-color: transparent;
-    color: #363738;
+    color: #565758;
     text-decoration: underline; }
     .button.is-link:hover, .button.is-link.is-hovered, .button.is-link:focus, .button.is-link.is-focused, .button.is-link:active, .button.is-link.is-active {
       background-color: whitesmoke;
@@ -1028,7 +1028,7 @@ a.box:active {
       position: absolute !important; }
 
 .content {
-  color: #363738; }
+  color: #565758; }
   .content:not(:last-child) {
     margin-bottom: 1.5rem; }
   .content li + li {
@@ -1716,9 +1716,9 @@ a.box:active {
   .progress::-webkit-progress-bar {
     background-color: #dbdbdb; }
   .progress::-webkit-progress-value {
-    background-color: #363738; }
+    background-color: #565758; }
   .progress::-moz-progress-bar {
-    background-color: #363738; }
+    background-color: #565758; }
   .progress.is-white::-webkit-progress-value {
     background-color: white; }
   .progress.is-white::-moz-progress-bar {
@@ -1812,7 +1812,7 @@ a.box:active {
       align-items: center;
   background-color: whitesmoke;
   border-radius: 290486px;
-  color: #363738;
+  color: #565758;
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-size: 0.75rem;
@@ -2107,7 +2107,7 @@ a.box:active {
 .card {
   background-color: white;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  color: #363738;
+  color: #565758;
   max-width: 100%;
   position: relative; }
   .card .media:not(:last-child) {
@@ -2259,7 +2259,7 @@ a.box:active {
   line-height: 1.25; }
   .menu-list a {
     border-radius: 2px;
-    color: #363738;
+    color: #565758;
     display: block;
     padding: 0.5em 0.75em; }
     .menu-list a:hover {
@@ -2365,7 +2365,7 @@ a.box:active {
 .message-header {
   -ms-flex-align: center;
       align-items: center;
-  background-color: #363738;
+  background-color: #565758;
   border-radius: 3px 3px 0 0;
   color: #fff;
   display: -ms-flexbox;
@@ -2394,7 +2394,7 @@ a.box:active {
 .message-body {
   border: 1px solid #dbdbdb;
   border-radius: 3px;
-  color: #363738;
+  color: #565758;
   padding: 1em 1.25em; }
   .message-body a,
   .message-body strong {
@@ -2565,7 +2565,7 @@ a.box:active {
   position: relative;
   width: 3.5rem; }
   .nav-toggle span {
-    background-color: #363738;
+    background-color: #565758;
     display: block;
     height: 1px;
     left: 50%;
@@ -2968,7 +2968,7 @@ a.nav-item {
       color: #363636; }
 
 .panel-list a {
-  color: #363738; }
+  color: #565758; }
   .panel-list a:hover {
     color: #00966C; }
 
@@ -3038,7 +3038,7 @@ label.panel-block {
     -ms-flex-align: center;
         align-items: center;
     border-bottom: 1px solid #dbdbdb;
-    color: #363738;
+    color: #565758;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;

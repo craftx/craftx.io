@@ -60,7 +60,8 @@
 .section--thanks {
   background-color: #9642be;
   border-top: 2px solid #783499;
-  border-bottom: 2px solid #783499; }
+  border-bottom: 2px solid #783499;
+  background: linear-gradient(45deg, #9642be 0%, #7f39a3 24%, #7f39a3 44%, #9342bc 64%, #9642be 100%); }
   .section--thanks .title, .section--thanks .subtitle {
     color: #fff; }
 
@@ -88,9 +89,11 @@
  @base
  ------------------------------------------------------------*/
 body, p, h1, h3, h4, h5, h6, .title, .subtitle {
-  font-weight: 300;
-  line-height: 1.5;
-  word-spacing: 0.3em; }
+  font-weight: normal;
+  line-height: 1.4; }
+
+html {
+  word-spacing: 0.25em; }
 
 /*
  ------------------------------------------------------------
@@ -150,6 +153,9 @@ body, p, h1, h3, h4, h5, h6, .title, .subtitle {
 
 .has-vertically-centered-items {
   align-items: center; }
+
+.has-top-margin {
+  margin-top: 20px; }
 
 /*
  ------------------------------------------------------------

@@ -1,4 +1,5 @@
 <?php
+
 namespace selvinortiz\swipe\controllers;
 
 use Craft;
@@ -6,16 +7,14 @@ use craft\elements\User;
 use craft\helpers\ElementHelper;
 use craft\web\Controller;
 
-use Imagine\Filter\Basic\Strip;
 use selvinortiz\swipe\models\SwipePlanModel;
 use function selvinortiz\swipe\swipe;
+use yii\log\Logger;
 
-class SwipePlansController extends Controller
-{
+class SwipePlansController extends Controller {
     protected $allowAnonymous = ['actionSubscribe'];
 
-    public function actionEdit(string $id = '')
-    {
+    public function actionEdit(string $id = '') {
         $this->requireAdmin();
 
         $plan = swipe()->plans->one($id);
@@ -23,8 +22,7 @@ class SwipePlansController extends Controller
         return $this->renderTemplate('swipe/plans/_edit', compact('id', 'plan'));
     }
 
-    public function actionSave()
-    {
+    public function actionSave() {
         $this->requireAdmin();
         $this->requirePostRequest();
 
@@ -41,8 +39,7 @@ class SwipePlansController extends Controller
         }
     }
 
-    public function actionSubscribe()
-    {
+    public function actionSubscribe() {
         $this->requirePostRequest();
         $this->requireAcceptsJson();
 
@@ -57,16 +54,55 @@ class SwipePlansController extends Controller
         $user->username = ElementHelper::createSlug($user->email);
         $user->firstName = $this->getFirstName($name);
         $user->lastName = $this->getLastName($name);
-        $user->setFieldValue('customerId', $customer->id);
-        $user->setFieldValue('subscriptionId', $subscription->id);
-        $user->setFieldValue('subscriptionJson', Craft::$app->request->getRawBody());
 
-        if (! Craft::$app->elements->saveElement($user)) {
-            Craft::dd($user->getErrors());
+        try {
+            $user->setFieldValues([
+                'customerId' => $customer->id,
+                'subscriptionId' => $subscription->id,
+                'subscriptionJson' => Craft::$app->request->getRawBody(),
+                'billingEmail' => $email,
+                'billingCountry' => swipe()->api->getDecodedParam('args.billing_country'),
+                'billingCountryCode' => swipe()->api->getDecodedParam('args.billing_country_code'),
+                'billingAddress' => swipe()->api->getDecodedParam('args.billing_line1'),
+                'billingCity' => swipe()->api->getDecodedParam('args.billing_city'),
+                'billingState' => swipe()->api->getDecodedParam('args.billing_state'),
+                'billingZip' => swipe()->api->getDecodedParam('args.billing_zip'),
+            ]);
+        } catch (\Exception $exception) {
+
+            swipe()->api->error($exception);
+
+            return $this->asErrorJson($exception->getMessage());
         }
 
-        Craft::dd([$user, $customer, $subscription, swipe()->api->getDecodedParams()]);
-        return $this->asJson($subscription);
+        if (($currentUser = Craft::$app->users->getUserByEmail($email))) {
+            $message = Craft::t('User with {email}, already exists.', compact('email'));
+            swipe()->api->error($message);
+
+            return $this->asErrorJson($message);
+        }
+
+        if (!Craft::$app->elements->saveElement($user)) {
+            swipe()->api->error($user->getErrors());
+
+            return $this->asErrorJson('Unable to create user account');
+        }
+
+        if (!Craft::$app->users->sendActivationEmail($user)) {
+
+            $message = 'Unable to send activation email';
+
+            swipe()->api->error($message);
+
+            return $this->asErrorJson($message);
+        }
+
+        Craft::$app->user->loginByUserId($user->id);
+
+        $success = true;
+        $message = 'You have been subscribed.';
+
+        return $this->asJson(compact($success, $message));
     }
 
     public function getFirstName(string $name) {

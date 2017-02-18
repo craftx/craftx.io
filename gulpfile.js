@@ -71,6 +71,11 @@ gulp.task('templates', () => {
         .pipe(plugins.livereload());
 });
 
+gulp.task('templates:noop', () => {
+    return gulp.src(config.templates.source)
+        .pipe(gulp.dest(config.templates.output.dir));
+});
+
 gulp.task('clean', () => {
   return gulp.src(config.clean)
     .pipe(plugins.clean({force: true}));
@@ -81,7 +86,8 @@ gulp.task('watch', (callback) => {
 
   bundle();
   gulp.watch(config.js.watch, bundle);
-  gulp.watch(config.sass.watch, ['sass:app', 'templates']);
+  gulp.watch(config.sass.watch.app, ['sass:app', 'templates:noop']);
+  gulp.watch(config.sass.watch.vendor, ['sass:vendor', 'templates:noop']);
   gulp.watch(config.templates.watch, ['templates']);
   gulp.watch(config.images.source, ['images']);
 });

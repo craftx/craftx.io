@@ -27,7 +27,10 @@
       }
     },
     "sass": {
-      "watch": "src/sass/**/*.scss",
+      "watch": {
+        "app": "src/sass/*.scss",
+        "vendor": ["src/sass/_vars.scss", "src/sass/_vendor/*.scss"]
+      },
       "source": {
         "app": "src/sass/app.scss",
         "vendor": "src/sass/vendor.scss"

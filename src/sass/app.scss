@@ -11,9 +11,11 @@
  @base
  ------------------------------------------------------------*/
 body,p,h1,h3,h4,h5,h6,.title,.subtitle {
-    font-weight: 300;
-    line-height: 1.5;
-    word-spacing: 0.3em;
+    font-weight: normal;
+    line-height: 1.4;
+}
+html {
+    word-spacing: 0.25em;
 }
 
 /*
@@ -76,6 +78,9 @@ body,p,h1,h3,h4,h5,h6,.title,.subtitle {
 
 .has-vertically-centered-items {
     align-items: center;
+}
+.has-top-margin {
+    margin-top: $column-pad;
 }
 
 /*

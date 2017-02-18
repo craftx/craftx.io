@@ -51,7 +51,7 @@ $fa-font-path: '/dist/fonts';
  ------------------------------------------------------------
  @bulma configs
  ------------------------------------------------------------*/
-$text: #363738;
+$text: #565758;
 $dark: $color-secondary;
 $info: $color-tertiary;
 $primary: $color-primary;
@@ -59,4 +59,4 @@ $gray-dark: $color-secondary;
 $gray-darker: $color-secondary-dark;
 $gray-lighter: $gray-e;
 $size-normal: 1.25rem;
-$family-sans-serif: -apple-system, BlinkMacSystemFont, "Fira Sans", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-sans-serif: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;

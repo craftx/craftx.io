@@ -13,6 +13,7 @@ use SelvinOrtiz\Dot\Dot;
 
 use function selvinortiz\swipe\swipe;
 use Stripe\Subscription;
+use yii\log\Logger;
 
 class SwipeService extends Component
 {
@@ -76,6 +77,11 @@ class SwipeService extends Component
         return "https://www.gravatar.com/avatar/{$this->hash($email)}?s={$size}&d=mm&r=g";
     }
 
+    public function error($message, array $vars = []) {
+        $message = is_array($message) ? Craft::t(print_r($message, true), $vars) : $message;
+
+        Craft::getLogger()->log($message, Logger::LEVEL_ERROR, 'swipe');
+    }
     /**
      * @param string $str
      *

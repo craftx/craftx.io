@@ -50,6 +50,7 @@
     background-color: $info;
     border-top: 2px solid darken($info, 10%);
     border-bottom: 2px solid darken($info, 10%);
+    background: linear-gradient(45deg,  #9642be 0%,#7f39a3 24%,#7f39a3 44%,#9342bc 64%,#9642be 100%);
 }
 .section--subscribe {
     border-top: 2px solid $gray-d;
