@@ -8,9 +8,13 @@
             </h2>
             <div class="hero-buttons has-text-centered">
                 <button id="cta" @click.prevent="loadSubscriptionForm" class="button is-large is-info" :class="{ 'is-loading': checkingOut }">
-                    <i class="fa fa-terminal is-blinking"></i>
-                    Start Crafting
+                    <i class="fa fa-terminal"></i>
+                    Start Crafting<span class="is-blinking">&hellip;</span>
                 </button>
+
+                <p class="is-5">
+                    Yes, there will be <a href="https://yarnpkg.com">Yarn</a> involved ;)
+                </p>
             </div>
         </div>
     </div>

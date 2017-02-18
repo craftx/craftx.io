@@ -3,6 +3,7 @@ namespace selvinortiz\swipe\controllers;
 
 use Craft;
 use craft\elements\User;
+use craft\helpers\ElementHelper;
 use craft\web\Controller;
 
 use Imagine\Filter\Basic\Strip;
@@ -45,20 +46,43 @@ class SwipePlansController extends Controller
         $this->requirePostRequest();
         $this->requireAcceptsJson();
 
+        $name = swipe()->api->getDecodedParam('args.billing_name');
         $token = swipe()->api->getDecodedParam('token.id');
         $email = swipe()->api->getDecodedParam('token.email');
         $customer = swipe()->api->createCustomer($email, $token);
         $subscription = swipe()->api->createSubscription($customer->id, 'developer-monthly-plan');
 
-        $user = $this->createUser($customer);
+        $user = new User();
+        $user->email = $customer->email;
+        $user->username = ElementHelper::createSlug($user->email);
+        $user->firstName = $this->getFirstName($name);
+        $user->lastName = $this->getLastName($name);
+        $user->setFieldValue('customerId', $customer->id);
+        $user->setFieldValue('subscriptionId', $subscription->id);
+        $user->setFieldValue('subscriptionJson', Craft::$app->request->getRawBody());
+
+        if (! Craft::$app->elements->saveElement($user)) {
+            Craft::dd($user->getErrors());
+        }
+
+        Craft::dd([$user, $customer, $subscription, swipe()->api->getDecodedParams()]);
         return $this->asJson($subscription);
     }
 
-    public function createUser($customer) {
-        $user = new User();
-        $user->email = $customer->email;
-        $user->setFieldValue('billingId', $customer->id);
+    public function getFirstName(string $name) {
+        if (!empty($name)) {
+            $name = explode(' ', $name);
 
-        // @todo: More:)
+            return trim(array_shift($name));
+        }
+    }
+
+    public function getLastName(string $name) {
+        if (!empty($name)) {
+            $name = explode(' ', $name);
+            array_shift($name);
+
+            return trim(implode(' ', $name));
+        }
     }
 }
