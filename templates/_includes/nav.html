@@ -17,6 +17,12 @@
   <!-- This "nav-menu" is hidden on mobile -->
   <!-- Add the modifier "is-active" to display it on mobile -->
   <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
+    <a href="https://github.com/craftx" class="nav-item is-heavy" title="Craft X on Github">
+      <span class="icon"><i class="fa fa-github"></i></span>
+    </a>
+    <a href="https://twitter.com/craftxio" class="nav-item is-heavy" title="@craftxio">
+      <span class="icon"><i class="fa fa-twitter"></i></span>
+    </a>
     {% if user %}
         <span class="nav-item">
           <a href="/@{{ user.username }}" class="button is-outlined is-info is-heavy" title="Dashboard">

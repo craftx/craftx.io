@@ -9,6 +9,8 @@ const watchify = require('watchify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 
+let templatesOnly = true;
+
 const bundler = watchify(browserify('./src/js/app.js').transform(babelify, {presets: ['es2015']}));
 
 function bundle() {
@@ -45,6 +47,7 @@ gulp.task('sass:app', () => {
 });
 
 gulp.task('sass:vendor', () => {
+  templatesOnly = false;
   return gulp.src(config.sass.source.vendor)
     .pipe(plugins.sass(config.sass.options.vendor).on('error', plugins.sass.logError))
     .pipe(plugins.autoprefixer({
@@ -66,9 +69,16 @@ gulp.task('images', () => {
 });
 
 gulp.task('templates', () => {
-    return gulp.src(config.templates.source)
-        .pipe(gulp.dest(config.templates.output.dir))
-        .pipe(plugins.livereload());
+    let source = gulp.src(config.templates.source)
+        .pipe(gulp.dest(config.templates.output.dir));
+
+    if (templatesOnly === true) {
+      source.pipe(plugins.livereload());
+    } else {
+      templatesOnly = true;
+    }
+
+    return source;
 });
 
 gulp.task('templates:noop', () => {

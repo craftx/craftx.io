@@ -1,17 +1,28 @@
+/*
+------------------------------------------------------------
+@Go Fira
+------------------------------------------------------------*/
 @font-face {
-	font-family: "Fira Sans";
-	src: local("Fira Sans Regular"), local("FiraSans-Regular"),
-		url("/dist/fonts/subset-FiraSans-Regular.woff2") format("woff2"),
-		url("/dist/fonts/subset-FiraSans-Regular.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Fira Sans Italic';
+    src: local('Fira Sans Italic'), 
+		url('/dist/fonts/firasans-italic.woff2') format('woff2'),
+        url('/dist/fonts/firasans-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
 @font-face {
-	font-family: "Fira Sans";
-	src: local("Fira Sans Bold"), local("FiraSans-Bold"),
-		url("/dist/fonts/subset-FiraSans-Bold.woff2") format("woff2"),
-		url("/dist/fonts/subset-FiraSans-Bold.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Fira Sans Medium';
+    src: local('Fira Sans Medium'), 
+		url('/dist/fonts/firasans-medium.woff2') format('woff2'),
+        url('/dist/fonts/firasans-medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira Sans';
+    src: local('Fira Sans'),
+		url('/dist/fonts/firasans-regular.woff2') format('woff2'),
+        url('/dist/fonts/firasans-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
