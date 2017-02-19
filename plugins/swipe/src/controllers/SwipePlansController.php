@@ -4,6 +4,7 @@ namespace selvinortiz\swipe\controllers;
 
 use Craft;
 use craft\elements\User;
+use craft\records\UserGroup;
 use craft\helpers\ElementHelper;
 use craft\web\Controller;
 
@@ -55,6 +56,9 @@ class SwipePlansController extends Controller {
         $user->firstName = $this->getFirstName($name);
         $user->lastName = $this->getLastName($name);
 
+        $success = false;
+        $message = '';
+
         try {
             $user->setFieldValues([
                 'customerId' => $customer->id,
@@ -69,40 +73,52 @@ class SwipePlansController extends Controller {
                 'billingZip' => swipe()->api->getDecodedParam('args.billing_zip'),
             ]);
         } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            
+            swipe()->api->error($message);
 
-            swipe()->api->error($exception);
-
-            return $this->asErrorJson($exception->getMessage());
+            return $this->asJson(compact('success', 'message'));
         }
 
         if (($currentUser = Craft::$app->users->getUserByEmail($email))) {
-            $message = Craft::t('User with {email}, already exists.', compact('email'));
+            $message = sprintf('User with email %s, already exists.', $email);
+
             swipe()->api->error($message);
 
-            return $this->asErrorJson($message);
+            return $this->asJson(compact('success', 'message'));
         }
 
         if (!Craft::$app->elements->saveElement($user)) {
-            swipe()->api->error($user->getErrors());
+            $message = 'Unable to create user account';
+            $errors  = $user->getErrors();
 
-            return $this->asErrorJson('Unable to create user account');
+            $response = compact('success', 'message', 'errors');
+
+            swipe()->api->error($response);
+
+            return $this->asJson($response);
         }
 
         if (!Craft::$app->users->sendActivationEmail($user)) {
 
             $message = 'Unable to send activation email';
+            $response = compact('success', 'message');
 
-            swipe()->api->error($message);
+            swipe()->api->error($response);
 
-            return $this->asErrorJson($message);
+            return $this->asErrorJson($response);
         }
 
-        Craft::$app->user->loginByUserId($user->id);
+        if (($group = UserGroup::findOne(['handle' => 'subscribed']))) {
+            Craft::$app->users->assignUserToGroups($user->id, [$group->id]);
+        }
+
+        // Craft::$app->user->loginByUserId($user->id);
 
         $success = true;
         $message = 'You have been subscribed.';
 
-        return $this->asJson(compact($success, $message));
+        return $this->asJson(compact('success', 'message'));
     }
 
     public function getFirstName(string $name) {

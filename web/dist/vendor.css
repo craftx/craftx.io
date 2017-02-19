@@ -6700,6 +6700,10 @@ label.panel-block {
   overflow: visible;
   clip: auto; }
 
+/*
+------------------------------------------------------------
+@Go Fira
+------------------------------------------------------------*/
 @font-face {
   font-family: 'Fira Sans Italic';
   src: local("Fira Sans Italic"), url("/dist/fonts/firasans-italic.woff2") format("woff2"), url("/dist/fonts/firasans-italic.woff") format("woff");

@@ -47,7 +47,7 @@ let vm = new Vue({
                     (response) => {
                         app.checkedOut = true;
                         console.log(response.data);
-                        window.location = '/@selvinortiz';
+                        window.location = '/?message=thankyou';
                     },
                     // ERROR
                     (response) => {
@@ -122,10 +122,10 @@ let stripe = function() {
     handler.open({
         name: 'Craft X',
         image: '/dist/images/CraftXSmall.png',
-        description: 'Student Monthly Plan',
+        description: 'Developer Monthly Plan',
         zipCode: true,
         billingAddress: true,
-        amount: 499
+        amount: 1099
     });
 
     window.addEventListener('popstate', function() {

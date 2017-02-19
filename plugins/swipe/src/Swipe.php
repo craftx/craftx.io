@@ -65,6 +65,10 @@ class Swipe extends Plugin {
     public function defineTemplateComponent() {
         return SwipeVariable::class;
     }
+
+    public function t($text, array $vars = []): string {
+        return Craft::t($text, $vars, 'swipe');
+    }
 }
 
 /**
