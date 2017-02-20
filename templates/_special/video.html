@@ -1,0 +1,30 @@
+{% set setup = {
+    techOrder: ["vimeo"],
+    aspectRatio: "16:9",
+    controls: true,
+    featuresPlaybackRate: true,
+    playbackRates: [1, 1.25, 1.5, 2.0]
+} %}
+
+<div class="video--container">
+    <video
+        id="{{ id ?? 'video1' }}"
+        class="video-js vjs-16-9 vjs-big-play-centered vjs-watermark {{ classes ?? '' }}"
+        width="1280"
+        height="720"
+        preload="auto"
+        poster="{{ posterUrl ?? 'http://placehold.it/1280x720' }}"
+        data-setup='{{ setup|json_encode }}'>
+
+        {% if sources is defined and sources is iterable %}
+            {% for source in sources %}
+                <source src="{{ source.src }}" type="{{ source.encoding ?? 'video/vimeo' }}">
+            {% endfor %}
+        {% endif %}
+
+        <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
+</div>

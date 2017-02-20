@@ -94,15 +94,37 @@ body {
 
 /*
  ------------------------------------------------------------
+ @video
+ ------------------------------------------------------------*/
+.video--dimensions {
+  height: auto;
+  min-width: 80%;
+  max-width: 100%;
+  background-color: red; }
+
+.vjs-16-9 {
+  position: relative !important; }
+
+.vjs-16-9 > div:first-child {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/*
+ ------------------------------------------------------------
  @bulma overrides
  ------------------------------------------------------------*/
-.title, .subtitle {
+.title,
+.subtitle {
   line-height: 1.4; }
 
 .nav.nav--primary {
   min-height: 5rem; }
 
-.title, .subtitle {
+.title,
+.subtitle {
   color: inherit; }
 
 .title + .subtitle {
@@ -129,7 +151,8 @@ body {
  ------------------------------------------------------------
  @utilities
  ------------------------------------------------------------*/
-.is-inset, .section--about .title, .section--about .subtitle, .title, .subtitle {
+.is-inset, .section--about .title, .section--about .subtitle, .title,
+.subtitle {
   text-shadow: 1px 2px 0 #fff; }
 
 .is-inset-inverted, .section--thanks .title, .section--thanks .subtitle {
@@ -181,7 +204,8 @@ body {
     font-size: 1.25rem; } }
 
 @media all and (min-width: 769px) {
-  .title, .subtitle {
+  .title,
+  .subtitle {
     font-size: initial; }
   .hero-buttons .button.is-large {
     font-size: 2.5rem; } }

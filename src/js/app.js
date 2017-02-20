@@ -1,9 +1,10 @@
 'use strict';
 
 let Helpers = require('./helpers');
+let Video = require('video.js');
+let Vimeo = require('videojs-vimeo');
 let Axios = require('axios');
 let Vue = require('vue/dist/vue.min.js');
-
 let axiosConfig = {
     headers: {
         'X-Requested-With': 'XMLHttpRequest',

@@ -2,6 +2,7 @@
  ------------------------------------------------------------
  @imports
  ------------------------------------------------------------*/
+
 @import "vars";
 @import "mixins";
 @import "sections";
@@ -10,87 +11,136 @@
  ------------------------------------------------------------
  @base
  ------------------------------------------------------------*/
+
 body {
     line-height: 1.5;
     word-spacing: 0.25em;
 }
 
+
+/*
+ ------------------------------------------------------------
+ @video
+ ------------------------------------------------------------*/
+
+.video--dimensions {
+    height: auto;
+    min-width: 80%;
+    max-width: 100%;
+    background-color: red;
+}
+
+.vjs-16-9 {
+    position: relative !important;
+}
+
+.vjs-16-9>div:first-child {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+
 /*
  ------------------------------------------------------------
  @bulma overrides
  ------------------------------------------------------------*/
-.title, .subtitle {
+
+.title,
+.subtitle {
     line-height: 1.4;
 }
+
 .nav.nav--primary {
     min-height: 5rem;
 }
-.title, .subtitle {
+
+.title,
+.subtitle {
     color: inherit;
     @extend .is-inset;
 }
-.title + .subtitle {
+
+.title+.subtitle {
     margin-top: 20px;
 }
+
 .nav-item img {
     max-height: 3rem;
 }
+
 .nav-toggle {
     padding: 2em;
     margin-right: 1em;
     height: initial;
 }
+
 .button {
     height: auto;
     line-height: 1;
     word-spacing: 0.3em;
     padding: 0.70em 2em;
 }
+
 .footer {
     background-color: inherit;
 }
+
 
 /*
  ------------------------------------------------------------
  @utilities
  ------------------------------------------------------------*/
+
 .is-inset {
     text-shadow: 1px 2px 0 #fff;
 }
+
 .is-inset-inverted {
     text-shadow: 1px 2px 0 #363738;
 }
+
 .is-heavy {
     font-weight: 500;
 }
+
 .is-tall {
     line-height: 1.5;
 }
+
 .is-blinking {
-  animation: blinker 1s linear infinite;
+    animation: blinker 1s linear infinite;
 }
+
 .is-circle-image {
     border-radius: 50%;
 }
-@keyframes blinker {  
-  50% { opacity: 0; }
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
 }
 
 .has-vertically-centered-items {
     align-items: center;
 }
+
 .has-top-margin {
     margin-top: $column-pad;
 }
+
 
 /*
  ------------------------------------------------------------
  @media queries
  ------------------------------------------------------------*/
+
 @include xs {
     .control.is-grouped.subscribe-fields {
         display: block;
-
         .control {
             margin: 0;
             margin-top: $column-pad;
@@ -121,7 +171,8 @@ body {
 }
 
 @include md {
-    .title, .subtitle {
+    .title,
+    .subtitle {
         font-size: initial;
     }
     .hero-buttons .button.is-large {

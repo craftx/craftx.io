@@ -29,7 +29,10 @@
     "sass": {
       "watch": {
         "app": "src/sass/*.scss",
-        "vendor": ["src/sass/_vars.scss", "src/sass/_vendor/*.scss"]
+        "vendor": [
+          "src/sass/_vars.scss",
+          "src/sass/_vendor/*.scss"
+        ]
       },
       "source": {
         "app": "src/sass/app.scss",
@@ -66,7 +69,8 @@
     "fonts": {
       "source": [
         "src/fonts/*",
-        "node_modules/font-awesome/fonts/*"
+        "node_modules/font-awesome/fonts/*",
+        "node_modules/video.js/dist/fonts/*"
       ],
       "output": {
         "dir": "web/dist/fonts"
@@ -111,6 +115,8 @@
     "normalize-scss": "^6.0.0",
     "prismjs": "^1.6.0",
     "sweetalert": "^1.1.3",
+    "video.js": "^5.16.0",
+    "videojs-vimeo": "^2.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vue": "^2.1.10",

@@ -1,0 +1,21 @@
+{% extends '_layout' %}
+
+{% set id = 'index' %}
+{% set title = 'Player' %}
+
+{% set content %}
+    <div class="section section--player">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    {% include '_special/video' with {
+                        classes: "video-js-craftx",
+                        sources: [{
+                            src: "https://vimeo.com/203656653",
+                        }]
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endset %}
