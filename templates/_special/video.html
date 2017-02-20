@@ -1,7 +1,6 @@
 {% set setup = {
-    techOrder: ["vimeo"],
-    aspectRatio: "16:9",
     controls: true,
+    aspectRatio: "16:9",
     featuresPlaybackRate: true,
     playbackRates: [1, 1.25, 1.5, 2.0]
 } %}
@@ -18,7 +17,7 @@
 
         {% if sources is defined and sources is iterable %}
             {% for source in sources %}
-                <source src="{{ source.src }}" type="{{ source.encoding ?? 'video/vimeo' }}">
+                <source src="{{ source.src }}" type="{{ source.type ?? 'video/vimeo' }}">
             {% endfor %}
         {% endif %}
 
