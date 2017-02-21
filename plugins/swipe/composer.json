@@ -35,11 +35,13 @@
         "hasSettings": true,
         "components": {
             "api": "selvinortiz\\swipe\\services\\SwipeService",
-            "plans": "selvinortiz\\swipe\\services\\SwipePlanService"
+            "plans": "selvinortiz\\swipe\\services\\SwipePlanService",
+            "videos": "selvinortiz\\swipe\\services\\SwipeVideoService"
         }
     },
     "require": {
         "stripe/stripe-php": "^4.4",
-        "selvinortiz/dot": "^1.1"
+        "selvinortiz/dot": "^1.1",
+        "aws/aws-sdk-php": "^3.22"
     }
 }

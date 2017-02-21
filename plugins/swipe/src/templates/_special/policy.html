@@ -1,0 +1,11 @@
+{% spaceless %}
+{
+    "Statement": [{
+        "Resource": "{{ resourceUrl }}",
+        "Condition": {
+            "IpAddress": {"AWS:SourceIp": "{{ serverIp }}"},
+            "DateLessThan": {"AWS:EpochTime": {{ expirationTimestamp }}}
+        }
+    }]
+}
+{% endspaceless %}

@@ -11,6 +11,7 @@ use craft\events\RegisterUrlRulesEvent;
 
 use selvinortiz\swipe\services\SwipeService;
 use selvinortiz\swipe\services\SwipePlanService;
+use selvinortiz\swipe\services\SwipeVideoService;
 use selvinortiz\swipe\variables\SwipeVariable;
 use selvinortiz\swipe\models\SwipeSettingsModel;
 use selvinortiz\swipe\controllers\SwipeUsersController;
@@ -24,6 +25,7 @@ use selvinortiz\swipe\controllers\SwipeNewsletterController;
  *
  * @property SwipeService $api
  * @property SwipePlanService $plans
+ * @property SwipeVideoService $videos
  */
 class Swipe extends Plugin {
 

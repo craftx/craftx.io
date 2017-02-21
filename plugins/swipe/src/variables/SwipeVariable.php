@@ -2,7 +2,6 @@
 namespace selvinortiz\swipe\variables;
 
 use Craft;
-
 use function selvinortiz\swipe\swipe;
 
 class SwipeVariable {
@@ -13,5 +12,9 @@ class SwipeVariable {
 
     public function settings() {
         return swipe()->api->settings();
+    }
+
+    public function getSecureUrl(string $video): string {
+        return swipe()->videos->getSignedUrl($video);
     }
 }
