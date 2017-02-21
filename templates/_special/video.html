@@ -11,7 +11,7 @@
         class="video-js vjs-16-9 vjs-big-play-centered vjs-watermark {{ classes ?? '' }}"
         width="1280"
         height="720"
-        preload="auto"
+        preload="false"
         poster="{{ posterUrl ?? 'http://placehold.it/1280x720' }}"
         data-setup='{{ setup|json_encode }}'>
 
