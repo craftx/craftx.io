@@ -3,18 +3,16 @@
 {% set title = 'Craft Training for Busy Developers' %}
 
 {% set content %}
-{% include '_includes/hero' %}
-<section class="section section--profile">
-    <div class="container">
-        <div class="columns has-text-centered">
-            <div class="column">
-                <h2 class="title is-2">@{{ username  }}</h2>
-                <p class="subtitle is-4">
-                    {{ craft.app.user.identity.fullName }}
-                </p>
+    <section class="section section--profile">
+        <div class="container">
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <h2 class="title is-2">@{{ username  }}</h2>
+                    <p class="subtitle is-4">
+                        This user rocks
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 {% endset %}

@@ -47,6 +47,16 @@ class SwipeService extends Component
         return swipe()->getSettings();
     }
 
+    public function getPostLoginRedirect($identity) {
+        return Craft::$app->view->renderObjectTemplate(
+            Craft::$app->config->get('postLoginRedirect'),
+            [
+                'email' => $identity->email,
+                'username' => $identity->username,
+            ]
+        );
+    }
+
     public function getDecodedParams($default = [])
     {
         if (null === $this->_decodedParams) {
@@ -82,6 +92,7 @@ class SwipeService extends Component
 
         Craft::getLogger()->log($message, Logger::LEVEL_ERROR, 'swipe');
     }
+
     /**
      * @param string $str
      *
