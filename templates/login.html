@@ -1,0 +1,50 @@
+{% extends '_layout' %}
+{% set id = 'index' %}
+{% set title = 'Craft Training for Busy Developers' %}
+
+{% set content %}
+    <section class="section section--login">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-6-desktop is-offset-3-desktop">
+                    <div class="form-container">
+                        <h1 class="title is-2">
+                            Start Crafting
+                        </h1>
+                        <hr>
+                        <form method="post" accept-charset="UTF-8">
+                            {{ csrfInput() }}
+                            <input type="hidden" name="action" value="users/login">
+                            <p class="control has-icon">
+                                <input class="input is-large" name="loginName" type="email" placeholder="Email">
+                                <span class="icon is-medium">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </p>
+                            <p class="control has-icon">
+                                <input class="input is-large" name="password" type="password" placeholder="Password">
+                                <span class="icon is-medium">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </p>
+                            <p class="control has-top-margin subtitle is-5">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="rememberMe">
+                                    Remember me
+                                </label>
+                            </p>
+                            <hr>
+                            <p class="control is-aligned-right">
+                                <button type="submit" class="button is-primary is-large is-full-width">Login</button>
+                            </p>
+                            <p class="has-top-margin">
+                                <a href="/reset/your/password" title="Reset your password">Forget your password?</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endset %}

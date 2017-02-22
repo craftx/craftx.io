@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * General Configuration
  *
  * All of your system's general configuration settings go in here. You can see a
@@ -9,27 +9,52 @@
 return [
     '*' => [
         'env' => '*',
-        // Base site URL
-        'siteUrl' => 'https://craftx.io',
-
-        // Default Week Start Day (0 = Sunday, 1 = Monday...)
-        'defaultWeekStartDay' => 0,
-
-        // Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
-        'enableCsrfProtection' => true,
-
-        // Whether "index.php" should be visible in URLs (true, false, "auto")
-        'omitScriptNameInUrls' => true,
-
-        // Control Panel trigger word
-        'cpTrigger' => 'studio',
-
-        // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => false,
+        'siteUrl' => 'https://craftx.io',
+        'cpTrigger' => 'studio',
+        'defaultWeekStartDay' => 0, // 0 = Sunday, 1 = Monday
+        'enableCsrfProtection' => true,
+        'omitScriptNameInUrls' => true,
+        'maxSlugIncrement' => 10,
+        'sendPoweredByHeader' => false,
+        'testToEmailAddress' => 'selvin@craftx.io',
+        'timezone' => 'America/Chicago',
+        'usePathInfo' => true,
+        'convertFilenamesToAscii' => true,
+        'cacheDuration' => 'P1Y',
+        'generateTransformsBeforePageLoad' => true,
+        'imageDriver' => 'imagick',
+        #
+        # CP Resources
+        'resourceBasePath' => '@webroot/cpr',
+        'resourceBaseUrl' => '@web/cpr',
+        'resourceTrigger' => 'cpr',
+        #
+        # User Routes
+        'setPasswordPath' => 'reset/your/password',
+        'setPasswordSuccessPath' => 'your/password/was/reset',
+        'activateAccountSuccessPath' => 'your/account/was/activated',
+        'invalidUserTokenPath' => 'your/token/is/invalid',
+        'postLoginRedirect' => '@{username}',
+        'limitAutoSlugsToAscii' => true,
+        'maxInvalidLogins' => 3,
+        #
+        # Session Related
+        'csrfTokenName' => 'X-CSRF-Token',
+        'phpSessionName' => 'icqahkapdsqrmqnyazmrdqzyroqzrrrz',
+        'userSessionDuration' => false,
+        'rememberedUserSessionDuration' => 'P1M',
+        'verificationCodeDuration' => 'PT1H', // Very short
+        #
+        # Uploads
+        'maxUploadFileSize' => 16777216, // @todo Revisit this and update as necessary
+        'allowedFileExtensions' => 'mp3,mp4,mov,mpeg,webm,jpg,jpeg,png,gif',
     ],
     '.dev' => [
         'env' => 'dev',
         'siteUrl' => 'http://craftx.dev',
-        'devMode' => true
+        'devMode' => true,
+        'translationDebugOutput' => true,
+        'cacheDuration' => 'PT1M'
     ]
 ];

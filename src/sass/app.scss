@@ -6,6 +6,7 @@
 @import "vars";
 @import "mixins";
 @import "sections";
+@import "users";
 
 /*
  ------------------------------------------------------------
@@ -131,8 +132,12 @@ body {
 .has-top-margin {
     margin-top: $column-pad;
 }
-
-
+.is-aligned-right {
+    text-align: right;
+}
+.is-full-width {
+    min-width: 100%;
+}
 /*
  ------------------------------------------------------------
  @media queries

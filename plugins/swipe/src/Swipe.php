@@ -3,8 +3,10 @@ namespace selvinortiz\swipe;
 
 use Yii;
 use yii\base\Event;
+use yii\web\UserEvent;
 
 use Craft;
+use craft\web\User;
 use craft\base\Plugin;
 use craft\web\UrlManager;
 use craft\events\RegisterUrlRulesEvent;
@@ -47,6 +49,12 @@ class Swipe extends Plugin {
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             [$this, 'registerSiteRoutes']
         );
+
+        Event::on(
+            User::class,
+            User::EVENT_AFTER_LOGIN,
+            [$this, 'handleAfterLogin']
+        );
         parent::init();
 
     }
@@ -58,6 +66,18 @@ class Swipe extends Plugin {
 
     public function registerSiteRoutes(RegisterUrlRulesEvent $event) {
         $event->rules['@<username:[a-z0-9\-]+>'] = 'swipe/users/index';
+    }
+
+    public function handleAfterLogin(UserEvent $event) {
+        $redirect = Craft::$app->view->renderObjectTemplate(
+            Craft::$app->config->get('postLoginRedirect'),
+            [
+                'email' => $event->identity->email,
+                'username' => $event->identity->username,
+            ]
+        );
+
+        Craft::$app->config->set('postLoginRedirect', $redirect);
     }
 
     public function createSettingsModel(): SwipeSettingsModel {
