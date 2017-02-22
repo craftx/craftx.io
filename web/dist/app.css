@@ -102,12 +102,6 @@ body {
  ------------------------------------------------------------
  @video
  ------------------------------------------------------------*/
-.video--dimensions {
-  height: auto;
-  min-width: 80%;
-  max-width: 100%;
-  background-color: red; }
-
 .vjs-16-9 {
   position: relative !important; }
 
@@ -213,7 +207,9 @@ body {
   .subtitle.is-3 {
     font-size: 1.5rem; }
   .subtitle.is-4 {
-    font-size: 1.25rem; } }
+    font-size: 1.25rem; }
+  .nav-menu.is-active {
+    padding-bottom: 20px; } }
 
 @media all and (min-width: 769px) {
   .title,

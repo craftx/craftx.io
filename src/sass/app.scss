@@ -24,13 +24,6 @@ body {
  @video
  ------------------------------------------------------------*/
 
-.video--dimensions {
-    height: auto;
-    min-width: 80%;
-    max-width: 100%;
-    background-color: red;
-}
-
 .vjs-16-9 {
     position: relative !important;
 }
@@ -71,7 +64,6 @@ body {
 .nav-item img {
     max-height: 3rem;
 }
-
 .nav-toggle {
     padding: 2em;
     margin-right: 1em;
@@ -172,6 +164,9 @@ body {
         &.is-4 {
             font-size: 1.25rem;
         }
+    }
+    .nav-menu.is-active {
+        padding-bottom: $column-pad;
     }
 }
 

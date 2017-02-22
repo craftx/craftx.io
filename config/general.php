@@ -17,7 +17,6 @@ return [
         'omitScriptNameInUrls' => true,
         'maxSlugIncrement' => 10,
         'sendPoweredByHeader' => false,
-        'testToEmailAddress' => 'selvin@craftx.io',
         'timezone' => 'America/Chicago',
         'usePathInfo' => true,
         'convertFilenamesToAscii' => true,
@@ -31,10 +30,10 @@ return [
         'resourceTrigger' => 'cpr',
         #
         # User Routes
-        'setPasswordPath' => 'reset/your/password',
-        'setPasswordSuccessPath' => 'your/password/was/reset',
-        'activateAccountSuccessPath' => 'your/account/was/activated',
-        'invalidUserTokenPath' => 'your/token/is/invalid',
+        'setPasswordPath' => 'reset-your-password',
+        'setPasswordSuccessPath' => 'your-password-was-reset',
+        'activateAccountSuccessPath' => 'your-account-was-activated',
+        'invalidUserTokenPath' => 'your-token-is-invalid',
         'postLoginRedirect' => '@{username}',
         'limitAutoSlugsToAscii' => true,
         'maxInvalidLogins' => 3,
@@ -54,7 +53,6 @@ return [
         'env' => 'dev',
         'siteUrl' => 'http://craftx.dev',
         'devMode' => true,
-        'translationDebugOutput' => true,
-        'cacheDuration' => 'PT1M'
+        'translationDebugOutput' => false,
     ]
 ];
