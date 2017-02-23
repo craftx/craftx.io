@@ -30,10 +30,10 @@ return [
         'resourceTrigger' => 'cpr',
         #
         # User Routes
-        'setPasswordPath' => 'reset-your-password',
-        'setPasswordSuccessPath' => 'your-password-was-reset',
-        'activateAccountSuccessPath' => 'your-account-was-activated',
-        'invalidUserTokenPath' => 'your-token-is-invalid',
+        'setPasswordPath' => 'v1/reset-your-password',
+        'setPasswordSuccessPath' => 'v1/your-password-was-reset',
+        'activateAccountSuccessPath' => 'v1/your-account-was-activated',
+        'invalidUserTokenPath' => 'v1/your-token-is-invalid',
         'postLoginRedirect' => '@{username}',
         'limitAutoSlugsToAscii' => true,
         'maxInvalidLogins' => 3,
@@ -43,7 +43,7 @@ return [
         'phpSessionName' => 'icqahkapdsqrmqnyazmrdqzyroqzrrrz',
         'userSessionDuration' => false,
         'rememberedUserSessionDuration' => 'P1M',
-        'verificationCodeDuration' => 'PT1H', // Very short
+        'verificationCodeDuration' => 'P1D', // Very short
         #
         # Uploads
         'maxUploadFileSize' => 16777216, // @todo Revisit this and update as necessary

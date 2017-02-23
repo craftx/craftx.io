@@ -9,7 +9,16 @@ use function selvinortiz\swipe\swipe;
 use yii\web\HttpException;
 
 class SwipeUsersController extends Controller {
-    protected $allowAnonymous = ['actionIndex', 'actionResetPassword'];
+    /**
+     * Not method names but action ids
+     * - actionResetPassword() > reset-password
+     *
+     * @var bool|string[]
+     */
+    protected $allowAnonymous = [
+        'index',
+        'request-password-reset'
+    ];
 
     private $_userTemplates = '_users';
     private $_dashboardTemplates = '_users/dashboard';
@@ -42,19 +51,17 @@ class SwipeUsersController extends Controller {
         return $this->renderTemplate($template, compact('username', 'avatarUrl'));
     }
 
-    public function actionResetPassword() {
-        Craft::dd($_POST);
-        $uoe = Craft::$app->request->getRequiredPost('usernameOrEmail');
+    public function actionRequestPasswordReset() {
+        $uoe = Craft::$app->request->getRequiredBodyParam('usernameOrEmail');
         $user = Craft::$app->users->getUserByUsernameOrEmail($uoe);
 
-        if ($user) {
-            Craft::$app->users->sendPasswordResetEmail($user);
+        if (! $user) {
+            Craft::$app->urlManager->setRouteParams(['error' => 'Account not found']);
 
-            return Craft::$app->response->redirectToPostedUrl($user);
         }
 
-        Craft::$app->session->setFlash('error', 'Account not found.');
-
-        return;
+        Craft::$app->users->sendPasswordResetEmail($user);
+        http://craftx.dev/actions/users/set-password?code=g-o8UxDKok35R20Jzuy9dfsyNOKnoZJF&id=6b6a037c-c82e-43bc-afb4-f7c86856ca45
+        return $this->redirectToPostedUrl($user);
     }
 }
