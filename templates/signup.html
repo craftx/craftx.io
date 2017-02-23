@@ -3,6 +3,107 @@
 {% set title = 'Craft Training for Busy Developers' %}
 
 {% set content %}
-{% include '_homepage/section-subscribe' %}
+    <section class="section section--signup">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <form method="post" accept-charset="UTF-8">
+                        <input type="hidden" name="action" value="users/save-user">
+                        <input type="hidden" name="redirect" value="v1/confirm-your-email">
+                        {{ getCsrfInput() }}
 
+                        <label class="label">Name</label>
+                        <p class="control">
+                        <input class="input" type="text" placeholder="Text input">
+                        </p>
+
+                        <label class="label">Email</label>
+                        <p class="control has-icon has-icon-right">
+                        <input class="input is-danger" type="text" placeholder="Email input" value="hello@">
+                        <span class="icon is-small">
+                            <i class="fa fa-warning"></i>
+                        </span>
+                        <span class="help is-danger">This email is invalid</span>
+                        </p>
+                        <label class="label">Username</label>
+                        <p class="control has-icon has-icon-right">
+                        <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+                        <span class="icon is-small">
+                            <i class="fa fa-check"></i>
+                        </span>
+                        <span class="help is-success">This username is available</span>
+                        </p>
+
+                        <p class="control has-icon">
+                        <input class="input" type="password" placeholder="Password">
+                        <span class="icon is-small">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        </p>
+                        <div class="buttons">
+                            <button type="submit" class="button is-info is-large">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endset %}
+
+{#<label class="label">Name</label>
+<p class="control">
+  <input class="input" type="text" placeholder="Text input">
+</p>
+<label class="label">Username</label>
+<p class="control has-icon has-icon-right">
+  <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+  <span class="icon is-small">
+    <i class="fa fa-check"></i>
+  </span>
+  <span class="help is-success">This username is available</span>
+</p>
+<label class="label">Email</label>
+<p class="control has-icon has-icon-right">
+  <input class="input is-danger" type="text" placeholder="Email input" value="hello@">
+  <span class="icon is-small">
+    <i class="fa fa-warning"></i>
+  </span>
+  <span class="help is-danger">This email is invalid</span>
+</p>
+<label class="label">Subject</label>
+<p class="control">
+  <span class="select">
+    <select>
+      <option>Select dropdown</option>
+      <option>With options</option>
+    </select>
+  </span>
+</p>
+<label class="label">Message</label>
+<p class="control">
+  <textarea class="textarea" placeholder="Textarea"></textarea>
+</p>
+<p class="control">
+  <label class="checkbox">
+    <input type="checkbox">
+    Remember me
+  </label>
+</p>
+<p class="control">
+  <label class="radio">
+    <input type="radio" name="question">
+    Yes
+  </label>
+  <label class="radio">
+    <input type="radio" name="question">
+    No
+  </label>
+</p>
+<div class="control is-grouped">
+  <p class="control">
+    <button class="button is-primary">Submit</button>
+  </p>
+  <p class="control">
+    <button class="button is-link">Cancel</button>
+  </p>
+</div>#}

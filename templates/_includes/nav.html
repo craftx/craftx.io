@@ -16,7 +16,13 @@
 
   <!-- This "nav-menu" is hidden on mobile -->
   <!-- Add the modifier "is-active" to display it on mobile -->
+
   <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
+    {% if craft.app.request.segment(1) is not empty %}
+      <a href="/" class="nav-item is-heavy" title="Craft X">
+        <span class="icon"><i class="fa fa-home"></i></span>
+      </a>
+    {% endif %}
     <a href="https://github.com/craftx" class="nav-item is-heavy" title="Craft X on Github">
       <span class="icon"><i class="fa fa-github"></i></span>
     </a>
@@ -37,9 +43,6 @@
           </a>
         </span>
       {% else %}
-        {% if craft.app.request.segment(1) is not empty %}
-          <a href="/" class="nav-item is-heavy" title="Craft X">Home</a>
-        {% endif %}
 
         <span class="nav-item">
           <a href="/login" class="button is-outlined is-primary is-heavy" title="Login">
