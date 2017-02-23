@@ -186,6 +186,11 @@ body {
 .is-full-width {
   min-width: 100%; }
 
+.is-button-container {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px dotted #d6d7d8; }
+
 /*
  ------------------------------------------------------------
  @media queries

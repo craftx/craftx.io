@@ -130,6 +130,11 @@ body {
 .is-full-width {
     min-width: 100%;
 }
+.is-button-container {
+    margin-top: $column-pad2x;
+    padding-top: $column-pad2x;
+    border-top: 1px dotted $gray-d;
+}
 /*
  ------------------------------------------------------------
  @media queries
