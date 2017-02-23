@@ -9,7 +9,7 @@ use function selvinortiz\swipe\swipe;
 use yii\web\HttpException;
 
 class SwipeUsersController extends Controller {
-    protected $allowAnonymous = ['actionIndex'];
+    protected $allowAnonymous = ['actionIndex', 'actionResetPassword'];
 
     private $_userTemplates = '_users';
     private $_dashboardTemplates = '_users/dashboard';
@@ -40,5 +40,21 @@ class SwipeUsersController extends Controller {
         $avatarUrl = swipe()->api->getGravatar(Craft::$app->user->identity->email ?? '', 128);
 
         return $this->renderTemplate($template, compact('username', 'avatarUrl'));
+    }
+
+    public function actionResetPassword() {
+        Craft::dd($_POST);
+        $uoe = Craft::$app->request->getRequiredPost('usernameOrEmail');
+        $user = Craft::$app->users->getUserByUsernameOrEmail($uoe);
+
+        if ($user) {
+            Craft::$app->users->sendPasswordResetEmail($user);
+
+            return Craft::$app->response->redirectToPostedUrl($user);
+        }
+
+        Craft::$app->session->setFlash('error', 'Account not found.');
+
+        return;
     }
 }
