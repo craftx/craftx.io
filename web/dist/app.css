@@ -187,9 +187,17 @@ body {
   min-width: 100%; }
 
 .is-button-container {
-  margin-top: 40px;
-  padding-top: 40px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px dotted #d6d7d8; }
+
+.is-control-container {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+label.has-optional-input:after {
+  content: " (Optional)";
+  color: #c6c7c8; }
 
 /*
  ------------------------------------------------------------

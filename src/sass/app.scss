@@ -131,10 +131,21 @@ body {
     min-width: 100%;
 }
 .is-button-container {
-    margin-top: $column-pad2x;
-    padding-top: $column-pad2x;
+    margin-top: $column-pad;
+    padding-top: $column-pad;
     border-top: 1px dotted $gray-d;
 }
+.is-control-container {
+    padding-top: $column-pad/2;
+    padding-bottom: $column-pad/2;
+}
+label.has-optional-input {
+    &:after {
+        content: " (Optional)";
+        color: $gray-c;
+    }
+}
+
 /*
  ------------------------------------------------------------
  @media queries

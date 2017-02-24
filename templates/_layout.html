@@ -12,47 +12,46 @@
         {% include '_special/metadata' %}
     </head>
     <body id="{{ id }}">
-        <div id="root">
-            {% include '_includes/nav' %}
-            {% if content is defined %}
-                {{ content }}
-            {% endif %}
-            <footer class="footer">
-                <div class="container">
-                    <div class="columns">
-                        <div class="column">
-                            <div class="content has-text-centered">
-                                <p class="subtitle is-5 is-heavy is-inset">
-                                    Copyright &copy; {{ "now"|date("Y") }} {{ siteName }}, All Rights Reserved.
-                                </p>
-                                <p class="subtitle is-5 is-heavy">
-                                    <a href="/terms">Terms</a>
-                                    |
-                                    <a href="/privacy">Privacy</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="is-full column">
-                            <div class="hero-icons has-text-centered">
-                                <nav>
-                                    <a href="mailto:support@craftx.io" title="support@craftx.io">
-                                        <span class="icon is-large"><i class="fa fa-envelope-square"></i></span>
-                                    </a>
-                                    <a href="https://github.com/craftx" title="Craft X on Github" target="_blank">
-                                        <span class="icon is-large"><i class="fa fa-github-square"></i></span>
-                                    </a>
-                                    <a href="https://twitter.com/craftxio" title="Craft X on Twitter" target="_blank">
-                                        <span class="icon is-large"><i class="fa fa-twitter-square"></i></span>
-                                    </a>
-                                </nav>
-                            </div>
+        {% include '_includes/nav' %}
+        {% if content is defined %}
+            {{ content }}
+        {% endif %}
+        <footer class="footer">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <div class="content has-text-centered">
+                            <p class="subtitle is-5 is-heavy is-inset">
+                                Copyright &copy; {{ "now"|date("Y") }} {{ siteName }}, All Rights Reserved.
+                            </p>
+                            <p class="subtitle is-5 is-heavy">
+                                <a href="/terms">Terms</a>
+                                |
+                                <a href="/privacy">Privacy</a>
+                            </p>
                         </div>
                     </div>
                 </div>
-            </footer>
-        </div>
+                <div class="columns">
+                    <div class="is-full column">
+                        <div class="hero-icons has-text-centered">
+                            <nav>
+                                <a href="mailto:support@craftx.io" title="support@craftx.io">
+                                    <span class="icon is-large"><i class="fa fa-envelope-square"></i></span>
+                                </a>
+                                <a href="https://github.com/craftx" title="Craft X on Github" target="_blank">
+                                    <span class="icon is-large"><i class="fa fa-github-square"></i></span>
+                                </a>
+                                <a href="https://twitter.com/craftxio" title="Craft X on Twitter" target="_blank">
+                                    <span class="icon is-large"><i class="fa fa-twitter-square"></i></span>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
         <script type="text/javascript">
             window.csrfTokenName = "{{ craft.app.config.get('csrfTokenName')|e('js') }}";
             window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";

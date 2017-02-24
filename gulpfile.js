@@ -23,7 +23,7 @@ function bundle() {
 }
 
 gulp.task('js:build', function () {
-  const bundler = browserify('./src/js/app.js').transform(babelify, {presets: ['es2015']});
+  const bundler = browserify(config.js.source.app).transform(babelify, {presets: ['es2015']});
 
   return bundler.bundle()
     .on('error', plugins.util.log)

@@ -38,6 +38,8 @@ class Swipe extends Plugin {
     ];
 
     public function init() {
+        parent::init();
+
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
@@ -55,8 +57,12 @@ class Swipe extends Plugin {
             User::EVENT_AFTER_LOGIN,
             [$this, 'handleAfterLogin']
         );
-        parent::init();
 
+        Event::on(
+            \craft\elements\User::class,
+            \craft\elements\User::EVENT_AFTER_SAVE,
+            [$this, 'handleAfterSave']
+        );
     }
 
     public function registerCpRoutes(RegisterUrlRulesEvent $event) {
@@ -70,6 +76,10 @@ class Swipe extends Plugin {
 
     public function handleAfterLogin(UserEvent $event) {
         Craft::$app->config->set('postLoginRedirect', swipe()->api->getPostLoginRedirect($event->identity));
+    }
+
+    public function handleAfterSave(Event $event) {
+        Craft::dd($event);
     }
 
     public function createSettingsModel(): SwipeSettingsModel {
