@@ -1,7 +1,9 @@
+.form-container {
+    @include pattern-bg();
+    padding: $column-pad2x;
+    border: 2px solid $gray-d;
+}
+
 .section--login {
     margin: 2rem 0;
-    .form-container {
-        padding: $column-pad2x;
-        background-color: $gray-e;
-    }
 }

@@ -39,3 +39,11 @@
         @content;
     }
 }
+
+/*
+------------------------------------------------------------
+@Utils
+------------------------------------------------------------*/
+@mixin pattern-bg() {
+    background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;    
+}

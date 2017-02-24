@@ -26,6 +26,10 @@
  ------------------------------------------------------------
  @media queries
  ------------------------------------------------------------*/
+/*
+------------------------------------------------------------
+@Utils
+------------------------------------------------------------*/
 .section--hero {
   background: url(/dist/images/background-hero.svg) no-repeat left center, #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
   background-size: auto 98%; }
@@ -84,11 +88,13 @@
     min-height: 300px;
     background-size: 256px; } }
 
+.form-container {
+  background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
+  padding: 40px;
+  border: 2px solid #d6d7d8; }
+
 .section--login {
   margin: 2rem 0; }
-  .section--login .form-container {
-    padding: 40px;
-    background-color: #e6e7e8; }
 
 /*
  ------------------------------------------------------------

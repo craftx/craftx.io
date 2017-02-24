@@ -59,6 +59,7 @@
         margin-top: $column-pad * 2;
     }
 }
+
 @include sm {
     .title, .subtitle {
         text-align: center;

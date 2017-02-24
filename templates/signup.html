@@ -12,61 +12,78 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
-                    <form id="signup" method="post" accept-charset="UTF-8">
-                        <input type="hidden" name="action" value="users/save-user">
-                        <input type="hidden" name="redirect" value="v1/confirm-your-email"> {{ getCsrfInput() }}
-                        <input type="hidden" name="firstName" :value="firstName">
-                        <input type="hidden" name="lastName" :value="lastName">
+                    <div class="form-container">
+                        <form id="signup" method="post" accept-charset="UTF-8">
+                            <input type="hidden" name="action" value="users/save-user">
+                            <input type="hidden" name="redirect" value="v1/confirm-your-email">
+                            {{ csrfInput() }}
+                        
+                            <h2 class="title is-3">Basics</h2>
+                            <div class="is-control-container">
+                                <label class="label">Name</label>
+                                <div class="control is-grouped">
+                                    <p class="control is-expanded">
+                                        <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="Brad" required>
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Bell" required>
+                                    </p>
+                                </div>
+                            </div>
 
-                        <h2 class="title is-3 has-top-margin">Basics</h2>
-                        <div class="is-control-container">
-                            <label class="label">Name</label>
-                            <p class="control">
-                                <input v-model="name" name="name" class="input is-large" type="text" placeholder="Brad Bell" required>
-                                @{name}
-                            </p>
-                        </div>
+                            <div class="is-control-container">
+                                <label class="label">Email</label>
+                                <p class="control">
+                                    <input v-model="email" name="email" class="input is-large" type="email" placeholder="brad@pixelandtonic.com" required>
+                                </p>
+                            </div>
 
-                        <div class="is-control-container">
-                            <label class="label">Email</label>
-                            <p class="control">
-                                <input v-model="email" name="email" class="input is-large" type="email" placeholder="brad@pixelandtonic.com" required>
-                            </p>
-                        </div>
+                            <h2 class="title is-3 has-top-margin">Login</h2>
+                            <div class="is-control-container">
+                            <label class="label">Username</label>
+                              <p class="control has-icon">
+                                  <span class="icon is-small">
+                                      <i class="fa fa-user"></i>
+                                  </span>
+                                  <input v-model="username" name="username" class="input is-large" type="text" placeholder="bradbell" required>
+                              </p>
+                            </div>
 
-                        <h2 class="title is-3 has-top-margin">Login</h2>
-                        <div class="is-control-container">
-                        <label class="label">Username</label>
-                          <p class="control has-icon">
-                              <span class="icon is-small">
-                                  <i class="fa fa-user"></i>
-                              </span>
-                              <input v-model="username" name="username" class="input is-large" type="text" placeholder="bradbell" required>
-                          </p>
-                        </div>
+                            <div class="is-control-container">
+                              <label class="label">Password</label>
+                              <p class="control has-icon">
+                                  <input class="input is-large" type="password" autocomplete="off" placeholder="Make it nice and long" required>
+                                  <span class="icon is-small">
+                                      <i class="fa fa-lock"></i>
+                                  </span>
+                              </p>
+                            </div>
+                        
+                        
 
-                        <div class="is-control-container">
-                          <label class="label">Password</label>
-                          <p class="control has-icon">
-                              <input class="input" type="password" autocomplete="off" placeholder="********************" required>
-                              <span class="icon is-small">
-                                  <i class="fa fa-lock"></i>
-                              </span>
-                          </p>
-                        </div>
+                            <h2 class="title is-3 has-top-margin">Login</h2>
+                            <div class="is-control-container">
+                            <label class="label">Credit or Debit Card</label>
+                            
+                              <p class="control">
+                                    <div id="card-element"></div>
+                                    <div id="card-errors"></div>
+                              </p>
+                            </div>
 
-                        <div class="is-button-container is-aligned-right">
-                            <a href="/" title="Home" class="button is-large">
-                                    Cancel
-                                </a>
-                            <button type="submit" class="button is-info is-large">
-                                    <span class="icon"><i class="fa fa-graduation-cap"></i></span>
-                                    <span>Sign Up</span>
-                                </button>
-                        </div>
-
-                        <pre>@{ $data }</pre>
-                    </form>
+                            <div class="is-button-container is-aligned-right">
+                                <a href="/" title="Home" class="button is-large">
+                                        Cancel
+                                    </a>
+                                <button type="submit" class="button is-info is-large">
+                                        <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+                                        <span>Sign Up</span>
+                                    </button>
+                            </div>
+                        
+                            <pre>@{ $data }</pre>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

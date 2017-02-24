@@ -9,6 +9,7 @@ use Craft;
 use craft\web\User;
 use craft\base\Plugin;
 use craft\web\UrlManager;
+use craft\events\ModelEvent;
 use craft\events\RegisterUrlRulesEvent;
 
 use selvinortiz\swipe\services\SwipeService;
@@ -78,8 +79,10 @@ class Swipe extends Plugin {
         Craft::$app->config->set('postLoginRedirect', swipe()->api->getPostLoginRedirect($event->identity));
     }
 
-    public function handleAfterSave(Event $event) {
-        Craft::dd($event);
+    public function handleAfterSave(ModelEvent $event) {
+        if ($event->isNew && $event->isValid) {
+
+        }
     }
 
     public function createSettingsModel(): SwipeSettingsModel {
