@@ -42,8 +42,6 @@ class SwipeVideoService extends Component {
             'expirationTimestamp' => $this->getExpiration()
         ];
 
-        echo sprintf('<!-- %s -->', print_r($policyVars, true));
-
         return $this->_cloudFrontClient->getSignedUrl([
             'url' => $resourceUrl,
             'private_key' => $this->_privateKeyFile,

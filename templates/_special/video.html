@@ -13,7 +13,7 @@
         width="1280"
         height="720"
         poster="{{ posterUrl ?? 'http://placehold.it/1280x720' }}"
-        data-setup='{{ setup|json_encode }}'>
+        data-setup='{{ setup|json_encode|raw }}'>
 
         {% if sources is defined and sources is iterable %}
             {% for source in sources %}
