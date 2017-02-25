@@ -6,6 +6,7 @@
 .DS_Store
 #
 #
+/web/cpr/*
 /.env
 /vendor
 !/vendor/craftcms/cms/src/base/ApplicationTrait.php

@@ -49,6 +49,10 @@ return [
         'maxUploadFileSize' => 16777216, // @todo Revisit this and update as necessary
         'allowedFileExtensions' => 'mp3,mp4,mov,mpeg,webm,jpg,jpeg,png,gif',
     ],
+    'dev.' => [
+        'env' => 'dev',
+        'siteUrl' => 'https://dev.craftx.io'
+    ],
     '.dev' => [
         'env' => 'dev',
         'siteUrl' => 'http://craftx.dev',
