@@ -37,7 +37,7 @@ class SwipeVideoService extends Component {
         $resourceUrl = self::BASE_URL.$resource;
 
         $policyVars = [
-            'serverIp' => $this->getServerIp(),
+            'serverIp' => $this->getClientIp(),
             'resourceUrl' => $resourceUrl,
             'expirationTimestamp' => $this->getExpiration()
         ];
@@ -69,7 +69,7 @@ class SwipeVideoService extends Component {
         return $rendered;
     }
 
-    private function getServerIp(): string {
+    private function getClientIp(): string {
         return Craft::$app->config->get('env') == 'dev' ? '50.188.56.107' : $_SERVER['REMOTE_ADDR'];
     }
 
