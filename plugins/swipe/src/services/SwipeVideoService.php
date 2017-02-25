@@ -37,10 +37,12 @@ class SwipeVideoService extends Component {
         $resourceUrl = self::BASE_URL.$resource;
 
         $policyVars = [
-            'serverIp' => $this->getClientIp(),
+            'clientIp' => $this->getClientIp(),
             'resourceUrl' => $resourceUrl,
             'expirationTimestamp' => $this->getExpiration()
         ];
+
+        echo sprintf('<!-- %s -->', print_r($policyVars, true));
 
         return $this->_cloudFrontClient->getSignedUrl([
             'url' => $resourceUrl,
