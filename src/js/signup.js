@@ -2,6 +2,7 @@
 
 let Axios = require('axios');
 let Vue = require('vue/dist/vue.js');
+let _ = require('lodash');
 
 let axiosConfig = {
     headers: {
@@ -14,10 +15,18 @@ let signup_vm = new Vue({
     el: '#signup',
     delimiters: ['@{', '}'],
     data: {
+        action: 'users/save-user',
+        redirect: '/v1/confirm-your-email',
         email: '',
         username: '',
         firstName: '',
         lastName: '',
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zip: '',
+        country: 'US',
         signingUp: false,
         _token: {},
         _stripe: {},
@@ -28,6 +37,14 @@ let signup_vm = new Vue({
             return this.firstName + ' ' + this.lastName;
         }
     },
+    watch: {
+        email() {
+            this.validateEmail();
+        },
+        username() {
+            this.validateUsername();
+        }
+    },
     mounted() {
         this._stripe = Stripe('pk_test_ivZFpjEGRxj38UYz4CYQUk4t');
         this._card = this._stripe.elements().create('card', {
@@ -36,7 +53,7 @@ let signup_vm = new Vue({
                 base: {
                     color: '#303238',
                     fontSize: '1.5rem',
-                    fontFamily: 'Fira Sans',
+                    fontFamily: 'monospace',
                     fontSmoothing: 'antialiased',
                     '::placeholder': {
                         color: '#ccc',
@@ -73,8 +90,45 @@ let signup_vm = new Vue({
                 }
             });
         },
+        validateEmail() {
+            let app = this;
+            let validate = _.debounce(() => {
+                Axios.post('/actions/swipe/users/validate-email', {email: app.email}, axiosConfig)
+                .then(
+                    (response) => {
+                        if (!response.data.success) {
+                            return console.log(response.data.message);
+                        }
+
+                        console.log(response.data.message);
+                    },
+                    (response) => {
+                        console.log(response);
+                    }
+                );
+            });
+
+            return validate();
+        },
         validateUsername() {
-            console.log('Invalid');
+            let app = this;
+            let validate = _.debounce(() => {
+                Axios.post('/actions/swipe/users/validate-username', {username: app.username}, axiosConfig)
+                .then(
+                    (response) => {
+                        if (!response.data.success) {
+                            return console.log(response.data.message);
+                        }
+
+                        console.log('Great', response.data.message);
+                    },
+                    (response) => {
+                        console.log(response);
+                    }
+                );
+            });
+
+            return validate();
         }
     }
 });

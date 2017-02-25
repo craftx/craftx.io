@@ -17,6 +17,8 @@ class SwipeUsersController extends Controller {
      */
     protected $allowAnonymous = [
         'index',
+        'validate-email',
+        'validate-username',
         'request-password-reset'
     ];
 
@@ -49,6 +51,58 @@ class SwipeUsersController extends Controller {
         $avatarUrl = swipe()->api->getGravatar(Craft::$app->user->identity->email ?? '', 128);
 
         return $this->renderTemplate($template, compact('username', 'avatarUrl'));
+    }
+
+    public function actionValidateEmail() {
+        $email = swipe()->api->getDecodedParam('email');
+
+        if (($user = Craft::$app->users->getUserByUsernameOrEmail($username))) {
+            return $this->asJson([
+                'status' => '__TAKEN',
+                'success' => false,
+                'message' => 'Email address already in use'
+            ]);
+        }
+
+        if (!filter_validate($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->asJson([
+                'status' => '__INVALID',
+                'success' => false,
+                'message' => 'Email address must be valid'
+            ]);
+        }
+
+        return $this->asJson([
+            'status' => '__OK',
+            'success' => true,
+            'message' => 'Email address looks good'
+        ]);
+    }
+
+    public function actionValidateUsername() {
+        $username = swipe()->api->getDecodedParam('username');
+
+        if (($user = Craft::$app->users->getUserByUsernameOrEmail($username))) {
+            return $this->asJson([
+                'status' => '__TAKEN',
+                'success' => false,
+                'message' => 'Username is already taken'
+            ]);
+        }
+
+        if (!preg_match('/^[a-z0-9\-]{5,25}$/', $username)) {
+            return $this->asJson([
+                'status' => '__INVALID',
+                'success' => false,
+                'message' => 'Usernames must fit this pattern [a-z0-9\-]{5,25}'
+            ]);
+        }
+
+        return $this->asJson([
+            'status' => '__OK',
+            'success' => true,
+            'message' => 'Username looks good'
+        ]);
     }
 
     public function actionRequestPasswordReset() {
