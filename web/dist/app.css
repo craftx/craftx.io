@@ -89,13 +89,60 @@
     min-height: 300px;
     background-size: 256px; } }
 
-.form-container {
-  background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
-  padding: 40px;
-  border: 2px solid #d6d7d8; }
+.is-control-container {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+label.has-optional-input:after {
+  content: " (Optional)";
+  color: #c6c7c8; }
+
+.has-no-top-margin {
+  margin-top: 0; }
+
+.is-form-section-title, .is-form-section-title:not(:last-child) {
+  margin-bottom: 0; }
+
+.is-stripe-field {
+  border-radius: 3px;
+  line-height: 1.5;
+  padding: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: white;
+  color: #363636;
+  border: 1px solid #dbdbdb;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  min-height: 30px; }
+
+.is-stripe-error {
+  font-family: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin-top: 10px;
+  min-height: 20px; }
+
+.help, .is-field-hint {
+  font-size: 1rem; }
+
+.section--signup {
+  background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat; }
 
 .section--login {
   margin: 2rem 0; }
+
+@media all and (max-width: 768px) {
+  .control .select.is-large {
+    font-size: 1rem; }
+  .button.is-large {
+    min-width: 100%;
+    text-align: center; } }
+
+@media all and (min-width: 769px) {
+  .section--signup {
+    background: none; }
+  .form-container {
+    background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
+    padding: 40px;
+    border: 2px solid #d6d7d8; } }
 
 /*
  ------------------------------------------------------------
@@ -198,40 +245,6 @@ body {
   padding-top: 20px;
   border-top: 1px dotted #d6d7d8; }
 
-.is-control-container {
-  padding-top: 10px;
-  padding-bottom: 10px; }
-
-label.has-optional-input:after {
-  content: " (Optional)";
-  color: #c6c7c8; }
-
-.has-no-top-margin {
-  margin-top: 0; }
-
-.is-form-section-title, .is-form-section-title:not(:last-child) {
-  margin-bottom: 0; }
-
-.is-stripe-field {
-  border-radius: 3px;
-  line-height: 1.5;
-  padding: 0.75em;
-  position: relative;
-  vertical-align: top;
-  background-color: white;
-  color: #363636;
-  border: 1px solid #dbdbdb;
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-  min-height: 30px; }
-
-.help, .is-field-hint {
-  font-size: 1rem; }
-
-.is-stripe-error {
-  font-family: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin-top: 10px;
-  min-height: 20px; }
-
 /*
  ------------------------------------------------------------
  @media queries
@@ -255,7 +268,13 @@ label.has-optional-input:after {
   .subtitle.is-4 {
     font-size: 1.25rem; }
   .nav-menu.is-active {
-    padding-bottom: 20px; } }
+    padding-bottom: 20px; }
+  .control.is-grouped {
+    display: block; }
+    .control.is-grouped .label {
+      margin-top: 20px; }
+  .control.is-expanded {
+    min-width: 100%; } }
 
 @media all and (min-width: 769px) {
   .title,

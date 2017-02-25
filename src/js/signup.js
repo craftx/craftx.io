@@ -26,7 +26,7 @@ let signup_vm = new Vue({
         city: '',
         state: '',
         zip: '',
-        country: 'US',
+        country: 'us',
         signingUp: false,
         _token: {},
         _stripe: {},
@@ -52,7 +52,6 @@ let signup_vm = new Vue({
             style: {
                 base: {
                     color: '#303238',
-                    fontSize: '1.5rem',
                     fontFamily: 'monospace',
                     fontSmoothing: 'antialiased',
                     '::placeholder': {

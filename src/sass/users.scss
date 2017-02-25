@@ -1,9 +1,66 @@
-.form-container {
-    @include pattern-bg();
-    padding: $column-pad2x;
-    border: 2px solid $gray-d;
+.is-control-container {
+    padding-top: $column-pad/2;
+    padding-bottom: $column-pad/2;
+}
+label.has-optional-input {
+    &:after {
+        content: " (Optional)";
+        color: $gray-c;
+    }
+}
+.has-no-top-margin {
+    margin-top: 0;
+}
+.is-form-section-title, .is-form-section-title:not(:last-child) {
+    margin-bottom: 0;
+}
+.is-stripe-field {
+    border-radius: 3px;
+    line-height: 1.5;
+    padding: 0.75em;
+    position: relative;
+    vertical-align: top;
+    background-color: white;
+    color: #363636;
+    border: 1px solid #dbdbdb;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    min-height: 30px;
+}
+.is-stripe-error {
+    font-family: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin-top: 10px;
+    min-height: 20px;
+}
+.help, .is-field-hint {
+    font-size: 1rem;
+}
+.section--signup {
+    @include pattern-bg;
 }
 
 .section--login {
     margin: 2rem 0;
+}
+
+@include sm() {
+    .control {
+        .select.is-large {
+            font-size: 1rem;
+        }
+    }
+    .button.is-large {
+        min-width: 100%;
+        text-align: center;
+    }
+}
+
+@include md() {
+    .section--signup {
+        background: none;
+    }
+    .form-container {
+        @include pattern-bg;
+        padding: $column-pad2x;
+        border: 2px solid $gray-d;
+    }
 }
