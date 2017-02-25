@@ -102,7 +102,6 @@
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.1.1",
-    "gulp-inject-string": "^1.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.4.0",
     "gulp-minify": "^0.0.14",

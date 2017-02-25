@@ -27,16 +27,16 @@
         },
         {
             "name": "bower-asset/d3",
-            "version": "4.5.0.0",
+            "version": "4.6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mbostock-bower/d3-bower.git",
-                "reference": "f2043b67a8d05c8509d24c45376e209ee62b90d6"
+                "reference": "611bc6de88328e9a9193c3b1a875eb71ce0a33a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mbostock-bower/d3-bower/zipball/f2043b67a8d05c8509d24c45376e209ee62b90d6",
-                "reference": "f2043b67a8d05c8509d24c45376e209ee62b90d6",
+                "url": "https://api.github.com/repos/mbostock-bower/d3-bower/zipball/611bc6de88328e9a9193c3b1a875eb71ce0a33a8",
+                "reference": "611bc6de88328e9a9193c3b1a875eb71ce0a33a8",
                 "shasum": null
             },
             "type": "library"
@@ -91,32 +91,32 @@
         },
         {
             "name": "bower-asset/fabric",
-            "version": "1.7.3.0",
+            "version": "1.7.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kangax/fabric.js.git",
-                "reference": "01d8392ae310cd77ef509c7e9dd7839fde3e8e06"
+                "reference": "b9d488818851202cd6f8dd7411ea919e48dbe56e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kangax/fabric.js/zipball/01d8392ae310cd77ef509c7e9dd7839fde3e8e06",
-                "reference": "01d8392ae310cd77ef509c7e9dd7839fde3e8e06",
+                "url": "https://api.github.com/repos/kangax/fabric.js/zipball/b9d488818851202cd6f8dd7411ea919e48dbe56e",
+                "reference": "b9d488818851202cd6f8dd7411ea919e48dbe56e",
                 "shasum": null
             },
             "type": "library"
         },
         {
             "name": "bower-asset/garnishjs",
-            "version": "0.1.13.0",
+            "version": "0.1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pixelandtonic/garnishjs.git",
-                "reference": "1c370857673bd9c8eb823927187460ffca86f41d"
+                "reference": "e5a3628827cc8ad7d8dae7118362b5655c5bba9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixelandtonic/garnishjs/zipball/1c370857673bd9c8eb823927187460ffca86f41d",
-                "reference": "1c370857673bd9c8eb823927187460ffca86f41d",
+                "url": "https://api.github.com/repos/pixelandtonic/garnishjs/zipball/e5a3628827cc8ad7d8dae7118362b5655c5bba9f",
+                "reference": "e5a3628827cc8ad7d8dae7118362b5655c5bba9f",
                 "shasum": null
             },
             "require": {
@@ -286,16 +286,16 @@
         },
         {
             "name": "bower-asset/timepicker",
-            "version": "1.11.9.0",
+            "version": "1.11.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonthornton/jquery-timepicker.git",
-                "reference": "0aea5070b60d3cd2d0e5dd0fc5cbb91fe137e75b"
+                "reference": "5588a9e6ef490e54e626b1fb52b98a528fa92991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonthornton/jquery-timepicker/zipball/0aea5070b60d3cd2d0e5dd0fc5cbb91fe137e75b",
-                "reference": "0aea5070b60d3cd2d0e5dd0fc5cbb91fe137e75b",
+                "url": "https://api.github.com/repos/jonthornton/jquery-timepicker/zipball/5588a9e6ef490e54e626b1fb52b98a528fa92991",
+                "reference": "5588a9e6ef490e54e626b1fb52b98a528fa92991",
                 "shasum": null
             },
             "require": {
@@ -305,16 +305,16 @@
         },
         {
             "name": "bower-asset/velocity",
-            "version": "1.4.2.0",
+            "version": "1.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/julianshapiro/velocity.git",
-                "reference": "d2cdefd8c2f7763f45e027910eed14bb091add78"
+                "reference": "8c3d003e0e893597c7f91528ad2cff732f249c57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/julianshapiro/velocity/zipball/d2cdefd8c2f7763f45e027910eed14bb091add78",
-                "reference": "d2cdefd8c2f7763f45e027910eed14bb091add78",
+                "url": "https://api.github.com/repos/julianshapiro/velocity/zipball/8c3d003e0e893597c7f91528ad2cff732f249c57",
+                "reference": "8c3d003e0e893597c7f91528ad2cff732f249c57",
                 "shasum": null
             },
             "type": "library"
@@ -400,30 +400,30 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.0-beta.4",
+            "version": "3.0.0-beta.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "0a1390f8d6c400e272b6e17ffd5bd81a7d1dfe40"
+                "reference": "22c4f5cdd75d01a787ab4a2a7860b1aba6a8252b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/0a1390f8d6c400e272b6e17ffd5bd81a7d1dfe40",
-                "reference": "0a1390f8d6c400e272b6e17ffd5bd81a7d1dfe40",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/22c4f5cdd75d01a787ab4a2a7860b1aba6a8252b",
+                "reference": "22c4f5cdd75d01a787ab4a2a7860b1aba6a8252b",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/d3": "4.5.0.0",
+                "bower-asset/d3": "4.6.0.0",
                 "bower-asset/d3-format": "1.0.2.0",
                 "bower-asset/d3-time-format": "2.0.3.0",
-                "bower-asset/element-resize-detector": "1.1.10",
-                "bower-asset/fabric": "1.7.3",
-                "bower-asset/garnishjs": "0.1.13",
+                "bower-asset/element-resize-detector": "1.1.10.0",
+                "bower-asset/fabric": "1.7.6",
+                "bower-asset/garnishjs": "0.1.15",
                 "bower-asset/jquery.payment": "3.0.0",
                 "bower-asset/picturefill": "3.0.2",
                 "bower-asset/selectize": "0.12.4",
-                "bower-asset/timepicker": "1.11.9",
-                "bower-asset/velocity": "1.4.2",
+                "bower-asset/timepicker": "1.11.10.0",
+                "bower-asset/velocity": "1.4.3",
                 "craftcms/server-check": "1.0.9",
                 "creocoder/yii2-nested-sets": "0.9.0",
                 "danielstjules/stringy": "2.3.2",
@@ -435,21 +435,21 @@
                 "ext-pdo": "*",
                 "ext-zip": "*",
                 "guzzlehttp/guzzle": "6.2.2",
-                "league/flysystem": "1.0.34",
+                "league/flysystem": "1.0.35",
                 "mikehaertl/php-shellcommand": "1.2.2",
                 "php": ">=7.0.0",
                 "pixelandtonic/imagine": "0.6.3.2",
                 "twig/twig": "2.1.0",
-                "yiisoft/yii2": "2.0.11.1",
-                "yiisoft/yii2-debug": "2.0.7",
+                "yiisoft/yii2": "2.0.11.2",
+                "yiisoft/yii2-debug": "2.0.8",
                 "yiisoft/yii2-swiftmailer": "2.0.6",
                 "zendframework/zend-feed": "2.7.0"
             },
             "require-dev": {
-                "codeception/codeception": "2.2.8",
+                "codeception/codeception": "2.2.9",
                 "codeception/mockery-module": "0.2.2",
-                "codeception/specify": "0.4.5",
-                "codeception/verify": "0.3.2"
+                "codeception/specify": "0.4.6",
+                "codeception/verify": "0.3.3"
             },
             "suggest": {
                 "ext-iconv": "Adds support for more character encodings than PHP’s built-in mb_convert_encoding() function, which Craft will take advantage of when converting strings to UTF-8.",
@@ -473,7 +473,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2017-02-17T23:10:28+00:00"
+            "time": "2017-02-24T23:33:34+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -959,16 +959,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.34",
+            "version": "1.0.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299"
+                "reference": "dda7f3ab94158a002d9846a97dc18ebfb7acc062"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
-                "reference": "469ad53c13ea19a0e54e3e5d70f61227ddcc0299",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dda7f3ab94158a002d9846a97dc18ebfb7acc062",
+                "reference": "dda7f3ab94158a002d9846a97dc18ebfb7acc062",
                 "shasum": ""
             },
             "require": {
@@ -1038,7 +1038,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-01-30T17:41:17+00:00"
+            "time": "2017-02-09T11:33:58+00:00"
         },
         {
             "name": "michelf/php-smartypants",
@@ -1710,16 +1710,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.11.1",
+            "version": "2.0.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "5c9c894b1d20bc1a39814063adf8a1aeb7c86f77"
+                "reference": "ee996adec1dfd7babb67bd0c604f5bd6425fe5ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/5c9c894b1d20bc1a39814063adf8a1aeb7c86f77",
-                "reference": "5c9c894b1d20bc1a39814063adf8a1aeb7c86f77",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ee996adec1dfd7babb67bd0c604f5bd6425fe5ab",
+                "reference": "ee996adec1dfd7babb67bd0c604f5bd6425fe5ab",
                 "shasum": ""
             },
             "require": {
@@ -1806,7 +1806,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-02-02T18:53:16+00:00"
+            "time": "2017-02-08T09:04:32+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1910,20 +1910,20 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "a74a2433ad1dfda30a253a92f6db52c131807432"
+                "reference": "0c4d7a1085bf3aacfad9bcba48e053d36c2c498a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/a74a2433ad1dfda30a253a92f6db52c131807432",
-                "reference": "a74a2433ad1dfda30a253a92f6db52c131807432",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/0c4d7a1085bf3aacfad9bcba48e053d36c2c498a",
+                "reference": "0c4d7a1085bf3aacfad9bcba48e053d36c2c498a",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "~2.0.4",
+                "yiisoft/yii2": "~2.0.11",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
@@ -1953,7 +1953,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2016-11-24T09:42:29+00:00"
+            "time": "2017-02-19T16:48:01+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
