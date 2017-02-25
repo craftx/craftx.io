@@ -48,6 +48,11 @@ label.has-optional-input {
     }
 }
 @include sm() {
+    .control.has-no-label {
+        .input {
+            margin-top: $column-pad;
+        }
+    }
     .control .is-small-mobile, .is-small-mobile {
         font-size: 1.25rem;
     }

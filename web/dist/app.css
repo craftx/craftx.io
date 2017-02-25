@@ -134,6 +134,8 @@ label.has-optional-input:after {
     font-size: 1rem; } }
 
 @media all and (max-width: 768px) {
+  .control.has-no-label .input {
+    margin-top: 20px; }
   .control .is-small-mobile, .is-small-mobile {
     font-size: 1.25rem; }
   .is-full-width-mobile {
