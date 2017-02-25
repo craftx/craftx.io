@@ -3,7 +3,7 @@
  @media queries
  ------------------------------------------------------------*/
 @mixin xs() {
-    @media all and (max-width: 560px) {
+    @media all and (max-width: 480px) {
         @content;
     }
 }

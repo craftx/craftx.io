@@ -20,51 +20,50 @@
 
                             <h2 class="title is-3 is-form-section-title">Basics</h2>
                             <div class="is-control-container">
+                                {# Outside of control to aligne with label(less) input #}
                                 <label class="label">Name</label>
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
                                         <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="Brad" >
                                     </p>
-                                    <p class="control is-expanded">
+                                    <p class="control is-expanded has-no-label">
                                         <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Bell" >
                                     </p>
                                 </div>
                             </div>
 
                             <div class="is-control-container">
-                                <label class="label">Email</label>
                                 <p class="control">
+                                    <label class="label">Email</label>
                                     <input v-model="email" name="email" class="input is-large" type="email" placeholder="brad@angrybrad.com" >
                                 </p>
                             </div>
 
                             <h2 class="title is-3  is-form-section-title has-top-margin">Login</h2>
                             <div class="is-control-container">
-                            <label class="label">Username</label>
-                              <p class="control">
-                                  <input v-model="username" name="username" class="input is-large" type="text" placeholder="tacobell" >
-                                  <span class="help">
-                                    Your shiny profile URL
-                                    <span class="icon"><i class="fa fa-hand-o-right"></i></span>
-                                    <b v-if="username">{{ siteUrl }}@@{ username }</b>
-                                    <b v-else>{{ siteUrl }}@tacobell</b>
+                                <p class="control">
+                                    <label class="label">Username</label>
+                                    <input v-model="username" name="username" class="input is-large" type="text" placeholder="tacobell" >
+                                    <span class="help">
+                                        <span class="icon"><i class="fa fa-hand-o-right"></i></span>
+                                        <b v-if="username">{{ siteUrl }}@@{ username }</b>
+                                        <b v-else>{{ siteUrl }}@tacobell</b>
                                   </span>
                               </p>
                             </div>
 
                             <div class="is-control-container">
-                              <label class="label">Password</label>
-                              <p class="control">
-                                  <input class="input is-large" type="password" autocomplete="off" >
-                                  <span class="help">Use any character and make it as long as you want</span>
-                              </p>
+                                <p class="control">
+                                    <label class="label">Password</label>
+                                    <input class="input is-large" type="password" placeholder="Make it strong" autocomplete="off" >
+                                </p>
                             </div>
 
                             <h2 class="title is-3 is-form-section-title has-top-margin">Select Your Plan</h2>
                             <div class="is-control-container">
                                 <p class="control">
-                                    <span class="select is-large">
-                                        <select name="planId">
+                                    <span class="select is-large is-full-width">
+                                        <select name="planId" class="is-full-width">
                                             <option value="monthly-developer">Developer (Monthly) $4.99</option>
                                             <option value="monthly-team">Team (Monthly) $49.99</option>
                                         </select>
@@ -107,7 +106,7 @@
                             <div class="is-control-container">
                                     <p class="control">
                                         <label class="label">Country</label>
-                                        <span class="select is-large">
+                                        <span class="select is-large is-full-width is-small-mobile">
 											{% include '_special/country-select' %}
 										</span>
                                     </p>
@@ -122,7 +121,7 @@
                             </div>
 
                             <div class="is-button-container has-no-top-margin is-aligned-right">
-                                <button type="submit" class="button is-info is-large">
+                                <button type="submit" class="button is-info is-large is-full-width-mobile">
                                         <span class="icon"><i class="fa fa-graduation-cap" :class="{ 'is-loading': signingUp }"></i></span>
                                         <span>Sign Up</span>
                                     </button>

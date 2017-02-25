@@ -42,15 +42,22 @@ label.has-optional-input {
     margin: 2rem 0;
 }
 
-@include sm() {
-    .control {
-        .select.is-large {
-            font-size: 1rem;
-        }
+@include xs() {
+    .control .is-small-mobile, .is-small-mobile {
+        font-size: 1rem;
     }
-    .button.is-large {
+}
+@include sm() {
+    .control .is-small-mobile, .is-small-mobile {
+        font-size: 1.25rem;
+    }
+    .is-full-width-mobile {
         min-width: 100%;
-        text-align: center;
+        max-width: 100%;
+    }
+    .is-full-width {
+        min-width: 100%;
+        max-width: 100%;
     }
 }
 
