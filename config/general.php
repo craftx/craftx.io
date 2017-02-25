@@ -50,7 +50,7 @@ return [
         'allowedFileExtensions' => 'mp3,mp4,mov,mpeg,webm,jpg,jpeg,png,gif',
     ],
     'dev.' => [
-        'env' => 'dev',
+        'env' => 'staging',
         'siteUrl' => 'https://dev.craftx.io'
     ],
     '.dev' => [

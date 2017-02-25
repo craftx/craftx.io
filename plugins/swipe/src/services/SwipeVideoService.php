@@ -70,7 +70,7 @@ class SwipeVideoService extends Component {
     }
 
     private function getServerIp(): string {
-        return Craft::$app->config->get('env') == 'dev' ? '50.188.56.107' : $_SERVER['REMOTE_ADDR'];
+        return Craft::$app->config->get('env') == 'dev' ? '50.188.56.107' : '45.76.18.218';
     }
 
     private function getExpiration(): int {
