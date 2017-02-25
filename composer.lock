@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8942e0319390cf92c0319758eb4af46",
+    "content-hash": "e1f07b3ec14b9a477bcec40ddfbdb5ff",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -2159,16 +2159,16 @@
     "packages-dev": [
         {
             "name": "laravel/homestead",
-            "version": "v4.0.5",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "a1bcbde2462d8ac1fa608cd6f00b46623aabd705"
+                "reference": "133c09dd2872af46efa0324a5c985a8c707efc69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/a1bcbde2462d8ac1fa608cd6f00b46623aabd705",
-                "reference": "a1bcbde2462d8ac1fa608cd6f00b46623aabd705",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/133c09dd2872af46efa0324a5c985a8c707efc69",
+                "reference": "133c09dd2872af46efa0324a5c985a8c707efc69",
                 "shasum": ""
             },
             "require": {
@@ -2201,7 +2201,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2017-02-07T19:06:26+00:00"
+            "time": "2017-02-06T03:10:50+00:00"
         },
         {
             "name": "psr/log",

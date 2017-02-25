@@ -13,20 +13,20 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="form-container">
-                        <form id="signup" method="post" accept-charset="UTF-8">
+                        <form @submit.prevent="checkout" id="signup" method="post" accept-charset="UTF-8">
                             <input type="hidden" name="action" value="users/save-user">
                             <input type="hidden" name="redirect" value="v1/confirm-your-email">
                             {{ csrfInput() }}
-                        
-                            <h2 class="title is-3">Basics</h2>
+
+                            <h2 class="title is-3 is-form-section-title">Basics</h2>
                             <div class="is-control-container">
                                 <label class="label">Name</label>
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
-                                        <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="Brad" required>
+                                        <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="Brad" >
                                     </p>
                                     <p class="control is-expanded">
-                                        <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Bell" required>
+                                        <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Bell" >
                                     </p>
                                 </div>
                             </div>
@@ -34,49 +34,86 @@
                             <div class="is-control-container">
                                 <label class="label">Email</label>
                                 <p class="control">
-                                    <input v-model="email" name="email" class="input is-large" type="email" placeholder="brad@pixelandtonic.com" required>
+                                    <input v-model="email" name="email" class="input is-large" type="email" placeholder="brad@craftcms.com" >
                                 </p>
                             </div>
 
-                            <h2 class="title is-3 has-top-margin">Login</h2>
+                            <h2 class="title is-3  is-form-section-title has-top-margin">Login</h2>
                             <div class="is-control-container">
                             <label class="label">Username</label>
-                              <p class="control has-icon">
-                                  <span class="icon is-small">
-                                      <i class="fa fa-user"></i>
+                              <p class="control">
+                                  <input v-model="username" name="username" class="input is-large" type="text" placeholder="tacobell" >
+                                  <span class="help">
+                                    Your shiny profile URL:
+                                    <b v-if="username">{{ siteUrl }}@@{ username }</b>
+                                    <b v-else>{{ siteUrl }}@tacobell</b>
                                   </span>
-                                  <input v-model="username" name="username" class="input is-large" type="text" placeholder="bradbell" required>
                               </p>
                             </div>
 
                             <div class="is-control-container">
                               <label class="label">Password</label>
-                              <p class="control has-icon">
-                                  <input class="input is-large" type="password" autocomplete="off" placeholder="Make it nice and long" required>
-                                  <span class="icon is-small">
-                                      <i class="fa fa-lock"></i>
-                                  </span>
-                              </p>
-                            </div>
-                        
-                        
-
-                            <h2 class="title is-3 has-top-margin">Login</h2>
-                            <div class="is-control-container">
-                            <label class="label">Credit or Debit Card</label>
-                            
                               <p class="control">
-                                    <div id="card-element"></div>
-                                    <div id="card-errors"></div>
+                                  <input class="input is-large" type="password" autocomplete="off" placeholder="xxxxxxxxxxxxxxxxxxxx" >
+                                  <span class="help">Use any character and make it as long as you want</span>
                               </p>
                             </div>
 
-                            <div class="is-button-container is-aligned-right">
-                                <a href="/" title="Home" class="button is-large">
-                                        Cancel
-                                    </a>
+                            <h2 class="title is-3 is-form-section-title has-top-margin">Select Your Plan</h2>
+                            <div class="is-control-container">
+                                <p class="control">
+                                    <span class="select is-large">
+                                        <select name="planId">
+                                            <option value="monthly-developer">Developer (Monthly) $4.99</option>
+                                            <option value="monthly-team">Team (Monthly) $49.99</option>
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <h2 class="title is-3 is-form-section-title has-top-margin">Billing</h2>
+
+                            <div class="is-control-container">
+                                <div class="control is-grouped">
+                                    <p class="control is-expanded">
+                                        <label class="label">Address</label>
+                                        <input v-model="address1" name="address1" class="input is-large" type="text" placeholder="221 Baker St." >
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <label class="label has-optional-field">Address 2</label>
+                                        <input v-model="address2" name="address2" class="input is-large" type="text" placeholder="Suit 101" >
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="is-control-container">
+                                <div class="control is-grouped">
+                                    <p class="control is-expanded">
+                                        <label class="label">City</label>
+                                        <input v-model="address1" name="address1" class="input is-large" type="text" placeholder="New York City" >
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <label class="label">State/Province</label>
+                                        <input v-model="address2" name="address2" class="input is-large" type="text" placeholder="NY" >
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <label class="label">Zip/Postal</label>
+                                        <input v-model="address2" name="address2" class="input is-large" type="text" placeholder="90210" >
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="is-control-container">
+                                <label class="label">Card Details</label>
+                                <div class="control">
+                                    <div class="is-stripe-field is-large" id="card-element"></div>
+                                    <div class="is-stripe-error" id="card-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="is-button-container has-no-top-margin is-aligned-right">
                                 <button type="submit" class="button is-info is-large">
-                                        <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+                                        <span class="icon"><i class="fa fa-graduation-cap" :class="{ 'is-loading': signingUp }"></i></span>
                                         <span>Sign Up</span>
                                     </button>
                             </div>

@@ -38255,23 +38255,6 @@ var axiosConfig = {
     }
 };
 
-var style = {
-    base: {
-        color: '#32325d',
-        lineHeight: '24px',
-        fontFamily: 'Helvetica Neue',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-            color: '#aab7c4'
-        }
-    },
-    invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
-    }
-};
-
 var signup_vm = new Vue({
     el: '#signup',
     delimiters: ['@{', '}'],
@@ -38280,18 +38263,59 @@ var signup_vm = new Vue({
         username: '',
         firstName: '',
         lastName: '',
-        signingUp: false
+        signingUp: false,
+        _token: {},
+        _stripe: {},
+        _card: {}
     },
+    computed: {
+        name: function name() {
+            return this.firstName + ' ' + this.lastName;
+        }
+    },
+    mounted: function mounted() {
+        this._stripe = Stripe('pk_test_ivZFpjEGRxj38UYz4CYQUk4t');
+        this._card = this._stripe.elements().create('card', {
+            hidePostalCode: true,
+            style: {
+                base: {
+                    color: '#303238',
+                    fontSize: '1.5rem',
+                    fontFamily: 'Fira Sans',
+                    fontSmoothing: 'antialiased',
+                    '::placeholder': {
+                        color: '#ccc'
+                    }
+                },
+                invalid: {
+                    color: '#c00'
+                }
+            }
+        });
+
+        this._card.mount('#card-element');
+    },
+
     methods: {
-        submitForm: function submitForm() {
-            this.stripe.createToken(card).then(function (result) {
+        checkout: function checkout() {
+            var app = this;
+            console.log('Attempting to checkout');
+            this._stripe.createToken(this._card, {
+                name: app.name,
+                address_line1: "60 97TH LN NE",
+                address_city: "Blaine",
+                address_state: "MN",
+                address_zip: "55434"
+            }).then(function (result) {
                 if (result.error) {
                     // Inform the user if there was an error
                     var errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
+                    console.log(errorElement);
                 } else {
                     // Send the token to your server
-                    stripeTokenHandler(result.token);
+                    app._token = result.token;
+                    console.log(result);
                 }
             });
         },
@@ -38301,37 +38325,12 @@ var signup_vm = new Vue({
     }
 });
 
-var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-
-// Create an instance of Elements
-var elements = stripe.elements();
-
-// Custom styling can be passed to options when creating an Element.
-// (Note that this demo uses a wider set of styles than the guide below.)
-
-// Create an instance of the card Element
-var card = elements.create('card', { style: style });
-
-// Add an instance of the card Element into the `card-element` <div>
-card.mount('#card-element');
-
-// Handle real-time validation errors from the card Element.
-card.addEventListener('change', function (event) {
-    var displayError = document.getElementById('card-errors');
-    if (event.error) {
-        displayError.textContent = event.error.message;
-    } else {
-        displayError.textContent = '';
-    }
-});
-
 },{"axios":1,"vue/dist/vue.js":144}],151:[function(require,module,exports){
 'use strict';
 
 var Helpers = require('./helpers');
 var Axios = require('axios');
 var Vue = require('vue/dist/vue.js');
-
 var axiosConfig = {
     headers: {
         'X-Requested-With': 'XMLHttpRequest',

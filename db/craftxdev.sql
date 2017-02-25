@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.17-0ubuntu0.16.04.1)
 # Database: craftxdev
-# Generation Time: 2017-02-18 03:30:19 +0000
+# Generation Time: 2017-02-24 22:36:07 +0000
 # ************************************************************
 
 
@@ -235,7 +235,7 @@ INSERT INTO `cx_content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `
 VALUES
 	(1,1,1,NULL,'2017-02-06 18:39:45','2017-02-13 04:35:16','733fd721-e25d-49fc-a09b-41c6cc4692af',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(2,2,1,'Homepage','2017-02-06 18:57:45','2017-02-07 05:30:57','fd1f3cbe-c14f-4317-a064-a644d62374cc','Craft Training for Busy Developers','',NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-	(3,3,1,NULL,'2017-02-18 01:30:24','2017-02-18 01:30:24','fc944bf9-f4e3-4029-80cc-ded78e17cae1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'cus_A8eIEbktjRp3Tb',NULL,NULL,'sub_A8eIjgpyQDec67',NULL);
+	(3,3,1,NULL,'2017-02-18 01:30:24','2017-02-23 04:24:10','fc944bf9-f4e3-4029-80cc-ded78e17cae1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'cus_A8eIEbktjRp3Tb',NULL,NULL,'sub_A8eIjgpyQDec67',NULL);
 
 /*!40000 ALTER TABLE `cx_content` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -266,6 +266,15 @@ CREATE TABLE `cx_deprecationerrors` (
   UNIQUE KEY `cx_deprecationerrors_key_fingerprint_unq_idx` (`key`,`fingerprint`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `cx_deprecationerrors` WRITE;
+/*!40000 ALTER TABLE `cx_deprecationerrors` DISABLE KEYS */;
+
+INSERT INTO `cx_deprecationerrors` (`id`, `key`, `fingerprint`, `lastOccurrence`, `file`, `line`, `class`, `method`, `template`, `templateLine`, `message`, `traces`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,'getCsrfInput','/home/vagrant/craftx.dev/templates/signup.html','2017-02-24 02:00:56','/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/twig/Extension.php',813,'craft\\web\\twig\\Extension','getCsrfInput','/home/vagrant/craftx.dev/templates/signup.html',NULL,'getCsrfInput() has been deprecated. Use csrfInput() instead.','[{\"objectClass\":\"craft\\\\services\\\\Deprecator\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/twig/Extension.php\",\"line\":813,\"class\":\"craft\\\\services\\\\Deprecator\",\"method\":\"log\",\"args\":\"\\\"getCsrfInput\\\", \\\"getCsrfInput() has been deprecated. Use csrfInput() instead.\\\"\"},{\"objectClass\":\"craft\\\\web\\\\twig\\\\Extension\",\"file\":\"/home/vagrant/craftx.dev/storage/runtime/compiled_templates/38/38c220ded7c756bda655ce8723f179e122bed7a8e59689fc375a4848c0ed1230.php\",\"line\":40,\"class\":\"craft\\\\web\\\\twig\\\\Extension\",\"method\":\"getCsrfInput\",\"args\":null},{\"objectClass\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"file\":\"/home/vagrant/craftx.dev/vendor/twig/twig/lib/Twig/Template.php\",\"line\":393,\"class\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"method\":\"doDisplay\",\"args\":\"[\\\"view\\\" => craft\\\\web\\\\View, \\\"SORT_ASC\\\" => 4, \\\"SORT_DESC\\\" => 3, \\\"POS_HEAD\\\" => 1, ...], []\"},{\"objectClass\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/twig/Template.php\",\"line\":51,\"class\":\"Twig_Template\",\"method\":\"displayWithErrorHandling\",\"args\":\"[\\\"view\\\" => craft\\\\web\\\\View, \\\"SORT_ASC\\\" => 4, \\\"SORT_DESC\\\" => 3, \\\"POS_HEAD\\\" => 1, ...], []\"},{\"objectClass\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"file\":\"/home/vagrant/craftx.dev/vendor/twig/twig/lib/Twig/Template.php\",\"line\":364,\"class\":\"craft\\\\web\\\\twig\\\\Template\",\"method\":\"displayWithErrorHandling\",\"args\":\"[\\\"view\\\" => craft\\\\web\\\\View, \\\"SORT_ASC\\\" => 4, \\\"SORT_DESC\\\" => 3, \\\"POS_HEAD\\\" => 1, ...], []\"},{\"objectClass\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/twig/Template.php\",\"line\":32,\"class\":\"Twig_Template\",\"method\":\"display\",\"args\":\"[], []\"},{\"objectClass\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"file\":\"/home/vagrant/craftx.dev/vendor/twig/twig/lib/Twig/Template.php\",\"line\":372,\"class\":\"craft\\\\web\\\\twig\\\\Template\",\"method\":\"display\",\"args\":\"[]\"},{\"objectClass\":\"__TwigTemplate_12b002a15fd334babbf854b87dcd548a2fcafa3cbd3ab080d663cb9565a98f89\",\"file\":\"/home/vagrant/craftx.dev/vendor/twig/twig/lib/Twig/Environment.php\",\"line\":288,\"class\":\"Twig_Template\",\"method\":\"render\",\"args\":\"[]\"},{\"objectClass\":\"craft\\\\web\\\\twig\\\\Environment\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/View.php\",\"line\":242,\"class\":\"Twig_Environment\",\"method\":\"render\",\"args\":\"\\\"signup\\\", []\"},{\"objectClass\":\"craft\\\\web\\\\View\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/View.php\",\"line\":274,\"class\":\"craft\\\\web\\\\View\",\"method\":\"renderTemplate\",\"args\":\"\\\"signup\\\", []\"},{\"objectClass\":\"craft\\\\web\\\\View\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/Controller.php\",\"line\":100,\"class\":\"craft\\\\web\\\\View\",\"method\":\"renderPageTemplate\",\"args\":\"\\\"signup\\\", []\"},{\"objectClass\":\"craft\\\\controllers\\\\TemplatesController\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/controllers/TemplatesController.php\",\"line\":56,\"class\":\"craft\\\\web\\\\Controller\",\"method\":\"renderTemplate\",\"args\":\"\\\"signup\\\", []\"},{\"objectClass\":\"craft\\\\controllers\\\\TemplatesController\",\"file\":null,\"line\":null,\"class\":\"craft\\\\controllers\\\\TemplatesController\",\"method\":\"actionRender\",\"args\":\"\\\"signup\\\", []\"},{\"objectClass\":null,\"file\":\"/home/vagrant/craftx.dev/vendor/yiisoft/yii2/base/InlineAction.php\",\"line\":57,\"class\":null,\"method\":\"call_user_func_array\",\"args\":\"[craft\\\\controllers\\\\TemplatesController, \\\"actionRender\\\"], [\\\"signup\\\", []]\"},{\"objectClass\":\"yii\\\\base\\\\InlineAction\",\"file\":\"/home/vagrant/craftx.dev/vendor/yiisoft/yii2/base/Controller.php\",\"line\":156,\"class\":\"yii\\\\base\\\\InlineAction\",\"method\":\"runWithParams\",\"args\":\"[\\\"template\\\" => \\\"signup\\\"]\"},{\"objectClass\":\"craft\\\\controllers\\\\TemplatesController\",\"file\":\"/home/vagrant/craftx.dev/vendor/yiisoft/yii2/base/Module.php\",\"line\":523,\"class\":\"yii\\\\base\\\\Controller\",\"method\":\"runAction\",\"args\":\"\\\"render\\\", [\\\"template\\\" => \\\"signup\\\"]\"},{\"objectClass\":\"craft\\\\web\\\\Application\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/Application.php\",\"line\":329,\"class\":\"yii\\\\base\\\\Module\",\"method\":\"runAction\",\"args\":\"\\\"templates/render\\\", [\\\"template\\\" => \\\"signup\\\"]\"},{\"objectClass\":\"craft\\\\web\\\\Application\",\"file\":\"/home/vagrant/craftx.dev/vendor/yiisoft/yii2/web/Application.php\",\"line\":102,\"class\":\"craft\\\\web\\\\Application\",\"method\":\"runAction\",\"args\":\"\\\"templates/render\\\", [\\\"template\\\" => \\\"signup\\\"]\"},{\"objectClass\":\"craft\\\\web\\\\Application\",\"file\":\"/home/vagrant/craftx.dev/vendor/craftcms/cms/src/web/Application.php\",\"line\":210,\"class\":\"yii\\\\web\\\\Application\",\"method\":\"handleRequest\",\"args\":\"craft\\\\web\\\\Request\"},{\"objectClass\":\"craft\\\\web\\\\Application\",\"file\":\"/home/vagrant/craftx.dev/vendor/yiisoft/yii2/base/Application.php\",\"line\":380,\"class\":\"craft\\\\web\\\\Application\",\"method\":\"handleRequest\",\"args\":\"craft\\\\web\\\\Request\"},{\"objectClass\":\"craft\\\\web\\\\Application\",\"file\":\"/home/vagrant/craftx.dev/web/index.php\",\"line\":21,\"class\":\"yii\\\\base\\\\Application\",\"method\":\"run\",\"args\":null}]','2017-02-23 19:27:56','2017-02-24 02:00:56','a267a437-e970-48c8-b37d-cae154b7b0ba');
+
+/*!40000 ALTER TABLE `cx_deprecationerrors` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table cx_elementindexsettings
@@ -312,7 +321,7 @@ INSERT INTO `cx_elements` (`id`, `type`, `enabled`, `archived`, `dateCreated`, `
 VALUES
 	(1,'craft\\elements\\User',1,0,'2017-02-06 18:39:45','2017-02-13 04:35:16','8f9b3b5a-a4c8-40c5-970a-01394dc85b8a'),
 	(2,'craft\\elements\\Entry',1,0,'2017-02-06 18:57:45','2017-02-07 05:30:57','ed27feb3-0e3f-457b-be29-6a7d20af0a51'),
-	(3,'craft\\elements\\User',1,0,'2017-02-18 01:29:14','2017-02-18 01:29:14','6b6a037c-c82e-43bc-afb4-f7c86856ca45');
+	(3,'craft\\elements\\User',1,0,'2017-02-18 01:29:14','2017-02-23 04:24:10','6b6a037c-c82e-43bc-afb4-f7c86856ca45');
 
 /*!40000 ALTER TABLE `cx_elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -350,7 +359,7 @@ INSERT INTO `cx_elements_i18n` (`id`, `elementId`, `siteId`, `slug`, `uri`, `ena
 VALUES
 	(1,1,1,'',NULL,1,'2017-02-06 18:39:45','2017-02-13 04:35:16','9504a134-b2e6-46af-b4aa-74c9b71c7b77'),
 	(2,2,1,'homepage','__home__',1,'2017-02-06 18:57:45','2017-02-07 05:30:57','5283df6e-7b1f-456c-ae86-5e3974e90a16'),
-	(3,3,1,'',NULL,1,'2017-02-18 01:30:24','2017-02-18 01:30:24','d7effd95-63bb-4be4-a3a6-5f621dcfc327');
+	(3,3,1,'',NULL,1,'2017-02-18 01:30:24','2017-02-23 04:24:10','d7effd95-63bb-4be4-a3a6-5f621dcfc327');
 
 /*!40000 ALTER TABLE `cx_elements_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1125,7 +1134,8 @@ VALUES
 	(7,1,'U1noLV4rAJ497QSHMtY7Rh-AdXlbaFM7-De327o8cpxFgPQfiG2KNZ7adDGDgekCLzeN1hy54o9cXemX0s0g9ZYs7708GtiRWKGM','2017-02-13 06:15:52','2017-02-13 06:15:52','81103b06-681d-4064-b289-7392650a5f06'),
 	(8,1,'a47N530MG1bDfBwg9ZvUXcq2uGS3rtKVqkhrkQwTImE944Zb1pOvT6ScWDXBxelUr9PYwEhuFxV0tLx8jhqKEZ6R2KeVRqBlJdbc','2017-02-13 07:10:58','2017-02-13 07:31:05','9ceac91a-9f69-46d4-8ef1-f5c3c85ab77b'),
 	(10,1,'f0SsTvAn9ptioDYrYbEncTN2gRp9NNgS1G8WPUjhn2PSMwPSDRW_ReIjYDEE73Hspyj2o2loHt7yhhPKdwA9taeOz8SU2eZizbBZ','2017-02-16 04:01:06','2017-02-16 04:03:42','75d7bd5d-8591-4ac4-8bbe-a20682328209'),
-	(14,1,'20geVmBlM_SIRPdYmLiyxXUotWAEV2jRIcWp3e9lxRMTJf-75kW7JjClne1eeb5r9pbNX8wzkfINQklJooO3OIyU9_tuhFqnv8Gg','2017-02-18 01:31:40','2017-02-18 02:08:20','3389e6ce-6408-41b0-9118-e9da2ae66e65');
+	(14,1,'20geVmBlM_SIRPdYmLiyxXUotWAEV2jRIcWp3e9lxRMTJf-75kW7JjClne1eeb5r9pbNX8wzkfINQklJooO3OIyU9_tuhFqnv8Gg','2017-02-18 01:31:40','2017-02-18 02:08:20','3389e6ce-6408-41b0-9118-e9da2ae66e65'),
+	(15,3,'JEhuZ7AybXhRKCWH8efoAgt_ZxCygb3QPJ5uqZYgteouij0Je4RXXfa4Lj_ualYhOVLV8yHc_0t4pluGbpofoLxx0pwgWmtDcTI0','2017-02-23 04:24:34','2017-02-23 04:52:48','ce77a4fa-592c-4407-95dd-24238fed688b');
 
 /*!40000 ALTER TABLE `cx_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1582,8 +1592,8 @@ LOCK TABLES `cx_users` WRITE;
 
 INSERT INTO `cx_users` (`id`, `username`, `photoId`, `firstName`, `lastName`, `email`, `password`, `admin`, `client`, `locked`, `suspended`, `pending`, `archived`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'selvinortiz',NULL,'Selvin','Ortiz','selvin@craftx.io','$2y$13$lpMCTvAg0o/B.7enJrbT.OuB4zToqUGASlsZsfFE8vf94dzoxGbEu',1,0,0,0,0,0,'2017-02-18 01:31:41','192.168.10.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-06 18:39:45','2017-02-06 18:39:45','2017-02-18 01:31:41','6dd21ec5-be58-47c4-9c4e-4f04346dd128'),
-	(3,'selvin-selvin.co',NULL,'Selvin','Ortiz','selvin@selvin.co',NULL,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,'$2y$13$fJ6TvTIivsheY57gTXZ1BeQx4NTQGgnGJYDlpyiqUVZb75gmk63zS','2017-02-18 01:33:30',NULL,0,NULL,'2017-02-18 01:30:24','2017-02-18 01:33:30','08ba55cf-b8f7-4b94-b43f-d335ed2dacfa');
+	(1,'selvinortiz',NULL,'Selvin','Ortiz','selvin@craftx.io','$2y$13$lpMCTvAg0o/B.7enJrbT.OuB4zToqUGASlsZsfFE8vf94dzoxGbEu',1,0,0,0,0,0,'2017-02-23 02:46:55','192.168.10.1',NULL,NULL,NULL,NULL,'$2y$13$Ep8xb9FBK0d3.6CK6lz/7.Sm8uXAnaG8lc/ZczWBdXIFQjpSNr7bC','2017-02-23 04:00:08',NULL,0,'2017-02-06 18:39:45','2017-02-06 18:39:45','2017-02-23 04:00:08','6dd21ec5-be58-47c4-9c4e-4f04346dd128'),
+	(3,'selvin-selvinco',NULL,'Selvin','Ortiz','selvin@selvin.co','$2y$13$Sslt7yvMuB2eV0jKxhMrJeUWWeYVGukE2jCnXjM.P/I6vNeviqNv2',0,0,0,0,0,0,'2017-02-23 19:26:26','192.168.10.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-23 04:24:10','2017-02-18 01:30:24','2017-02-23 19:26:26','08ba55cf-b8f7-4b94-b43f-d335ed2dacfa');
 
 /*!40000 ALTER TABLE `cx_users` ENABLE KEYS */;
 UNLOCK TABLES;

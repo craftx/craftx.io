@@ -75,16 +75,17 @@
   .section--subscribe form {
     margin-top: 40px; }
 
+#home .title, #home .subtitle {
+  text-align: center; }
+
 @media all and (max-width: 768px) {
-  .title, .subtitle {
-    text-align: center; }
   .section--hero {
     padding: 0; } }
 
 @media all and (min-width: 769px) {
-  .section--features .title, .section--features .subtitle {
+  #home .section--features .title, #home .section--features .subtitle {
     text-align: left; }
-  .section--features .icon-block {
+  #home .section--features .icon-block {
     min-height: 300px;
     background-size: 256px; } }
 
@@ -204,6 +205,32 @@ body {
 label.has-optional-input:after {
   content: " (Optional)";
   color: #c6c7c8; }
+
+.has-no-top-margin {
+  margin-top: 0; }
+
+.is-form-section-title, .is-form-section-title:not(:last-child) {
+  margin-bottom: 0; }
+
+.is-stripe-field {
+  border-radius: 3px;
+  line-height: 1.5;
+  padding: 0.75em;
+  position: relative;
+  vertical-align: top;
+  background-color: white;
+  color: #363636;
+  border: 1px solid #dbdbdb;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  min-height: 30px; }
+
+.help, .is-field-hint {
+  font-size: 1rem; }
+
+.is-stripe-error {
+  font-family: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin-top: 10px;
+  min-height: 20px; }
 
 /*
  ------------------------------------------------------------

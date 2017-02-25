@@ -40,6 +40,6 @@
     }
   ],
   "require-dev": {
-    "laravel/homestead": "^4.0"
+    "laravel/homestead": "4.0.4"
   }
 }

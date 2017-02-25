@@ -59,17 +59,19 @@
         margin-top: $column-pad * 2;
     }
 }
-
-@include sm {
+#home {
     .title, .subtitle {
         text-align: center;
     }
+}
+
+@include sm {
     .section--hero {
         padding: 0;
     }
 }
 @include md {
-    .section--features {
+    #home .section--features {
         .title, .subtitle {
             text-align: left;
         }
