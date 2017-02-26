@@ -14,11 +14,11 @@
  ------------------------------------------------------------*/
 
 body {
+    color: #242b3f;
+    background-color: #fff;
     line-height: 1.5;
     word-spacing: 0.25em;
 }
-
-
 /*
  ------------------------------------------------------------
  @video
@@ -41,25 +41,10 @@ body {
  ------------------------------------------------------------
  @bulma overrides
  ------------------------------------------------------------*/
-
-.title,
-.subtitle {
-    line-height: 1.4;
-}
-
 .nav.nav--primary {
     z-index: 99;
     min-height: 5rem;
-}
-
-.title,
-.subtitle {
-    color: inherit;
-    @extend .is-inset;
-}
-
-.title+.subtitle {
-    margin-top: 20px;
+    background-color: transparent;
 }
 
 .nav-item img {
@@ -69,6 +54,17 @@ body {
     padding: 2em;
     margin-right: 1em;
     height: initial;
+}
+
+.title,
+.subtitle {
+    @extend .is-inset;
+    color: inherit;
+    line-height: 1.4;
+}
+
+.title+.subtitle {
+    margin-top: 20px;
 }
 
 .footer {

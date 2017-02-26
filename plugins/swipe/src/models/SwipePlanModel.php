@@ -43,4 +43,8 @@ class SwipePlanModel extends Model {
         'intervalCount' => 'interval_count',
         'statementDescription' => 'statement_descriptor',
     ];
+
+    public function amount() {
+        return number_format(($this->amount/100), 2);
+    }
 }

@@ -59,8 +59,9 @@
         margin-top: $column-pad * 2;
     }
 }
-
-.section--signup, .section--login {
+.section--player,
+.section--signup,
+.section--login {
     @include pattern-bg;
 }
 

@@ -76,7 +76,9 @@
   .section--subscribe form {
     margin-top: 40px; }
 
-.section--signup, .section--login {
+.section--player,
+.section--signup,
+.section--login {
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat; }
 
 #home .title, #home .subtitle {
@@ -137,7 +139,7 @@ label.has-optional-input:after {
   padding: 1em 2em; }
 
 .input, .select select {
-  color: #9642be; }
+  color: #00966C; }
 
 @media all and (max-width: 480px) {
   .control .is-small-mobile, .is-small-mobile {
@@ -164,6 +166,8 @@ label.has-optional-input:after {
  @base
  ------------------------------------------------------------*/
 body {
+  color: #242b3f;
+  background-color: #fff;
   line-height: 1.5;
   word-spacing: 0.25em; }
 
@@ -185,20 +189,10 @@ body {
  ------------------------------------------------------------
  @bulma overrides
  ------------------------------------------------------------*/
-.title,
-.subtitle {
-  line-height: 1.4; }
-
 .nav.nav--primary {
   z-index: 99;
-  min-height: 5rem; }
-
-.title,
-.subtitle {
-  color: inherit; }
-
-.title + .subtitle {
-  margin-top: 20px; }
+  min-height: 5rem;
+  background-color: transparent; }
 
 .nav-item img {
   max-height: 3rem; }
@@ -207,6 +201,14 @@ body {
   padding: 2em;
   margin-right: 1em;
   height: initial; }
+
+.title,
+.subtitle {
+  color: inherit;
+  line-height: 1.4; }
+
+.title + .subtitle {
+  margin-top: 20px; }
 
 .footer {
   background-color: inherit; }

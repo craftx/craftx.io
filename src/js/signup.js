@@ -33,6 +33,9 @@ let signup_vm = new Vue({
         _card: {}
     },
     computed: {
+        inUs() {
+            return this.country.toLowerCase() === 'us';
+        },
         name() {
             return this.firstName + ' ' + this.lastName;
         }

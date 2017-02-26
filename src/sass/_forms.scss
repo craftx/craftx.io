@@ -43,7 +43,7 @@ label.has-optional-input {
     padding: 1em 2em;
 }
 .input, .select select {
-    color: $info;
+    color: $primary;
 }
 
 @include xs() {

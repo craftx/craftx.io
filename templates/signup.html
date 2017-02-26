@@ -18,7 +18,7 @@
                             <input type="hidden" name="redirect" :value="redirect">
                             {{ csrfInput() }}
 
-                            <h2 class="title is-3 is-form-section-title">Basics</h2>
+                            <h2 class="title is-3 is-form-section-title">Basic Info</h2>
                             <div class="is-control-container">
                                 {# Outside of control to aligne with label(less) input #}
                                 <label class="label">Name</label>
@@ -34,54 +34,6 @@
 
                             <div class="is-control-container">
                                 <p class="control">
-                                    <label class="label">Email</label>
-                                    <input v-model="email" name="email" class="input is-large" type="email" :placeholder="us('brad@angry.com', 'email@domain.com')" >
-                                </p>
-                            </div>
-
-                            <hr class="is-form-section-divider"/>
-
-                            <h2 class="title is-3  is-form-section-title has-top-margin">Login</h2>
-                            <div class="is-control-container">
-                                <p class="control">
-                                    <label class="label">Username</label>
-                                    <input v-model="username" name="username" class="input is-large" type="text" :placeholder="us('tacobell', 'username')" autocomplete="off">
-                                    <span class="help">
-                                        <span class="icon"><i class="fa fa-hand-o-right"></i></span>
-                                        <b v-if="username">{{ siteUrl }}@@{ username }</b>
-                                        <b v-else>{{ siteUrl }}@{ us('tacobell', 'username') }</b>
-                                  </span>
-                              </p>
-                            </div>
-
-                            <div class="is-control-container">
-                                <p class="control">
-                                    <label class="label">Password</label>
-                                    <input class="input is-large" type="password" placeholder="Make it strong" autocomplete="off" >
-                                </p>
-                            </div>
-
-                            <hr class="is-form-section-divider"/>
-
-                            <h2 class="title is-3 is-form-section-title has-top-margin">Select Your Plan</h2>
-                            <div class="is-control-container">
-                                <p class="control">
-                                    <span class="select is-large is-full-width">
-                                        <select name="planId" class="is-full-width">
-                                            <option value="monthly-developer">Developer Monthly $4.99</option>
-                                            <option value="monthly-developer">Developer Yearly $49.99</option>
-                                            <option value="monthly-team">Supporter (Lifetime) $999</option>
-                                        </select>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <hr class="is-form-section-divider"/>
-
-                            <h2 class="title is-3 is-form-section-title has-top-margin">Billing Address</h2>
-
-                            <div class="is-control-container">
-                                <p class="control">
                                     <label class="label">Country</label>
                                     <span class="select is-large is-full-width">
                                         {% include '_special/country-select' %}
@@ -93,11 +45,11 @@
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
                                         <label class="label">Address</label>
-                                        <input v-model="address1" name="address1" class="input is-large" type="text">
+                                        <input v-model="address1" name="address1" class="input is-large" type="text" :placeholder="us('123 Baker St.')">
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label has-optional-field">Address 2</label>
-                                        <input v-model="address2" name="address2" class="input is-large" type="text">
+                                        <input v-model="address2" name="address2" class="input is-large" type="text" :placeholder="us('Suite 101')">
                                     </p>
                                 </div>
                             </div>
@@ -106,7 +58,7 @@
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
                                         <label class="label">City</label>
-                                        <input v-model="city" name="city" class="input is-large" type="text">
+                                        <input v-model="city" name="city" class="input is-large" type="text" :placeholder="us('New York')">
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label">
@@ -125,9 +77,57 @@
                                 </div>
                             </div>
 
+    
                             <hr class="is-form-section-divider"/>
 
-                            <h2 class="title is-3 is-form-section-title has-top-margin">Card Details</h2>
+                            <h2 class="title is-3  is-form-section-title has-top-margin">Login Info</h2>
+                            <div class="is-control-container">
+                                <p class="control">
+                                    <label class="label">Email</label>
+                                    <input v-model="email" name="email" class="input is-large" type="email" :placeholder="us('brad@angry.com', 'email@domain.com')" >
+                                </p>
+                            </div>
+
+                            <div class="is-control-container">
+                                <label class="label">Username</label>
+                                <p class="control">
+                                    <input v-model="username" name="username" class="input is-large" type="text" :placeholder="us('tacobell', 'username')" autocomplete="off">
+                                    <span class="help">
+                                        <span class="icon"><i class="fa fa-hand-o-right"></i></span>
+                                        <a>
+                                            <b v-if="username">{{ siteUrl }}@@{ username }</b>
+                                            <b v-else>{{ siteUrl }}@@{ us('tacobell', 'username') }</b>
+                                        </a>
+                                  </span>
+                              </p>
+                            </div>
+
+                            <div class="is-control-container">
+                                <label class="label">Password</label>
+                                <p class="control">
+                                    <input class="input is-large" type="password" placeholder="Make it strong" autocomplete="off" >
+                                </p>
+                            </div>
+
+                            <hr class="is-form-section-divider"/>
+
+                            <h2 class="title is-3 is-form-section-title has-top-margin">Select Your Plan</h2>
+                            <div class="is-control-container">
+                                <p class="control">
+                                    <span class="select is-large is-full-width">
+                                        <select name="planId" class="is-full-width">
+                                            {% for plan in craft.swipe.plans() %}
+                                                <option value="{{ plan.id }}">{{ plan.name }} {{ plan.amount()|currency(plan.currency) }}</option>
+
+                                            {% endfor %}
+                                        </select>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <hr class="is-form-section-divider"/>
+
+                            <h2 class="title is-3 is-form-section-title has-top-margin">Enter Card Details</h2>
                             <div class="is-control-container">
                                 <label class="label">Number / Expiry (Month &amp; Year) / CCV</label>
                                 <div class="control">
