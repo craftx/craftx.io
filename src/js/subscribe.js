@@ -2,7 +2,7 @@
 
 let Helpers = require('./helpers');
 let Axios = require('axios');
-let Vue = require('vue/dist/vue.js');
+let Vue = require('vue/dist/vue.min.js');
 let axiosConfig = {
     headers: {
         'X-Requested-With': 'XMLHttpRequest',

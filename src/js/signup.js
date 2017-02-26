@@ -1,7 +1,7 @@
 'use strict';
 
 let Axios = require('axios');
-let Vue = require('vue/dist/vue.js');
+let Vue = require('vue/dist/vue.min.js');
 let _ = require('lodash');
 
 let axiosConfig = {
