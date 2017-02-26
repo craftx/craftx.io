@@ -51,7 +51,7 @@ let signup_vm = new Vue({
             hidePostalCode: true,
             style: {
                 base: {
-                    color: '#303238',
+                    color: '#9642be',
                     fontFamily: 'monospace',
                     fontSmoothing: 'antialiased',
                     '::placeholder': {
@@ -128,6 +128,9 @@ let signup_vm = new Vue({
             });
 
             return validate();
+        },
+        us(value, optional = '') {
+            return this.country.toLowerCase() === 'us' ? value : optional;
         }
     }
 });

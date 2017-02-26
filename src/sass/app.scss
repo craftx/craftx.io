@@ -48,6 +48,7 @@ body {
 }
 
 .nav.nav--primary {
+    z-index: 99;
     min-height: 5rem;
 }
 
@@ -70,13 +71,6 @@ body {
     height: initial;
 }
 
-.button {
-    height: auto;
-    line-height: 1;
-    word-spacing: 0.3em;
-    padding: 0.70em 2em;
-}
-
 .footer {
     background-color: inherit;
 }
@@ -94,7 +88,28 @@ body {
 .is-inset-inverted {
     text-shadow: 1px 2px 0 #363738;
 }
+.is-form-section-divider {
+    padding: 0;
+    border: none;
+    margin-top: $column-pad2x;
+    margin-bottom: $column-pad2x;
+    border-top: 10px double $gray-e;
+    color: $gray-a;
+    text-align: center;
+    background: transparent;
 
+    &:after {
+        content: "§";
+        display: inline-block;
+        position: relative;
+        top: -1em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: white;
+        border: 1px solid $gray-e;
+        border-radius: 50% 50%;
+    }
+}
 .is-heavy {
     font-weight: 500;
 }
@@ -129,11 +144,7 @@ body {
 }
 .is-full-width {
     min-width: 100%;
-}
-.is-button-container {
-    margin-top: $column-pad;
-    padding-top: $column-pad;
-    border-top: 1px dotted $gray-d;
+    max-width: 100%;
 }
 
 /*

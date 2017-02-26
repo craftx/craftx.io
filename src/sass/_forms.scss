@@ -18,6 +18,7 @@ label.has-optional-input {
     border-radius: 3px;
     line-height: 1.5;
     padding: 0.75em;
+    margin-bottom: 0;
     position: relative;
     vertical-align: top;
     background-color: white;
@@ -34,12 +35,15 @@ label.has-optional-input {
 .help, .is-field-hint {
     font-size: 1rem;
 }
-.section--signup {
-    @include pattern-bg;
-}
 
-.section--login {
-    margin: 2rem 0;
+.button {
+    height: auto;
+    line-height: 1;
+    word-spacing: 0.3em;
+    padding: 1em 2em;
+}
+.input, .select select {
+    color: $info;
 }
 
 @include xs() {
@@ -53,26 +57,20 @@ label.has-optional-input {
             margin-top: $column-pad;
         }
     }
-    .control .is-small-mobile, .is-small-mobile {
-        font-size: 1.25rem;
-    }
     .is-full-width-mobile {
-        min-width: 100%;
-        max-width: 100%;
-    }
-    .is-full-width {
         min-width: 100%;
         max-width: 100%;
     }
 }
 
 @include md() {
-    .section--signup {
-        background: none;
-    }
     .form-container {
         @include pattern-bg;
         padding: $column-pad2x;
         border: 2px solid $gray-d;
+    }
+    .button {
+        padding-top: .75em;
+        padding-bottom: .75em;
     }
 }

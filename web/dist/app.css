@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  ------------------------------------------------------------
  @imports
@@ -75,6 +76,9 @@
   .section--subscribe form {
     margin-top: 40px; }
 
+.section--signup, .section--login {
+  background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat; }
+
 #home .title, #home .subtitle {
   text-align: center; }
 
@@ -87,7 +91,9 @@
     text-align: left; }
   #home .section--features .icon-block {
     min-height: 300px;
-    background-size: 256px; } }
+    background-size: 256px; }
+  .section--signup, .section--login {
+    background: none; } }
 
 .is-control-container {
   padding-top: 10px;
@@ -107,6 +113,7 @@ label.has-optional-input:after {
   border-radius: 3px;
   line-height: 1.5;
   padding: 0.75em;
+  margin-bottom: 0;
   position: relative;
   vertical-align: top;
   background-color: white;
@@ -123,11 +130,14 @@ label.has-optional-input:after {
 .help, .is-field-hint {
   font-size: 1rem; }
 
-.section--signup {
-  background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat; }
+.button {
+  height: auto;
+  line-height: 1;
+  word-spacing: 0.3em;
+  padding: 1em 2em; }
 
-.section--login {
-  margin: 2rem 0; }
+.input, .select select {
+  color: #9642be; }
 
 @media all and (max-width: 480px) {
   .control .is-small-mobile, .is-small-mobile {
@@ -136,22 +146,18 @@ label.has-optional-input:after {
 @media all and (max-width: 768px) {
   .control.has-no-label .input {
     margin-top: 20px; }
-  .control .is-small-mobile, .is-small-mobile {
-    font-size: 1.25rem; }
   .is-full-width-mobile {
-    min-width: 100%;
-    max-width: 100%; }
-  .is-full-width {
     min-width: 100%;
     max-width: 100%; } }
 
 @media all and (min-width: 769px) {
-  .section--signup {
-    background: none; }
   .form-container {
     background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
     padding: 40px;
-    border: 2px solid #d6d7d8; } }
+    border: 2px solid #d6d7d8; }
+  .button {
+    padding-top: .75em;
+    padding-bottom: .75em; } }
 
 /*
  ------------------------------------------------------------
@@ -184,6 +190,7 @@ body {
   line-height: 1.4; }
 
 .nav.nav--primary {
+  z-index: 99;
   min-height: 5rem; }
 
 .title,
@@ -201,12 +208,6 @@ body {
   margin-right: 1em;
   height: initial; }
 
-.button {
-  height: auto;
-  line-height: 1;
-  word-spacing: 0.3em;
-  padding: 0.70em 2em; }
-
 .footer {
   background-color: inherit; }
 
@@ -220,6 +221,26 @@ body {
 
 .is-inset-inverted, .section--thanks .title, .section--thanks .subtitle {
   text-shadow: 1px 2px 0 #363738; }
+
+.is-form-section-divider {
+  padding: 0;
+  border: none;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-top: 10px double #e6e7e8;
+  color: #a6a7a8;
+  text-align: center;
+  background: transparent; }
+  .is-form-section-divider:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -1em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+    border: 1px solid #e6e7e8;
+    border-radius: 50% 50%; }
 
 .is-heavy {
   font-weight: 500; }
@@ -247,12 +268,8 @@ body {
   text-align: right; }
 
 .is-full-width {
-  min-width: 100%; }
-
-.is-button-container {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px dotted #d6d7d8; }
+  min-width: 100%;
+  max-width: 100%; }
 
 /*
  ------------------------------------------------------------

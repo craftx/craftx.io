@@ -59,6 +59,11 @@
         margin-top: $column-pad * 2;
     }
 }
+
+.section--signup, .section--login {
+    @include pattern-bg;
+}
+
 #home {
     .title, .subtitle {
         text-align: center;
@@ -79,5 +84,8 @@
             min-height: 300px;
             background-size: 256px;
         }
+    }
+    .section--signup, .section--login {
+        background: none;
     }
 }
