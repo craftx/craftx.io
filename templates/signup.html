@@ -13,7 +13,7 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="form-container">
-                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8">
+                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
                             <input type="hidden" name="action" :value="action">
                             <input type="hidden" name="redirect" :value="redirect">
                             {{ csrfInput() }}
@@ -94,11 +94,8 @@
                                     <input v-model="username" name="username" class="input is-large" type="text" :placeholder="us('tacobell', 'username')" autocomplete="off">
                                     <span class="help is-danger" v-if="error('username')">@{ errors.username }</span>
                                     <span class="help" v-else>
-                                        <span class="icon"><i class="fa fa-hand-o-right"></i></span>
-                                        <a>
-                                            <b v-if="username">{{ siteUrl }}@@{ username }</b>
-                                            <b v-else>{{ siteUrl }}@@{ us('tacobell', 'username') }</b>
-                                        </a>
+                                        <span v-if="username">{{ siteUrl }}@@{ username }</span>
+                                        <span v-else>{{ siteUrl }}@@{ us('tacobell', 'username') }</span>
                                   </span>
                               </p>
                             </div>

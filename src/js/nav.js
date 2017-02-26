@@ -2,7 +2,7 @@
 
 let Vue = require('vue/dist/vue.min.js');
 
-let nav_vm = new Vue({
+let navVM = new Vue({
     el: '#nav',
     data: {
         mobileNavIsActive: false

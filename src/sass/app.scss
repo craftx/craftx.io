@@ -19,6 +19,11 @@ body {
     line-height: 1.5;
     word-spacing: 0.25em;
 }
+
+[v-cloak] {
+    visibility: hidden;
+}
+
 /*
  ------------------------------------------------------------
  @video

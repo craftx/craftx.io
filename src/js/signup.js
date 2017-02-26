@@ -11,24 +11,46 @@ let axiosConfig = {
     }
 };
 
-let signup_vm = new Vue({
+let stripeElementConfig = {
+    hidePostalCode: true,
+    iconStyle: 'solid',
+    style: {
+        base: {
+            color: '#9642be',
+            iconColor: '#9642be',
+            fontFamily: '"Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif',
+            fontSize: '1.5rem'
+        }
+    }
+};
+let stripeElementFont = {
+    fonts: [{
+        family: 'Fira Sans',
+        weight: 300,
+        src: 'local("Fira Sans"), url("https://craftx.io/dist/fonts/firasans-regular.woff2") format("woff2"), url("https://craftx.io/dist/fonts/firasans-regular.woff") format("woff")',
+    }],
+}
+
+let stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
+
+let signupVM = new Vue({
     el: '#signup',
     delimiters: ['@{', '}'],
     data: {
         action: 'users/save-user',
         redirect: '/v1/confirm-your-email',
-        email: '',
-        username: '',
-        firstName: '',
-        lastName: '',
-        address1: '',
+        email: 'userone@selvin.co',
+        username: 'userone',
+        firstName: 'User',
+        lastName: 'One',
+        address1: '123 One St',
         address2: '',
-        city: '',
-        state: '',
-        zip: '',
+        city: 'Blaine',
+        state: 'MN',
+        zip: '55113',
         country: 'us',
         signingUp: false,
-        errors: [],
+        errors: {},
         _token: {},
         _stripe: {},
         _card: {}
@@ -50,50 +72,49 @@ let signup_vm = new Vue({
         }
     },
     mounted() {
-        this._stripe = Stripe('pk_test_ivZFpjEGRxj38UYz4CYQUk4t');
-        this._card = this._stripe.elements().create('card', {
-            hidePostalCode: true,
-            style: {
-                base: {
-                    color: '#9642be',
-                    fontFamily: 'monospace',
-                    fontSmoothing: 'antialiased',
-                    '::placeholder': {
-                        color: '#ccc',
-                    },
-                },
-                invalid: {
-                    color: '#c00'
-                }
-            }
-        });
+        this._stripe = Stripe(stripePublishableKey);
+        this._card = this._stripe.elements(stripeElementFont).create('card', stripeElementConfig);
 
         this._card.mount('#card-element');
+
+        window.addEventListener('resize', (e) => {
+            this.updateCardStyle();
+        });
+
+        this.updateCardStyle();
     },
     methods: {
+        updateCardStyle() {
+            if (window.innerWidth <= 768) {
+                this._card.update({style: {base: {fontSize: '1rem'}}});
+            } else {
+                this._card.update({style: {base: {fontSize: '1.75rem'}}});
+            }
+        },
         checkout() {
             let app = this;
-            console.log('Attempting to checkout');
             this.signingUp = true;
             this._stripe.createToken(this._card, {
                 name: app.name,
                 address_country: this.country,
-                address_line1: "60 97TH LN NE",
-                address_city: "Blaine",
-                address_state: "MN",
-                address_zip: "55434"
+                address_line1: this.address1,
+                address_city: this.city,
+                address_state: this.state,
+                address_zip: this.zip
             }).then(function(result) {
                 if (result.error) {
                     // Inform the user if there was an error
                     let errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
-                    console.log(errorElement);
                 } else {
                     // Send the token to your server
                     app._token = result.token;
-                    console.log(result);
+                    app.sendCheckoutForm();
                 }
             });
+        },
+        sendCheckoutForm() {
+
         },
         validateEmail() {
             let app = this;
@@ -102,47 +123,47 @@ let signup_vm = new Vue({
                 .then(
                     (response) => {
                         if (!response.data.success) {
-                            
-                            return console.log(response.data.message);
+                            app.error('email', response.data.message);
                         }
 
-                        this.errors.push(response.data.message);
+                        app.error('email', '');
                     },
                     (response) => {
-                        console.log(response);
+                        app.error('email', 'Unable to validate email');
                     }
                 );
-            });
+            }, 500);
 
             return validate();
         },
         validateUsername() {
             let app = this;
             let validate = _.debounce(() => {
+                if (this.username.len < 5) {
+                    return;
+                }
                 Axios.post('/actions/swipe/users/validate-username', {username: app.username}, axiosConfig)
                 .then(
                     (response) => {
                         if (!response.data.success) {
-                            this.error('email', 'response.data.message');
-                            return console.log(response.data.message);
+                            app.error('username', response.data.message);
                         }
 
-                        this.error('email', '', true);
-                        console.log(response.data.message);
+                        app.error('username', '');
                     },
                     (response) => {
-                        console.log(response);
+                        app.error('username', 'Unable to validate username');
                     }
                 );
-            });
+            }, 500);
 
             return validate();
         },
-        error(field, error = null, unset = false) {
-            if (error !== null) {
-                this.errors[field] = error;
-            } else if (unset !== null) {
-                delete(this.errors[field]);
+        error(field, error = '', remove = false) {
+            if (error !== '') {
+                this.$set(this.errors, field, error);
+            } else if (remove !== false) {
+                this.$delete(this.errors, field);
             } else {
                 return (this.errors.hasOwnProperty(field) && this.errors[field] !== '');
             }

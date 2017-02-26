@@ -94,7 +94,7 @@ class SwipeUsersController extends Controller {
             return $this->asJson([
                 'status' => '__INVALID',
                 'success' => false,
-                'message' => 'Usernames must fit this pattern [a-z0-9\-]{5,25}'
+                'message' => 'Hint > [a-z0-9-]{5,25}'
             ]);
         }
 

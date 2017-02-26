@@ -14,6 +14,12 @@ label.has-optional-input {
 .is-form-section-title, .is-form-section-title:not(:last-child) {
     margin-bottom: 0;
 }
+
+/*
+ ------------------------------------------------------------
+ @stripe
+ ------------------------------------------------------------*/
+
 .is-stripe-field {
     border-radius: 3px;
     line-height: 1.5;
@@ -35,7 +41,9 @@ label.has-optional-input {
 .help, .is-field-hint {
     font-size: 1rem;
 }
-
+.StripeElement--focus {
+    border: 1px solid $primary;
+}
 .button {
     height: auto;
     line-height: 1;

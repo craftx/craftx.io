@@ -10,7 +10,7 @@ let axiosConfig = {
     }
 };
 
-let subscribe_vm = new Vue({
+let subscribeVM = new Vue({
     el: '#newsletter',
     data: {
         email: '',
