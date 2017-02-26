@@ -13,7 +13,7 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="form-container">
-                        <form @submit.prevent="checkout" id="signup" method="post" accept-charset="UTF-8">
+                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8">
                             <input type="hidden" name="action" :value="action">
                             <input type="hidden" name="redirect" :value="redirect">
                             {{ csrfInput() }}
@@ -76,7 +76,6 @@
                                     </p>
                                 </div>
                             </div>
-
     
                             <hr class="is-form-section-divider"/>
 
@@ -85,6 +84,7 @@
                                 <p class="control">
                                     <label class="label">Email</label>
                                     <input v-model="email" name="email" class="input is-large" type="email" :placeholder="us('brad@angry.com', 'email@domain.com')" >
+                                    <span class="help is-error" v-if="error('email')">@{ errors.email }</span>
                                 </p>
                             </div>
 
@@ -92,7 +92,8 @@
                                 <label class="label">Username</label>
                                 <p class="control">
                                     <input v-model="username" name="username" class="input is-large" type="text" :placeholder="us('tacobell', 'username')" autocomplete="off">
-                                    <span class="help">
+                                    <span class="help is-danger" v-if="error('username')">@{ errors.username }</span>
+                                    <span class="help" v-else>
                                         <span class="icon"><i class="fa fa-hand-o-right"></i></span>
                                         <a>
                                             <b v-if="username">{{ siteUrl }}@@{ username }</b>
@@ -132,7 +133,7 @@
                                 <label class="label">Number / Expiry (Month &amp; Year) / CCV</label>
                                 <div class="control">
                                     <div class="is-stripe-field is-large" id="card-element"></div>
-                                    <div class="is-stripe-error" id="card-errors"></div>
+                                    <div class="is-stripe-error is-danger" id="card-errors"></div>
                                 </div>
                             </div>
 

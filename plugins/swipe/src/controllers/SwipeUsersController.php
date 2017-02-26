@@ -56,7 +56,7 @@ class SwipeUsersController extends Controller {
     public function actionValidateEmail() {
         $email = swipe()->api->getDecodedParam('email');
 
-        if (($user = Craft::$app->users->getUserByUsernameOrEmail($username))) {
+        if (($user = Craft::$app->users->getUserByUsernameOrEmail($email))) {
             return $this->asJson([
                 'status' => '__TAKEN',
                 'success' => false,
@@ -64,7 +64,7 @@ class SwipeUsersController extends Controller {
             ]);
         }
 
-        if (!filter_validate($email, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $this->asJson([
                 'status' => '__INVALID',
                 'success' => false,

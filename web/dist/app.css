@@ -138,8 +138,8 @@ label.has-optional-input:after {
   word-spacing: 0.3em;
   padding: 1em 2em; }
 
-.input, .select select {
-  color: #00966C; }
+.has-colorful-inputs .input, .has-colorful-inputs .select select {
+  color: #9642be; }
 
 @media all and (max-width: 480px) {
   .control .is-small-mobile, .is-small-mobile {

@@ -42,10 +42,11 @@ label.has-optional-input {
     word-spacing: 0.3em;
     padding: 1em 2em;
 }
-.input, .select select {
-    color: $primary;
+.has-colorful-inputs {
+    .input, .select select {
+        color: $info;
+    }
 }
-
 @include xs() {
     .control .is-small-mobile, .is-small-mobile {
         font-size: 1rem;

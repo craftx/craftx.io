@@ -55361,6 +55361,7 @@ var signup_vm = new Vue({
         zip: '',
         country: 'us',
         signingUp: false,
+        errors: [],
         _token: {},
         _stripe: {},
         _card: {}
@@ -55407,8 +55408,10 @@ var signup_vm = new Vue({
         checkout: function checkout() {
             var app = this;
             console.log('Attempting to checkout');
+            this.signingUp = true;
             this._stripe.createToken(this._card, {
                 name: app.name,
+                address_country: this.country,
                 address_line1: "60 97TH LN NE",
                 address_city: "Blaine",
                 address_state: "MN",
@@ -55427,14 +55430,17 @@ var signup_vm = new Vue({
             });
         },
         validateEmail: function validateEmail() {
+            var _this = this;
+
             var app = this;
             var validate = _.debounce(function () {
                 Axios.post('/actions/swipe/users/validate-email', { email: app.email }, axiosConfig).then(function (response) {
                     if (!response.data.success) {
+
                         return console.log(response.data.message);
                     }
 
-                    console.log(response.data.message);
+                    _this.errors.push(response.data.message);
                 }, function (response) {
                     console.log(response);
                 });
@@ -55443,20 +55449,37 @@ var signup_vm = new Vue({
             return validate();
         },
         validateUsername: function validateUsername() {
+            var _this2 = this;
+
             var app = this;
             var validate = _.debounce(function () {
                 Axios.post('/actions/swipe/users/validate-username', { username: app.username }, axiosConfig).then(function (response) {
                     if (!response.data.success) {
+                        _this2.error('email', 'response.data.message');
                         return console.log(response.data.message);
                     }
 
-                    console.log('Great', response.data.message);
+                    _this2.error('email', '', true);
+                    console.log(response.data.message);
                 }, function (response) {
                     console.log(response);
                 });
             });
 
             return validate();
+        },
+        error: function error(field) {
+            var _error = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+            var unset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+            if (_error !== null) {
+                this.errors[field] = _error;
+            } else if (unset !== null) {
+                delete this.errors[field];
+            } else {
+                return this.errors.hasOwnProperty(field) && this.errors[field] !== '';
+            }
         },
         us: function us(value) {
             var optional = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';

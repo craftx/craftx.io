@@ -28,6 +28,7 @@ let signup_vm = new Vue({
         zip: '',
         country: 'us',
         signingUp: false,
+        errors: [],
         _token: {},
         _stripe: {},
         _card: {}
@@ -73,8 +74,10 @@ let signup_vm = new Vue({
         checkout() {
             let app = this;
             console.log('Attempting to checkout');
+            this.signingUp = true;
             this._stripe.createToken(this._card, {
                 name: app.name,
+                address_country: this.country,
                 address_line1: "60 97TH LN NE",
                 address_city: "Blaine",
                 address_state: "MN",
@@ -99,10 +102,11 @@ let signup_vm = new Vue({
                 .then(
                     (response) => {
                         if (!response.data.success) {
+                            
                             return console.log(response.data.message);
                         }
 
-                        console.log(response.data.message);
+                        this.errors.push(response.data.message);
                     },
                     (response) => {
                         console.log(response);
@@ -119,10 +123,12 @@ let signup_vm = new Vue({
                 .then(
                     (response) => {
                         if (!response.data.success) {
+                            this.error('email', 'response.data.message');
                             return console.log(response.data.message);
                         }
 
-                        console.log('Great', response.data.message);
+                        this.error('email', '', true);
+                        console.log(response.data.message);
                     },
                     (response) => {
                         console.log(response);
@@ -131,6 +137,15 @@ let signup_vm = new Vue({
             });
 
             return validate();
+        },
+        error(field, error = null, unset = false) {
+            if (error !== null) {
+                this.errors[field] = error;
+            } else if (unset !== null) {
+                delete(this.errors[field]);
+            } else {
+                return (this.errors.hasOwnProperty(field) && this.errors[field] !== '');
+            }
         },
         us(value, optional = '') {
             return this.country.toLowerCase() === 'us' ? value : optional;
