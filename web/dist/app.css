@@ -76,10 +76,19 @@
   .section--subscribe form {
     margin-top: 40px; }
 
+.section--dashboard,
 .section--player,
 .section--signup,
 .section--login {
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat; }
+
+.section--dashboard {
+  border-bottom: 2px solid #d6d7d8; }
+
+.dashboard-content-wrapper {
+  background-color: #fff;
+  border: 1px solid #d6d7d8;
+  padding: 20px 40px; }
 
 #home .title, #home .subtitle {
   text-align: center; }
@@ -211,6 +220,10 @@ body {
   padding: 2em;
   margin-right: 1em;
   height: initial; }
+
+.menu-label {
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #d6d7d8; }
 
 .title,
 .subtitle {

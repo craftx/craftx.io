@@ -22,11 +22,11 @@ class SwipeUsersController extends Controller {
         'request-password-reset'
     ];
 
-    private $_userTemplates = '_users';
-    private $_dashboardTemplates = '_users/dashboard';
+    private $_userTemplate = 'users/_index';
+    private $_dashboardTemplate = 'users/dashboard/_index';
 
     public function actionIndex(string $username = '') {
-        $template = $this->_userTemplates;
+        $template = $this->_userTemplate;
         $userSegment = Craft::$app->request->getSegment(1);
 
         if (!Craft::$app->user->getIsGuest()) {
@@ -39,7 +39,7 @@ class SwipeUsersController extends Controller {
             if ($userSegment == '@username') {
                 Craft::$app->response->redirect(UrlHelper::siteUrl($postLoginRedirect));
             } else if ($userSegment == $postLoginRedirect) {
-                $template = $this->_dashboardTemplates;
+                $template = $this->_dashboardTemplate;
             }
         } else {
             if ($userSegment == '@username') {
@@ -115,7 +115,7 @@ class SwipeUsersController extends Controller {
         }
 
         Craft::$app->users->sendPasswordResetEmail($user);
-        http://craftx.dev/actions/users/set-password?code=g-o8UxDKok35R20Jzuy9dfsyNOKnoZJF&id=6b6a037c-c82e-43bc-afb4-f7c86856ca45
+        // http://craftx.dev/actions/users/set-password?code=g-o8UxDKok35R20Jzuy9dfsyNOKnoZJF&id=6b6a037c-c82e-43bc-afb4-f7c86856ca45
         return $this->redirectToPostedUrl($user);
     }
 }

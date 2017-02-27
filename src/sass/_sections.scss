@@ -59,12 +59,20 @@
         margin-top: $column-pad * 2;
     }
 }
+.section--dashboard,
 .section--player,
 .section--signup,
 .section--login {
     @include pattern-bg;
 }
-
+.section--dashboard {
+    border-bottom: 2px solid $gray-d;
+}
+.dashboard-content-wrapper {
+    background-color: #fff;
+    border: 1px solid $gray-d;
+    padding: $column-pad $column-pad2x;
+}
 #home {
     .title, .subtitle {
         text-align: center;

@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Craft Training for Busy Developers">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="stylesheet" href="/dist/vendor.css?v=1">
+        <link rel="stylesheet" href="/dist/app.css?v=1">
+        {% include '_special/metadata' %}
+    </head>
+    <body id="{{ id }}">
+        {% include '_includes/nav' %}
+
+        {% set sidebar = true %}
+
+        {% if (hideSidebar is defined and hideSidebar) or not currentUser %}
+            {% set sidebar = false %}
+        {% endif %}
+
+        <section class="section section--dashboard">
+            <div class="container">
+                <div class="columns">
+                    {% if sidebar %}
+                        <div class="column is-4">
+                            {% include 'users/_sidebar' %}
+                        </div>
+                    {% endif %}
+                    <div class="column {{ sidebar ? 'is-8' }}">
+                        {{ content}}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <div class="content has-text-centered">
+                            <p class="subtitle is-5 is-heavy is-inset">
+                                &copy;{{ "now"|date("Y") }} {{ siteName }}, All Rights Reserved.
+                            </p>
+                            <p class="subtitle is-5 is-heavy">
+                                <a href="/terms">Terms</a>
+                                |
+                                <a href="/privacy">Privacy</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="is-full column">
+                        <div class="hero-icons has-text-centered">
+                            <nav>
+                                <a href="mailto:support@craftx.io" title="support@craftx.io">
+                                    <span class="icon is-large"><i class="fa fa-envelope-square"></i></span>
+                                </a>
+                                <a href="https://github.com/craftx" title="Craft X on Github" target="_blank">
+                                    <span class="icon is-large"><i class="fa fa-github-square"></i></span>
+                                </a>
+                                <a href="https://twitter.com/craftxio" title="Craft X on Twitter" target="_blank">
+                                    <span class="icon is-large"><i class="fa fa-twitter-square"></i></span>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            window.csrfTokenName = "{{ craft.app.config.get('csrfTokenName')|e('js') }}";
+            window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";
+        </script>
+
+        {% if scripts is defined and scripts is iterable %}
+            {% for script in scripts %}
+                <script src="{{ script }}"></script>
+            {% endfor %}
+        {% endif %}
+
+        {% if js is defined and js is not empty %}
+            {{ js }}
+        {% endif %}
+
+
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="/dist/app.js?v=1"></script>
+    </body>
+</html>
