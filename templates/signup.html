@@ -1,6 +1,7 @@
 {% extends '_layout' %}
 {% set id = 'sign-up' %}
 {% set title = 'Craft Training for Busy Developers' %}
+{% set coupon = craft.request.getQuery('coupon') %}
 
 {% set content %}
     {#
@@ -20,7 +21,7 @@
 
                             <h2 class="title is-3 is-form-section-title">Basic Info</h2>
                             <div class="is-control-container">
-                                {# Outside of control to aligne with label(less) input #}
+                                {# Outside of control to align with label(less) input #}
                                 <label class="label">Name</label>
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
@@ -84,7 +85,7 @@
                                 <p class="control">
                                     <label class="label">Email</label>
                                     <input v-model="email" name="email" class="input is-large" type="email" :placeholder="us('brad@angry.com', 'email@domain.com')" >
-                                    <span class="help is-error" v-if="error('email')">@{ errors.email }</span>
+                                    <span class="help is-error" v-if="hint('email')">@{ hints.email }</span>
                                 </p>
                             </div>
 
@@ -92,7 +93,7 @@
                                 <label class="label">Username</label>
                                 <p class="control">
                                     <input v-model="username" name="username" class="input is-large" type="text" :placeholder="us('tacobell', 'username')" autocomplete="off">
-                                    <span class="help is-danger" v-if="error('username')">@{ errors.username }</span>
+                                    <span class="help is-danger" v-if="hint('username')">@{ hints.username }</span>
                                     <span class="help" v-else>
                                         <span v-if="username">{{ siteUrl }}@@{ username }</span>
                                         <span v-else>{{ siteUrl }}@@{ us('tacobell', 'username') }</span>
@@ -113,14 +114,25 @@
                             <div class="is-control-container">
                                 <p class="control">
                                     <span class="select is-large is-full-width">
-                                        <select name="planId" class="is-full-width">
+                                        <select v-model="planId" name="planId" class="is-full-width">
                                             {% for plan in craft.swipe.plans() %}
-                                                <option value="{{ plan.id }}">{{ plan.name }} {{ plan.amount()|currency(plan.currency) }}</option>
-
+                                                <option value="{{ plan.id }}">{{ plan.name }} {{ plan.amount() }}</option>
                                             {% endfor %}
                                         </select>
                                     </span>
                                 </p>
+                            </div>
+                            <div class="is-control-container">
+                                <label class="label">Have a Coupon?</label>
+                                <div class="control is-grouped">
+                                    <p class="control is-expanded">
+                                        <input v-model="coupon" value="{{ coupon }}" class="input is-expanded is-large" type="text" placeholder="CRAFTXCOUPON">
+                                        <span v-if="hint('coupon')" class="help">@{ hints.coupon }</span>
+                                    </p>
+                                    <p class="control">
+                                        <button @click.prevent="applyCoupon" class="button is-primary" :class="{ 'is-loading': applyingCoupon }">Apply</button>
+                                    </p>
+                                </div>
                             </div>
 
                             <hr class="is-form-section-divider"/>
@@ -130,7 +142,7 @@
                                 <label class="label">Number / Expiry (Month &amp; Year) / CCV</label>
                                 <div class="control">
                                     <div class="is-stripe-field is-large" id="card-element"></div>
-                                    <div class="is-stripe-error is-danger" id="card-errors"></div>
+                                    <div class="is-stripe-error" id="card-errors"></div>
                                 </div>
                             </div>
 

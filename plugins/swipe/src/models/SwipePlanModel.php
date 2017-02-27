@@ -45,6 +45,6 @@ class SwipePlanModel extends Model {
     ];
 
     public function amount() {
-        return number_format(($this->amount/100), 2);
+        return sprintf('$%s', number_format(($this->amount/100), 2));
     }
 }

@@ -1,15 +1,8 @@
 'use strict';
 
-let Axios = require('axios');
+let Helpers = require('./helpers');
 let Vue = require('vue/dist/vue.min.js');
 let _ = require('lodash');
-
-let axiosConfig = {
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'X-CSRF-Token': csrfTokenValue
-    }
-};
 
 let stripeElementConfig = {
     hidePostalCode: true,
@@ -23,13 +16,14 @@ let stripeElementConfig = {
         }
     }
 };
+
 let stripeElementFont = {
     fonts: [{
         family: 'Fira Sans',
         weight: 300,
         src: 'local("Fira Sans"), url("https://craftx.io/dist/fonts/firasans-regular.woff2") format("woff2"), url("https://craftx.io/dist/fonts/firasans-regular.woff") format("woff")',
     }],
-}
+};
 
 let stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
 
@@ -49,8 +43,11 @@ let signupVM = new Vue({
         state: 'MN',
         zip: '55113',
         country: 'us',
+        planId: 'CRAFTXDEVMONTHLY',
+        coupon: '',
         signingUp: false,
-        errors: {},
+        applyingCoupon: false,
+        hints: {},
         _token: {},
         _stripe: {},
         _card: {}
@@ -77,13 +74,34 @@ let signupVM = new Vue({
 
         this._card.mount('#card-element');
 
-        window.addEventListener('resize', (e) => {
+        window.addEventListener('resize', () => {
             this.updateCardStyle();
         });
 
         this.updateCardStyle();
     },
     methods: {
+        applyCoupon() {
+            let app = this;
+            if (this.coupon.length < 6) {
+                return app.hint('coupon', 'Invalid coupon');
+            }
+
+            this.applyingCoupon = true;
+            Helpers.__post(
+                '/actions/swipe/plans/get-coupon',
+                {coupon: app.coupon, plan: app.planId},
+                (response) => {
+                    this.applyingCoupon = false;
+                    return app.hint('coupon', response.data.message);
+                },
+                (response) => {
+                    console.log(response);
+                    this.applyingCoupon = false;
+                    return app.hint('coupon', 'Unable to verify the coupon');
+                }
+            );
+        },
         updateCardStyle() {
             if (window.innerWidth <= 768) {
                 this._card.update({style: {base: {fontSize: '1rem'}}});
@@ -119,17 +137,19 @@ let signupVM = new Vue({
         validateEmail() {
             let app = this;
             let validate = _.debounce(() => {
-                Axios.post('/actions/swipe/users/validate-email', {email: app.email}, axiosConfig)
-                .then(
+                Helpers.__post(
+                    '/actions/swipe/users/validate-email',
+                    {email: app.email},
                     (response) => {
                         if (!response.data.success) {
-                            app.error('email', response.data.message);
+                            app.hint('email', response.data.message);
                         }
 
-                        app.error('email', '');
+                        app.hint('email', '');
                     },
                     (response) => {
-                        app.error('email', 'Unable to validate email');
+                        console.log(response);
+                        app.hint('email', 'Unable to validate email');
                     }
                 );
             }, 500);
@@ -139,33 +159,35 @@ let signupVM = new Vue({
         validateUsername() {
             let app = this;
             let validate = _.debounce(() => {
-                if (this.username.len < 5) {
+                if (this.username.length < 5) {
                     return;
                 }
-                Axios.post('/actions/swipe/users/validate-username', {username: app.username}, axiosConfig)
-                .then(
+                Helpers.__post(
+                    '/actions/swipe/users/validate-username',
+                    {username: app.username},
                     (response) => {
                         if (!response.data.success) {
-                            app.error('username', response.data.message);
+                            app.hint('username', response.data.message);
                         }
 
-                        app.error('username', '');
+                        app.hint('username', '');
                     },
                     (response) => {
-                        app.error('username', 'Unable to validate username');
+                        console.log(response);
+                        app.hint('username', 'Unable to validate username');
                     }
                 );
             }, 500);
 
             return validate();
         },
-        error(field, error = '', remove = false) {
+        hint(field, error = '', remove = false) {
             if (error !== '') {
-                this.$set(this.errors, field, error);
+                this.$set(this.hints, field, error);
             } else if (remove !== false) {
-                this.$delete(this.errors, field);
+                this.$delete(this.hints, field);
             } else {
-                return (this.errors.hasOwnProperty(field) && this.errors[field] !== '');
+                return (this.hints.hasOwnProperty(field) && this.hints[field] !== '');
             }
         },
         us(value, optional = '') {

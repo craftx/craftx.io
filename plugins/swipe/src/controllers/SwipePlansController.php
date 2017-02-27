@@ -10,10 +10,15 @@ use craft\web\Controller;
 
 use selvinortiz\swipe\models\SwipePlanModel;
 use function selvinortiz\swipe\swipe;
-use yii\log\Logger;
+use Stripe\Coupon;
+use Stripe\Error\InvalidRequest;
+use Stripe\Plan;
 
 class SwipePlansController extends Controller {
-    protected $allowAnonymous = ['actionSubscribe'];
+    protected $allowAnonymous = [
+        'action-sign-up',
+        'action-get-coupon'
+    ];
 
     public function actionEdit(string $id = '') {
         $this->requireAdmin();
@@ -40,7 +45,34 @@ class SwipePlansController extends Controller {
         }
     }
 
-    public function actionSubscribe() {
+    public function actionGetCoupon()
+    {
+        $this->requireAcceptsJson();
+        $success = false;
+        $message = 'Sorry, coupon is invalid or expired';
+        $coupon = swipe()->api->getDecodedParam('coupon');
+        $plan = swipe()->api->getDecodedParam('plan');
+
+        try {
+            $coupon = Coupon::retrieve($coupon);
+        } catch(InvalidRequest $invalidRequest) {
+            $message = $invalidRequest->getMessage();
+        }
+
+        if ($coupon && $coupon->valid) {
+            $success = true;
+            $message = sprintf('Yes, %s%% Discount!', $coupon->percent_off);
+
+            try {
+                $plan = Plan::retrieve($plan);
+                $message = sprintf('Nice, you are saving $%s!', ($plan->amount/(100/$coupon->percent_off)) / 100);
+            } catch (InvalidRequest $invalidRequest) {}
+        }
+
+        return $this->asJson(compact('success', 'coupon', 'message'));
+    }
+
+    public function actionSignUp() {
         $this->requirePostRequest();
         $this->requireAcceptsJson();
 

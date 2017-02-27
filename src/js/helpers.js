@@ -1,4 +1,13 @@
 let Alert = require('sweetalert');
+let Axios = require('axios');
+
+let axiosConfig = {
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-Token': csrfTokenValue,
+        'ACCEPTS': 'application/json'
+    }
+};
 
 module.exports = {
     __yay(title, message) {
@@ -16,5 +25,9 @@ module.exports = {
             type: "error",
             confirmButtonColor: '#00966c'
         });
+    },
+    __post(url, data = {}, success = function() {}, failure = function() {}) {
+        Axios.post(url, data, axiosConfig)
+            .then(success, failure);
     }
-}
+};
