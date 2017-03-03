@@ -11,6 +11,7 @@ return [
         'env' => '*',
         'devMode' => false,
         'siteUrl' => 'https://craftx.io',
+        'sitePath' => __DIR__.'/../web/',
         'cpTrigger' => 'studio',
         'defaultWeekStartDay' => 0, // 0 = Sunday, 1 = Monday
         'enableCsrfProtection' => true,
