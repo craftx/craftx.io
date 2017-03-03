@@ -3,7 +3,7 @@
     "Statement": [{
         "Resource": "{{ resourceUrl }}",
         "Condition": {
-            "IpAddress": {"AWS:SourceIp": "{{ clientIp }}"},
+            {{ clientIp is defined ? ('"IpAddress": {"AWS:SourceIp": "'~ clientIp ~ '"},')|raw }}
             "DateLessThan": {"AWS:EpochTime": {{ expirationTimestamp }}}
         }
     }]

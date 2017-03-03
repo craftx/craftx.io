@@ -1,7 +1,7 @@
 {% extends '_layout' %}
 {% set id = 'sign-up' %}
 {% set title = 'Craft Training for Busy Developers' %}
-{% set coupon = craft.request.getQuery('coupon') %}
+{% set coupon = craft.request.getQueryParam('coupon') %}
 
 {% set content %}
     {#

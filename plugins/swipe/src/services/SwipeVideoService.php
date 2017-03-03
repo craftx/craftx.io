@@ -34,13 +34,17 @@ class SwipeVideoService extends Component {
     }
 
     public function getSignedUrl(string $resource): string {
+        $ip = $this->getClientIp();
         $resourceUrl = self::BASE_URL.$resource;
 
         $policyVars = [
-            'clientIp' => $this->getClientIp(),
             'resourceUrl' => $resourceUrl,
             'expirationTimestamp' => $this->getExpiration()
         ];
+
+        if ($ip) {
+            $policyVars['clientIp'] = $ip;
+        }
 
         return $this->_cloudFrontClient->getSignedUrl([
             'url' => $resourceUrl,
@@ -69,8 +73,10 @@ class SwipeVideoService extends Component {
         return $rendered;
     }
 
-    private function getClientIp(): string {
-        return Craft::$app->config->get('env') == 'dev' ? '50.188.56.107' : $_SERVER['REMOTE_ADDR'];
+    private function getClientIp() {
+        $ip = Craft::$app->config->get('env') == 'dev' ? '50.188.56.107' : $_SERVER['REMOTE_ADDR'];
+
+        return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
     }
 
     private function getExpiration(): int {
