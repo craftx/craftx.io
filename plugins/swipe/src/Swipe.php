@@ -79,9 +79,8 @@ class Swipe extends Plugin {
         Craft::$app->config->set('postLoginRedirect', swipe()->api->getPostLoginRedirect($event->identity));
     }
 
-    public function handleAfterSave(ModelEvent $event) {
+    public function handleAfterSave(UserEvent $event) {
         if ($event->isNew && $event->isValid) {
-
         }
     }
 
