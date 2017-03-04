@@ -1,7 +1,7 @@
 {% extends '_layout' %}
 {% set id = 'sign-up' %}
 {% set title = 'Craft Training for Busy Developers' %}
-{% set coupon = craft.request.getQueryParam('coupon') %}
+{% set coupon = craft.request.getQuery('coupon') %}
 
 {% set content %}
     {#
@@ -14,7 +14,7 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="form-container">
-                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
+                        <form @submit="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
                             <input type="hidden" name="action" :value="action">
                             <input type="hidden" name="redirect" :value="redirect">
                             {{ csrfInput() }}
@@ -46,11 +46,11 @@
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
                                         <label class="label">Address</label>
-                                        <input v-model="address1" name="address1" class="input is-large" type="text" :placeholder="us('123 Baker St.')">
+                                        <input v-model="address1" name="fields[billingAddress1]" class="input is-large" type="text" :placeholder="us('123 Baker St.')">
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label has-optional-field">Address 2</label>
-                                        <input v-model="address2" name="address2" class="input is-large" type="text" :placeholder="us('Suite 101')">
+                                        <input v-model="address2" name="fields[billingAddress2]" class="input is-large" type="text" :placeholder="us('Suite 101')">
                                     </p>
                                 </div>
                             </div>
@@ -59,21 +59,21 @@
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
                                         <label class="label">City</label>
-                                        <input v-model="city" name="city" class="input is-large" type="text" :placeholder="us('New York')">
+                                        <input v-model="city" name="fields[billingCity]" class="input is-large" type="text" :placeholder="us('New York')">
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label">
                                             <span v-if="country === 'us'">State</span>
                                             <span v-else>Province</span>
                                         </label>
-                                        <input v-model="state" name="state" class="input is-large" type="text" :placeholder="us('NY')" >
+                                        <input v-model="state" name="fields[billingState]" class="input is-large" type="text" :placeholder="us('NY')" >
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label">
                                             <span v-if="country === 'us'">Zip</span>
                                             <span v-else>Postal Code</span>
                                         </label>
-                                        <input v-model="zip" name="zip" class="input is-large" type="text" :placeholder="us(90210)" >
+                                        <input v-model="zip" name="fields[billingZip]" class="input is-large" type="text" :placeholder="us(90210)" >
                                     </p>
                                 </div>
                             </div>
@@ -147,8 +147,8 @@
                             </div>
 
                             <div class="is-button-container">
-                                <button type="submit" class="button is-info is-large is-full-width-mobile">
-                                    <span class="icon"><i class="fa fa-graduation-cap" :class="{ 'is-loading': signingUp }"></i></span>
+                                <button type="submit" class="button is-info is-large is-full-width-mobile" :class="{ 'is-loading': signingUp }">
+                                    <span class="icon"><i class="fa fa-graduation-cap"></i></span>
                                     <span>Sign Up</span>
                                 </button>
                             </div>
