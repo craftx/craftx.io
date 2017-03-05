@@ -12,4 +12,5 @@
 !/vendor/craftcms/cms/src/base/ApplicationTrait.php
 !/vendor/craftcms/cms/src/services/Et.php
 /node_modules
+/dbsync.sh
 *.git

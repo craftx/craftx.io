@@ -3,12 +3,9 @@
 {% set title = 'Craft Training for Busy Developers' %}
 
 {% set content %}
-{% include '_homepage/section-hero' %}
-{% include '_homepage/section-features' %}
-{% include '_homepage/section-about' %}
-{% include '_homepage/section-thanks' %}
-{% include '_homepage/section-subscribe' %}
-
-{#<script src="https://checkout.stripe.com/checkout.js"></script>#}
-
+    {% include '_homepage/section-hero' with {block: entry.hero.first()} only %}
+    {% include '_homepage/section-features' with {blocks: entry.features.find()} only %}
+    {% include '_homepage/section-about' %}
+    {% include '_homepage/section-thanks' %}
+    {% include '_homepage/section-subscribe' %}
 {% endset %}
