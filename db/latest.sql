@@ -294,7 +294,7 @@ CREATE TABLE `cx_content` (
   KEY `cx_content_title_fk` (`title`),
   CONSTRAINT `cx_content_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `cx_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_content_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `cx_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -303,7 +303,7 @@ CREATE TABLE `cx_content` (
 
 LOCK TABLES `cx_content` WRITE;
 /*!40000 ALTER TABLE `cx_content` DISABLE KEYS */;
-INSERT INTO `cx_content` VALUES (1,1,1,NULL,'2017-02-06 18:39:45','2017-03-06 06:05:18','733fd721-e25d-49fc-a09b-41c6cc4692af',NULL,'','','','','','','','','',NULL,NULL,NULL,NULL),(2,2,1,'Homepage','2017-02-06 18:57:45','2017-03-06 06:32:08','fd1f3cbe-c14f-4317-a064-a644d62374cc',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Craft Training for Busy Developers','Master Craft CMS through carefully crafted screencasts, produced and presented by an industry veteran.'),(3,3,1,NULL,'2017-02-18 01:30:24','2017-02-23 04:24:10','fc944bf9-f4e3-4029-80cc-ded78e17cae1',NULL,NULL,NULL,NULL,NULL,NULL,'cus_A8eIEbktjRp3Tb',NULL,NULL,'sub_A8eIjgpyQDec67',NULL,NULL,NULL,NULL);
+INSERT INTO `cx_content` VALUES (1,1,1,NULL,'2017-02-06 18:39:45','2017-03-06 06:05:18','733fd721-e25d-49fc-a09b-41c6cc4692af',NULL,'','','','','','','','','',NULL,NULL,NULL,NULL),(2,2,1,'Homepage','2017-02-06 18:57:45','2017-03-06 06:32:08','fd1f3cbe-c14f-4317-a064-a644d62374cc',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Craft Training for Busy Developers','Master Craft CMS through carefully crafted screencasts, produced and presented by an industry veteran.'),(3,3,1,NULL,'2017-02-18 01:30:24','2017-02-23 04:24:10','fc944bf9-f4e3-4029-80cc-ded78e17cae1',NULL,NULL,NULL,NULL,NULL,NULL,'cus_A8eIEbktjRp3Tb',NULL,NULL,'sub_A8eIjgpyQDec67',NULL,NULL,NULL,NULL),(4,10,1,'Announcing CraftX','2017-03-06 19:52:53','2017-03-06 20:05:46','dde3969d-0a6d-442c-ad4f-34b5ca2cc297','# It\'s (almost) here\r\nAfter announcing CraftX in slack, having nothing to share, I was overwhelmed by the response from the community. That positive feedback, led me to setting aside a few days to focus on this project, get the site (MVP at this point) up, and start producing content.\r\n\r\nIt has been an amazing journey alrady, and I haven\'t even started. If I fail, I will be happy that, at least, CraftX did not die as an idea.\r\n\r\nAnyway!\r\n\r\n## What is it?\r\nCraftX is membership based website where I distribute premium training content for Craft CMS, in the form of screencasts.\r\n\r\n## Who is it for?\r\nCraftX is for _Busy Developers_ like you, who want to master Craft CMS without wasting time.\r\n\r\n## How much will it cost?\r\nI\'m leaning on the community to come up with something that is fair to you, and sustainable for me.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Craft Training for Busy Developers');
 /*!40000 ALTER TABLE `cx_content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,7 +391,7 @@ CREATE TABLE `cx_elements` (
   KEY `cx_elements_type_idx` (`type`),
   KEY `cx_elements_enabled_idx` (`enabled`),
   KEY `cx_elements_archived_dateCreated_idx` (`archived`,`dateCreated`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -400,7 +400,7 @@ CREATE TABLE `cx_elements` (
 
 LOCK TABLES `cx_elements` WRITE;
 /*!40000 ALTER TABLE `cx_elements` DISABLE KEYS */;
-INSERT INTO `cx_elements` VALUES (1,'craft\\elements\\User',1,0,'2017-02-06 18:39:45','2017-03-06 06:05:18','8f9b3b5a-a4c8-40c5-970a-01394dc85b8a'),(2,'craft\\elements\\Entry',1,0,'2017-02-06 18:57:45','2017-03-06 06:32:08','ed27feb3-0e3f-457b-be29-6a7d20af0a51'),(3,'craft\\elements\\User',1,0,'2017-02-18 01:29:14','2017-02-23 04:24:10','6b6a037c-c82e-43bc-afb4-f7c86856ca45'),(4,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','c2197b23-31fb-46cb-af30-77c78184d21e'),(5,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','cc2de781-41ee-49c7-83ee-2b959c519595'),(6,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','29ffa80a-a8b6-4487-9d51-56249ce6b29f'),(7,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','dbc1ed27-8205-49a4-915e-cadd95227eab'),(8,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','b91d48c8-ae5e-40b6-acfd-bde5ea53af35'),(9,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 06:03:15','2017-03-06 06:32:08','34b6271e-38c2-4bad-a919-d0510e322a04');
+INSERT INTO `cx_elements` VALUES (1,'craft\\elements\\User',1,0,'2017-02-06 18:39:45','2017-03-06 06:05:18','8f9b3b5a-a4c8-40c5-970a-01394dc85b8a'),(2,'craft\\elements\\Entry',1,0,'2017-02-06 18:57:45','2017-03-06 06:32:08','ed27feb3-0e3f-457b-be29-6a7d20af0a51'),(3,'craft\\elements\\User',1,0,'2017-02-18 01:29:14','2017-02-23 04:24:10','6b6a037c-c82e-43bc-afb4-f7c86856ca45'),(4,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','c2197b23-31fb-46cb-af30-77c78184d21e'),(5,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','cc2de781-41ee-49c7-83ee-2b959c519595'),(6,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','29ffa80a-a8b6-4487-9d51-56249ce6b29f'),(7,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','dbc1ed27-8205-49a4-915e-cadd95227eab'),(8,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 05:52:42','2017-03-06 06:32:08','b91d48c8-ae5e-40b6-acfd-bde5ea53af35'),(9,'craft\\elements\\MatrixBlock',1,0,'2017-03-05 06:03:15','2017-03-06 06:32:08','34b6271e-38c2-4bad-a919-d0510e322a04'),(10,'craft\\elements\\Entry',1,0,'2017-03-06 19:52:53','2017-03-06 20:05:46','d7a8319c-a221-4558-8592-d0fda2e50842');
 /*!40000 ALTER TABLE `cx_elements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -429,7 +429,7 @@ CREATE TABLE `cx_elements_i18n` (
   KEY `cx_elements_i18n_enabled_idx` (`enabled`),
   CONSTRAINT `cx_elements_i18n_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `cx_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_elements_i18n_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `cx_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -438,7 +438,7 @@ CREATE TABLE `cx_elements_i18n` (
 
 LOCK TABLES `cx_elements_i18n` WRITE;
 /*!40000 ALTER TABLE `cx_elements_i18n` DISABLE KEYS */;
-INSERT INTO `cx_elements_i18n` VALUES (1,1,1,'',NULL,1,'2017-02-06 18:39:45','2017-03-06 06:05:18','9504a134-b2e6-46af-b4aa-74c9b71c7b77'),(2,2,1,'homepage','__home__',1,'2017-02-06 18:57:45','2017-03-06 06:32:08','5283df6e-7b1f-456c-ae86-5e3974e90a16'),(3,3,1,'',NULL,1,'2017-02-18 01:30:24','2017-02-23 04:24:10','d7effd95-63bb-4be4-a3a6-5f621dcfc327'),(4,4,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','0cdc23ab-7302-4134-9493-21b97cd2459a'),(5,5,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','fce317c9-5809-4cff-a4e7-5d7c3c8e4c77'),(6,6,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','99e6eb9a-4c4e-4cbd-9628-d068e5eb657c'),(7,7,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','35184b9d-ae82-4c6b-9200-f43027abdb16'),(8,8,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','9e2b1646-bb32-4f4b-873c-6e1c5fd67d29'),(9,9,1,NULL,NULL,1,'2017-03-05 06:03:15','2017-03-06 06:32:08','d13f3a50-c65c-47b1-a9e3-da75777a2a17');
+INSERT INTO `cx_elements_i18n` VALUES (1,1,1,'',NULL,1,'2017-02-06 18:39:45','2017-03-06 06:05:18','9504a134-b2e6-46af-b4aa-74c9b71c7b77'),(2,2,1,'homepage','__home__',1,'2017-02-06 18:57:45','2017-03-06 06:32:08','5283df6e-7b1f-456c-ae86-5e3974e90a16'),(3,3,1,'',NULL,1,'2017-02-18 01:30:24','2017-02-23 04:24:10','d7effd95-63bb-4be4-a3a6-5f621dcfc327'),(4,4,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','0cdc23ab-7302-4134-9493-21b97cd2459a'),(5,5,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','fce317c9-5809-4cff-a4e7-5d7c3c8e4c77'),(6,6,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','99e6eb9a-4c4e-4cbd-9628-d068e5eb657c'),(7,7,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','35184b9d-ae82-4c6b-9200-f43027abdb16'),(8,8,1,NULL,NULL,1,'2017-03-05 05:52:42','2017-03-06 06:32:08','9e2b1646-bb32-4f4b-873c-6e1c5fd67d29'),(9,9,1,NULL,NULL,1,'2017-03-05 06:03:15','2017-03-06 06:32:08','d13f3a50-c65c-47b1-a9e3-da75777a2a17'),(10,10,1,'announcing-craftx','blog/announcing-craftx',1,'2017-03-06 19:52:53','2017-03-06 20:05:46','8fbb0662-4318-4973-bc40-388a6e448592');
 /*!40000 ALTER TABLE `cx_elements_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -478,7 +478,7 @@ CREATE TABLE `cx_entries` (
 
 LOCK TABLES `cx_entries` WRITE;
 /*!40000 ALTER TABLE `cx_entries` DISABLE KEYS */;
-INSERT INTO `cx_entries` VALUES (2,1,1,NULL,'2017-03-06 06:32:08',NULL,'2017-02-06 18:57:45','2017-03-06 06:32:08','2466f0af-20d8-4705-bd99-e780840f65f0');
+INSERT INTO `cx_entries` VALUES (2,1,1,NULL,'2017-03-06 06:32:08',NULL,'2017-02-06 18:57:45','2017-03-06 06:32:08','2466f0af-20d8-4705-bd99-e780840f65f0'),(10,4,4,1,'2017-03-06 19:52:00',NULL,'2017-03-06 19:52:53','2017-03-06 20:05:46','7522a1c6-736b-493f-ab47-3a6377cc3196');
 /*!40000 ALTER TABLE `cx_entries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -549,7 +549,7 @@ CREATE TABLE `cx_entrytypes` (
   KEY `cx_entrytypes_fieldLayoutId_fk` (`fieldLayoutId`),
   CONSTRAINT `cx_entrytypes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `cx_fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `cx_entrytypes_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `cx_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -558,7 +558,7 @@ CREATE TABLE `cx_entrytypes` (
 
 LOCK TABLES `cx_entrytypes` WRITE;
 /*!40000 ALTER TABLE `cx_entrytypes` DISABLE KEYS */;
-INSERT INTO `cx_entrytypes` VALUES (1,1,18,'Homepage','homepage',1,'Name',NULL,1,'2017-02-06 18:57:45','2017-03-06 06:28:43','5c2f8151-f389-4dc0-9a0a-c0596ca9686f'),(2,2,2,'Courses','courses',1,'Title',NULL,1,'2017-02-07 05:14:04','2017-02-07 05:14:04','bba6caa7-209e-4ad0-b1a7-1d324ac0e62e');
+INSERT INTO `cx_entrytypes` VALUES (1,1,18,'Homepage','homepage',1,'Name',NULL,1,'2017-02-06 18:57:45','2017-03-06 06:28:43','5c2f8151-f389-4dc0-9a0a-c0596ca9686f'),(3,3,24,'Series','series',1,'Title',NULL,1,'2017-03-06 17:08:44','2017-03-06 19:44:01','20a84e1f-e1ae-44d4-8d53-3fd5e8f71660'),(4,4,26,'Blog','blog',1,'Title',NULL,1,'2017-03-06 17:09:13','2017-03-06 19:44:50','8e6fb78e-cd97-43ba-a44d-82bf857eaf16'),(5,3,25,'Episode','episode',1,'Title',NULL,2,'2017-03-06 19:44:34','2017-03-06 19:44:34','1b852c17-5923-4657-b2c7-de7c68f7f474');
 /*!40000 ALTER TABLE `cx_entrytypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -590,7 +590,7 @@ CREATE TABLE `cx_entryversions` (
   CONSTRAINT `cx_entryversions_entryId_fk` FOREIGN KEY (`entryId`) REFERENCES `cx_entries` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_entryversions_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `cx_sections` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_entryversions_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `cx_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -599,6 +599,7 @@ CREATE TABLE `cx_entryversions` (
 
 LOCK TABLES `cx_entryversions` WRITE;
 /*!40000 ALTER TABLE `cx_entryversions` DISABLE KEYS */;
+INSERT INTO `cx_entryversions` VALUES (1,10,4,1,1,1,'','{\"typeId\":4,\"authorId\":\"1\",\"title\":\"Announcing CraftX™\",\"slug\":\"announcing-craftx\",\"postDate\":1488829973,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":{\"3\":\"# It\'s (almost) here\\r\\nAfter announcing CraftX in slack, having nothing to share, I was overwhelmed by the response from the community. That positive feedback, led me to setting aside a few days to focus on this project, get the site (MVP at this point) up, and start producing content.\\r\\n\\r\\nIt has been an amazing journey alrady, and I haven\'t even started. If I fail, I will be happy that, at least, CraftX did not die as an idea.\\r\\n\\r\\nAnyway!\\r\\n\\r\\n## What is it?\\r\\nA membership based website to access premium training content, delivered as screencasts.\\r\\n\\r\\n## Who is it for?\\r\\n_Busy Developers_ like you, who want to master Craft CMS without wasting time.\\r\\n\\r\\n## How much will it cost?\\r\\nI\'m leaning on the community to come up with something that is fair to you, and sustainable for me.\",\"33\":\"Craft Training for Busy Developers\"}}','2017-03-06 19:52:53','2017-03-06 19:52:53','b518cffc-8f94-403a-8a09-55279c31ec7e'),(2,10,4,1,1,2,'','{\"typeId\":\"4\",\"authorId\":\"1\",\"title\":\"Announcing CraftX\",\"slug\":\"announcing-craftx\",\"postDate\":1488829920,\"expiryDate\":null,\"enabled\":true,\"newParentId\":null,\"fields\":{\"3\":\"# It\'s (almost) here\\r\\nAfter announcing CraftX in slack, having nothing to share, I was overwhelmed by the response from the community. That positive feedback, led me to setting aside a few days to focus on this project, get the site (MVP at this point) up, and start producing content.\\r\\n\\r\\nIt has been an amazing journey alrady, and I haven\'t even started. If I fail, I will be happy that, at least, CraftX did not die as an idea.\\r\\n\\r\\nAnyway!\\r\\n\\r\\n## What is it?\\r\\nCraftX is membership based website where I distribute premium training content for Craft CMS, in the form of screencasts.\\r\\n\\r\\n## Who is it for?\\r\\nCraftX is for _Busy Developers_ like you, who want to master Craft CMS without wasting time.\\r\\n\\r\\n## How much will it cost?\\r\\nI\'m leaning on the community to come up with something that is fair to you, and sustainable for me.\",\"33\":\"Craft Training for Busy Developers\"}}','2017-03-06 20:05:46','2017-03-06 20:05:46','9a96a826-011f-431f-a334-eb657af00e77');
 /*!40000 ALTER TABLE `cx_entryversions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -655,7 +656,7 @@ CREATE TABLE `cx_fieldlayoutfields` (
   CONSTRAINT `cx_fieldlayoutfields_fieldId_fk` FOREIGN KEY (`fieldId`) REFERENCES `cx_fields` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_fieldlayoutfields_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `cx_fieldlayouts` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_fieldlayoutfields_tabId_fk` FOREIGN KEY (`tabId`) REFERENCES `cx_fieldlayouttabs` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -664,7 +665,7 @@ CREATE TABLE `cx_fieldlayoutfields` (
 
 LOCK TABLES `cx_fieldlayoutfields` WRITE;
 /*!40000 ALTER TABLE `cx_fieldlayoutfields` DISABLE KEYS */;
-INSERT INTO `cx_fieldlayoutfields` VALUES (21,6,4,10,0,1,'2017-03-03 07:29:16','2017-03-03 07:29:16','26a1782a-07d3-4aca-b748-dc3dd731bdd4'),(22,6,4,13,0,2,'2017-03-03 07:29:16','2017-03-03 07:29:16','a00a6ccf-0705-4d9a-a5f8-a38f22840dbb'),(23,6,4,11,0,3,'2017-03-03 07:29:16','2017-03-03 07:29:16','b5534b3d-b4f6-494b-9d34-eada8e42e6b7'),(24,6,4,12,0,4,'2017-03-03 07:29:16','2017-03-03 07:29:16','9680b5c6-c7ca-4e96-9d78-bb9f990ca3f0'),(25,6,4,9,0,5,'2017-03-03 07:29:16','2017-03-03 07:29:16','5dd5a74d-6be4-40be-ad2d-8e01ab999b2b'),(26,6,4,5,0,6,'2017-03-03 07:29:16','2017-03-03 07:29:16','c6e487b5-4da2-4664-b936-fe1f8089a8a5'),(27,6,4,6,0,7,'2017-03-03 07:29:16','2017-03-03 07:29:16','98b89802-cfa3-4bd1-9b9d-d6f7b89683be'),(28,6,4,7,0,8,'2017-03-03 07:29:16','2017-03-03 07:29:16','aa56e9d3-df49-4254-bff2-45db0c40da41'),(29,6,4,8,0,9,'2017-03-03 07:29:16','2017-03-03 07:29:16','f0a4ee2f-b336-496f-83a6-393f420457a2'),(56,14,12,22,1,1,'2017-03-05 05:03:45','2017-03-05 05:03:45','e5481c57-7fcd-430a-911b-cb16675fef53'),(57,14,12,23,1,2,'2017-03-05 05:03:45','2017-03-05 05:03:45','801de0ed-ae80-4015-9591-9b577fc308eb'),(58,14,12,24,0,3,'2017-03-05 05:03:45','2017-03-05 05:03:45','db785766-8b82-46d7-9350-8c2fdeea4393'),(59,14,12,25,0,4,'2017-03-05 05:03:45','2017-03-05 05:03:45','663b3528-c347-4fd1-9238-575b72e3a85f'),(60,14,12,26,1,5,'2017-03-05 05:03:45','2017-03-05 05:03:45','765de32c-9b2a-4d1f-b119-2b057fec3d66'),(61,14,12,27,0,6,'2017-03-05 05:03:45','2017-03-05 05:03:45','f4166e4e-94da-4dd9-bc4c-0ef76149b505'),(65,16,14,18,1,1,'2017-03-05 06:17:53','2017-03-05 06:17:53','9bd2693e-7309-413d-9c38-bdc42168cd8d'),(66,16,14,19,1,2,'2017-03-05 06:17:53','2017-03-05 06:17:53','9b6dedac-d5fd-4bd1-9600-fe08ccd570e7'),(67,16,14,20,1,3,'2017-03-05 06:17:53','2017-03-05 06:17:53','2889c7ab-0db1-4830-b649-5fe7f74d6b42'),(68,17,15,29,1,1,'2017-03-06 06:25:51','2017-03-06 06:25:51','40527b40-31ad-4082-b581-93d7718a7088'),(69,17,15,30,1,2,'2017-03-06 06:25:51','2017-03-06 06:25:51','b190148e-b06c-4648-b32a-91ddf5294d94'),(70,17,15,31,1,3,'2017-03-06 06:25:51','2017-03-06 06:25:51','d6061d11-2224-478a-87e7-deaca1bc6913'),(71,18,16,32,0,1,'2017-03-06 06:28:43','2017-03-06 06:28:43','bbe94976-5b75-4687-8580-e5163c2acec1'),(72,18,16,33,0,2,'2017-03-06 06:28:43','2017-03-06 06:28:43','75d10de1-e715-4bc1-be62-4c62fc30e4e2'),(73,18,16,28,0,3,'2017-03-06 06:28:43','2017-03-06 06:28:43','1fbedf44-1132-44c9-bd00-850e64e36aa2'),(74,18,16,17,0,4,'2017-03-06 06:28:43','2017-03-06 06:28:43','45c89e09-a0de-4d9d-889c-04855e903a4a'),(75,18,16,21,0,5,'2017-03-06 06:28:43','2017-03-06 06:28:43','f24ac2c5-7a32-4202-bd67-15925570119a');
+INSERT INTO `cx_fieldlayoutfields` VALUES (21,6,4,10,0,1,'2017-03-03 07:29:16','2017-03-03 07:29:16','26a1782a-07d3-4aca-b748-dc3dd731bdd4'),(22,6,4,13,0,2,'2017-03-03 07:29:16','2017-03-03 07:29:16','a00a6ccf-0705-4d9a-a5f8-a38f22840dbb'),(23,6,4,11,0,3,'2017-03-03 07:29:16','2017-03-03 07:29:16','b5534b3d-b4f6-494b-9d34-eada8e42e6b7'),(24,6,4,12,0,4,'2017-03-03 07:29:16','2017-03-03 07:29:16','9680b5c6-c7ca-4e96-9d78-bb9f990ca3f0'),(25,6,4,9,0,5,'2017-03-03 07:29:16','2017-03-03 07:29:16','5dd5a74d-6be4-40be-ad2d-8e01ab999b2b'),(26,6,4,5,0,6,'2017-03-03 07:29:16','2017-03-03 07:29:16','c6e487b5-4da2-4664-b936-fe1f8089a8a5'),(27,6,4,6,0,7,'2017-03-03 07:29:16','2017-03-03 07:29:16','98b89802-cfa3-4bd1-9b9d-d6f7b89683be'),(28,6,4,7,0,8,'2017-03-03 07:29:16','2017-03-03 07:29:16','aa56e9d3-df49-4254-bff2-45db0c40da41'),(29,6,4,8,0,9,'2017-03-03 07:29:16','2017-03-03 07:29:16','f0a4ee2f-b336-496f-83a6-393f420457a2'),(56,14,12,22,1,1,'2017-03-05 05:03:45','2017-03-05 05:03:45','e5481c57-7fcd-430a-911b-cb16675fef53'),(57,14,12,23,1,2,'2017-03-05 05:03:45','2017-03-05 05:03:45','801de0ed-ae80-4015-9591-9b577fc308eb'),(58,14,12,24,0,3,'2017-03-05 05:03:45','2017-03-05 05:03:45','db785766-8b82-46d7-9350-8c2fdeea4393'),(59,14,12,25,0,4,'2017-03-05 05:03:45','2017-03-05 05:03:45','663b3528-c347-4fd1-9238-575b72e3a85f'),(60,14,12,26,1,5,'2017-03-05 05:03:45','2017-03-05 05:03:45','765de32c-9b2a-4d1f-b119-2b057fec3d66'),(61,14,12,27,0,6,'2017-03-05 05:03:45','2017-03-05 05:03:45','f4166e4e-94da-4dd9-bc4c-0ef76149b505'),(65,16,14,18,1,1,'2017-03-05 06:17:53','2017-03-05 06:17:53','9bd2693e-7309-413d-9c38-bdc42168cd8d'),(66,16,14,19,1,2,'2017-03-05 06:17:53','2017-03-05 06:17:53','9b6dedac-d5fd-4bd1-9600-fe08ccd570e7'),(67,16,14,20,1,3,'2017-03-05 06:17:53','2017-03-05 06:17:53','2889c7ab-0db1-4830-b649-5fe7f74d6b42'),(68,17,15,29,1,1,'2017-03-06 06:25:51','2017-03-06 06:25:51','40527b40-31ad-4082-b581-93d7718a7088'),(69,17,15,30,1,2,'2017-03-06 06:25:51','2017-03-06 06:25:51','b190148e-b06c-4648-b32a-91ddf5294d94'),(70,17,15,31,1,3,'2017-03-06 06:25:51','2017-03-06 06:25:51','d6061d11-2224-478a-87e7-deaca1bc6913'),(71,18,16,32,0,1,'2017-03-06 06:28:43','2017-03-06 06:28:43','bbe94976-5b75-4687-8580-e5163c2acec1'),(72,18,16,33,0,2,'2017-03-06 06:28:43','2017-03-06 06:28:43','75d10de1-e715-4bc1-be62-4c62fc30e4e2'),(73,18,16,28,0,3,'2017-03-06 06:28:43','2017-03-06 06:28:43','1fbedf44-1132-44c9-bd00-850e64e36aa2'),(74,18,16,17,0,4,'2017-03-06 06:28:43','2017-03-06 06:28:43','45c89e09-a0de-4d9d-889c-04855e903a4a'),(75,18,16,21,0,5,'2017-03-06 06:28:43','2017-03-06 06:28:43','f24ac2c5-7a32-4202-bd67-15925570119a'),(78,24,18,32,0,1,'2017-03-06 19:44:01','2017-03-06 19:44:01','0bcf6739-84a4-43b8-a6dc-ef28139ff585'),(79,24,18,33,0,2,'2017-03-06 19:44:01','2017-03-06 19:44:01','27b8b59c-fe1d-4d76-b592-1fce340d0267'),(80,24,18,3,0,3,'2017-03-06 19:44:01','2017-03-06 19:44:01','caf147ed-dd5d-4ed8-bd04-87fb33084bc1'),(81,25,19,32,0,1,'2017-03-06 19:44:34','2017-03-06 19:44:34','016f28ab-8982-466a-970e-4371de3edb95'),(82,25,19,33,0,2,'2017-03-06 19:44:34','2017-03-06 19:44:34','dc17c583-3364-4aba-a293-38aac981a2c8'),(83,25,19,3,0,3,'2017-03-06 19:44:34','2017-03-06 19:44:34','cb4a9745-1fc7-48f2-95e0-bbd299d39616'),(84,26,20,33,0,1,'2017-03-06 19:44:50','2017-03-06 19:44:50','f134c082-1e27-45d2-bac8-0da60ff6bd92'),(85,26,20,3,0,2,'2017-03-06 19:44:50','2017-03-06 19:44:50','0663ef9f-e7cf-4941-a177-bbaa7d12bb9b');
 /*!40000 ALTER TABLE `cx_fieldlayoutfields` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -683,7 +684,7 @@ CREATE TABLE `cx_fieldlayouts` (
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cx_fieldlayouts_type_idx` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -692,7 +693,7 @@ CREATE TABLE `cx_fieldlayouts` (
 
 LOCK TABLES `cx_fieldlayouts` WRITE;
 /*!40000 ALTER TABLE `cx_fieldlayouts` DISABLE KEYS */;
-INSERT INTO `cx_fieldlayouts` VALUES (2,'craft\\elements\\Entry','2017-02-07 05:14:04','2017-02-07 05:14:04','01e7a04d-1849-4164-a4c1-eb3790fe783d'),(6,'craft\\elements\\User','2017-03-03 07:29:16','2017-03-03 07:29:16','c710ff40-fdeb-4c1f-b091-4f728bfabbc8'),(14,'craft\\elements\\MatrixBlock','2017-03-05 05:03:45','2017-03-05 05:03:45','aceb2822-0e14-4baf-b094-d57bbaa94e6b'),(16,'craft\\elements\\MatrixBlock','2017-03-05 06:17:53','2017-03-05 06:17:53','9a0118ae-4100-4374-b399-15875aa7c4e2'),(17,'craft\\elements\\MatrixBlock','2017-03-06 06:25:51','2017-03-06 06:25:51','e5348576-0b50-4a96-b4c0-a957204ba9c7'),(18,'craft\\elements\\Entry','2017-03-06 06:28:43','2017-03-06 06:28:43','54aa87dc-f052-437f-8af8-2d27d589fc41');
+INSERT INTO `cx_fieldlayouts` VALUES (6,'craft\\elements\\User','2017-03-03 07:29:16','2017-03-03 07:29:16','c710ff40-fdeb-4c1f-b091-4f728bfabbc8'),(14,'craft\\elements\\MatrixBlock','2017-03-05 05:03:45','2017-03-05 05:03:45','aceb2822-0e14-4baf-b094-d57bbaa94e6b'),(16,'craft\\elements\\MatrixBlock','2017-03-05 06:17:53','2017-03-05 06:17:53','9a0118ae-4100-4374-b399-15875aa7c4e2'),(17,'craft\\elements\\MatrixBlock','2017-03-06 06:25:51','2017-03-06 06:25:51','e5348576-0b50-4a96-b4c0-a957204ba9c7'),(18,'craft\\elements\\Entry','2017-03-06 06:28:43','2017-03-06 06:28:43','54aa87dc-f052-437f-8af8-2d27d589fc41'),(22,'craft\\elements\\Asset','2017-03-06 17:12:42','2017-03-06 17:12:42','80662f76-4104-4119-bba8-7eb9adcffdd9'),(24,'craft\\elements\\Entry','2017-03-06 19:44:01','2017-03-06 19:44:01','4930d398-9588-4994-a84f-9c87504e5c26'),(25,'craft\\elements\\Entry','2017-03-06 19:44:34','2017-03-06 19:44:34','2339dff9-867f-4071-9068-a642cbc159bd'),(26,'craft\\elements\\Entry','2017-03-06 19:44:50','2017-03-06 19:44:50','59ef2d31-d737-4042-9980-a11e1e13917b');
 /*!40000 ALTER TABLE `cx_fieldlayouts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -715,7 +716,7 @@ CREATE TABLE `cx_fieldlayouttabs` (
   KEY `cx_fieldlayouttabs_sortOrder_idx` (`sortOrder`),
   KEY `cx_fieldlayouttabs_layoutId_fk` (`layoutId`),
   CONSTRAINT `cx_fieldlayouttabs_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `cx_fieldlayouts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -724,7 +725,7 @@ CREATE TABLE `cx_fieldlayouttabs` (
 
 LOCK TABLES `cx_fieldlayouttabs` WRITE;
 /*!40000 ALTER TABLE `cx_fieldlayouttabs` DISABLE KEYS */;
-INSERT INTO `cx_fieldlayouttabs` VALUES (4,6,'Profile',1,'2017-03-03 07:29:16','2017-03-03 07:29:16','25573aeb-e9e8-4f49-a0ea-105e50ffd131'),(12,14,'Content',1,'2017-03-05 05:03:45','2017-03-05 05:03:45','e662f5b1-02f4-41c3-a7e3-6ac1fef40547'),(14,16,'Content',1,'2017-03-05 06:17:53','2017-03-05 06:17:53','360a81e8-3240-49fb-b128-bbdc8267c440'),(15,17,'Content',1,'2017-03-06 06:25:51','2017-03-06 06:25:51','8ab0530f-f030-4611-92bf-5a699c36a5f5'),(16,18,'Content',1,'2017-03-06 06:28:43','2017-03-06 06:28:43','4bbe0bae-0426-48d2-b3bb-1b45d748913c');
+INSERT INTO `cx_fieldlayouttabs` VALUES (4,6,'Profile',1,'2017-03-03 07:29:16','2017-03-03 07:29:16','25573aeb-e9e8-4f49-a0ea-105e50ffd131'),(12,14,'Content',1,'2017-03-05 05:03:45','2017-03-05 05:03:45','e662f5b1-02f4-41c3-a7e3-6ac1fef40547'),(14,16,'Content',1,'2017-03-05 06:17:53','2017-03-05 06:17:53','360a81e8-3240-49fb-b128-bbdc8267c440'),(15,17,'Content',1,'2017-03-06 06:25:51','2017-03-06 06:25:51','8ab0530f-f030-4611-92bf-5a699c36a5f5'),(16,18,'Content',1,'2017-03-06 06:28:43','2017-03-06 06:28:43','4bbe0bae-0426-48d2-b3bb-1b45d748913c'),(18,24,'Content',1,'2017-03-06 19:44:01','2017-03-06 19:44:01','46303f7c-b5f1-4dac-bc37-597ff85c9641'),(19,25,'Content',1,'2017-03-06 19:44:34','2017-03-06 19:44:34','367aa06a-7501-4100-b709-ec748639c0fa'),(20,26,'Content',1,'2017-03-06 19:44:50','2017-03-06 19:44:50','51a383e5-912b-4eff-b8d7-13ec02691698');
 /*!40000 ALTER TABLE `cx_fieldlayouttabs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1183,7 +1184,7 @@ CREATE TABLE `cx_searchindex` (
 
 LOCK TABLES `cx_searchindex` WRITE;
 /*!40000 ALTER TABLE `cx_searchindex` DISABLE KEYS */;
-INSERT INTO `cx_searchindex` VALUES (1,'username',0,1,' selvinortiz '),(1,'firstname',0,1,' selvin '),(1,'lastname',0,1,' ortiz '),(1,'fullname',0,1,' selvin ortiz '),(1,'email',0,1,' selvin craftx io '),(1,'slug',0,1,''),(2,'slug',0,1,' homepage '),(2,'title',0,1,' homepage '),(2,'field',1,1,' craft training for busy developers '),(2,'field',2,1,' master craft cms and start crafting a better web '),(2,'field',4,1,''),(3,'field',10,1,' cus_a8eiebktjrp3tb '),(3,'field',13,1,' sub_a8eijgpyqdec67 '),(3,'field',11,1,''),(3,'field',12,1,''),(3,'field',9,1,''),(3,'field',5,1,''),(3,'field',6,1,''),(3,'field',7,1,''),(3,'field',8,1,''),(3,'username',0,1,' selvin selvin co '),(3,'firstname',0,1,' selvin '),(3,'lastname',0,1,' ortiz '),(3,'fullname',0,1,' selvin ortiz '),(3,'email',0,1,' selvin selvin co '),(3,'slug',0,1,''),(2,'field',17,1,' clear code clear code no squinting just large beautiful text and consice snippets for maximun readability clean sound clean sound no pops hiss or monotone just clean normalized audio for smooth distraction free listening quick pace quick pace no dozing off lessons are optimized to get you writing code and mastering craft as quickly as possible '),(2,'field',21,1,' selvin co https selvin co selvin ortiz web developer https selvinortiz com selvin has a great way of explaining complex topics and a true love for teaching penny ortiz photography penny ortiz i really love the way the courses are laid out and how each lesson is taught '),(2,'field',28,1,' start crafting now craft training for busy developers professionally crafted screencasts to help you master craft cms '),(1,'field',10,1,''),(4,'field',29,1,' craft training for busy developers '),(4,'field',30,1,' professionally crafted screencasts to help you master craft cms '),(4,'field',31,1,' start crafting now '),(4,'slug',0,1,''),(5,'field',18,1,' clear code '),(5,'field',19,1,' no squinting just large beautiful text and consice snippets for maximun readability '),(5,'field',20,1,' clear code '),(5,'slug',0,1,''),(6,'field',18,1,' clean sound '),(6,'field',19,1,' no pops hiss or monotone just clean normalized audio for smooth distraction free listening '),(6,'field',20,1,' clean sound '),(6,'slug',0,1,''),(7,'field',18,1,' quick pace '),(7,'field',19,1,' no dozing off lessons are optimized to get you writing code and mastering craft as quickly as possible '),(7,'field',20,1,' quick pace '),(7,'slug',0,1,''),(8,'field',22,1,' selvin has a great way of explaining complex topics and a true love for teaching '),(8,'field',23,1,' selvin ortiz '),(8,'field',24,1,' https selvinortiz com '),(8,'field',25,1,' web developer '),(8,'field',26,1,' selvin co '),(8,'field',27,1,' https selvin co '),(8,'slug',0,1,''),(9,'field',22,1,' i really love the way the courses are laid out and how each lesson is taught '),(9,'field',23,1,' penny ortiz '),(9,'field',24,1,''),(9,'field',25,1,''),(9,'field',26,1,' penny ortiz photography '),(9,'field',27,1,''),(9,'slug',0,1,''),(1,'field',13,1,''),(1,'field',11,1,''),(1,'field',12,1,''),(1,'field',9,1,''),(1,'field',5,1,''),(1,'field',6,1,''),(1,'field',7,1,''),(1,'field',8,1,''),(2,'field',32,1,' craft training for busy developers '),(2,'field',33,1,' master craft cms through carefully crafted screencasts produced and presented by an industry veteran ');
+INSERT INTO `cx_searchindex` VALUES (1,'username',0,1,' selvinortiz '),(1,'firstname',0,1,' selvin '),(1,'lastname',0,1,' ortiz '),(1,'fullname',0,1,' selvin ortiz '),(1,'email',0,1,' selvin craftx io '),(1,'slug',0,1,''),(2,'slug',0,1,' homepage '),(2,'title',0,1,' homepage '),(2,'field',1,1,' craft training for busy developers '),(2,'field',2,1,' master craft cms and start crafting a better web '),(2,'field',4,1,''),(3,'field',10,1,' cus_a8eiebktjrp3tb '),(3,'field',13,1,' sub_a8eijgpyqdec67 '),(3,'field',11,1,''),(3,'field',12,1,''),(3,'field',9,1,''),(3,'field',5,1,''),(3,'field',6,1,''),(3,'field',7,1,''),(3,'field',8,1,''),(3,'username',0,1,' selvin selvin co '),(3,'firstname',0,1,' selvin '),(3,'lastname',0,1,' ortiz '),(3,'fullname',0,1,' selvin ortiz '),(3,'email',0,1,' selvin selvin co '),(3,'slug',0,1,''),(2,'field',17,1,' clear code clear code no squinting just large beautiful text and consice snippets for maximun readability clean sound clean sound no pops hiss or monotone just clean normalized audio for smooth distraction free listening quick pace quick pace no dozing off lessons are optimized to get you writing code and mastering craft as quickly as possible '),(2,'field',21,1,' selvin co https selvin co selvin ortiz web developer https selvinortiz com selvin has a great way of explaining complex topics and a true love for teaching penny ortiz photography penny ortiz i really love the way the courses are laid out and how each lesson is taught '),(2,'field',28,1,' start crafting now craft training for busy developers professionally crafted screencasts to help you master craft cms '),(1,'field',10,1,''),(4,'field',29,1,' craft training for busy developers '),(4,'field',30,1,' professionally crafted screencasts to help you master craft cms '),(4,'field',31,1,' start crafting now '),(4,'slug',0,1,''),(5,'field',18,1,' clear code '),(5,'field',19,1,' no squinting just large beautiful text and consice snippets for maximun readability '),(5,'field',20,1,' clear code '),(5,'slug',0,1,''),(6,'field',18,1,' clean sound '),(6,'field',19,1,' no pops hiss or monotone just clean normalized audio for smooth distraction free listening '),(6,'field',20,1,' clean sound '),(6,'slug',0,1,''),(7,'field',18,1,' quick pace '),(7,'field',19,1,' no dozing off lessons are optimized to get you writing code and mastering craft as quickly as possible '),(7,'field',20,1,' quick pace '),(7,'slug',0,1,''),(8,'field',22,1,' selvin has a great way of explaining complex topics and a true love for teaching '),(8,'field',23,1,' selvin ortiz '),(8,'field',24,1,' https selvinortiz com '),(8,'field',25,1,' web developer '),(8,'field',26,1,' selvin co '),(8,'field',27,1,' https selvin co '),(8,'slug',0,1,''),(9,'field',22,1,' i really love the way the courses are laid out and how each lesson is taught '),(9,'field',23,1,' penny ortiz '),(9,'field',24,1,''),(9,'field',25,1,''),(9,'field',26,1,' penny ortiz photography '),(9,'field',27,1,''),(9,'slug',0,1,''),(1,'field',13,1,''),(1,'field',11,1,''),(1,'field',12,1,''),(1,'field',9,1,''),(1,'field',5,1,''),(1,'field',6,1,''),(1,'field',7,1,''),(1,'field',8,1,''),(2,'field',32,1,' craft training for busy developers '),(2,'field',33,1,' master craft cms through carefully crafted screencasts produced and presented by an industry veteran '),(10,'field',33,1,' craft training for busy developers '),(10,'field',3,1,' its almost here after announcing craftx in slack having nothing to share i was overwhelmed by the response from the community that positive feedback led me to setting aside a few days to focus on this project get the site mvp at this point up and start producing content it has been an amazing journey alrady and i havent even started if i fail i will be happy that at least craftx did not die as an idea anyway what is it craftx is membership based website where i distribute premium training content for craft cms in the form of screencasts who is it for craftx is for busy developers like you who want to master craft cms without wasting time how much will it cost im leaning on the community to come up with something that is fair to you and sustainable for me '),(10,'slug',0,1,' announcing craftx '),(10,'title',0,1,' announcing craftx ');
 /*!40000 ALTER TABLE `cx_searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1570,7 +1571,7 @@ CREATE TABLE `cx_tasks` (
   KEY `cx_tasks_lft_idx` (`lft`),
   KEY `cx_tasks_rgt_idx` (`rgt`),
   KEY `cx_tasks_level_idx` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1925,7 +1926,7 @@ CREATE TABLE `cx_users` (
 
 LOCK TABLES `cx_users` WRITE;
 /*!40000 ALTER TABLE `cx_users` DISABLE KEYS */;
-INSERT INTO `cx_users` VALUES (1,'selvinortiz',NULL,'Selvin','Ortiz','selvin@craftx.io','$2y$13$lpMCTvAg0o/B.7enJrbT.OuB4zToqUGASlsZsfFE8vf94dzoxGbEu',1,0,0,0,0,0,'2017-03-06 05:40:53','50.188.56.107',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-06 18:39:45','2017-02-06 18:39:45','2017-03-06 06:05:18','6dd21ec5-be58-47c4-9c4e-4f04346dd128'),(3,'selvin-selvinco',NULL,'Selvin','Ortiz','selvin@selvin.co','$2y$13$Sslt7yvMuB2eV0jKxhMrJeUWWeYVGukE2jCnXjM.P/I6vNeviqNv2',0,0,0,0,0,0,'2017-02-23 19:26:26','192.168.10.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-23 04:24:10','2017-02-18 01:30:24','2017-02-23 19:26:26','08ba55cf-b8f7-4b94-b43f-d335ed2dacfa');
+INSERT INTO `cx_users` VALUES (1,'selvinortiz',NULL,'Selvin','Ortiz','selvin@craftx.io','$2y$13$lpMCTvAg0o/B.7enJrbT.OuB4zToqUGASlsZsfFE8vf94dzoxGbEu',1,0,0,0,0,0,'2017-03-06 19:41:54','50.188.56.107',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-06 18:39:45','2017-02-06 18:39:45','2017-03-06 19:41:54','6dd21ec5-be58-47c4-9c4e-4f04346dd128'),(3,'selvin-selvinco',NULL,'Selvin','Ortiz','selvin@selvin.co','$2y$13$Sslt7yvMuB2eV0jKxhMrJeUWWeYVGukE2jCnXjM.P/I6vNeviqNv2',0,0,0,0,0,0,'2017-02-23 19:26:26','192.168.10.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-23 04:24:10','2017-02-18 01:30:24','2017-02-23 19:26:26','08ba55cf-b8f7-4b94-b43f-d335ed2dacfa');
 /*!40000 ALTER TABLE `cx_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2045,4 +2046,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-06  2:12:53
+-- Dump completed on 2017-03-06 14:05:56

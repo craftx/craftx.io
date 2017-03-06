@@ -1,4 +1,4 @@
-.section--hero {
+.section--hero, .section--blog-hero {
     background:
         url(/dist/images/background-hero.svg) no-repeat left center,
         #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
@@ -10,6 +10,11 @@
             box-shadow: 0 5px 10px $gray-a;
         }
     }
+}
+.section--blog-hero {
+    padding-top: $column-pad2x;
+    padding-bottom: $column-pad2x;
+    border-bottom: 2px solid $gray-d;
 }
 .section--features {
     .title, .subtitle {

@@ -31,14 +31,19 @@
 ------------------------------------------------------------
 @Utils
 ------------------------------------------------------------*/
-.section--hero {
+.section--hero, .section--blog-hero {
   background: url(/dist/images/background-hero.svg) no-repeat left center, #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
   background-size: auto 98%; }
-  .section--hero .hero-buttons {
+  .section--hero .hero-buttons, .section--blog-hero .hero-buttons {
     margin-top: 40px; }
-    .section--hero .hero-buttons .button {
+    .section--hero .hero-buttons .button, .section--blog-hero .hero-buttons .button {
       display: inline-block;
       box-shadow: 0 5px 10px #a6a7a8; }
+
+.section--blog-hero {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #d6d7d8; }
 
 .section--features {
   background: #d6d7d8 url(/dist/images/pattern-noise.png);

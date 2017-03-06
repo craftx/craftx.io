@@ -3,7 +3,7 @@
 {% set title = entry.title %}
 
 {% set content %}
-    <section class="section section--hero has-text-centered">
+    <section class="section section--blog-hero has-text-centered">
         <div class="hero-body is-large">
             <div class="container">
                 <h1 class="title is-1">{{ entry.title }}</h1>
@@ -14,10 +14,20 @@
     <section class="section section--blog">
         <div class="container">
             <div class="columns">
-                <div class="column is-6-desktop is-offset-3-desktop">
+                <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="content is-large">
                         {{ entry.markdown.html }}
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="section section-disqus">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <div id="disqus_thread"></div>
                 </div>
             </div>
         </div>
