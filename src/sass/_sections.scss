@@ -12,9 +12,16 @@
     }
 }
 .section--blog-hero {
+    color: #fff;
+    background: $info;
     padding-top: $column-pad2x;
     padding-bottom: $column-pad2x;
     border-bottom: 2px solid $gray-d;
+}
+.section--blog-content {
+    background: url(/dist/images/pattern-crossword.png) repeat;
+    margin-bottom: $column-pad2x;
+    border-bottom: 2px solid $gray-c;
 }
 .section--features {
     .title, .subtitle {

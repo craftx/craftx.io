@@ -41,9 +41,16 @@
       box-shadow: 0 5px 10px #a6a7a8; }
 
 .section--blog-hero {
+  color: #fff;
+  background: #9642be;
   padding-top: 40px;
   padding-bottom: 40px;
   border-bottom: 2px solid #d6d7d8; }
+
+.section--blog-content {
+  background: url(/dist/images/pattern-crossword.png) repeat;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #c6c7c8; }
 
 .section--features {
   background: #d6d7d8 url(/dist/images/pattern-noise.png);
