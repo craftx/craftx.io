@@ -225,6 +225,12 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px dotted #d6d7d8; }
 
+.menu-list a:hover, .menu-list a:active {
+  color: #9642be; }
+
+.menu-list a.is-active {
+  background-color: #9642be; }
+
 .title,
 .subtitle {
   color: inherit;
@@ -295,6 +301,9 @@ body {
 .is-full-width {
   min-width: 100%;
   max-width: 100%; }
+
+.is-inline-block {
+  display: inline-block; }
 
 /*
  ------------------------------------------------------------

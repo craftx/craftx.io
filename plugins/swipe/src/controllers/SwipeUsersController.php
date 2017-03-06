@@ -5,8 +5,9 @@ use Craft;
 use craft\helpers\UrlHelper;
 use craft\web\Controller;
 
-use function selvinortiz\swipe\swipe;
 use yii\web\HttpException;
+
+use function selvinortiz\swipe\swipe;
 
 class SwipeUsersController extends Controller {
     /**
@@ -22,11 +23,11 @@ class SwipeUsersController extends Controller {
         'request-password-reset'
     ];
 
-    private $_userTemplate = 'users/_index';
-    private $_dashboardTemplate = 'users/dashboard/_index';
+    private $_userTemplates = 'users';
+    private $_dashboardTemplates = 'users/_dashboard';
 
     public function actionIndex(string $username = '') {
-        $template = $this->_userTemplate;
+        $template = $this->_userTemplates.'/_index';
         $userSegment = Craft::$app->request->getSegment(1);
 
         if (!Craft::$app->user->getIsGuest()) {
@@ -39,18 +40,31 @@ class SwipeUsersController extends Controller {
             if ($userSegment == '@username') {
                 Craft::$app->response->redirect(UrlHelper::siteUrl($postLoginRedirect));
             } else if ($userSegment == $postLoginRedirect) {
-                $template = $this->_dashboardTemplate;
+                $template = $this->_dashboardTemplates.'/profile';
             }
         } else {
-            if ($userSegment == '@username') {
+            if ($userSegment == '@username' || ! ($identity = Craft::$app->users->getUserByUsernameOrEmail($username))) {
                 throw new HttpException(404, 'User with that username does not exist');
             }
         }
 
         // @todo: Review logic to make sure we cover all cases and refactor
-        $avatarUrl = swipe()->api->getGravatar(Craft::$app->user->identity->email ?? '', 128);
+        $avatarUrl = swipe()->api->getGravatar($identity->email ?? '', 128);
 
         return $this->renderTemplate($template, compact('username', 'avatarUrl'));
+    }
+
+    public function actionPage(string $username = '', string $page = '') {
+        $this->requireLogin();
+        $this->_requireDashboardOwnership($username);
+
+        $template = $this->_dashboardTemplates.'/'.$page;
+
+        if (!Craft::$app->view->doesTemplateExist($template)) {
+            throw new HttpException(404);
+        }
+
+        return $this->renderTemplate($template);
     }
 
     public function actionValidateEmail() {
@@ -117,5 +131,11 @@ class SwipeUsersController extends Controller {
         Craft::$app->users->sendPasswordResetEmail($user);
         // http://craftx.dev/actions/users/set-password?code=g-o8UxDKok35R20Jzuy9dfsyNOKnoZJF&id=6b6a037c-c82e-43bc-afb4-f7c86856ca45
         return $this->redirectToPostedUrl($user);
+    }
+
+    private function _requireDashboardOwnership(string $username) {
+        if (Craft::$app->user->getIdentity()->username != $username) {
+            throw new HttpException(503);
+        }
     }
 }

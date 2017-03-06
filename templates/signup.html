@@ -1,7 +1,7 @@
 {% extends '_layout' %}
 {% set id = 'sign-up' %}
 {% set title = 'Craft Training for Busy Developers' %}
-{% set coupon = craft.request.getQuery('coupon') %}
+{% set coupon = craft.app.request.getQueryParam('coupon') %}
 
 {% set content %}
     {#
@@ -104,7 +104,7 @@
                             <div class="is-control-container">
                                 <label class="label">Password</label>
                                 <p class="control">
-                                    <input class="input is-large" type="password" placeholder="Make it strong" autocomplete="off" >
+                                    <input class="input is-large" type="password" name="password" placeholder="Make it strong" autocomplete="off" >
                                 </p>
                             </div>
 
@@ -147,7 +147,7 @@
                             </div>
 
                             <div class="is-button-container">
-                                <button type="submit" class="button is-info is-large is-full-width-mobile" :class="{ 'is-loading': signingUp }">
+                                <button type="submit" class="button is-info is-large is-full-width-mobile" :class="{ 'is-loading': signingUp, 'is-disabled': signingUp }">
                                     <span class="icon"><i class="fa fa-graduation-cap"></i></span>
                                     <span>Sign Up</span>
                                 </button>

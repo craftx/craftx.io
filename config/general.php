@@ -39,7 +39,6 @@ return [
         'limitAutoSlugsToAscii' => true,
         'maxInvalidLogins' => 3,
         'autoLoginAfterAccountActivation' => true,
-        'deferPublicRegistrationPassword' => true,
         #
         # Session Related
         'csrfTokenName' => 'X-CSRF-Token',

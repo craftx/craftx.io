@@ -1,15 +1,17 @@
+{% set segment = craft.app.request.segment(2)|lower %}
+
 <div class="dashboard-sidebar-wrapper">
     <aside class="menu">
         <p class="menu-label">Account</p>
         <ul class="menu-list">
             <li>
-                <a class="is-active">
+                <a href="/@{{ currentUser.username }}" class="{{ segment == '' ? 'is-active' }}">
                     <span class="icon"><i class="fa fa-graduation-cap"></i></span>
                     <span>Profile</span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="/@{{ currentUser.username }}/settings" class="{{ segment == 'settings' ? 'is-active' }}">
                     <span class="icon"><i class="fa fa-cog"></i></span>
                     <span>Settings</span>
                 </a>
@@ -18,19 +20,19 @@
         <p class="menu-label">Billing</p>
         <ul class="menu-list">
             <li>
-                <a>
+                <a href="/@{{ currentUser.username }}/card" class="{{ segment == 'card' ? 'is-active' }}">
                     <span class="icon"><i class="fa fa-credit-card"></i></span>
                     <span>Card</span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="/@{{ currentUser.username }}/history" class="{{ segment == 'history' ? 'is-active' }}">
                     <span class="icon"><i class="fa fa-history"></i></span>
                     <span>History</span>
                 </a>
             </li>
             <li>
-                <a>
+                <a href="/@{{ currentUser.username }}/subscription" class="{{ segment == 'subscription' ? 'is-active' }}">
                     <span class="icon"><i class="fa fa-clock-o"></i></span>
                     <span>Subscription</span>
                 </a>

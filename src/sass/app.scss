@@ -68,6 +68,16 @@ body {
     padding-bottom: $column-pad/2;
     border-bottom: 1px dotted $gray-d;
 }
+.menu-list {
+    a {
+        &:hover, &:active {
+            color: $info;
+        }
+        &.is-active {
+            background-color: $info;
+        }
+    }
+}
 .title,
 .subtitle {
     @extend .is-inset;
@@ -158,6 +168,9 @@ body {
     max-width: 100%;
 }
 
+.is-inline-block {
+    display: inline-block;
+}
 
 /*
  ------------------------------------------------------------
