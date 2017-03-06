@@ -54,6 +54,7 @@ return [
     ],
     'dev.' => [
         'env' => 'staging',
+        'devMode' => true,
         'siteUrl' => 'https://dev.craftx.io'
     ],
     '.dev' => [
