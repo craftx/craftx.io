@@ -549,7 +549,7 @@ CREATE TABLE `cx_entrytypes` (
   KEY `cx_entrytypes_fieldLayoutId_fk` (`fieldLayoutId`),
   CONSTRAINT `cx_entrytypes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `cx_fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `cx_entrytypes_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `cx_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1209,7 +1209,7 @@ CREATE TABLE `cx_sections` (
   UNIQUE KEY `cx_sections_name_unq_idx` (`name`),
   KEY `cx_sections_structureId_fk` (`structureId`),
   CONSTRAINT `cx_sections_structureId_fk` FOREIGN KEY (`structureId`) REFERENCES `cx_structures` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1218,7 +1218,7 @@ CREATE TABLE `cx_sections` (
 
 LOCK TABLES `cx_sections` WRITE;
 /*!40000 ALTER TABLE `cx_sections` DISABLE KEYS */;
-INSERT INTO `cx_sections` VALUES (1,NULL,'Homepage','homepage','single',0,'2017-02-06 18:57:45','2017-02-06 18:57:45','6f4ca3af-f6ea-4aa0-b25c-1a697f0225f1'),(2,NULL,'Courses','courses','channel',0,'2017-02-07 05:14:04','2017-02-07 05:14:04','afe81c2c-c2cc-41ef-b726-2858db2dfe08');
+INSERT INTO `cx_sections` VALUES (1,NULL,'Homepage','homepage','single',0,'2017-02-06 18:57:45','2017-02-06 18:57:45','6f4ca3af-f6ea-4aa0-b25c-1a697f0225f1'),(3,1,'Series','series','structure',1,'2017-03-06 17:08:44','2017-03-06 18:03:42','219320bb-42a2-4b61-af10-fc4eb0bb1d68'),(4,NULL,'Blog','blog','channel',1,'2017-03-06 17:09:13','2017-03-06 17:09:13','599f5da3-13be-4487-b8c6-4152f1b27c0f');
 /*!40000 ALTER TABLE `cx_sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1245,7 +1245,7 @@ CREATE TABLE `cx_sections_i18n` (
   KEY `cx_sections_i18n_siteId_fk` (`siteId`),
   CONSTRAINT `cx_sections_i18n_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `cx_sections` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_sections_i18n_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `cx_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1254,7 +1254,7 @@ CREATE TABLE `cx_sections_i18n` (
 
 LOCK TABLES `cx_sections_i18n` WRITE;
 /*!40000 ALTER TABLE `cx_sections_i18n` DISABLE KEYS */;
-INSERT INTO `cx_sections_i18n` VALUES (1,1,1,1,1,'__home__','index','2017-02-06 18:57:45','2017-02-06 23:59:44','7544fcbf-9302-4044-b213-89fa766f1286'),(2,2,1,1,1,'courses/{slug}','courses/_entry','2017-02-07 05:14:04','2017-02-07 05:14:04','41d432bc-46cb-436d-9cbc-075a043f8470');
+INSERT INTO `cx_sections_i18n` VALUES (1,1,1,1,1,'__home__','index','2017-02-06 18:57:45','2017-02-06 23:59:44','7544fcbf-9302-4044-b213-89fa766f1286'),(3,3,1,1,1,'series/{slug}','series/_entry','2017-03-06 17:08:44','2017-03-06 18:03:42','786a072c-7bcc-45e3-abae-f2d38d4daf73'),(4,4,1,1,1,'blog/{slug}','blog/_entry','2017-03-06 17:09:13','2017-03-06 17:09:13','cb0149df-b84d-47da-94f9-5289ec081d34');
 /*!40000 ALTER TABLE `cx_sections_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1408,7 +1408,7 @@ CREATE TABLE `cx_structures` (
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1417,6 +1417,7 @@ CREATE TABLE `cx_structures` (
 
 LOCK TABLES `cx_structures` WRITE;
 /*!40000 ALTER TABLE `cx_structures` DISABLE KEYS */;
+INSERT INTO `cx_structures` VALUES (1,2,'2017-03-06 17:08:44','2017-03-06 18:03:42','5153078c-1ec8-40dd-90f6-6e8f22955a57');
 /*!40000 ALTER TABLE `cx_structures` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1950,7 +1951,7 @@ CREATE TABLE `cx_volumefolders` (
   KEY `cx_volumefolders_volumeId_fk` (`volumeId`),
   CONSTRAINT `cx_volumefolders_parentId_fk` FOREIGN KEY (`parentId`) REFERENCES `cx_volumefolders` (`id`) ON DELETE CASCADE,
   CONSTRAINT `cx_volumefolders_volumeId_fk` FOREIGN KEY (`volumeId`) REFERENCES `cx_volumes` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1959,6 +1960,7 @@ CREATE TABLE `cx_volumefolders` (
 
 LOCK TABLES `cx_volumefolders` WRITE;
 /*!40000 ALTER TABLE `cx_volumefolders` DISABLE KEYS */;
+INSERT INTO `cx_volumefolders` VALUES (1,NULL,1,'Blog','','2017-03-06 17:12:42','2017-03-06 17:12:42','765132af-b54e-413c-b40f-a14b9c2f52d3');
 /*!40000 ALTER TABLE `cx_volumefolders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1987,7 +1989,7 @@ CREATE TABLE `cx_volumes` (
   UNIQUE KEY `cx_volumes_handle_unq_idx` (`handle`),
   KEY `cx_volumes_fieldLayoutId_fk` (`fieldLayoutId`),
   CONSTRAINT `cx_volumes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `cx_fieldlayouts` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1996,6 +1998,7 @@ CREATE TABLE `cx_volumes` (
 
 LOCK TABLES `cx_volumes` WRITE;
 /*!40000 ALTER TABLE `cx_volumes` DISABLE KEYS */;
+INSERT INTO `cx_volumes` VALUES (1,22,'Blog','blog','craft\\volumes\\Local',1,'/blog/','{\"path\":\"{sitePath}/blog\"}',1,'2017-03-06 17:12:42','2017-03-06 17:12:42','8754cc4e-3197-4570-a19b-df1234721dd6');
 /*!40000 ALTER TABLE `cx_volumes` ENABLE KEYS */;
 UNLOCK TABLES;
 
