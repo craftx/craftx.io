@@ -3,5 +3,23 @@
 {% set title = entry.title %}
 
 {% set content %}
-    <h1>hello</h1>
+    <section class="section section--hero has-text-centered">
+        <div class="hero-body is-large">
+            <div class="container">
+                <h1 class="title is-1">{{ entry.title }}</h1>
+                <p class="title is-3">{{ entry.text }}</p>
+            </div>
+        </div>
+    </section>
+    <section class="section section--blog">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-6-desktop is-offset-3-desktop">
+                    <div class="content is-large">
+                        {{ entry.markdown.html }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endset %}
