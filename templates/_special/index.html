@@ -2,6 +2,8 @@
 {% set id = 'home' %}
 {% set title = 'Craft Training for Busy Developers' %}
 
+{% set entry = entry ?? craft.entries({section: 'homepage'}).first() %}
+
 {% set content %}
     {% include '_homepage/section-hero' with {block: entry.hero.first()} only %}
     {% include '_homepage/section-features' with {blocks: entry.features.find()} only %}
