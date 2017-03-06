@@ -1441,7 +1441,7 @@ CREATE TABLE `cx_systemmessages` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `cx_systemmessages_key_language_unq_idx` (`key`,`language`),
   KEY `cx_systemmessages_language_idx` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1450,7 +1450,7 @@ CREATE TABLE `cx_systemmessages` (
 
 LOCK TABLES `cx_systemmessages` WRITE;
 /*!40000 ALTER TABLE `cx_systemmessages` DISABLE KEYS */;
-INSERT INTO `cx_systemmessages` VALUES (1,'en-US','test_email','Email Settings','Hi, this email confirms that your settings are properly set up.','2017-03-03 07:40:19','2017-03-03 07:40:19','45ba3fbf-869b-4e9d-af83-b1a4297a3a2f');
+INSERT INTO `cx_systemmessages` VALUES (1,'en-US','test_email','Email Settings','Hi, this email confirms that your settings are properly set up.','2017-03-03 07:40:19','2017-03-03 07:40:19','45ba3fbf-869b-4e9d-af83-b1a4297a3a2f'),(2,'en-US','verify_new_email','Verify your new email address','{{link}}','2017-03-06 20:39:55','2017-03-06 20:39:55','e89d5ad6-99e6-4d82-8dbf-f9f3f0b5f4eb');
 /*!40000 ALTER TABLE `cx_systemmessages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2046,4 +2046,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-06 14:05:56
+-- Dump completed on 2017-03-06 14:40:18
