@@ -84,7 +84,9 @@ body {
     color: inherit;
     line-height: 1.4;
 }
-
+.subtitle {
+    color: $gray-dark;
+}
 .title+.subtitle {
     margin-top: 20px;
 }
@@ -177,8 +179,8 @@ body {
  @media queries
  ------------------------------------------------------------*/
 
-@include xs {
-    .control.is-grouped.subscribe-fields {
+@include sm {
+    .control.is-grouped {
         display: block;
         .control {
             margin: 0;
@@ -188,9 +190,6 @@ body {
             min-width: 100%;
         }
     }
-}
-
-@include sm {
     .title {
         &.is-1 {
             font-size: 2rem;

@@ -1,17 +1,21 @@
 <section class="section section--hero has-text-centered">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title is-1">{{ block.heroLead }}</h1>
-            <h2 class="subtitle is-3">{{ block.heroText }}</h2>
-            <div class="hero-buttons has-text-centered">
-                <a href="/signup" id="cta" class="button is-large is-info">
-                    <i class="fa fa-terminal is-blinking"></i>
-                    {{ block.heroCtaText }}
-                </a>
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <h1 class="title is-1">{{ block.heroLead }}</h1>
+                    <h2 class="subtitle is-3">{{ block.heroText }}</h2>
+                    <div class="hero-buttons has-text-centered">
+                        <a href="/signup" id="cta" class="button is-large is-info">
+                            <i class="fa fa-terminal is-blinking"></i>
+                            {{ block.heroCtaText }}
+                        </a>
+                    </div>
+                    <p class="is-5 has-top-margin">
+                        Yes, there will be <a href="https://yarnpkg.com">Yarn</a> involved ;)
+                    </p>
+                </div>
             </div>
-            <p class="is-5 has-top-margin">
-                Yes, there will be <a href="https://yarnpkg.com">Yarn</a> involved ;)
-            </p>
         </div>
     </div>
 </section>

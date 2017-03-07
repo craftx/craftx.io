@@ -18,6 +18,7 @@ class SwipeUsersController extends Controller {
      */
     protected $allowAnonymous = [
         'index',
+        'save-user',
         'validate-email',
         'validate-username',
         'request-password-reset'
@@ -131,6 +132,12 @@ class SwipeUsersController extends Controller {
         Craft::$app->users->sendPasswordResetEmail($user);
         // http://craftx.dev/actions/users/set-password?code=g-o8UxDKok35R20Jzuy9dfsyNOKnoZJF&id=6b6a037c-c82e-43bc-afb4-f7c86856ca45
         return $this->redirectToPostedUrl($user);
+    }
+
+    public function actionSaveUser() {
+        Craft::$app->request->parsers[] = ['application/json' => 'yii\web\JsonParser'];
+
+        return Craft::$app->runAction('users/save-user');
     }
 
     private function _requireDashboardOwnership(string $username) {

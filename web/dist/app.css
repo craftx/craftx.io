@@ -248,6 +248,9 @@ body {
   color: inherit;
   line-height: 1.4; }
 
+.subtitle {
+  color: #565758; }
+
 .title + .subtitle {
   margin-top: 20px; }
 
@@ -321,16 +324,14 @@ body {
  ------------------------------------------------------------
  @media queries
  ------------------------------------------------------------*/
-@media all and (max-width: 480px) {
-  .control.is-grouped.subscribe-fields {
+@media all and (max-width: 768px) {
+  .control.is-grouped {
     display: block; }
-    .control.is-grouped.subscribe-fields .control {
+    .control.is-grouped .control {
       margin: 0;
       margin-top: 20px; }
-    .control.is-grouped.subscribe-fields .button {
-      min-width: 100%; } }
-
-@media all and (max-width: 768px) {
+    .control.is-grouped .button {
+      min-width: 100%; }
   .title.is-1 {
     font-size: 2rem; }
   .title.is-2 {

@@ -33,28 +33,29 @@ let signupVM = new Vue({
     data: {
         action: 'users/save-user',
         redirect: '/v1/confirm-your-email',
-        email: 'userone@selvin.co',
-        username: 'userone',
-        firstName: 'User',
-        lastName: 'One',
+        email: 'oneuser@selvin.co',
+        username: 'oneuser',
+        password: '12345678',
+        firstName: 'One',
+        lastName: 'User',
         address1: '123 One St',
         address2: '',
-        city: 'Blaine',
-        state: 'MN',
-        zip: '55113',
-        country: 'us',
+        city: 'Sipacate',
+        state: 'Escuintla',
+        zip: '1234-567',
+        countryCode: 'gt',
         planId: 'CRAFTXDEVMONTHLY',
         coupon: '',
         signingUp: false,
         applyingCoupon: false,
         hints: {},
-        _token: {},
+        token: {},
         _stripe: {},
         _card: {}
     },
     computed: {
         inUs() {
-            return this.country.toLowerCase() === 'us';
+            return this.countryCode.toLowerCase() === 'us';
         },
         name() {
             return this.firstName + ' ' + this.lastName;
@@ -109,12 +110,12 @@ let signupVM = new Vue({
                 this._card.update({style: {base: {fontSize: '1.75rem'}}});
             }
         },
-        checkout() {
+        checkout(ev) {
             let app = this;
             this.signingUp = true;
             this._stripe.createToken(this._card, {
                 name: app.name,
-                address_country: this.country,
+                address_country: this.countryCode,
                 address_line1: this.address1,
                 address_city: this.city,
                 address_state: this.state,
@@ -126,13 +127,48 @@ let signupVM = new Vue({
                     errorElement.textContent = result.error.message;
                 } else {
                     // Send the token to your server
-                    app._token = result.token;
-                    app.sendCheckoutForm();
+                    app.token = result.token;
+                    ev.target.submit(); // app.sendCheckoutForm();
                 }
             });
         },
         sendCheckoutForm() {
+            let app = this;
+            let params = {
+                firstName: app.firstName,
+                lastName: app.lastName,
+                email: app.email,
+                username: app.username,
+                password: app.password,
+                planId: app.planId,
+                coupon: app.coupon,
+                fields: {
+                    billingEmail: app.email,
+                    billingAddress1: app.address1,
+                    billingAddress2: app.address2,
+                    billingCity: app.city,
+                    billingState: app.state,
+                    billingCountryCode: app.countryCode,
+                    billingZip: app.zip,
+                    subscriptionJson: app.token
+                }
+            };
 
+            console.log(params);
+            let signUp = _.debounce(() => {
+                Helpers.__post(
+                    '/actions/swipe/users/save-user',
+                    params,
+                    (response) => {
+                        console.log(response.data);
+                    },
+                    (response) => {
+                        console.log(response.data);
+                    }
+                );
+            }, 500);
+
+            return signUp();
         },
         validateEmail() {
             let app = this;
@@ -191,7 +227,7 @@ let signupVM = new Vue({
             }
         },
         us(value, optional = '') {
-            return this.country.toLowerCase() === 'us' ? value : optional;
+            return this.countryCode.toLowerCase() === 'us' ? value : optional;
         }
     }
 });

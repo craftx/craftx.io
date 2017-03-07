@@ -1,4 +1,4 @@
-<select v-model="country" name="country" class="is-full-width">
+<select v-model="{{ model ?? 'country' }}" name="{{ name ?? 'country' }}" class="is-full-width">
     <option value="us">United States</option>
     <option value="gb">United Kingdom</option>
     <option value="nl">Netherlands</option>

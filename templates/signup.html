@@ -14,9 +14,10 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="form-container">
-                        <form @submit="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
+                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
                             <input type="hidden" name="action" :value="action">
                             <input type="hidden" name="redirect" :value="redirect">
+                            <input type="hidden" name="fields[subscriptionJson]" :value="token">
                             {{ csrfInput() }}
 
                             <h2 class="title is-3 is-form-section-title">Basic Info</h2>
@@ -37,7 +38,7 @@
                                 <p class="control">
                                     <label class="label">Country</label>
                                     <span class="select is-large is-full-width">
-                                        {% include '_special/country-select' %}
+                                        {% include '_special/country-select' with {model: 'countryCode', name: 'fields[billingCountryCode]'} %}
                                     </span>
                                 </p>
                             </div>
@@ -63,14 +64,14 @@
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label">
-                                            <span v-if="country === 'us'">State</span>
+                                            <span v-if="countryCode === 'us'">State</span>
                                             <span v-else>Province</span>
                                         </label>
                                         <input v-model="state" name="fields[billingState]" class="input is-large" type="text" :placeholder="us('NY')" >
                                     </p>
                                     <p class="control is-expanded">
                                         <label class="label">
-                                            <span v-if="country === 'us'">Zip</span>
+                                            <span v-if="countryCode === 'us'">Zip</span>
                                             <span v-else>Postal Code</span>
                                         </label>
                                         <input v-model="zip" name="fields[billingZip]" class="input is-large" type="text" :placeholder="us(90210)" >
@@ -104,7 +105,7 @@
                             <div class="is-control-container">
                                 <label class="label">Password</label>
                                 <p class="control">
-                                    <input class="input is-large" type="password" name="password" placeholder="Make it strong" autocomplete="off" >
+                                    <input v-model="password" class="input is-large" type="password" name="password" placeholder="Make it strong" autocomplete="off" >
                                 </p>
                             </div>
 

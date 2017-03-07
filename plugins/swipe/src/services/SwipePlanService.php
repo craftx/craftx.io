@@ -74,6 +74,9 @@ class SwipePlanService extends Component {
         ]);
     }
 
+    public function createSubscription($user) {
+        $user;
+    }
 
     private function _nameToId($name)
     {

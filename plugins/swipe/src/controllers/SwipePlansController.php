@@ -55,7 +55,7 @@ class SwipePlansController extends Controller {
 
         try {
             $coupon = Coupon::retrieve($coupon);
-        } catch(InvalidRequest $invalidRequest) {
+        } catch (InvalidRequest $invalidRequest) {
             $message = $invalidRequest->getMessage();
         }
 

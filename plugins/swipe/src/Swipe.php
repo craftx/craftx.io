@@ -82,7 +82,7 @@ class Swipe extends Plugin {
 
     public function handleAfterSave(ModelEvent $event) {
         if ($event->isNew && $event->isValid) {
-            // echo '<pre>', print_r($event, true), '</pre>';
+            return swipe()->plans->createSubscription($event->sender);
         }
     }
 
