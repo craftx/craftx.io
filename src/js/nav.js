@@ -1,6 +1,6 @@
 'use strict';
 
-let Vue = require('vue/dist/vue.min.js');
+let Vue = require('vue/dist/vue.js');
 
 let navVM = new Vue({
     el: '#nav',

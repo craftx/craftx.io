@@ -1,8 +1,11 @@
 'use strict';
 
 let Helpers = require('./helpers');
-let Vue = require('vue/dist/vue.min.js');
+let Vue = require('vue/dist/vue.js');
 let _ = require('lodash');
+
+import CXEmailInput from './components/CXEmailInput.vue';
+import CXUsernameInput from './components/CXUsernameInput.vue';
 
 let stripeElementConfig = {
     hidePostalCode: true,
@@ -30,6 +33,10 @@ let stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
 let signupVM = new Vue({
     el: '#signup',
     delimiters: ['@{', '}'],
+    components: {
+        cxEmail: CXEmailInput,
+        cxUsername: CXUsernameInput,
+    },
     data: {
         action: 'users/save-user',
         redirect: '/v1/confirm-your-email',
@@ -49,7 +56,7 @@ let signupVM = new Vue({
         signingUp: false,
         applyingCoupon: false,
         hints: {},
-        token: {},
+        token: '{}',
         _stripe: {},
         _card: {}
     },
@@ -127,7 +134,7 @@ let signupVM = new Vue({
                     errorElement.textContent = result.error.message;
                 } else {
                     // Send the token to your server
-                    app.token = result.token;
+                    app.token = JSON.stringify(result.token);
                     ev.target.submit(); // app.sendCheckoutForm();
                 }
             });

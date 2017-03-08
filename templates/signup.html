@@ -82,25 +82,9 @@
                             <hr class="is-form-section-divider"/>
 
                             <h2 class="title is-3  is-form-section-title has-top-margin">Login Info</h2>
-                            <div class="is-control-container">
-                                <p class="control">
-                                    <label class="label">Email</label>
-                                    <input v-model="email" name="email" class="input is-large" type="email" :placeholder="us('brad@angry.com', 'email@domain.com')" >
-                                    <span class="help is-error" v-if="hint('email')">@{ hints.email }</span>
-                                </p>
-                            </div>
 
-                            <div class="is-control-container">
-                                <label class="label">Username</label>
-                                <p class="control">
-                                    <input v-model="username" name="username" class="input is-large" type="text" :placeholder="us('tacobell', 'username')" autocomplete="off">
-                                    <span class="help is-danger" v-if="hint('username')">@{ hints.username }</span>
-                                    <span class="help" v-else>
-                                        <span v-if="username">{{ siteUrl }}@@{ username }</span>
-                                        <span v-else>{{ siteUrl }}@@{ us('tacobell', 'username') }</span>
-                                  </span>
-                              </p>
-                            </div>
+                            <cx-email placeholder="brad@pixelandtonic.com"></cx-email>
+                            <cx-username placeholder="tacobell"></cx-username>
 
                             <div class="is-control-container">
                                 <label class="label">Password</label>

@@ -6,12 +6,15 @@ const plugins = require('gulp-load-plugins')();
 const browserify = require('browserify');
 const babelify = require('babelify');
 const watchify = require('watchify');
+const vueify = require('vueify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 
 let templatesOnly = true;
 
-const bundler = watchify(browserify('./src/js/app.js').transform(babelify, {presets: ['es2015']}));
+const bundler = watchify(browserify(config.js.source.app)
+  .transform(vueify)
+  .transform(babelify, {presets: ['es2015']}));
 
 function bundle() {
   return bundler.bundle()
@@ -23,7 +26,9 @@ function bundle() {
 }
 
 gulp.task('js:build', function () {
-  const bundler = browserify(config.js.source.app).transform(babelify, {presets: ['es2015']});
+  const bundler = browserify(config.js.source.app)
+    .transform(vueify)
+    .transform(babelify, {presets: ['es2015']});
 
   return bundler.bundle()
     .on('error', plugins.util.log)

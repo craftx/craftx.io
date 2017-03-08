@@ -19,7 +19,7 @@
  ------------------------------------------------------------
  @bulma configs
  ------------------------------------------------------------*/
-/*! bulma.io v0.3.1 | MIT License | github.com/jgthms/bulma */
+/*! bulma.io v0.3.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -584,6 +584,8 @@ a.box:active {
         background-color: white;
         border-color: white;
         color: #0a0a0a; }
+      .button.is-white.is-outlined.is-loading:after {
+        border-color: transparent transparent white white !important; }
     .button.is-white.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #0a0a0a;
@@ -623,6 +625,8 @@ a.box:active {
         background-color: #0a0a0a;
         border-color: #0a0a0a;
         color: white; }
+      .button.is-black.is-outlined.is-loading:after {
+        border-color: transparent transparent #0a0a0a #0a0a0a !important; }
     .button.is-black.is-inverted.is-outlined {
       background-color: transparent;
       border-color: white;
@@ -662,6 +666,8 @@ a.box:active {
         background-color: whitesmoke;
         border-color: whitesmoke;
         color: #565758; }
+      .button.is-light.is-outlined.is-loading:after {
+        border-color: transparent transparent whitesmoke whitesmoke !important; }
     .button.is-light.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #565758;
@@ -701,6 +707,8 @@ a.box:active {
         background-color: #565758;
         border-color: #565758;
         color: whitesmoke; }
+      .button.is-dark.is-outlined.is-loading:after {
+        border-color: transparent transparent #565758 #565758 !important; }
     .button.is-dark.is-inverted.is-outlined {
       background-color: transparent;
       border-color: whitesmoke;
@@ -740,6 +748,8 @@ a.box:active {
         background-color: #00966C;
         border-color: #00966C;
         color: #fff; }
+      .button.is-primary.is-outlined.is-loading:after {
+        border-color: transparent transparent #00966C #00966C !important; }
     .button.is-primary.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #fff;
@@ -779,6 +789,8 @@ a.box:active {
         background-color: #9642be;
         border-color: #9642be;
         color: #fff; }
+      .button.is-info.is-outlined.is-loading:after {
+        border-color: transparent transparent #9642be #9642be !important; }
     .button.is-info.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #fff;
@@ -818,6 +830,8 @@ a.box:active {
         background-color: #23d160;
         border-color: #23d160;
         color: #fff; }
+      .button.is-success.is-outlined.is-loading:after {
+        border-color: transparent transparent #23d160 #23d160 !important; }
     .button.is-success.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #fff;
@@ -857,6 +871,8 @@ a.box:active {
         background-color: #ffdd57;
         border-color: #ffdd57;
         color: rgba(0, 0, 0, 0.7); }
+      .button.is-warning.is-outlined.is-loading:after {
+        border-color: transparent transparent #ffdd57 #ffdd57 !important; }
     .button.is-warning.is-inverted.is-outlined {
       background-color: transparent;
       border-color: rgba(0, 0, 0, 0.7);
@@ -896,6 +912,8 @@ a.box:active {
         background-color: #c00;
         border-color: #c00;
         color: #fff; }
+      .button.is-danger.is-outlined.is-loading:after {
+        border-color: transparent transparent #c00 #c00 !important; }
     .button.is-danger.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #fff;
