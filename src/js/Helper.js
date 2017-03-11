@@ -1,5 +1,5 @@
-let Alert = require('sweetalert');
-let Axios = require('axios');
+import Alert from 'sweetalert';
+import Axios from 'axios';
 
 let axiosConfig = {
     headers: {
@@ -9,7 +9,7 @@ let axiosConfig = {
     }
 };
 
-module.exports = {
+export default {
     __yay(title, message) {
         Alert({
             title: title,
@@ -22,7 +22,7 @@ module.exports = {
         Alert({
             title: title,
             text: message,
-            type: "error",
+            type: 'error',
             confirmButtonColor: '#00966c'
         });
     },

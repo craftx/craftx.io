@@ -1,8 +1,9 @@
 'use strict';
 
-let Helpers = require('./helpers');
-let Vue = require('vue/dist/vue.js');
-let _ = require('lodash');
+import Helper from './Helper';
+import Stripe from 'stripe';
+import Vue from 'vue';
+import _ from 'lodash';
 
 import CXEmailInput from './components/CXEmailInput.vue';
 import CXUsernameInput from './components/CXUsernameInput.vue';
@@ -30,7 +31,7 @@ let stripeElementFont = {
 
 let stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
 
-let signupVM = new Vue({
+export default new Vue({
     el: '#signup',
     delimiters: ['@{', '}'],
     components: {
@@ -96,7 +97,7 @@ let signupVM = new Vue({
             }
 
             this.applyingCoupon = true;
-            Helpers.__post(
+            Helper.__post(
                 '/actions/swipe/plans/get-coupon',
                 {coupon: app.coupon, plan: app.planId},
                 (response) => {
@@ -163,7 +164,7 @@ let signupVM = new Vue({
 
             console.log(params);
             let signUp = _.debounce(() => {
-                Helpers.__post(
+                Helper.__post(
                     '/actions/swipe/users/save-user',
                     params,
                     (response) => {
@@ -180,7 +181,7 @@ let signupVM = new Vue({
         validateEmail() {
             let app = this;
             let validate = _.debounce(() => {
-                Helpers.__post(
+                Helper.__post(
                     '/actions/swipe/users/validate-email',
                     {email: app.email},
                     (response) => {
@@ -205,7 +206,7 @@ let signupVM = new Vue({
                 if (this.username.length < 5) {
                     return;
                 }
-                Helpers.__post(
+                Helper.__post(
                     '/actions/swipe/users/validate-username',
                     {username: app.username},
                     (response) => {

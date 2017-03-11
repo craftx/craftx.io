@@ -17,8 +17,8 @@
 </template>
 
 <script>
-    let __ = require('lodash');
-    let Helpers = require('../helpers');
+    import Helper from '../Helper';
+    import _ from 'lodash';
 
     export default {
         props: ['value', 'placeholder'],
@@ -38,7 +38,7 @@
                     if (vm.username.length < 5) { return; }
                     if (!vm.busy) {
                         vm.busy = true;
-                        Helpers.__post(
+                        Helper.__post(
                             '/actions/swipe/users/validate-username',
                             {
                                 username: vm.username

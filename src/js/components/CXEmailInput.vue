@@ -17,8 +17,8 @@
 </template>
 
 <script>
-    let __ = require('lodash');
-    let Helpers = require('../helpers');
+    import Helper from '../Helper';
+    import _ from 'lodash';
 
     export default {
         props: ['value', 'placeholder'],

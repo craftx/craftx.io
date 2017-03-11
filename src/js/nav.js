@@ -1,8 +1,8 @@
 'use strict';
 
-let Vue = require('vue/dist/vue.js');
+import Vue from 'vue';
 
-let navVM = new Vue({
+export default new Vue({
     el: '#nav',
     data: {
         mobileNavIsActive: false
