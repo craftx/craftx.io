@@ -1,14 +1,14 @@
 'use strict';
 
-import Helper from './Helper';
 import Stripe from 'stripe';
 import Vue from 'vue';
-import _ from 'lodash';
+
+import {postToController} from './Utils';
 
 import CXEmailInput from './components/CXEmailInput.vue';
 import CXUsernameInput from './components/CXUsernameInput.vue';
 
-let stripeElementConfig = {
+const stripeElementConfig = {
     hidePostalCode: true,
     iconStyle: 'solid',
     style: {
@@ -21,7 +21,7 @@ let stripeElementConfig = {
     }
 };
 
-let stripeElementFont = {
+const stripeElementFont = {
     fonts: [{
         family: 'Fira Sans',
         weight: 300,
@@ -29,7 +29,7 @@ let stripeElementFont = {
     }],
 };
 
-let stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
+const stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
 
 export default new Vue({
     el: '#signup',
@@ -99,8 +99,8 @@ export default new Vue({
             }
 
             this.applyingCoupon = true;
-            Helper.__post(
-                '/actions/swipe/plans/get-coupon',
+            postToController(
+                'swipe/plans/get-coupon',
                 {coupon: app.coupon, plan: app.planId},
                 (response) => {
                     this.applyingCoupon = false;
@@ -165,9 +165,9 @@ export default new Vue({
             };
 
             console.log(params);
-            let signUp = _.debounce(() => {
-                Helper.__post(
-                    '/actions/swipe/users/save-user',
+            let signUp = debounce(() => {
+                postToController(
+                    'swipe/users/save-user',
                     params,
                     (response) => {
                         console.log(response.data);
@@ -183,8 +183,8 @@ export default new Vue({
         validateEmail() {
             let app = this;
             let validate = _.debounce(() => {
-                Helper.__post(
-                    '/actions/swipe/users/validate-email',
+                postToController(
+                    'swipe/users/validate-email',
                     {email: app.email},
                     (response) => {
                         if (!response.data.success) {
@@ -204,12 +204,12 @@ export default new Vue({
         },
         validateUsername() {
             let app = this;
-            let validate = _.debounce(() => {
+            let validate = debounce(() => {
                 if (this.username.length < 5) {
                     return;
                 }
-                Helper.__post(
-                    '/actions/swipe/users/validate-username',
+                postToController(
+                    'swipe/users/validate-username',
                     {username: app.username},
                     (response) => {
                         if (!response.data.success) {

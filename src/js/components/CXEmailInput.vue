@@ -17,8 +17,7 @@
 </template>
 
 <script>
-    import Helper from '../Helper';
-    import _ from 'lodash';
+    import {postToController, debounce} from '../Utils';
 
     export default {
         props: ['value', 'placeholder'],
@@ -34,12 +33,12 @@
             validate() {
                 let vm = this;
 
-                __.debounce(() => {
+                debounce(() => {
                     if (vm.email.length < 5) { return; }
                     if (!vm.busy) {
                         vm.busy = true;
-                        Helpers.__post(
-                            '/actions/swipe/users/validate-email',
+                        postToController(
+                            'swipe/users/validate-email',
                             {
                                 email: vm.email
                             },

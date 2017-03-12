@@ -5,7 +5,7 @@ module.exports = {
         Homepage: './src/js/Homepage.js'
     },
     output: {
-        path: './web/webpack',
+        path: __dirname + '/web/webpack',
         filename: '[name].bundle.js'
     },
     externals: {
@@ -21,5 +21,13 @@ module.exports = {
             {test: /\.vue/, exclude: './node_modules', use: 'vue-loader'},
             {test: /\.js/, exclude: './node_modules', use: 'babel-loader'}
         ]
+    },
+    devServer: {
+        proxy: {
+            '/': {
+                target: 'http://craftx.dev',
+                secure: false
+            }
+        }
     }
 }
