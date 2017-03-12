@@ -78,16 +78,18 @@ export default new Vue({
         }
     },
     mounted() {
-        this._stripe = Stripe(stripePublishableKey);
-        this._card = this._stripe.elements(stripeElementFont).create('card', stripeElementConfig);
+        this.$nextTick(() => {
+            this._stripe = Stripe(stripePublishableKey);
+            this._card = this._stripe.elements(stripeElementFont).create('card', stripeElementConfig);
 
-        this._card.mount('#card-element');
+            this._card.mount('#card-element');
 
-        window.addEventListener('resize', () => {
+            window.addEventListener('resize', () => {
+                this.updateCardStyle();
+            });
+
             this.updateCardStyle();
-        });
-
-        this.updateCardStyle();
+        }, this);
     },
     methods: {
         applyCoupon() {

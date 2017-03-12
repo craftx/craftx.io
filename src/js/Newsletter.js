@@ -9,9 +9,6 @@ export default new Vue({
         busy: false,
         email: ''
     },
-    mounted() {
-        alert("hello");
-    },
     methods: {
         subscribeToNewsletter() {
             this.busy = true;
