@@ -108,7 +108,9 @@
                                     </span>
                                 </p>
                             </div>
-                            <div class="is-control-container">
+
+                            <cx-coupon></cx-coupon>
+                            {#<div class="is-control-container">
                                 <label class="label">Have a Coupon?</label>
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
@@ -119,7 +121,7 @@
                                         <button @click.prevent="applyCoupon" class="button is-primary" :class="{ 'is-loading': applyingCoupon }">Apply</button>
                                     </p>
                                 </div>
-                            </div>
+                            </div>#}
 
                             <hr class="is-form-section-divider"/>
 

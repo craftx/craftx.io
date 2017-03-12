@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 56);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1126,6 +1126,90 @@ module.exports = defaults;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.debounce = exports.displaySuccessMessage = exports.displayErrorMessage = exports.postToController = undefined;
+
+var _sweetalert = __webpack_require__(40);
+
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
+
+var _axios = __webpack_require__(17);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _lodash = __webpack_require__(35);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var axiosConfig = {
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-Token': csrfTokenValue,
+        'ACCEPTS': 'application/json'
+    }
+};
+
+exports.postToController = postToController;
+exports.displayErrorMessage = displayErrorMessage;
+exports.displaySuccessMessage = displaySuccessMessage;
+exports.debounce = _lodash.debounce;
+
+/**
+ * Post to a controller action via Ajax
+ *
+ * @param {String} url
+ * @param {Object} data 
+ * @param {Function} success 
+ * @param {Function} failure 
+ */
+
+function postToController(url) {
+    var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+    var failure = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
+
+    _axios2.default.post('/actions/' + url, data, axiosConfig).then(success, failure);
+}
+
+/**
+ * Display a custom success alert
+ *
+ * @param {String} title 
+ * @param {String} message 
+ */
+function displaySuccessMessage(title, message) {
+    (0, _sweetalert2.default)({
+        title: title,
+        text: message,
+        type: "success",
+        confirmButtonColor: '#00966c'
+    });
+}
+
+/**
+ * Display a error alert
+ *
+ * @param {String} title 
+ * @param {String} message 
+ */
+function displayErrorMessage(title, message) {
+    (0, _sweetalert2.default)({
+        title: title,
+        text: message,
+        type: 'error',
+        confirmButtonColor: '#00966c'
+    });
+}
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9578,90 +9662,6 @@ Vue$3.compile = compileToFunctions;
 
 exports.default = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(5)))
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.debounce = exports.displaySuccessMessage = exports.displayErrorMessage = exports.postToController = undefined;
-
-var _sweetalert = __webpack_require__(40);
-
-var _sweetalert2 = _interopRequireDefault(_sweetalert);
-
-var _axios = __webpack_require__(17);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _lodash = __webpack_require__(35);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var axiosConfig = {
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'X-CSRF-Token': csrfTokenValue,
-        'ACCEPTS': 'application/json'
-    }
-};
-
-exports.postToController = postToController;
-exports.displayErrorMessage = displayErrorMessage;
-exports.displaySuccessMessage = displaySuccessMessage;
-exports.debounce = _lodash.debounce;
-
-/**
- * Post to a controller action via Ajax
- *
- * @param {String} url
- * @param {Object} data 
- * @param {Function} success 
- * @param {Function} failure 
- */
-
-function postToController(url) {
-    var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
-    var failure = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
-
-    _axios2.default.post('/actions/' + url, data, axiosConfig).then(success, failure);
-}
-
-/**
- * Display a custom success alert
- *
- * @param {String} title 
- * @param {String} message 
- */
-function displaySuccessMessage(title, message) {
-    (0, _sweetalert2.default)({
-        title: title,
-        text: message,
-        type: "success",
-        confirmButtonColor: '#00966c'
-    });
-}
-
-/**
- * Display a error alert
- *
- * @param {String} title 
- * @param {String} message 
- */
-function displayErrorMessage(title, message) {
-    (0, _sweetalert2.default)({
-        title: title,
-        text: message,
-        type: 'error',
-        confirmButtonColor: '#00966c'
-    });
-}
 
 /***/ }),
 /* 9 */
@@ -21125,9 +21125,43 @@ module.exports = function normalizeComponent (
 
 var Component = __webpack_require__(41)(
   /* script */
-  __webpack_require__(47),
+  __webpack_require__(48),
   /* template */
+  __webpack_require__(53),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/selvinortiz/dev/www/sco/craftx.dev/src/js/components/CXCouponInput.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] CXCouponInput.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9e4bfca2", Component.options)
+  } else {
+    hotAPI.reload("data-v-9e4bfca2", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(41)(
+  /* script */
   __webpack_require__(49),
+  /* template */
+  __webpack_require__(51),
   /* scopeId */
   null,
   /* cssModules */
@@ -21154,14 +21188,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(41)(
   /* script */
-  __webpack_require__(48),
-  /* template */
   __webpack_require__(50),
+  /* template */
+  __webpack_require__(52),
   /* scopeId */
   null,
   /* cssModules */
@@ -21188,13 +21222,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = Stripe;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21204,7 +21238,83 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Utils = __webpack_require__(8);
+var _Utils = __webpack_require__(7);
+
+exports.default = {
+    props: ['value'],
+    data: function data() {
+        return {
+            ready: false,
+            busy: false,
+            hint: '',
+            label: '',
+            coupon: this.value
+        };
+    },
+
+    methods: {
+        setReady: function setReady() {
+            this.ready = !!this.coupon && this.coupon.length >= 5;
+        },
+        applyCoupon: function applyCoupon() {
+            var vm = this;
+
+            (0, _Utils.debounce)(function () {
+                if (vm.coupon.length < 5) {
+                    return;
+                }
+                if (!vm.busy) {
+                    vm.busy = true;
+                    (0, _Utils.postToController)('swipe/users/apply-coupon', {
+                        coupon: vm.coupon
+                    }, function (response) {
+                        console.log(response.data.success ? 'Success' : 'Error');
+                        vm.hint = response.data.message;
+                        vm.busy = false;
+                    }, function (response) {
+                        console.log('Error');
+                        vm.hint = response.data.message;
+                        vm.busy = false;
+                    });
+                }
+            }, 500)();
+        }
+    }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _Utils = __webpack_require__(7);
 
 exports.default = {
     props: ['value', 'placeholder'],
@@ -21262,7 +21372,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21272,7 +21382,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Utils = __webpack_require__(8);
+var _Utils = __webpack_require__(7);
 
 exports.default = {
     props: ['value', 'placeholder'],
@@ -21330,7 +21440,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -21377,7 +21487,7 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -21424,9 +21534,70 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */,
-/* 52 */,
 /* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "is-control-container"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Have a Coupon?")]), _vm._v(" "), _c('div', {
+    staticClass: "control is-grouped"
+  }, [_c('p', {
+    staticClass: "control is-expanded"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.coupon),
+      expression: "coupon"
+    }],
+    staticClass: "input is-expanded is-large",
+    attrs: {
+      "type": "text",
+      "name": "coupon",
+      "placeholder": "CRAFTXCOUPON"
+    },
+    domProps: {
+      "value": (_vm.coupon)
+    },
+    on: {
+      "keyup": _vm.setReady,
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.coupon = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.hint) ? _c('span', {
+    staticClass: "help"
+  }, [_vm._v(_vm._s(_vm.hint))]) : _vm._e()]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('button', {
+    staticClass: "button is-primary",
+    class: {
+      'is-loading': _vm.busy, 'is-disabled': !_vm.ready
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.applyCoupon($event)
+      }
+    }
+  }, [_vm._v("Apply")])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-9e4bfca2", module.exports)
+  }
+}
+
+/***/ }),
+/* 54 */,
+/* 55 */,
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21436,21 +21607,25 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stripe = __webpack_require__(46);
+var _stripe = __webpack_require__(47);
 
 var _stripe2 = _interopRequireDefault(_stripe);
 
-var _vue = __webpack_require__(7);
+var _vue = __webpack_require__(8);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _Utils = __webpack_require__(8);
+var _Utils = __webpack_require__(7);
 
-var _CXEmailInput = __webpack_require__(44);
+var _CXEmailInput = __webpack_require__(45);
 
 var _CXEmailInput2 = _interopRequireDefault(_CXEmailInput);
 
-var _CXUsernameInput = __webpack_require__(45);
+var _CXCouponInput = __webpack_require__(44);
+
+var _CXCouponInput2 = _interopRequireDefault(_CXCouponInput);
+
+var _CXUsernameInput = __webpack_require__(46);
 
 var _CXUsernameInput2 = _interopRequireDefault(_CXUsernameInput);
 
@@ -21484,7 +21659,8 @@ exports.default = new _vue2.default({
     delimiters: ['@{', '}'],
     components: {
         cxEmail: _CXEmailInput2.default,
-        cxUsername: _CXUsernameInput2.default
+        cxUsername: _CXUsernameInput2.default,
+        cxCoupon: _CXCouponInput2.default
     },
     data: {
         action: 'users/save-user',

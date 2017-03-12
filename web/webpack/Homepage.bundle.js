@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 52);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1126,6 +1126,90 @@ module.exports = defaults;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.debounce = exports.displaySuccessMessage = exports.displayErrorMessage = exports.postToController = undefined;
+
+var _sweetalert = __webpack_require__(40);
+
+var _sweetalert2 = _interopRequireDefault(_sweetalert);
+
+var _axios = __webpack_require__(17);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _lodash = __webpack_require__(35);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var axiosConfig = {
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-Token': csrfTokenValue,
+        'ACCEPTS': 'application/json'
+    }
+};
+
+exports.postToController = postToController;
+exports.displayErrorMessage = displayErrorMessage;
+exports.displaySuccessMessage = displaySuccessMessage;
+exports.debounce = _lodash.debounce;
+
+/**
+ * Post to a controller action via Ajax
+ *
+ * @param {String} url
+ * @param {Object} data 
+ * @param {Function} success 
+ * @param {Function} failure 
+ */
+
+function postToController(url) {
+    var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+    var failure = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
+
+    _axios2.default.post('/actions/' + url, data, axiosConfig).then(success, failure);
+}
+
+/**
+ * Display a custom success alert
+ *
+ * @param {String} title 
+ * @param {String} message 
+ */
+function displaySuccessMessage(title, message) {
+    (0, _sweetalert2.default)({
+        title: title,
+        text: message,
+        type: "success",
+        confirmButtonColor: '#00966c'
+    });
+}
+
+/**
+ * Display a error alert
+ *
+ * @param {String} title 
+ * @param {String} message 
+ */
+function displayErrorMessage(title, message) {
+    (0, _sweetalert2.default)({
+        title: title,
+        text: message,
+        type: 'error',
+        confirmButtonColor: '#00966c'
+    });
+}
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9578,90 +9662,6 @@ Vue$3.compile = compileToFunctions;
 
 exports.default = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(5)))
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.debounce = exports.displaySuccessMessage = exports.displayErrorMessage = exports.postToController = undefined;
-
-var _sweetalert = __webpack_require__(40);
-
-var _sweetalert2 = _interopRequireDefault(_sweetalert);
-
-var _axios = __webpack_require__(17);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _lodash = __webpack_require__(35);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var axiosConfig = {
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'X-CSRF-Token': csrfTokenValue,
-        'ACCEPTS': 'application/json'
-    }
-};
-
-exports.postToController = postToController;
-exports.displayErrorMessage = displayErrorMessage;
-exports.displaySuccessMessage = displaySuccessMessage;
-exports.debounce = _lodash.debounce;
-
-/**
- * Post to a controller action via Ajax
- *
- * @param {String} url
- * @param {Object} data 
- * @param {Function} success 
- * @param {Function} failure 
- */
-
-function postToController(url) {
-    var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var success = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
-    var failure = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
-
-    _axios2.default.post('/actions/' + url, data, axiosConfig).then(success, failure);
-}
-
-/**
- * Display a custom success alert
- *
- * @param {String} title 
- * @param {String} message 
- */
-function displaySuccessMessage(title, message) {
-    (0, _sweetalert2.default)({
-        title: title,
-        text: message,
-        type: "success",
-        confirmButtonColor: '#00966c'
-    });
-}
-
-/**
- * Display a error alert
- *
- * @param {String} title 
- * @param {String} message 
- */
-function displayErrorMessage(title, message) {
-    (0, _sweetalert2.default)({
-        title: title,
-        text: message,
-        type: 'error',
-        confirmButtonColor: '#00966c'
-    });
-}
 
 /***/ }),
 /* 9 */
@@ -21076,11 +21076,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _vue = __webpack_require__(7);
+var _vue = __webpack_require__(8);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _Utils = __webpack_require__(8);
+var _Utils = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21140,7 +21140,10 @@ exports.default = new _vue2.default({
 /* 49 */,
 /* 50 */,
 /* 51 */,
-/* 52 */
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

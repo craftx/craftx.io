@@ -6,6 +6,7 @@ import Vue from 'vue';
 import {postToController} from './Utils';
 
 import CXEmailInput from './components/CXEmailInput.vue';
+import CXCouponInput from './components/CXCouponInput.vue';
 import CXUsernameInput from './components/CXUsernameInput.vue';
 
 const stripeElementConfig = {
@@ -37,6 +38,7 @@ export default new Vue({
     components: {
         cxEmail: CXEmailInput,
         cxUsername: CXUsernameInput,
+        cxCoupon: CXCouponInput
     },
     data: {
         action: 'users/save-user',
