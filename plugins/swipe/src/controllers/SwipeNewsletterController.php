@@ -1,11 +1,14 @@
 <?php
 namespace selvinortiz\swipe\controllers;
 
+
+use yii\helpers\Json;
 use GuzzleHttp\Client;
 
 use Craft;
 use craft\web\Controller;
-use yii\helpers\Json;
+
+use function selvinortiz\swipe\swipe;
 
 class SwipeNewsletterController extends Controller
 {

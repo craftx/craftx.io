@@ -9,6 +9,7 @@
                     class="input is-expanded is-large"
                     v-model="coupon"
                     placeholder="CRAFTXCOUPON"
+                    @keyup.enter.prevent="applyCoupon"
                     @keyup="setReady"
                 >
                 <span v-if="hint" class="help">{{ hint }}</span>
