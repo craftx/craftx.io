@@ -50,28 +50,28 @@ class SwipePlansController extends Controller {
         $this->requireAcceptsJson();
         $success = false;
         $message = 'Sorry, coupon is invalid or expired';
-        $coupon = swipe()->api->getDecodedParam('coupon');
-        $plan = swipe()->api->getDecodedParam('plan');
+        $couponId = swipe()->api->getDecodedParam('coupon');
+        $planId = swipe()->api->getDecodedParam('plan');
 
         try {
-            $coupon = Coupon::retrieve($coupon);
+            $coupon = Coupon::retrieve(mb_strtoupper($couponId));
         } catch (InvalidRequest $invalidRequest) {
             $message = $invalidRequest->getMessage();
         }
 
-        if ($coupon && $coupon->valid) {
+        if (isset($coupon) && $coupon->valid) {
             $success = true;
             $message = sprintf('Yes, %s%% Discount!', $coupon->percent_off);
 
             try {
-                $plan = Plan::retrieve($plan);
+                $plan = Plan::retrieve($planId);
                 $message = sprintf('Nice, you are saving $%s!', ($plan->amount/(100/$coupon->percent_off)) / 100);
             } catch (InvalidRequest $invalidRequest) {
                 $mesage = $invalidRequest->getMessage();
             }
         }
 
-        return $this->asJson(compact('success', 'coupon', 'message'));
+        return $this->asJson(compact('success', 'message'));
     }
 
     public function actionSignUp() {
