@@ -21261,17 +21261,19 @@ exports.default = {
 
             (0, _Utils.debounce)(function () {
                 if (vm.coupon.length < 5) {
+                    vm.hint = 'Must be at least 5 characters long';
                     return;
                 }
                 if (!vm.busy) {
                     vm.busy = true;
-                    (0, _Utils.postToController)('swipe/users/apply-coupon', {
+                    (0, _Utils.postToController)('swipe/plans/get-coupon', {
                         coupon: vm.coupon
                     }, function (response) {
                         console.log(response.data.success ? 'Success' : 'Error');
                         vm.hint = response.data.message;
                         vm.busy = false;
                     }, function (response) {
+                        console.log(response);
                         console.log('Error');
                         vm.hint = response.data.message;
                         vm.busy = false;
@@ -21401,6 +21403,7 @@ exports.default = {
 
             (0, _Utils.debounce)(function () {
                 if (vm.username.length < 5) {
+                    vm.hint = 'Must be at least 5 characters long';
                     return;
                 }
                 if (!vm.busy) {
@@ -21577,6 +21580,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "button is-primary",
     class: {
       'is-loading': _vm.busy, 'is-disabled': !_vm.ready
+    },
+    attrs: {
+      "type": "button"
     },
     on: {
       "click": function($event) {

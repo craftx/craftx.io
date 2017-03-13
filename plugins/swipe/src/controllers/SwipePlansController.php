@@ -66,7 +66,9 @@ class SwipePlansController extends Controller {
             try {
                 $plan = Plan::retrieve($plan);
                 $message = sprintf('Nice, you are saving $%s!', ($plan->amount/(100/$coupon->percent_off)) / 100);
-            } catch (InvalidRequest $invalidRequest) {}
+            } catch (InvalidRequest $invalidRequest) {
+                $mesage = $invalidRequest->getMessage();
+            }
         }
 
         return $this->asJson(compact('success', 'coupon', 'message'));

@@ -14,7 +14,7 @@
                 <span v-if="hint" class="help">{{ hint }}</span>
             </p>
             <p class="control">
-                <button @click.prevent="applyCoupon" class="button is-primary" :class="{ 'is-loading': busy, 'is-disabled': !ready }">Apply</button>
+                <button type="button" @click.prevent="applyCoupon" class="button is-primary" :class="{ 'is-loading': busy, 'is-disabled': !ready }">Apply</button>
             </p>
         </div>
     </div>
@@ -42,11 +42,14 @@
                 let vm = this;
 
                 debounce(() => {
-                    if (vm.coupon.length < 5) { return; }
+                    if (vm.coupon.length < 5) {
+                        vm.hint = 'Must be at least 5 characters long';
+                        return;
+                    }
                     if (!vm.busy) {
                         vm.busy = true;
                         postToController(
-                            'swipe/users/apply-coupon',
+                            'swipe/plans/get-coupon',
                             {
                                 coupon: vm.coupon
                             },
@@ -56,6 +59,7 @@
                                 vm.busy = false;
                             },
                             (response) => {
+                                console.log(response);
                                 console.log('Error');
                                 vm.hint = response.data.message;
                                 vm.busy = false;

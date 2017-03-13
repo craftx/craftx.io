@@ -34,7 +34,10 @@
                 let vm = this;
 
                 debounce(() => {
-                    if (vm.username.length < 5) { return; }
+                    if (vm.username.length < 5) {
+                        vm.hint = 'Must be at least 5 characters long';
+                        return;
+                    }
                     if (!vm.busy) {
                         vm.busy = true;
                         postToController(
