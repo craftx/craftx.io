@@ -9,7 +9,6 @@ namespace craft\services;
 
 use Craft;
 use craft\base\Plugin;
-use craft\enums\LicenseKeyStatus;
 use craft\errors\InvalidPluginException;
 use craft\et\EtTransport;
 use craft\helpers\App;
@@ -455,7 +454,7 @@ class Et extends Component
      */
     public function getLicenseKeyStatus()
     {
-        return LicenseKeyStatus::Valid; // Craft::$app->getCache()->get('licenseKeyStatus');
+        return Craft::$app->getCache()->get('licenseKeyStatus');
     }
 
     /**
@@ -466,7 +465,7 @@ class Et extends Component
      */
     public function getLicensedDomain()
     {
-        return 'wqhpwimzxncvftqdzmrnmeegrrbktdvfqmsmyjdktagkarxcpkjowahhbbtgdfia.app'; // Craft::$app->getCache()->get('licensedDomain');
+        return Craft::$app->getCache()->get('licensedDomain');
     }
 
     /**

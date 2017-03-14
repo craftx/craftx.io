@@ -34,7 +34,7 @@
                 let vm = this;
 
                 debounce(() => {
-                    if (vm.username.length < 5) {
+                    if (!!vm.username && vm.username.length < 5) {
                         vm.hint = 'Must be at least 5 characters long';
                         return;
                     }
@@ -46,13 +46,11 @@
                                 username: vm.username
                             },
                             (response) => {
-                                console.log(response.data.success ? 'Success' : 'Error');
                                 vm.hint = response.data.message;
                                 vm.busy = false;
                             },
                             (response) => {
-                                console.log('Error');
-                                vm.hint = response.data.message;
+                                vm.hint = 'Unable to validate username';
                                 vm.busy = false;
                             }
                         );

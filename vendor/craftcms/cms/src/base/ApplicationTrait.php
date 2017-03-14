@@ -330,7 +330,7 @@ trait ApplicationTrait
     public function getEdition(): int
     {
         /** @var WebApplication|ConsoleApplication $this */
-        return Craft::Pro; // return (int)$this->getInfo()->edition;
+        return (int)$this->getInfo()->edition;
     }
 
     /**
@@ -352,7 +352,7 @@ trait ApplicationTrait
     public function getLicensedEdition()
     {
         /** @var WebApplication|ConsoleApplication $this */
-        $licensedEdition = Craft::Pro;
+        $licensedEdition = $this->getCache()->get('licensedEdition');
 
         if ($licensedEdition !== false) {
             return (int)$licensedEdition;

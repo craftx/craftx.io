@@ -97,6 +97,13 @@ class SwipeUsersController extends Controller {
     public function actionValidateUsername() {
         $username = swipe()->api->getDecodedParam('username');
 
+        if (empty($username)) {
+            return $this->asJson([
+                'status' => '__EMPTY',
+                'success' => false,
+                'message' => 'Username is required'
+            ]);
+        }
         if (($user = Craft::$app->users->getUserByUsernameOrEmail($username))) {
             return $this->asJson([
                 'status' => '__TAKEN',

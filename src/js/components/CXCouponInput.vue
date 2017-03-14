@@ -9,7 +9,8 @@
                     class="input is-expanded is-large"
                     v-model="coupon"
                     placeholder="CRAFTXCOUPON"
-                    @keyup.enter.prevent="applyCoupon"
+                    autocomplete="off"
+                    @keydown.enter="applyCoupon"
                     @keyup="setReady"
                 >
                 <span v-if="hint" class="help">{{ hint }}</span>
@@ -39,11 +40,13 @@
             setReady() {
                 this.ready = !!this.coupon && this.coupon.length >= 5;
             },
-            applyCoupon() {
+            applyCoupon(event) {
+                event.preventDefault();
+
                 let vm = this;
 
                 debounce(() => {
-                    if (vm.coupon.length < 5) {
+                    if (!!vm.coupon && vm.coupon.length < 5) {
                         vm.hint = 'Must be at least 5 characters long';
                         return;
                     }

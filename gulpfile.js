@@ -3,14 +3,14 @@
 const gulp = require('gulp');
 const config = require('./package.json').config;
 const plugins = require('gulp-load-plugins')();
-const browserify = require('browserify');
-const babelify = require('babelify');
-const watchify = require('watchify');
-const vueify = require('vueify');
-const buffer = require('vinyl-buffer');
-const source = require('vinyl-source-stream');
-
+// const browserify = require('browserify');
+// const babelify = require('babelify');
+// const watchify = require('watchify');
+// const vueify = require('vueify');
+// const buffer = require('vinyl-buffer');
+// const source = require('vinyl-source-stream');
 let templatesOnly = true;
+/*
 
 const bundler = watchify(browserify(config.js.source.app)
   .transform(vueify)
@@ -43,7 +43,7 @@ gulp.task('js', () => {
   bundler.on('update', bundle);
   bundler.on('log', plugins.util.log);
 });
-
+*/
 gulp.task('sass:app', () => {
   return gulp.src(config.sass.source.app)
     .pipe(plugins.sass(config.sass.options.app).on('error', plugins.sass.logError))
@@ -99,18 +99,17 @@ gulp.task('clean', () => {
 gulp.task('watch', (callback) => {
   plugins.livereload.listen();
 
-  bundle();
-  gulp.watch(config.js.watch, bundle);
   gulp.watch(config.sass.watch.app, ['sass:app', 'templates:noop']);
   gulp.watch(config.sass.watch.vendor, ['sass:vendor', 'templates:noop']);
-  gulp.watch(config.templates.watch, ['templates']);
   gulp.watch(config.images.source, ['images']);
+  gulp.watch(config.templates.watch, ['templates']);
+  gulp.watch('./web/webpack/*', ['templates']);
 });
 
 gulp.task('default', (callback) => {
-  plugins.runSequence(['js', 'sass:app'], 'images', 'templates', callback);
+  plugins.runSequence('images', 'templates', callback);
 });
 
 gulp.task('build', (callback) => {
-  plugins.runSequence(['js:build'], ['sass:app', 'sass:vendor'], 'fonts', 'images', 'templates', callback);
+  plugins.runSequence(['sass:app', 'sass:vendor'], 'fonts', 'images', 'templates', callback);
 });

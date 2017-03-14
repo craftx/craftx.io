@@ -1926,7 +1926,7 @@ CREATE TABLE `cx_users` (
 
 LOCK TABLES `cx_users` WRITE;
 /*!40000 ALTER TABLE `cx_users` DISABLE KEYS */;
-INSERT INTO `cx_users` VALUES (1,'selvinortiz',NULL,'Selvin','Ortiz','selvin@craftx.io','$2y$13$lpMCTvAg0o/B.7enJrbT.OuB4zToqUGASlsZsfFE8vf94dzoxGbEu',1,0,0,0,0,0,'2017-03-07 04:57:32','50.188.56.107',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-06 18:39:45','2017-02-06 18:39:45','2017-03-07 04:57:32','6dd21ec5-be58-47c4-9c4e-4f04346dd128'),(3,'selvin-selvinco',NULL,'Selvin','Ortiz','selvin@selvin.co','$2y$13$Sslt7yvMuB2eV0jKxhMrJeUWWeYVGukE2jCnXjM.P/I6vNeviqNv2',0,0,0,0,0,0,'2017-02-23 19:26:26','192.168.10.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-23 04:24:10','2017-02-18 01:30:24','2017-02-23 19:26:26','08ba55cf-b8f7-4b94-b43f-d335ed2dacfa');
+INSERT INTO `cx_users` VALUES (1,'selvinortiz',NULL,'Selvin','Ortiz','selvin@craftx.io','$2y$13$lpMCTvAg0o/B.7enJrbT.OuB4zToqUGASlsZsfFE8vf94dzoxGbEu',1,0,0,0,0,0,'2017-03-08 02:53:47','50.188.56.107',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-06 18:39:45','2017-02-06 18:39:45','2017-03-08 02:53:47','6dd21ec5-be58-47c4-9c4e-4f04346dd128'),(3,'selvin-selvinco',NULL,'Selvin','Ortiz','selvin@selvin.co','$2y$13$Sslt7yvMuB2eV0jKxhMrJeUWWeYVGukE2jCnXjM.P/I6vNeviqNv2',0,0,0,0,0,0,'2017-02-23 19:26:26','192.168.10.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-02-23 04:24:10','2017-02-18 01:30:24','2017-02-23 19:26:26','08ba55cf-b8f7-4b94-b43f-d335ed2dacfa');
 /*!40000 ALTER TABLE `cx_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2046,4 +2046,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-07  0:06:37
+-- Dump completed on 2017-03-14  1:13:28

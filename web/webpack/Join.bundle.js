@@ -21256,11 +21256,13 @@ exports.default = {
         setReady: function setReady() {
             this.ready = !!this.coupon && this.coupon.length >= 5;
         },
-        applyCoupon: function applyCoupon() {
+        applyCoupon: function applyCoupon(event) {
+            event.preventDefault();
+
             var vm = this;
 
             (0, _Utils.debounce)(function () {
-                if (vm.coupon.length < 5) {
+                if (!!vm.coupon && vm.coupon.length < 5) {
                     vm.hint = 'Must be at least 5 characters long';
                     return;
                 }
@@ -21283,6 +21285,7 @@ exports.default = {
         }
     }
 }; //
+//
 //
 //
 //
@@ -21403,7 +21406,7 @@ exports.default = {
             var vm = this;
 
             (0, _Utils.debounce)(function () {
-                if (vm.username.length < 5) {
+                if (!!vm.username && vm.username.length < 5) {
                     vm.hint = 'Must be at least 5 characters long';
                     return;
                 }
@@ -21412,12 +21415,10 @@ exports.default = {
                     (0, _Utils.postToController)('swipe/users/validate-username', {
                         username: vm.username
                     }, function (response) {
-                        console.log(response.data.success ? 'Success' : 'Error');
                         vm.hint = response.data.message;
                         vm.busy = false;
                     }, function (response) {
-                        console.log('Error');
-                        vm.hint = response.data.message;
+                        vm.hint = 'Unable to validate username';
                         vm.busy = false;
                     });
                 }
@@ -21561,17 +21562,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "text",
       "name": "coupon",
-      "placeholder": "CRAFTXCOUPON"
+      "placeholder": "CRAFTXCOUPON",
+      "autocomplete": "off"
     },
     domProps: {
       "value": (_vm.coupon)
     },
     on: {
-      "keyup": [function($event) {
+      "keydown": function($event) {
         if (_vm._k($event.keyCode, "enter", 13)) { return null; }
-        $event.preventDefault();
         _vm.applyCoupon($event)
-      }, _vm.setReady],
+      },
+      "keyup": _vm.setReady,
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.coupon = $event.target.value
