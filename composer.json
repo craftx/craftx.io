@@ -26,7 +26,8 @@
     "vlucas/phpdotenv": "^2.4.0",
     "roave/security-advisories": "dev-master",
     "selvinortiz/doxter": "^3.0",
-    "selvinortiz/patrol": "^3.0"
+    "selvinortiz/patrol": "^3.0",
+    "craftcms/aws-s3": "^1.0"
   },
   "scripts": {
     "post-root-package-install": [
