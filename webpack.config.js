@@ -1,3 +1,5 @@
+let webpack = require('webpack');
+
 module.exports = {
     entry: {
         App: './src/js/App.js',
@@ -18,16 +20,15 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /\.vue/, exclude: './node_modules', use: 'vue-loader'},
-            {test: /\.js/, exclude: './node_modules', use: 'babel-loader'}
+            {test: /\.vue/, exclude: /node_modules/, use: 'vue-loader'},
+            {test: /\.js/, exclude: /node_modules/, use: 'babel-loader'}
         ]
     },
-    devServer: {
-        proxy: {
-            '/': {
-                target: 'http://craftx.dev',
-                secure: false
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
             }
-        }
-    }
+        })
+    ]
 }

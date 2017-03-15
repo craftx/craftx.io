@@ -1,2 +1,5 @@
+{% if not currentUser %}
+    {% exit 404 %}
+{% endif %}
 
-<pre>Your account was activated</pre>
+{% redirect '/@' ~ currentUser.username %}

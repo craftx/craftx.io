@@ -19,6 +19,7 @@ use selvinortiz\swipe\variables\SwipeVariable;
 use selvinortiz\swipe\models\SwipeSettingsModel;
 use selvinortiz\swipe\controllers\SwipeUsersController;
 use selvinortiz\swipe\controllers\SwipePlansController;
+use selvinortiz\swipe\controllers\SwipeRoutingController;
 use selvinortiz\swipe\controllers\SwipeNewsletterController;
 
 /**
@@ -35,6 +36,7 @@ class Swipe extends Plugin {
     public $controllerMap = [
         'users' => SwipeUsersController::class,
         'plans' => SwipePlansController::class,
+        'routing' => SwipeRoutingController::class,
         'newsletter' => SwipeNewsletterController::class,
     ];
 
@@ -72,8 +74,9 @@ class Swipe extends Plugin {
     }
 
     public function registerSiteRoutes(RegisterUrlRulesEvent $event) {
-        $event->rules['@<username:[a-z0-9\-]+>/<page:[^/]+>'] = 'swipe/users/page';
         $event->rules['@<username:[a-z0-9\-]+>'] = 'swipe/users/index';
+        $event->rules['@<username:[a-z0-9\-]+>/<page:[^/]+>'] = 'swipe/users/page';
+        $event->rules['v1/account-activated'] = 'swipe/routing/account-activated';
     }
 
     public function handleAfterLogin(UserEvent $event) {

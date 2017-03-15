@@ -1,0 +1,18 @@
+{% set notification = craft.app.session.getFlash('notification') %}
+{% if notification is not empty %}
+    <section class="section-notification">
+        <div class="container">
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <div class="block">
+                        <span class="notification is-success">
+                            {{ notification }}
+                            <button class="delete is-small"></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endif %}

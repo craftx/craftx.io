@@ -3,47 +3,9 @@
 const gulp = require('gulp');
 const config = require('./package.json').config;
 const plugins = require('gulp-load-plugins')();
-// const browserify = require('browserify');
-// const babelify = require('babelify');
-// const watchify = require('watchify');
-// const vueify = require('vueify');
-// const buffer = require('vinyl-buffer');
-// const source = require('vinyl-source-stream');
+
 let templatesOnly = true;
-/*
 
-const bundler = watchify(browserify(config.js.source.app)
-  .transform(vueify)
-  .transform(babelify, {presets: ['es2015']}));
-
-function bundle() {
-  return bundler.bundle()
-    .on('error', plugins.util.log)
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(gulp.dest('./web/dist/'))
-    .pipe(plugins.livereload());
-}
-
-gulp.task('js:build', function () {
-  const bundler = browserify(config.js.source.app)
-    .transform(vueify)
-    .transform(babelify, {presets: ['es2015']});
-
-  return bundler.bundle()
-    .on('error', plugins.util.log)
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(plugins.uglify())
-    .pipe(gulp.dest('./web/dist/'));
-});
-
-gulp.task('js', () => {
-  bundle();
-  bundler.on('update', bundle);
-  bundler.on('log', plugins.util.log);
-});
-*/
 gulp.task('sass:app', () => {
   return gulp.src(config.sass.source.app)
     .pipe(plugins.sass(config.sass.options.app).on('error', plugins.sass.logError))

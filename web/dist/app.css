@@ -31,6 +31,9 @@
 ------------------------------------------------------------
 @Utils
 ------------------------------------------------------------*/
+.section-notification {
+  padding: 40px 0; }
+
 .section--hero, .section--blog-hero {
   background: url(/dist/images/background-hero.svg) no-repeat left center, #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
   background-size: auto 98%; }
