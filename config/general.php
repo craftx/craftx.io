@@ -13,6 +13,12 @@ return [
         'siteUrl' => 'https://craftx.io',
         'sitePath' => __DIR__.'/../web/',
         'cpTrigger' => 'studio',
+        #
+        # Site settings
+        'app' => [
+            'code' => 'ZvfcJjMfUNnuVAvruNHeVdeMxJgWQhqkRdPCfpHrRQDgHEbYcyNvDynjpAdmgiUb',
+            'incognito' => true,
+        ],
         'defaultWeekStartDay' => 0, // 0 = Sunday, 1 = Monday
         'enableCsrfProtection' => true,
         'omitScriptNameInUrls' => true,

@@ -7,8 +7,8 @@
         <meta name="description" content="Craft Training for Busy Developers">
         <link rel="shortcut icon" href="/favicon.ico">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <link rel="stylesheet" href="/dist/vendor.css?v=1.1.1">
-        <link rel="stylesheet" href="/dist/app.css?v=1.1.1">
+        <link rel="stylesheet" href="/dist/vendor.css?v=1.2.0">
+        <link rel="stylesheet" href="/dist/app.css?v=1.2.0">
         {% include '_special/metadata' %}
 
         <script src="https://js.stripe.com/v3/"></script>
@@ -28,7 +28,7 @@
 
         {% include '_special/disqus' %}
 
-        <script src="/webpack/App.bundle.js"></script>
+        <script src="/webpack/App.bundle.js?v=1.0.0"></script>
 
         {% if scripts is defined and scripts is iterable %}
             {% for script in scripts %}

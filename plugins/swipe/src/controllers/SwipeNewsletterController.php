@@ -18,7 +18,7 @@ class SwipeNewsletterController extends Controller
     protected $allowAnonymous = ['actionSubscribe'];
 
     private $_alreadySubscribedError = 'Already subscribed.';
-    private $_alreadySubscribedMessage = 'Looks like you should already be getting my newsletter.';
+    private $_alreadySubscribedMessage = 'Looks like you should already be getting my updates.';
     private $_errorResponses = [
         'Invalid list ID.' => [
             'title' => 'Shoot!',
@@ -83,7 +83,7 @@ class SwipeNewsletterController extends Controller
             $success = true;
         } else {
             $title = 'One more step!';
-            $message = 'A confirmation email should be on its way to {email} ;)';
+            $message = 'A confirmation email should be on its way to {email}';
             $success = true;
         }
 

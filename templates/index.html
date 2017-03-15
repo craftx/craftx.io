@@ -1,5 +1,9 @@
-{% if craft.app.config.get('env') == 'dev' or code is defined and code == 'ZvfcJjMfUNnuVAvruNHeVdeMxJgWQhqkRdPCfpHrRQDgHEbYcyNvDynjpAdmgiUb' %}
-    {% include '_special/index' %}
+{% set vars = {entry: entry, currentUser: currentUser} %}
+{% set appConfig = craft.app.config.get('app') %}
+{% set requestCode = craft.app.request.getQueryParam('code') %}
+
+{% if craft.swipe.hasIncognitoAccess() %}
+    {% include '_index-public' with vars only %}
 {% else %}
-    {% include '_special/temp/index' %}
+    {% include '_index-incognito' with vars only %}
 {% endif %}

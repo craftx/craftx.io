@@ -6,7 +6,7 @@
                     <h1 class="title is-1">{{ block.heroLead }}</h1>
                     <h2 class="subtitle is-3">{{ block.heroText }}</h2>
                     <div class="hero-buttons has-text-centered">
-                        <a href="/signup" id="cta" class="button is-large is-info">
+                        <a href="{{ craft.swipe.incognitorUrl('/signup') }}" id="cta" class="button is-large is-info">
                             <i class="fa fa-terminal is-blinking"></i>
                             {{ block.heroCtaText }}
                         </a>

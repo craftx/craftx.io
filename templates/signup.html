@@ -1,8 +1,11 @@
+{% do craft.swipe.requireIncognito() %}
+
 {% extends '_layout' %}
+
 {% set id = 'sign-up' %}
 {% set title = 'Craft Training for Busy Developers' %}
 {% set coupon = craft.app.request.getQueryParam('coupon') %}
-{% set scripts = ['/webpack/Join.bundle.js'] %}
+{% set scripts = ['/webpack/Join.bundle.js?v=1.0.0'] %}
 
 {% set content %}
     {#

@@ -1,8 +1,8 @@
 <nav id="nav" class="nav is-medium has-shadow nav--primary">
   <div class="container">
   <div class="nav-left">
-    <a href="/" class="nav-item nav__brand" title="Craft X">
-      <img src="/dist/images/CraftX.svg" alt="Craft X Logo">
+    <a href="{{ craft.swipe.incognitoUrl('/') }}" class="nav-item nav__brand" title="CraftX">
+      <img src="/dist/images/CraftX.svg" alt="CraftX Logo">
     </a>
   </div>
 
@@ -20,13 +20,13 @@
   <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
     {% if user %}
         <span class="nav-item">
-          <a href="/@{{ user.username }}" class="button is-outlined is-info is-heavy" title="Dashboard">
+          <a href="/@{{ craft.swipe.incognitoUrl(user.username) }}" class="button is-outlined is-info is-heavy" title="Dashboard">
             <span class="icon"><i class="fa fa-terminal is-blinking"></i></span>
             <span>Dashboard</span>
           </a>
         </span>
         <span class="nav-item">
-          <a href="/logout" class="button is-outlined is-heavy" title="Logout">
+          <a href="{{ craft.swipe.incognitoUrl('/logout') }}" class="button is-outlined is-heavy" title="Logout">
             <span>Logout</span>
             <span class="icon"><i class="fa fa-sign-out"></i></span>
           </a>
@@ -34,13 +34,13 @@
       {% else %}
 
         <span class="nav-item">
-          <a href="/login" class="button is-outlined is-primary is-heavy" title="Login">
+          <a href="{{ craft.swipe.incognitoUrl('/login') }}" class="button is-outlined is-primary is-heavy" title="Login">
             <span class="icon"><i class="fa fa-sign-in"></i></span>
             <span>Login</span>
           </a>
         </span>
         <span class="nav-item">
-          <a href="/signup" class="button is-outlined is-info is-heavy" title="Sign up today and start hacking Craft CMS">
+          <a href="{{ craft.swipe.incognitoUrl('/signup') }}" class="button is-outlined is-info is-heavy" title="Sign up today and start hacking Craft CMS">
             <span class="icon"><i class="fa fa-graduation-cap"></i></span>
             <span>Sign Up</span>
           </a>
