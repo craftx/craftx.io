@@ -10,7 +10,7 @@ use function selvinortiz\swipe\swipe;
 class SwipeExtension extends \Twig_Extension {
     private $_methods = [
         'notification',
-        'rul'
+        'url'
     ];
 
     public function getName() {
