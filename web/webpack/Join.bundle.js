@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 55);
+/******/ 	return __webpack_require__(__webpack_require__.s = 52);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -28437,7 +28437,7 @@ module.exports = function spread(callback) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(40)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(39)(module)))
 
 /***/ }),
 /* 33 */
@@ -29443,6 +29443,34 @@ module.exports = exports['default'];
 /* 39 */
 /***/ (function(module, exports) {
 
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
 module.exports = function normalizeComponent (
   rawScriptExports,
   compiledTemplate,
@@ -29494,78 +29522,16 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
 /* 41 */,
 /* 42 */,
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(39)(
+var Component = __webpack_require__(40)(
   /* script */
-  __webpack_require__(47),
+  __webpack_require__(46),
   /* template */
-  __webpack_require__(52),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/selvinortiz/dev/www/sco/craftx.dev/src/js/components/CXCouponInput.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] CXCouponInput.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9e4bfca2", Component.options)
-  } else {
-    hotAPI.reload("data-v-9e4bfca2", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(39)(
-  /* script */
   __webpack_require__(48),
-  /* template */
-  __webpack_require__(50),
   /* scopeId */
   null,
   /* cssModules */
@@ -29592,14 +29558,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(39)(
+var Component = __webpack_require__(40)(
   /* script */
-  __webpack_require__(49),
+  __webpack_require__(47),
   /* template */
-  __webpack_require__(51),
+  __webpack_require__(49),
   /* scopeId */
   null,
   /* cssModules */
@@ -29626,95 +29592,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports) {
 
 module.exports = Stripe;
 
 /***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Utils = __webpack_require__(6);
-
-exports.default = {
-    props: ['value'],
-    data: function data() {
-        return {
-            ready: false,
-            busy: false,
-            hint: '',
-            label: '',
-            coupon: this.value
-        };
-    },
-
-    methods: {
-        setReady: function setReady() {
-            this.ready = !!this.coupon && this.coupon.length >= 5;
-        },
-        applyCoupon: function applyCoupon(event) {
-            event.preventDefault();
-
-            var vm = this;
-
-            (0, _Utils.debounce)(function () {
-                if (!!vm.coupon && vm.coupon.length < 5) {
-                    vm.hint = 'Must be at least 5 characters long';
-                    return;
-                }
-                if (!vm.busy) {
-                    vm.busy = true;
-                    (0, _Utils.postToController)('swipe/plans/get-coupon', {
-                        coupon: vm.coupon
-                    }, function (response) {
-                        console.log(response.data.success ? 'Success' : 'Error');
-                        vm.hint = response.data.message;
-                        vm.busy = false;
-                    }, function (response) {
-                        console.log(response);
-                        console.log('Error');
-                        vm.hint = response.data.message;
-                        vm.busy = false;
-                    });
-                }
-            }, 500)();
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-/* 48 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29780,9 +29664,10 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
-/* 49 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29847,9 +29732,10 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
-/* 50 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29871,6 +29757,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "email",
       "name": "email",
       "autocomplete": "off",
+      "required": "",
       "placeholder": _vm.placeholder
     },
     domProps: {
@@ -29896,7 +29783,7 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29918,6 +29805,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "username",
       "autocomplete": "off",
+      "required": "",
       "placeholder": _vm.placeholder
     },
     domProps: {
@@ -29943,78 +29831,9 @@ if (false) {
 }
 
 /***/ }),
+/* 50 */,
+/* 51 */,
 /* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "is-control-container"
-  }, [_c('label', {
-    staticClass: "label"
-  }, [_vm._v("Have a Coupon?")]), _vm._v(" "), _c('div', {
-    staticClass: "control is-grouped"
-  }, [_c('p', {
-    staticClass: "control is-expanded"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.coupon),
-      expression: "coupon"
-    }],
-    staticClass: "input is-expanded is-large",
-    attrs: {
-      "type": "text",
-      "name": "coupon",
-      "placeholder": "CRAFTXCOUPON",
-      "autocomplete": "off"
-    },
-    domProps: {
-      "value": (_vm.coupon)
-    },
-    on: {
-      "keydown": function($event) {
-        if (_vm._k($event.keyCode, "enter", 13)) { return null; }
-        _vm.applyCoupon($event)
-      },
-      "keyup": _vm.setReady,
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.coupon = $event.target.value
-      }
-    }
-  }), _vm._v(" "), (_vm.hint) ? _c('span', {
-    staticClass: "help"
-  }, [_vm._v(_vm._s(_vm.hint))]) : _vm._e()]), _vm._v(" "), _c('p', {
-    staticClass: "control"
-  }, [_c('button', {
-    staticClass: "button is-primary",
-    class: {
-      'is-loading': _vm.busy, 'is-disabled': !_vm.ready
-    },
-    attrs: {
-      "type": "button"
-    },
-    on: {
-      "click": function($event) {
-        $event.preventDefault();
-        _vm.applyCoupon($event)
-      }
-    }
-  }, [_vm._v("Apply")])])])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-9e4bfca2", module.exports)
-  }
-}
-
-/***/ }),
-/* 53 */,
-/* 54 */,
-/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30024,7 +29843,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stripe = __webpack_require__(46);
+var _stripe = __webpack_require__(45);
 
 var _stripe2 = _interopRequireDefault(_stripe);
 
@@ -30034,243 +29853,41 @@ var _vue2 = _interopRequireDefault(_vue);
 
 var _Utils = __webpack_require__(6);
 
-var _CXEmailInput = __webpack_require__(44);
+var _CXEmailInput = __webpack_require__(43);
 
 var _CXEmailInput2 = _interopRequireDefault(_CXEmailInput);
 
-var _CXCouponInput = __webpack_require__(43);
-
-var _CXCouponInput2 = _interopRequireDefault(_CXCouponInput);
-
-var _CXUsernameInput = __webpack_require__(45);
+var _CXUsernameInput = __webpack_require__(44);
 
 var _CXUsernameInput2 = _interopRequireDefault(_CXUsernameInput);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var stripeElementConfig = {
-    hidePostalCode: true,
-    iconStyle: 'solid',
-    style: {
-        base: {
-            color: '#9642be',
-            iconColor: '#9642be',
-            fontFamily: '"Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif',
-            fontSize: '1.5rem'
-        }
-    }
-};
-
-var stripeElementFont = {
-    fonts: [{
-        family: 'Fira Sans',
-        weight: 300,
-        src: 'local("Fira Sans"), url("https://craftx.io/dist/fonts/firasans-regular.woff2") format("woff2"), url("https://craftx.io/dist/fonts/firasans-regular.woff") format("woff")'
-    }]
-};
-
-var stripePublishableKey = 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t';
-
 exports.default = new _vue2.default({
-    el: '#signup',
+    el: '#join',
     delimiters: ['@{', '}'],
     components: {
         cxEmail: _CXEmailInput2.default,
-        cxUsername: _CXUsernameInput2.default,
-        cxCoupon: _CXCouponInput2.default
+        cxUsername: _CXUsernameInput2.default
     },
     data: {
-        action: 'users/save-user',
-        redirect: '/v1/confirm-your-email',
         email: '',
         username: '',
         password: '',
         firstName: '',
         lastName: '',
-        address1: '',
-        address2: '',
-        city: '',
-        state: '',
-        zip: '',
-        countryCode: 'us',
-        planId: 'CRAFTXDEVMONTHLY',
-        coupon: '',
-        signingUp: false,
-        applyingCoupon: false,
-        hints: {},
-        token: '{}',
-        _stripe: {},
-        _card: {}
+        busy: false
     },
-    computed: {
-        inUs: function inUs() {
-            return this.countryCode.toLowerCase() === 'us';
-        },
-        name: function name() {
-            return this.firstName + ' ' + this.lastName;
-        }
-    },
-    watch: {
-        email: function email() {
-            this.validateEmail();
-        },
-        username: function username() {
-            this.validateUsername();
-        }
-    },
-    mounted: function mounted() {
-        var _this = this;
-
-        this.$nextTick(function () {
-            _this._stripe = (0, _stripe2.default)(stripePublishableKey);
-            _this._card = _this._stripe.elements(stripeElementFont).create('card', stripeElementConfig);
-
-            _this._card.mount('#card-element');
-
-            window.addEventListener('resize', function () {
-                _this.updateCardStyle();
-            });
-
-            _this.updateCardStyle();
-        }, this);
-    },
-
     methods: {
-        applyCoupon: function applyCoupon() {
-            var _this2 = this;
+        join: function join(event) {
 
-            var app = this;
-            if (this.coupon.length < 6) {
-                return app.hint('coupon', 'Invalid coupon');
+            if (this.busy) {
+                return;
             }
 
-            this.applyingCoupon = true;
-            (0, _Utils.postToController)('swipe/plans/get-coupon', { coupon: app.coupon, plan: app.planId }, function (response) {
-                _this2.applyingCoupon = false;
-                return app.hint('coupon', response.data.message);
-            }, function (response) {
-                console.log(response);
-                _this2.applyingCoupon = false;
-                return app.hint('coupon', 'Unable to verify the coupon');
-            });
-        },
-        updateCardStyle: function updateCardStyle() {
-            if (window.innerWidth <= 768) {
-                this._card.update({ style: { base: { fontSize: '1rem' } } });
-            } else {
-                this._card.update({ style: { base: { fontSize: '1.75rem' } } });
-            }
-        },
-        checkout: function checkout(ev) {
-            var app = this;
-            this.signingUp = true;
-            this._stripe.createToken(this._card, {
-                name: app.name,
-                address_country: this.countryCode,
-                address_line1: this.address1,
-                address_city: this.city,
-                address_state: this.state,
-                address_zip: this.zip
-            }).then(function (result) {
-                if (result.error) {
-                    // Inform the user if there was an error
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                } else {
-                    // Send the token to your server
-                    app.token = JSON.stringify(result.token);
-                    ev.target.submit(); // app.sendCheckoutForm();
-                }
-            });
-        },
-        sendCheckoutForm: function sendCheckoutForm() {
-            var app = this;
-            var params = {
-                firstName: app.firstName,
-                lastName: app.lastName,
-                email: app.email,
-                username: app.username,
-                password: app.password,
-                planId: app.planId,
-                coupon: app.coupon,
-                fields: {
-                    billingEmail: app.email,
-                    billingAddress1: app.address1,
-                    billingAddress2: app.address2,
-                    billingCity: app.city,
-                    billingState: app.state,
-                    billingCountryCode: app.countryCode,
-                    billingZip: app.zip,
-                    subscriptionJson: app.token
-                }
-            };
+            this.busy = true;
 
-            console.log(params);
-            var signUp = debounce(function () {
-                (0, _Utils.postToController)('swipe/users/save-user', params, function (response) {
-                    console.log(response.data);
-                }, function (response) {
-                    console.log(response.data);
-                });
-            }, 500);
-
-            return signUp();
-        },
-        validateEmail: function validateEmail() {
-            var app = this;
-            var validate = _.debounce(function () {
-                (0, _Utils.postToController)('swipe/users/validate-email', { email: app.email }, function (response) {
-                    if (!response.data.success) {
-                        app.hint('email', response.data.message);
-                    }
-
-                    app.hint('email', '');
-                }, function (response) {
-                    console.log(response);
-                    app.hint('email', 'Unable to validate email');
-                });
-            }, 500);
-
-            return validate();
-        },
-        validateUsername: function validateUsername() {
-            var _this3 = this;
-
-            var app = this;
-            var validate = debounce(function () {
-                if (_this3.username.length < 5) {
-                    return;
-                }
-                (0, _Utils.postToController)('swipe/users/validate-username', { username: app.username }, function (response) {
-                    if (!response.data.success) {
-                        app.hint('username', response.data.message);
-                    }
-
-                    app.hint('username', '');
-                }, function (response) {
-                    console.log(response);
-                    app.hint('username', 'Unable to validate username');
-                });
-            }, 500);
-
-            return validate();
-        },
-        hint: function hint(field) {
-            var error = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-            var remove = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-            if (error !== '') {
-                this.$set(this.hints, field, error);
-            } else if (remove !== false) {
-                this.$delete(this.hints, field);
-            } else {
-                return this.hints.hasOwnProperty(field) && this.hints[field] !== '';
-            }
-        },
-        us: function us(value) {
-            var optional = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-            return this.countryCode.toLowerCase() === 'us' ? value : optional;
+            return event.target.submit();
         }
     }
 });

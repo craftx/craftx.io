@@ -1,0 +1,63 @@
+{% do craft.swipe.requireIncognito() %}
+
+{% extends '_layout' %}
+
+{% set id = 'join-page' %}
+{% set title = 'Craft Training for Busy Developers' %}
+{% set scripts = ['/webpack/Join.bundle.js?v=1.0.0'] %}
+
+{% set content %}
+    {#
+      Can use:
+      - is-control-container to group labes and field to add a little space around
+      - has-option-field on a label to mark the control as (Optional)
+    #}
+    <section class="section section--join">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <div class="form-container">
+                        <form @submit.prevent="join" id="join" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
+                            <input type="hidden" name="action" value="users/save-user">
+                            {{ redirectInput(craft.swipe.incognitoUrl('/login')) }}
+                            {{ csrfInput() }}
+
+                            <h2 class="title is-3 is-form-section-title">Join CraftX</h2>
+                            <div class="is-control-container">
+                                {# Outside of control to align with label(less) input #}
+                                <label class="label">Name</label>
+                                <div class="control is-grouped">
+                                    <p class="control is-expanded">
+                                        <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="First" >
+                                    </p>
+                                    <p class="control is-expanded has-no-label">
+                                        <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Last" >
+                                    </p>
+                                </div>
+                            </div>
+
+                            <hr class="is-form-section-divider"/>
+
+                            <cx-email placeholder=""></cx-email>
+                            <cx-username placeholder=""></cx-username>
+
+                            <div class="is-control-container">
+                                <label class="label">Password</label>
+                                <p class="control">
+                                    <input v-model="password" class="input is-large" type="password" name="password" autocomplete="off" >
+                                </p>
+                            </div>
+
+                            <div class="is-button-container">
+                                <button type="submit" class="button is-info is-large is-full-width-mobile" :class="{ 'is-loading': busy, 'is-disabled': busy }">
+                                    <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+                                    <span>Join</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endset %}

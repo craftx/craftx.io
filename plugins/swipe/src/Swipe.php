@@ -15,6 +15,7 @@ use craft\events\RegisterUrlRulesEvent;
 use selvinortiz\swipe\services\SwipeService;
 use selvinortiz\swipe\services\SwipePlanService;
 use selvinortiz\swipe\services\SwipeVideoService;
+use selvinortiz\swipe\extensions\SwipeExtension;
 use selvinortiz\swipe\variables\SwipeVariable;
 use selvinortiz\swipe\models\SwipeSettingsModel;
 use selvinortiz\swipe\controllers\SwipeUsersController;
@@ -42,6 +43,8 @@ class Swipe extends Plugin {
 
     public function init() {
         parent::init();
+
+        Craft::$app->view->twig->addExtension(new SwipeExtension());
 
         Event::on(
             UrlManager::class,
@@ -76,7 +79,6 @@ class Swipe extends Plugin {
     public function registerSiteRoutes(RegisterUrlRulesEvent $event) {
         $event->rules['@<username:[a-z0-9\-]+>'] = 'swipe/users/index';
         $event->rules['@<username:[a-z0-9\-]+>/<page:[^/]+>'] = 'swipe/users/page';
-        $event->rules['v1/account-activated'] = 'swipe/routing/account-activated';
     }
 
     public function handleAfterLogin(UserEvent $event) {
@@ -97,8 +99,8 @@ class Swipe extends Plugin {
         return SwipeVariable::class;
     }
 
-    public function t($text, array $vars = []): string {
-        return Craft::t($text, $vars, 'swipe');
+    public static function t($text, array $vars = []): string {
+        return Craft::t('swipe', $text, $vars);
     }
 }
 

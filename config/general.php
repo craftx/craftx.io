@@ -44,7 +44,7 @@ return [
         'postLoginRedirect' => '@{username}',
         'limitAutoSlugsToAscii' => true,
         'maxInvalidLogins' => 3,
-        'autoLoginAfterAccountActivation' => true,
+        'autoLoginAfterAccountActivation' => false,
         #
         # Session Related
         'csrfTokenName' => 'X-CSRF-Token',

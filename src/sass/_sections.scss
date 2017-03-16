@@ -1,11 +1,6 @@
-.section-notification {
-    padding: $column-pad2x 0;
-}
 .section--hero, .section--blog-hero {
-    background:
-        url(/dist/images/background-hero.svg) no-repeat left center,
-        #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
-    background-size: auto 98%;
+    background: #eee url(/dist/images/background-hero.svg) no-repeat left -51.25%;
+    background-size: auto 150%;
     .hero-buttons {
         margin-top: $column-pad2x;
         .button {
@@ -56,16 +51,6 @@
     .title, .subtitle {
         @extend .is-inset;
     }
-}
-.section--thanks {
-    .title, .subtitle {
-        color: #fff;
-        @extend .is-inset-inverted;
-    }
-    background-color: $info;
-    border-top: 2px solid darken($info, 10%);
-    border-bottom: 2px solid darken($info, 10%);
-    background: linear-gradient(45deg,  #9642be 0%,#7f39a3 24%,#7f39a3 44%,#9342bc 64%,#9642be 100%);
 }
 .section--subscribe {
     border-top: 2px solid $gray-d;

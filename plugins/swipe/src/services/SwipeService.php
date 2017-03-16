@@ -87,6 +87,16 @@ class SwipeService extends Component
         return "https://www.gravatar.com/avatar/{$this->hash($email)}?s={$size}&d=mm&r=g";
     }
 
+    public function incognitoUrl($path) {
+        $appConfig = Craft::$app->config->get('app');
+
+        if (!empty($appConfig['code'])) {
+            return $path.'?code='.$appConfig['code'];
+        }
+
+        return $path;
+    }
+
     public function error($message, array $vars = []) {
         $message = is_array($message) ? Craft::t(print_r($message, true), $vars) : $message;
 

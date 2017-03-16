@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 54);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -28437,7 +28437,7 @@ module.exports = function spread(callback) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(40)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(39)(module)))
 
 /***/ }),
 /* 33 */
@@ -29440,8 +29440,7 @@ if (typeof window !== 'undefined') {
 module.exports = exports['default'];
 
 /***/ }),
-/* 39 */,
-/* 40 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -29469,6 +29468,7 @@ module.exports = function(module) {
 
 
 /***/ }),
+/* 40 */,
 /* 41 */,
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -29544,10 +29544,7 @@ exports.default = new _vue2.default({
 /* 48 */,
 /* 49 */,
 /* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

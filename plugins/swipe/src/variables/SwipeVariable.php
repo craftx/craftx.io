@@ -58,12 +58,6 @@ class SwipeVariable {
     }
 
     public function incognitoUrl($path) {
-        $appConfig = Craft::$app->config->get('app');
-        
-        if (!empty($appConfig['code'])) {
-            return $path.'?code='.$appConfig['code'];
-        }
-
-        return $path;
+        return swipe()->api->incognitoUrl($path);
     }
 }

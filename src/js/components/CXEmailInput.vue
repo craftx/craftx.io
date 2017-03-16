@@ -7,6 +7,7 @@
                 name="email"
                 class="input is-large"
                 autocomplete="off"
+                required
                 :placeholder="placeholder"
                 v-model="email"
                 @keyup="validate"

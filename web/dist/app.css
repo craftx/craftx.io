@@ -31,12 +31,9 @@
 ------------------------------------------------------------
 @Utils
 ------------------------------------------------------------*/
-.section-notification {
-  padding: 40px 0; }
-
 .section--hero, .section--blog-hero {
-  background: url(/dist/images/background-hero.svg) no-repeat left center, #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
-  background-size: auto 98%; }
+  background: #eee url(/dist/images/background-hero.svg) no-repeat left -51.25%;
+  background-size: auto 150%; }
   .section--hero .hero-buttons, .section--blog-hero .hero-buttons {
     margin-top: 40px; }
     .section--hero .hero-buttons .button, .section--blog-hero .hero-buttons .button {
@@ -76,14 +73,6 @@
 .section--about {
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
   border-top: 1px solid #c6c7c8; }
-
-.section--thanks {
-  background-color: #9642be;
-  border-top: 2px solid #783499;
-  border-bottom: 2px solid #783499;
-  background: linear-gradient(45deg, #9642be 0%, #7f39a3 24%, #7f39a3 44%, #9342bc 64%, #9642be 100%); }
-  .section--thanks .title, .section--thanks .subtitle {
-    color: #fff; }
 
 .section--subscribe {
   border-top: 2px solid #d6d7d8;
@@ -163,11 +152,14 @@ label.has-optional-input:after {
 .StripeElement--focus {
   border: 1px solid #00966C; }
 
-.button {
+.button:not(.is-not-modified) {
   height: auto;
   line-height: 1;
   word-spacing: 0.3em;
   padding: 1em 2em; }
+
+.is-button-container {
+  margin-top: 20px; }
 
 .has-colorful-inputs .input, .has-colorful-inputs .select select {
   color: #9642be; }
@@ -188,7 +180,7 @@ label.has-optional-input:after {
     background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
     padding: 40px;
     border: 2px solid #d6d7d8; }
-  .button {
+  .button.is-large:not(.is-not-modified), .input.is-large:not(.is-not-modified) {
     padding-top: .75em;
     padding-bottom: .75em; } }
 
@@ -260,6 +252,18 @@ body {
 .footer {
   background-color: inherit; }
 
+.notification {
+  display: block;
+  min-width: 100%;
+  margin-top: 40px; }
+
+.notification.is-primary {
+  color: #00966C;
+  background-color: #f6f6f6;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  font-weight: bold; }
+
 /*
  ------------------------------------------------------------
  @utilities
@@ -268,7 +272,7 @@ body {
 .subtitle {
   text-shadow: 1px 2px 0 #fff; }
 
-.is-inset-inverted, .section--thanks .title, .section--thanks .subtitle {
+.is-inset-inverted {
   text-shadow: 1px 2px 0 #363738; }
 
 .is-form-section-divider {

@@ -1,5 +1,3 @@
-{% if not currentUser %}
-    {% exit 404 %}
-{% endif %}
+{% do notification('You account was activated') %}
 
-{% redirect '/@' ~ currentUser.username %}
+{% redirect url('/login') %}

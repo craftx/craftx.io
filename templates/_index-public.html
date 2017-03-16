@@ -1,7 +1,7 @@
 {% extends '_layout' %}
 {% set id = 'home' %}
 {% set title = 'Craft Training for Busy Developers' %}
-{% set scripts = ['/webpack/Homepage.bundle.js'] %}
+{% set scripts = ['/webpack/Homepage.bundle.js?v=1.0.0'] %}
 
 {% set entry = entry ?? craft.entries({section: 'homepage'}).one() %}
 

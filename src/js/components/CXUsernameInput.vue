@@ -7,6 +7,7 @@
                 name="username"
                 class="input is-large"
                 autocomplete="off"
+                required
                 :placeholder="placeholder"
                 v-model="username"
                 @keyup="validate"
