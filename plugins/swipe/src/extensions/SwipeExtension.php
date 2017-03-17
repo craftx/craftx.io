@@ -35,7 +35,7 @@ class SwipeExtension extends \Twig_Extension {
         return $functions;
     }
 
-    public function notification(?string $message) {
+    public function notification(string $message) {
         if ($message === null) {
             return Craft::$app->session->getFlash('notification');
         }
