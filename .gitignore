@@ -4,6 +4,7 @@
 .vscode
 .vagrant
 .DS_Store
+*.git
 #
 #
 /web/cpr/*
@@ -13,4 +14,6 @@
 !/vendor/craftcms/cms/src/services/Et.php
 /node_modules
 /dbsync.sh
-*.git
+/dbpull.sh
+/config/local/*
+!/config/local/general.example.php

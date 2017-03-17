@@ -8,9 +8,14 @@ use selvinortiz\swipe\Swipe;
 use function selvinortiz\swipe\swipe;
 
 class SwipeExtension extends \Twig_Extension {
+
+    const NOTICE_FLASH_KEY = '__notification';
+
     private $_methods = [
-        'notification',
-        'url'
+        'setNotice',
+        'hasNotice',
+        'getNotice',
+        'safeUrl'
     ];
 
     public function getName() {
@@ -35,15 +40,23 @@ class SwipeExtension extends \Twig_Extension {
         return $functions;
     }
 
-    public function notification(string $message) {
+    public function setNotice(string $message) {
         if ($message === null) {
-            return Craft::$app->session->getFlash('notification');
+            return Craft::$app->session->getFlash(self::NOTICE_FLASH_KEY);
         }
 
-        Craft::$app->session->setFlash('notification', Swipe::t($message));
+        Craft::$app->session->setFlash(self::NOTICE_FLASH_KEY, Swipe::t($message));
     }
 
-    public function url($path) {
+    public function hasNotice() {
+        return Craft::$app->session->hasFlash(self::NOTICE_FLASH_KEY);
+    }
+
+    public function getNotice() {
+        return Craft::$app->session->getFlash(self::NOTICE_FLASH_KEY);
+    }
+
+    public function safeUrl($path) {
         return swipe()->api->incognitoUrl($path);
     }
 }

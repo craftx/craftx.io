@@ -6,12 +6,12 @@
  * list of the default settings in `vendor/craftcms/cms/src/config/defaults/general.php`.
  */
 
-return [
+$config = [
     '*' => [
         'env' => '*',
         'devMode' => false,
         'siteUrl' => 'https://craftx.io',
-        'sitePath' => __DIR__.'/../web/',
+        'sitePath' => dirname(__DIR__, 1).'/web',
         'cpTrigger' => 'studio',
         #
         # Site settings
@@ -61,11 +61,15 @@ return [
         'env' => 'staging',
         'devMode' => true,
         'siteUrl' => 'https://dev.craftx.io'
-    ],
-    '.dev' => [
-        'env' => 'dev',
-        'siteUrl' => 'http://craftx.dev',
-        'devMode' => true,
-        'translationDebugOutput' => false,
     ]
 ];
+
+$localConfigFile = __DIR__.'/local/general.php';
+
+if (file_exists($localConfigFile)) {
+    $localConfig = require($localConfigFile);
+
+    return array_merge($config, is_array($localConfig) ? $localConfig : []);
+}
+
+return $config;

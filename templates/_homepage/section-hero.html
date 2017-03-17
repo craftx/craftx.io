@@ -6,7 +6,7 @@
                     <h1 class="title is-2">{{ block.heroLead }}</h1>
                     <h2 class="subtitle is-4">{{ block.heroText }}</h2>
                     <div class="hero-buttons has-text-centered">
-                        <a href="{{ url('/join') }}" id="cta" class="button is-large is-info">
+                        <a href="{{ safeUrl('/join') }}" id="cta" class="button is-large is-info">
                             <i class="fa fa-terminal is-blinking"></i>
                             {{ block.heroCtaText }}
                         </a>

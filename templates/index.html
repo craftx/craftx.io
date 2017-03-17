@@ -1,4 +1,4 @@
-{% set vars = {entry: entry, currentUser: currentUser} %}
+{% set vars = {entry: entry ?? {}, currentUser: currentUser} %}
 {% set appConfig = craft.app.config.get('app') %}
 {% set requestCode = craft.app.request.getQueryParam('code') %}
 

@@ -22,7 +22,7 @@
                     <div class="form-container">
                         <form @submit.prevent="join" id="join" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
                             <input type="hidden" name="action" value="users/save-user">
-                            {{ redirectInput(url('/v1/activation-in-progress')) }}
+                            {{ redirectInput(safeUrl('/v1/activation-in-progress')) }}
                             {{ csrfInput() }}
 
                             <h2 class="title is-3 is-form-section-title">Join CraftX</h2>
