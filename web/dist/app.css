@@ -188,7 +188,8 @@ label.has-optional-input:after {
 body {
   color: #242b3f;
   background-color: #fff;
-  line-height: 1.5; }
+  line-height: 1.5;
+  border-top: 5px solid #00966C; }
 
 [v-cloak] {
   visibility: hidden; }
