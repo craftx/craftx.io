@@ -1,13 +1,17 @@
 <section class="section is-medium section--features">
     <div class="container">
-        {% for block in blocks %}
-            <div class="columns has-vertically-centered-items">
-                <div class="column is-half icon-block icon-block--{{ block.featureIconClass }}"></div>
-                <div class="column is-half">
-                    <h2 class="title is-1">{{ block.featureLead }}</h2>
-                    <p class="subtitle is-3">{{ block.featureText }}</p>
+        <div class="columns has-vertically-centered-items">
+            {% for block in blocks %}
+                <div class="column is-4-desktop">
+                    <div class="columns is-multiline">
+                        <div class="column is-12 icon-block icon-block--{{ block.featureIconClass }}"></div>
+                        <div class="column is-12">
+                            <h2 class="title is-2">{{ block.featureLead }}</h2>
+                            <p class="subtitle is-4">{{ block.featureText }}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </section>

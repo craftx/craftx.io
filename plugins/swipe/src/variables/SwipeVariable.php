@@ -1,8 +1,10 @@
 <?php
 namespace selvinortiz\swipe\variables;
 
-use Craft;
 use yii\web\HttpException;
+
+use Craft;
+
 use function selvinortiz\swipe\swipe;
 
 class SwipeVariable {
@@ -55,9 +57,5 @@ class SwipeVariable {
         }
 
         return false;
-    }
-
-    public function incognitoUrl($path) {
-        return swipe()->api->incognitoUrl($path);
     }
 }

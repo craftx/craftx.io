@@ -16,18 +16,6 @@
     "clean": [
       "web/dist"
     ],
-    "js": {
-      "watch": "./src/js/**/*.js",
-      "source": {
-        "app": "./src/js/app.js",
-        "vendor": []
-      },
-      "output": {
-        "dir": "web/dist",
-        "app": "app.js",
-        "vendor": "vendor.js"
-      }
-    },
     "sass": {
       "watch": {
         "app": "src/sass/*.scss",
@@ -59,13 +47,6 @@
             "node_modules/font-awesome/scss"
           ]
         }
-      }
-    },
-    "rev": {
-      "manifest": "./web/dist/versions.json",
-      "options": {
-        "base": "web/dist",
-        "merge": true
       }
     },
     "fonts": {
@@ -101,6 +82,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.0.0",
     "bulma": "^0.3.1",
+    "css-loader": "^0.27.3",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -126,8 +108,7 @@
     "vinyl-source-stream": "^1.1.0",
     "vue": "^2.1.10",
     "vue-loader": "^11.1.4",
-    "vueify": "^9.4.0",
-    "watchify": "^3.9.0",
+    "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1"
   }
 }

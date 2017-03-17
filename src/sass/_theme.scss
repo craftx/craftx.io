@@ -8,7 +8,6 @@ body {
     color: #242b3f;
     background-color: #fff;
     line-height: 1.5;
-    word-spacing: 0.25em;
 }
 
 [v-cloak] {
@@ -92,8 +91,8 @@ body {
 }
 .notification.is-primary {
     color: $primary;
-    background-color: #f6f6f6;
-    border: 1px solid #e6e6e6;
+    background-color: #fefefe;
+    border: 1px solid $primary;
     border-radius: 3px;
     font-weight: bold;
 }
@@ -191,22 +190,7 @@ body {
             min-width: 100%;
         }
     }
-    .title {
-        &.is-1 {
-            font-size: 2rem;
-        }
-        &.is-2 {
-            font-size: 1.5rem;
-        }
-    }
-    .subtitle {
-        &.is-3 {
-            font-size: 1.5rem;
-        }
-        &.is-4 {
-            font-size: 1.25rem;
-        }
-    }
+
     .nav-menu.is-active {
         padding-bottom: $column-pad;
     }
@@ -222,10 +206,6 @@ body {
 }
 
 @include md {
-    .title,
-    .subtitle {
-        font-size: initial;
-    }
     .hero-buttons .button.is-large {
         font-size: 2.5rem;
     }

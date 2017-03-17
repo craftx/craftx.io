@@ -47,7 +47,6 @@ label.has-optional-input {
 .button:not(.is-not-modified) {
     height: auto;
     line-height: 1;
-    word-spacing: 0.3em;
     padding: 1em 2em;
 }
 .is-button-container {
@@ -81,8 +80,7 @@ label.has-optional-input {
         padding: $column-pad2x;
         border: 2px solid $gray-d;
     }
-    .button.is-large:not(.is-not-modified), .input.is-large:not(.is-not-modified) {
-        padding-top: .75em;
-        padding-bottom: .75em;
+    .button:not(.is-not-modified) {
+        padding: .5em 1em;
     }
 }

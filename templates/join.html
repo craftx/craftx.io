@@ -7,6 +7,9 @@
 {% set scripts = ['/webpack/Join.bundle.js?v=1.0.0'] %}
 
 {% set content %}
+
+    {% include '_special/notification' with {cols: 8, offset: 2} %}
+
     {#
       Can use:
       - is-control-container to group labes and field to add a little space around
@@ -19,10 +22,11 @@
                     <div class="form-container">
                         <form @submit.prevent="join" id="join" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
                             <input type="hidden" name="action" value="users/save-user">
-                            {{ redirectInput(craft.swipe.incognitoUrl('/login')) }}
+                            {{ redirectInput(url('/v1/activation-in-progress')) }}
                             {{ csrfInput() }}
 
                             <h2 class="title is-3 is-form-section-title">Join CraftX</h2>
+                            <h3 class="subtitle is-5">Once you join, you'll have access to all the free content at CraftX.</h3>
                             <div class="is-control-container">
                                 {# Outside of control to align with label(less) input #}
                                 <label class="label">Name</label>

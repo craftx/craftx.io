@@ -2,10 +2,10 @@
 {% if notification is not empty %}
     <div class="container">
         <div class="columns">
-            <div class="column is-6-desktop is-offset-3-desktop has-text-centered">
+            <div class="column is-{{ cols ?? 6 }}-desktop is-offset-{{ offset ?? 3 }}-desktop has-text-centered">
                 <span class="notification is-primary">
+                    <span class="icon"><i class="fa fa-{{ icon ?? 'bolt' }} "></i></span>
                     {{ notification }}
-                    <button class="delete is-small"></button>
                 </span>
             </div>
         </div>

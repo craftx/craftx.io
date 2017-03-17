@@ -53,12 +53,12 @@
   border-bottom: 2px solid #c6c7c8; }
 
 .section--features {
-  background: #d6d7d8 url(/dist/images/pattern-noise.png);
+  background: #f6f6f6;
   border-top: 1px solid #c6c7c8; }
   .section--features .title, .section--features .subtitle {
     text-align: center; }
   .section--features .icon-block {
-    min-height: 208px;
+    min-height: 128px;
     background-size: 128px;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -74,10 +74,11 @@
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
   border-top: 1px solid #c6c7c8; }
 
-.section--subscribe {
+.section--newsletter {
   border-top: 2px solid #d6d7d8;
+  border-bottom: 2px solid #d6d7d8;
   background-color: #e6e7e8; }
-  .section--subscribe form {
+  .section--newsletter form {
     margin-top: 40px; }
 
 .section--dashboard,
@@ -102,8 +103,6 @@
     padding: 0; } }
 
 @media all and (min-width: 769px) {
-  #home .section--features .title, #home .section--features .subtitle {
-    text-align: left; }
   #home .section--features .icon-block {
     min-height: 300px;
     background-size: 256px; }
@@ -155,7 +154,6 @@ label.has-optional-input:after {
 .button:not(.is-not-modified) {
   height: auto;
   line-height: 1;
-  word-spacing: 0.3em;
   padding: 1em 2em; }
 
 .is-button-container {
@@ -180,9 +178,8 @@ label.has-optional-input:after {
     background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
     padding: 40px;
     border: 2px solid #d6d7d8; }
-  .button.is-large:not(.is-not-modified), .input.is-large:not(.is-not-modified) {
-    padding-top: .75em;
-    padding-bottom: .75em; } }
+  .button:not(.is-not-modified) {
+    padding: .5em 1em; } }
 
 /*
  ------------------------------------------------------------
@@ -191,8 +188,7 @@ label.has-optional-input:after {
 body {
   color: #242b3f;
   background-color: #fff;
-  line-height: 1.5;
-  word-spacing: 0.25em; }
+  line-height: 1.5; }
 
 [v-cloak] {
   visibility: hidden; }
@@ -259,8 +255,8 @@ body {
 
 .notification.is-primary {
   color: #00966C;
-  background-color: #f6f6f6;
-  border: 1px solid #e6e6e6;
+  background-color: #fefefe;
+  border: 1px solid #00966C;
   border-radius: 3px;
   font-weight: bold; }
 
@@ -339,14 +335,6 @@ body {
       margin-top: 20px; }
     .control.is-grouped .button {
       min-width: 100%; }
-  .title.is-1 {
-    font-size: 2rem; }
-  .title.is-2 {
-    font-size: 1.5rem; }
-  .subtitle.is-3 {
-    font-size: 1.5rem; }
-  .subtitle.is-4 {
-    font-size: 1.25rem; }
   .nav-menu.is-active {
     padding-bottom: 20px; }
   .control.is-grouped {
@@ -357,8 +345,5 @@ body {
     min-width: 100%; } }
 
 @media all and (min-width: 769px) {
-  .title,
-  .subtitle {
-    font-size: initial; }
   .hero-buttons .button.is-large {
     font-size: 2.5rem; } }

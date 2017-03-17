@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 52);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -29538,137 +29538,9 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  scopeId,
-  cssModules
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  // inject cssModules
-  if (cssModules) {
-    var computed = Object.create(options.computed || null)
-    Object.keys(cssModules).forEach(function (key) {
-      var module = cssModules[key]
-      computed[key] = function () { return module }
-    })
-    options.computed = computed
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
+/* 40 */,
 /* 41 */,
-/* 42 */,
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(40)(
-  /* script */
-  __webpack_require__(46),
-  /* template */
-  __webpack_require__(48),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/selvinortiz/dev/www/sco/craftx.dev/src/js/components/CXEmailInput.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] CXEmailInput.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-082258f3", Component.options)
-  } else {
-    hotAPI.reload("data-v-082258f3", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(40)(
-  /* script */
-  __webpack_require__(47),
-  /* template */
-  __webpack_require__(49),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/selvinortiz/dev/www/sco/craftx.dev/src/js/components/CXUsernameInput.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] CXUsernameInput.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7967ee3f", Component.options)
-  } else {
-    hotAPI.reload("data-v-7967ee3f", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-module.exports = Stripe;
-
-/***/ }),
-/* 46 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29677,245 +29549,6 @@ module.exports = Stripe;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _Utils = __webpack_require__(6);
-
-exports.default = {
-    props: ['value', 'placeholder'],
-    data: function data() {
-        return {
-            busy: false,
-            hint: '',
-            label: '',
-            email: this.value
-        };
-    },
-
-    methods: {
-        validate: function validate() {
-            var vm = this;
-
-            (0, _Utils.debounce)(function () {
-                if (vm.email.length < 5) {
-                    return;
-                }
-                if (!vm.busy) {
-                    vm.busy = true;
-                    (0, _Utils.postToController)('swipe/users/validate-email', {
-                        email: vm.email
-                    }, function (response) {
-                        console.log(response.data.success ? 'Success' : 'Error');
-                        vm.hint = response.data.message;
-                        vm.busy = false;
-                    }, function (response) {
-                        console.log('Error');
-                        vm.hint = response.data.message;
-                        vm.busy = false;
-                    });
-                }
-            }, 500)();
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Utils = __webpack_require__(6);
-
-exports.default = {
-    props: ['value', 'placeholder'],
-    data: function data() {
-        return {
-            busy: false,
-            hint: '',
-            label: '',
-            username: this.value
-        };
-    },
-
-    methods: {
-        validate: function validate() {
-            var vm = this;
-
-            (0, _Utils.debounce)(function () {
-                if (!!vm.username && vm.username.length < 5) {
-                    vm.hint = 'Must be at least 5 characters long';
-                    return;
-                }
-                if (!vm.busy) {
-                    vm.busy = true;
-                    (0, _Utils.postToController)('swipe/users/validate-username', {
-                        username: vm.username
-                    }, function (response) {
-                        vm.hint = response.data.message;
-                        vm.busy = false;
-                    }, function (response) {
-                        vm.hint = 'Unable to validate username';
-                        vm.busy = false;
-                    });
-                }
-            }, 500)();
-        }
-    }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "is-control-container"
-  }, [_c('p', {
-    staticClass: "control"
-  }, [_c('label', {
-    staticClass: "label"
-  }, [_vm._v("Email")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.email),
-      expression: "email"
-    }],
-    staticClass: "input is-large",
-    attrs: {
-      "type": "email",
-      "name": "email",
-      "autocomplete": "off",
-      "required": "",
-      "placeholder": _vm.placeholder
-    },
-    domProps: {
-      "value": (_vm.email)
-    },
-    on: {
-      "keyup": _vm.validate,
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.email = $event.target.value
-      }
-    }
-  }), _vm._v(" "), (_vm.hint) ? _c('span', {
-    staticClass: "help"
-  }, [_vm._v(_vm._s(_vm.hint))]) : _vm._e()])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-082258f3", module.exports)
-  }
-}
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "is-control-container"
-  }, [_c('p', {
-    staticClass: "control"
-  }, [_c('label', {
-    staticClass: "label"
-  }, [_vm._v("Username")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.username),
-      expression: "username"
-    }],
-    staticClass: "input is-large",
-    attrs: {
-      "type": "text",
-      "name": "username",
-      "autocomplete": "off",
-      "required": "",
-      "placeholder": _vm.placeholder
-    },
-    domProps: {
-      "value": (_vm.username)
-    },
-    on: {
-      "keyup": _vm.validate,
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.username = $event.target.value
-      }
-    }
-  }), _vm._v(" "), (_vm.hint) ? _c('span', {
-    staticClass: "help"
-  }, [_vm._v(_vm._s(_vm.hint))]) : _vm._e()])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-7967ee3f", module.exports)
-  }
-}
-
-/***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _stripe = __webpack_require__(45);
-
-var _stripe2 = _interopRequireDefault(_stripe);
 
 var _vue = __webpack_require__(7);
 
@@ -29923,44 +29556,75 @@ var _vue2 = _interopRequireDefault(_vue);
 
 var _Utils = __webpack_require__(6);
 
-var _CXEmailInput = __webpack_require__(43);
-
-var _CXEmailInput2 = _interopRequireDefault(_CXEmailInput);
-
-var _CXUsernameInput = __webpack_require__(44);
-
-var _CXUsernameInput2 = _interopRequireDefault(_CXUsernameInput);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = new _vue2.default({
-    el: '#join',
-    delimiters: ['@{', '}'],
-    components: {
-        cxEmail: _CXEmailInput2.default,
-        cxUsername: _CXUsernameInput2.default
-    },
+    el: '#newsletter',
     data: {
-        email: '',
-        username: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        busy: false
+        busy: false,
+        email: ''
     },
     methods: {
-        join: function join(event) {
+        subscribeToNewsletter: function subscribeToNewsletter() {
+            this.busy = true;
 
-            if (this.busy) {
+            if (!this.email) {
+                (0, _Utils.displayErrorMessage)('Hey!', 'You should add your email address, please.');
+
+                this.busy = false;
+
                 return;
             }
 
-            this.busy = true;
+            var params = {
+                email: this.email
+            };
 
-            return event.target.submit();
+            var vm = this;
+
+            (0, _Utils.postToController)('swipe/newsletter/subscribe', params,
+            // OK
+            function (response) {
+                if (response.data.success) {
+                    (0, _Utils.displaySuccessMessage)(response.data.title, response.data.message.replace('{email}', response.data.params.email));
+                    vm.email = '';
+                } else {
+                    (0, _Utils.displayErrorMessage)(response.data.title, response.data.message);
+                }
+
+                vm.busy = false;
+            },
+            // Error
+            function (response) {
+                (0, _Utils.displayErrorMessage)('I\'m sorry!', 'Looks like I could not get you subscribed;(');
+                console.log(response);
+
+                vm.busy = false;
+            });
         }
     }
 });
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Newsletter = __webpack_require__(42);
+
+var _Newsletter2 = _interopRequireDefault(_Newsletter);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 /******/ ]);

@@ -25,11 +25,11 @@
     .title, .subtitle {
         text-align: center;
     }
-    background: #d6d7d8 url(/dist/images/pattern-noise.png);
+    background: #f6f6f6;
     border-top: 1px solid $gray-c;
 
     .icon-block {
-        min-height: 208px;
+        min-height: 128px;
         background-size: 128px;
         background-color: transparent;
         background-repeat: no-repeat;
@@ -52,8 +52,9 @@
         @extend .is-inset;
     }
 }
-.section--subscribe {
+.section--newsletter {
     border-top: 2px solid $gray-d;
+    border-bottom: 2px solid $gray-d;
     background-color: $gray-e;
     form {
         margin-top: $column-pad * 2;
@@ -86,9 +87,6 @@
 }
 @include md {
     #home .section--features {
-        .title, .subtitle {
-            text-align: left;
-        }
         .icon-block {
             min-height: 300px;
             background-size: 256px;

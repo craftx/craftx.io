@@ -4,7 +4,7 @@ module.exports = {
     entry: {
         App: './src/js/App.js',
         Join: './src/js/Join.js',
-        Homepage: './src/js/Homepage.js'
+        Index: './src/js/Index.js'
     },
     output: {
         path: __dirname + '/web/webpack',
