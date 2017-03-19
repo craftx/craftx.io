@@ -33,32 +33,3 @@ $gray-d: #d6d7d8;
 $gray-c: #c6c7c8;
 $gray-b: #b6b7b8;
 $gray-a: #a6a7a8;
-
-/*
- ------------------------------------------------------------
- @spacing
- ------------------------------------------------------------*/
-$column-pad: 20px;
-$column-pad2x: $column-pad * 2;
-
-/*
- ------------------------------------------------------------
- @fontawesome configs
- ------------------------------------------------------------*/
-$fa-font-path: '/dist/fonts';
-
-/*
- ------------------------------------------------------------
- @bulma configs
- ------------------------------------------------------------*/
-$text: #565758;
-$dark: $color-secondary;
-$info: $color-tertiary;
-$danger: #c00;
-$primary: $color-primary;
-$success: $primary;
-$gray-dark: $color-secondary;
-$gray-darker: $color-secondary-dark;
-$gray-lighter: $gray-e;
-$size-normal: 1rem;
-$family-sans-serif: "Fira Sans", "Segoe UI", "Roboto", "Oxygen", -apple-system, BlinkMacSystemFont, "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
