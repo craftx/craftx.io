@@ -4,7 +4,7 @@
 
 {% set content %}
 
-    {% include '_special/notification' %}
+    {% include ['_special/error', '_special/notification'] %}
 
     <section class="section section--login">
         <div class="container">
@@ -24,7 +24,7 @@
                                 </span>
                             </p>
                             <p class="control has-icon">
-                                <input class="input is-large" name="password" type="password" placeholder="Password">
+                                <input class="input is-large" name="password" type="password" placeholder="Password" autocomplete="off">
                                 <span class="icon">
                                     <i class="fa fa-lock"></i>
                                 </span>

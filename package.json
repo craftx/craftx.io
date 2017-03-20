@@ -18,7 +18,7 @@
     ],
     "sass": {
       "watch": {
-        "app": "src/sass/*.scss",
+        "app": "src/sass/**/*.scss",
         "vendor": [
           "src/sass/_vars.scss",
           "src/sass/_vendor/*.scss"
@@ -66,7 +66,7 @@
       }
     },
     "templates": {
-      "watch": "templates/**/*.{js,css,html,php}",
+      "watch": ["templates/**/*.{js,css,html,php}", "plugins/**/*.{html,php}"],
       "source": "templates/**/*.html",
       "output": {
         "dir": "templates"

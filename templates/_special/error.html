@@ -1,0 +1,12 @@
+{% if craft.app.session.hasFlash('error') %}
+    <div class="container">
+        <div class="columns">
+            <div class="column is-{{ cols ?? 6 }}-desktop is-offset-{{ offset ?? 3 }}-desktop has-text-centered">
+                <span class="notification is-danger">
+                    <span class="icon"><i class="fa fa-{{ icon ?? 'shield' }} "></i></span>
+                    {{ craft.app.session.getFlash('error') }}
+                </span>
+            </div>
+        </div>
+    </div>
+{% endif %}

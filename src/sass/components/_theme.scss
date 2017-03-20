@@ -89,12 +89,18 @@ body {
     display: block;
     min-width: 100%;
     margin-top: $column-pad2x;
+    border-radius: 0;
 }
 .notification.is-primary {
     color: $primary;
-    background-color: #fefefe;
+    background-color: #fff;
     border: 1px solid $primary;
-    border-radius: 3px;
+    font-weight: bold;
+}
+.notification.is-danger {
+    color: $danger;
+    background-color: #fff;
+    border: 1px solid $danger;
     font-weight: bold;
 }
 /*

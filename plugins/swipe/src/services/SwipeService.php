@@ -90,7 +90,7 @@ class SwipeService extends Component
     public function incognitoUrl($path) {
         $appConfig = Craft::$app->config->get('app');
 
-        if (!empty($appConfig['code'])) {
+        if ($appConfig['incognito'] ?? false && !empty($appConfig['code'])) {
             return $path.'?code='.$appConfig['code'];
         }
 

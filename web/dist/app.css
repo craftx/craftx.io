@@ -248,13 +248,19 @@ body {
 .notification {
   display: block;
   min-width: 100%;
-  margin-top: 40px; }
+  margin-top: 40px;
+  border-radius: 0; }
 
 .notification.is-primary {
   color: #00966C;
-  background-color: #fefefe;
+  background-color: #fff;
   border: 1px solid #00966C;
-  border-radius: 3px;
+  font-weight: bold; }
+
+.notification.is-danger {
+  color: #c00;
+  background-color: #fff;
+  border: 1px solid #c00;
   font-weight: bold; }
 
 /*
