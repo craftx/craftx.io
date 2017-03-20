@@ -1,12 +1,20 @@
-/*
- ------------------------------------------------------------
- @imports
- ------------------------------------------------------------*/
+//==========================================================================
+// CraftX - Style controller
+//==========================================================================
 
-@import "vars";
-@import "mixins";
-@import "sections";
-@import "forms";
-@import "theme";
-@import "theme--dark";
-@import "theme--light";
+//======================== Configs
+@import "configs/colors";
+@import "configs/typography";
+@import "configs/bulma";
+
+//======================== Tools
+@import "tools/mixins";
+
+//======================== Components
+@import "components/sections";
+@import "components/forms";
+@import "components/theme";
+
+//======================== Themes
+@import "themes/dark";
+@import "themes/light";
