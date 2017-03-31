@@ -7,7 +7,7 @@
   "author": "selvin@craftx.io",
   "license": "MIT",
   "scripts": {
-    "build": "webpack && gulp clean && gulp build",
+    "build": "NODE_ENV=production webpack -p && gulp clean && gulp build",
     "watch": "npm-run-all --parallel webpack.watch gulp.watch",
     "gulp.watch": "gulp clean && gulp build && gulp watch",
     "webpack.watch": "webpack --watch"
