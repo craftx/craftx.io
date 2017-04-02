@@ -74,7 +74,7 @@ class SwipeVideoService extends Component {
     }
 
     private function getClientIp() {
-        $ip = Craft::$app->config->get('env') == 'dev' ? '50.188.56.107' : $_SERVER['REMOTE_ADDR'];
+        $ip = Craft::$app->config->general->env == 'dev' ? '50.188.56.107' : $_SERVER['REMOTE_ADDR'];
 
         return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
     }

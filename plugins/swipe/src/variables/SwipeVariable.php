@@ -23,7 +23,7 @@ class SwipeVariable {
 
     public function requireIncognito() {
         $code = Craft::$app->request->getQueryParam('code');
-        $appConfig = Craft::$app->config->get('app');
+        $appConfig = Craft::$app->config->general->app;
 
         $allow = false;
 
@@ -42,7 +42,7 @@ class SwipeVariable {
 
     public function hasIncognitoAccess(): bool {
         $code = Craft::$app->request->getQueryParam('code');
-        $appConfig = Craft::$app->config->get('app');
+        $appConfig = Craft::$app->config->general->app;
 
         if (! $appConfig['incognito']) {
             return true;

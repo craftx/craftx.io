@@ -47,7 +47,7 @@
         {% include '_includes/footer' %}
 
         <script type="text/javascript">
-            window.csrfTokenName = "{{ craft.app.config.get('csrfTokenName')|e('js') }}";
+            window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName|e('js') }}";
             window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";
         </script>
 

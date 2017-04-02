@@ -4,26 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a52e424a76cb3c917178a9b016429ee",
+    "content-hash": "086a51b542f9ab0545b136c555ba81fb",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.24.4",
+            "version": "3.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2823e0a0742505f655b0cb3bcdb10844f60e6078"
+                "reference": "cd362e4dda55d6c3466e60070dad6527f6938d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2823e0a0742505f655b0cb3bcdb10844f60e6078",
-                "reference": "2823e0a0742505f655b0cb3bcdb10844f60e6078",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cd362e4dda55d6c3466e60070dad6527f6938d5d",
+                "reference": "cd362e4dda55d6c3466e60070dad6527f6938d5d",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^5.3.1|^6.2.1",
                 "guzzlehttp/promises": "~1.0",
-                "guzzlehttp/psr7": "^1.3.1, !=1.4.0",
+                "guzzlehttp/psr7": "^1.4.1",
                 "mtdowling/jmespath.php": "~2.2",
                 "php": ">=5.5"
             },
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-03-14T00:56:44+00:00"
+            "time": "2017-03-31T19:42:09+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -155,16 +155,16 @@
         },
         {
             "name": "bower-asset/element-resize-detector",
-            "version": "1.1.10.0",
+            "version": "1.1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wnr/element-resize-detector.git",
-                "reference": "465fe68efbea85bb9fe22db2f68ebc7fde8bbcf5"
+                "reference": "ad30e37d44a90c3c0bfaeed392755641d8dde469"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wnr/element-resize-detector/zipball/465fe68efbea85bb9fe22db2f68ebc7fde8bbcf5",
-                "reference": "465fe68efbea85bb9fe22db2f68ebc7fde8bbcf5",
+                "url": "https://api.github.com/repos/wnr/element-resize-detector/zipball/ad30e37d44a90c3c0bfaeed392755641d8dde469",
+                "reference": "ad30e37d44a90c3c0bfaeed392755641d8dde469",
                 "shasum": null
             },
             "type": "library"
@@ -187,16 +187,16 @@
         },
         {
             "name": "bower-asset/garnishjs",
-            "version": "0.1.15.0",
+            "version": "0.1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pixelandtonic/garnishjs.git",
-                "reference": "e5a3628827cc8ad7d8dae7118362b5655c5bba9f"
+                "reference": "c56dbfb0ab1c273d3628c44c2d52d3a0d511dd54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixelandtonic/garnishjs/zipball/e5a3628827cc8ad7d8dae7118362b5655c5bba9f",
-                "reference": "e5a3628827cc8ad7d8dae7118362b5655c5bba9f",
+                "url": "https://api.github.com/repos/pixelandtonic/garnishjs/zipball/c56dbfb0ab1c273d3628c44c2d52d3a0d511dd54",
+                "reference": "c56dbfb0ab1c273d3628c44c2d52d3a0d511dd54",
                 "shasum": null
             },
             "require": {
@@ -531,31 +531,31 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.0-beta.7",
+            "version": "3.0.0-beta.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "095860db3ecd1ccf4086a903ede5e74d83988e8b"
+                "reference": "06b7db452b9755699ee546d6092bad9becef98ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/095860db3ecd1ccf4086a903ede5e74d83988e8b",
-                "reference": "095860db3ecd1ccf4086a903ede5e74d83988e8b",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/06b7db452b9755699ee546d6092bad9becef98ba",
+                "reference": "06b7db452b9755699ee546d6092bad9becef98ba",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/d3": "4.6.0.0",
                 "bower-asset/d3-format": "1.0.2.0",
                 "bower-asset/d3-time-format": "2.0.3.0",
-                "bower-asset/element-resize-detector": "1.1.10.0",
+                "bower-asset/element-resize-detector": "1.1.11",
                 "bower-asset/fabric": "1.7.6",
-                "bower-asset/garnishjs": "0.1.15",
+                "bower-asset/garnishjs": "0.1.17",
                 "bower-asset/jquery.payment": "3.0.0",
                 "bower-asset/picturefill": "3.0.2",
                 "bower-asset/selectize": "0.12.4",
                 "bower-asset/timepicker": "1.11.10.0",
                 "bower-asset/velocity": "1.4.3",
-                "craftcms/server-check": "1.0.11",
+                "craftcms/server-check": "1.0.12",
                 "creocoder/yii2-nested-sets": "0.9.0",
                 "danielstjules/stringy": "2.3.2",
                 "ext-curl": "*",
@@ -604,20 +604,20 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2017-03-10T18:31:25+00:00"
+            "time": "2017-03-27T22:15:15+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
-            "version": "1.1.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/plugin-installer.git",
-                "reference": "7ee0514c7ef5050dae6225bd5cd4a33d587f2682"
+                "reference": "6b0d12610d38012af22b285619f15e44c20b3a2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/plugin-installer/zipball/7ee0514c7ef5050dae6225bd5cd4a33d587f2682",
-                "reference": "7ee0514c7ef5050dae6225bd5cd4a33d587f2682",
+                "url": "https://api.github.com/repos/craftcms/plugin-installer/zipball/6b0d12610d38012af22b285619f15e44c20b3a2a",
+                "reference": "6b0d12610d38012af22b285619f15e44c20b3a2a",
                 "shasum": ""
             },
             "require": {
@@ -645,20 +645,20 @@
                 "installer",
                 "plugin"
             ],
-            "time": "2017-03-10T18:37:40+00:00"
+            "time": "2017-03-24T17:41:30+00:00"
         },
         {
             "name": "craftcms/server-check",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/server-check.git",
-                "reference": "52275a490df49e33e6a4eb3d551b967f93a4451f"
+                "reference": "e8a9e996ae9a0b1871a5a48e61654a517d0822f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/52275a490df49e33e6a4eb3d551b967f93a4451f",
-                "reference": "52275a490df49e33e6a4eb3d551b967f93a4451f",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/e8a9e996ae9a0b1871a5a48e61654a517d0822f2",
+                "reference": "e8a9e996ae9a0b1871a5a48e61654a517d0822f2",
                 "shasum": ""
             },
             "require": {
@@ -682,7 +682,7 @@
                 "requirements",
                 "yii2"
             ],
-            "time": "2017-03-07T11:49:52+00:00"
+            "time": "2017-03-19T23:42:36+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -782,16 +782,16 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "20ff8bbb57205368b4b42d094642a3e52dac85fb"
+                "reference": "1bf24f7334fe16c88bf9d467863309ceaf285b01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/20ff8bbb57205368b4b42d094642a3e52dac85fb",
-                "reference": "20ff8bbb57205368b4b42d094642a3e52dac85fb",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/1bf24f7334fe16c88bf9d467863309ceaf285b01",
+                "reference": "1bf24f7334fe16c88bf9d467863309ceaf285b01",
                 "shasum": ""
             },
             "require": {
@@ -820,7 +820,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2016-11-02T15:56:58+00:00"
+            "time": "2017-03-29T16:04:15+00:00"
         },
         {
             "name": "erusev/parsedown-extra",
@@ -1028,16 +1028,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/0d6c7ca039329247e4f0f8f8f6506810e8248855",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-27T10:51:17+00:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1475,12 +1475,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "66f7b04100fb2a7bdeaaddf02579189e15835056"
+                "reference": "1196fb8f4bf78e53204838bbdda6f10547541f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/66f7b04100fb2a7bdeaaddf02579189e15835056",
-                "reference": "66f7b04100fb2a7bdeaaddf02579189e15835056",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1196fb8f4bf78e53204838bbdda6f10547541f12",
+                "reference": "1196fb8f4bf78e53204838bbdda6f10547541f12",
                 "shasum": ""
             },
             "conflict": {
@@ -1533,7 +1533,7 @@
                 "silverstripe/framework": ">=3,<3.3",
                 "silverstripe/userforms": "<3",
                 "simplesamlphp/saml2": "<1.8.1|>=1.9,<1.9.1|>=1.10,<1.10.3|>=2,<2.3.3",
-                "simplesamlphp/simplesamlphp": "<1.14.11",
+                "simplesamlphp/simplesamlphp": "<1.14.12",
                 "simplesamlphp/simplesamlphp-module-infocard": "<1.0.1",
                 "socalnick/scn-social-auth": "<1.15.2",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1",
@@ -1602,20 +1602,20 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2017-03-16T14:24:35+00:00"
+            "time": "2017-03-31T06:31:44+00:00"
         },
         {
             "name": "selvinortiz/doxter",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/selvinortiz/doxter.git",
-                "reference": "f981636a6af5dcd5c75d1107e6657bb87403cf3d"
+                "url": "https://github.com/selvinortiz/craft-plugin-doxter.git",
+                "reference": "a446065aa9db3cd9b4261b27f15dc725fa5fc151"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selvinortiz/doxter/zipball/f981636a6af5dcd5c75d1107e6657bb87403cf3d",
-                "reference": "f981636a6af5dcd5c75d1107e6657bb87403cf3d",
+                "url": "https://api.github.com/repos/selvinortiz/craft-plugin-doxter/zipball/a446065aa9db3cd9b4261b27f15dc725fa5fc151",
+                "reference": "a446065aa9db3cd9b4261b27f15dc725fa5fc151",
                 "shasum": ""
             },
             "require": {
@@ -1628,7 +1628,7 @@
                 "name": "Doxter",
                 "class": "selvinortiz\\doxter\\Doxter",
                 "handle": "doxter",
-                "version": "3.0.6",
+                "version": "3.0.7",
                 "schemaVersion": "3.0.0",
                 "developer": "Selvin Ortiz",
                 "developerUrl": "https://selvinortiz.com",
@@ -1636,7 +1636,7 @@
                 "documentationUrl": "https://github.com/selvinortiz/doxter/blob/master/README.md",
                 "changelogUrl": "https://raw.githubusercontent.com/selvinortiz/doxter/CHANGELOG.md",
                 "hasCpSection": false,
-                "hasSettings": false,
+                "hasCpSettings": false,
                 "components": {
                     "api": "selvinortiz\\doxter\\services\\DoxterService"
                 }
@@ -1663,20 +1663,20 @@
                 "doxter",
                 "plugin"
             ],
-            "time": "2017-02-07T05:27:22+00:00"
+            "time": "2017-04-02T05:31:50+00:00"
         },
         {
             "name": "selvinortiz/patrol",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/selvinortiz/patrol.git",
-                "reference": "02261317c029ea3d1b48043d947266310b2f4172"
+                "url": "https://github.com/selvinortiz/craft-plugin-patrol.git",
+                "reference": "05358ab298f7afa225d04b28d057ba41d55f926d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selvinortiz/patrol/zipball/02261317c029ea3d1b48043d947266310b2f4172",
-                "reference": "02261317c029ea3d1b48043d947266310b2f4172",
+                "url": "https://api.github.com/repos/selvinortiz/craft-plugin-patrol/zipball/05358ab298f7afa225d04b28d057ba41d55f926d",
+                "reference": "05358ab298f7afa225d04b28d057ba41d55f926d",
                 "shasum": ""
             },
             "type": "craft-plugin",
@@ -1684,14 +1684,15 @@
                 "name": "Patrol",
                 "class": "selvinortiz\\patrol\\Patrol",
                 "handle": "patrol",
-                "version": "3.0.1",
+                "version": "3.0.2",
                 "schemaVersion": "3.0.0",
                 "developer": "Selvin Ortiz",
                 "developerUrl": "https://selvinortiz.com",
                 "description": "Maintenance Mode & SSL Routing for Craft 3",
                 "documentationUrl": "https://github.com/selvinortiz/patrol/blob/master/README.md",
                 "changelogUrl": "https://raw.githubusercontent.com/selvinortiz/patrol/CHANGELOG.md",
-                "hasSettings": true,
+                "hasCpSection": false,
+                "hasCpSettings": true,
                 "components": {
                     "defaultService": "selvinortiz\\patrol\\services\\PatrolService"
                 }
@@ -1718,7 +1719,7 @@
                 "patrol",
                 "plugin"
             ],
-            "time": "2017-02-04T06:11:26+00:00"
+            "time": "2017-04-02T06:13:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

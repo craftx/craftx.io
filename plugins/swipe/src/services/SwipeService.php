@@ -49,7 +49,7 @@ class SwipeService extends Component
 
     public function getPostLoginRedirect($identity) {
         return Craft::$app->view->renderObjectTemplate(
-            Craft::$app->config->get('postLoginRedirect'),
+            Craft::$app->config->general->postLoginRedirect,
             [
                 'email' => $identity->email,
                 'username' => $identity->username,
@@ -88,7 +88,7 @@ class SwipeService extends Component
     }
 
     public function incognitoUrl($path) {
-        $appConfig = Craft::$app->config->get('app');
+        $appConfig = Craft::$app->config->general->app;
 
         if ($appConfig['incognito'] ?? false && !empty($appConfig['code'])) {
             return $path.'?code='.$appConfig['code'];

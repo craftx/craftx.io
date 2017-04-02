@@ -82,7 +82,7 @@ class Swipe extends Plugin {
     }
 
     public function handleAfterLogin(UserEvent $event) {
-        Craft::$app->config->set('postLoginRedirect', swipe()->api->getPostLoginRedirect($event->identity));
+        Craft::$app->config->general->postLoginRedirect = swipe()->api->getPostLoginRedirect($event->identity);
     }
 
     public function handleAfterSave(ModelEvent $event) {
@@ -92,7 +92,7 @@ class Swipe extends Plugin {
     }
 
     public function createSettingsModel(): SwipeSettingsModel {
-        return new SwipeSettingsModel(Craft::$app->getConfig()->getConfigSettings($this->handle));
+        return new SwipeSettingsModel();
     }
 
     public function defineTemplateComponent() {

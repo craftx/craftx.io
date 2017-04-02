@@ -1,4 +1,4 @@
-{% set showThread = entry is defined and entry.section.handle in ['blog', 'series'] and entry.status == 'live' and craft.app.config.get('env') in ['staging', 'dev'] %}
+{% set showThread = entry is defined and entry.section.handle in ['blog', 'series'] and entry.status == 'live' and craft.app.config.general.env in ['staging', 'dev'] %}
 
 {% if showThread %}
     <script>

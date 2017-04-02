@@ -1,5 +1,5 @@
 {% set vars = {entry: entry ?? {}, currentUser: currentUser} %}
-{% set appConfig = craft.app.config.get('app') %}
+{% set appConfig = craft.app.config.general.app %}
 {% set requestCode = craft.app.request.getQueryParam('code') %}
 
 {% if craft.swipe.hasIncognitoAccess() %}
