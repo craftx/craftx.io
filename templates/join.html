@@ -26,16 +26,15 @@
                             {{ csrfInput() }}
 
                             <h2 class="title is-3 is-form-section-title">Join CraftX</h2>
-                            <h3 class="subtitle is-5">Once you join, you'll have access to all the free content at CraftX.</h3>
                             <div class="is-control-container">
                                 {# Outside of control to align with label(less) input #}
                                 <label class="label">Name</label>
                                 <div class="control is-grouped">
                                     <p class="control is-expanded">
-                                        <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="First" >
+                                        <input v-model="firstName" name="firstName" class="input is-large" type="text" placeholder="First" autofocus>
                                     </p>
                                     <p class="control is-expanded has-no-label">
-                                        <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Last" >
+                                        <input v-model="lastName" name="lastName" class="input is-large" type="text" placeholder="Last">
                                     </p>
                                 </div>
                             </div>
