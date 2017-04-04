@@ -78,7 +78,6 @@
     margin-top: 40px; }
 
 .section--dashboard,
-.section--player,
 .section--signup,
 .section--login {
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat; }

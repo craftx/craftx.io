@@ -61,11 +61,11 @@
     }
 }
 .section--dashboard,
-.section--player,
 .section--signup,
 .section--login {
     @include pattern-bg;
 }
+
 .section--dashboard {
     border-bottom: 2px solid $gray-d;
 }
