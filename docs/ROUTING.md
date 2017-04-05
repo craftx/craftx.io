@@ -9,27 +9,24 @@
 - /logout
 - /@{username} (public)
 
-#### Examples
-> `/@selvinortiz`  
-> `/@jamiejenkins`
-
 ### Content
 - /learn
     - /{course}
     - /{course}/{lesson}
 
-#### Examples
-    - `/learn/modern-php-development-for-craftcms`
-    - `/learn/plugin-development-for-craftcms/anatomy`
+```
+/learn/modern-php-development-for-craftcms
+/learn/plugin-development-for-craftcms/understanding-routing
+```
 
 - /browse
     - /courses
     - /lessons
-    - /reviews
+    - /reviews (Beyond MVP)
         - /plugins
         - /services
         - /websites
-    - /interviews
+    - /interviews (Beyond MVP)
         - /designers
         - /developers
 - /search
@@ -45,19 +42,11 @@
 ### Blog
 - /blog
     - /{entry}
-    - /search?q=search
-    - /categories
+    - /search?q=search (Beyond MVP)
+    - /categories (Beyond MVP)
     - /topics
 
-### Shop
+### Shop (Beyond MVP)
 - /shop
     - /shirts
     - /stickers
-
-## Courses
-
-### Modern PHP Developement for Craft CMS
-
-### Web Development for Craft CMS
-
-### Plugin Development for Craft CMS

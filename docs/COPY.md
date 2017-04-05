@@ -3,13 +3,13 @@
 
 ## Hero
 Craft Training for Busy Developers
-> Master Craft CMS and start Crafting a better Web
+> Master Craft CMS in record time and become part of the growing community of Craft Professionals. One screencast at a time.
 
 `[Start Crafting]`
 
 ## Features
 ### Clear Code
-No squinting. Just large, beautiful text and consice snippets for maximun readability.
+No squinting. Just large, beautiful text and concise snippets for maximum readability.
 ### Clean Audio
 No pops, hiss or monotone. Just clean, normalized audio for smooth, distraction free listening.
 ### Quick Pace
