@@ -29,7 +29,7 @@ $config = [
         'convertFilenamesToAscii' => true,
         'cacheDuration' => 'P1Y',
         'generateTransformsBeforePageLoad' => true,
-        'imageDriver' => 'imagick',
+        // 'imageDriver' => 'imagick',
         #
         # CP Resources
         'resourceBasePath' => '@webroot/cpr',
