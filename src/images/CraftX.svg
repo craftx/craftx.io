@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="586px" height="137px" viewBox="0 0 586 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="626px" height="177px" viewBox="0 0 626 177" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <title>CraftX</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="CraftX">
-            <g id="Logo" transform="translate(4.000000, 5.000000)">
+            <g id="Logo" transform="translate(24.000000, 25.000000)">
                 <g id="Mark">
                     <polygon fill="#00966C" points="64 81 0 128 0 0 64 47 128 0 128 33.28 86 64 128 95 128 128"></polygon>
                     <polygon id="Play-Mask" fill="#FFFFFF" points="22 47 44 64 22 81"></polygon>
                     <polygon id="Shadow" fill-opacity="0.25" fill="#000000" opacity="0.25" points="64 81 86 64 95 71 68 84"></polygon>
                 </g>
                 <g id="Type" transform="translate(168.000000, 0.000000)" fill="#626780">
-                    <path d="M378.862069,80.862069 L391,101 L410,101 L388.5,64.5 L410,28 L391,28 L378.862069,48.137931 L367,28 L347,28 L369,64.5 L347,101 L367,101 L378.862069,80.862069 Z" id="x"></path>
+                    <path d="M378.5,81.4767442 L390,101 L410,101 L388.5,64.5 L410,28 L390,28 L378.5,47.5232558 L367,28 L347,28 L368.5,64.5 L347,101 L367,101 L378.5,81.4767442 Z" id="x"></path>
                     <path d="M317,101 L317,43 L343,43 L335,28 L317,28 L317,13 L296,13 L296,28 L276,28 L276,43 L296,43 L296,101 L317,101 Z" id="t"></path>
                     <path d="M251,0 C231.390774,0 221,7.83778102 221,22 L221,28 L201,28 L209,43 L221,43 L221,101 L242,101 L242,43 L266,43 L266,28 L242,28 L242,19 C242,11.9188905 245.944426,13 266,13 C266,8 266,5.6767091e-14 266,5.6767091e-14 C266,5.6767091e-14 261.485489,0 251,0 Z" id="f"></path>
                     <path d="M198,100.99381 C198,100.99381 166.987562,101 158,101 C143.02073,101 134,93.3451679 134,80 C134,64.339854 145.66727,56 168,56 L178,56 L178,53 C178,45.3741898 172.396088,43 163,43 L141,43 L141,28 C141,28 157.965664,28 166,28 C187.515679,28 198,35.3866277 198,52 L198,100.99381 Z M164,88 L178,88 L178,68 L172,68 C160.016584,68 155,71.9188905 155,79 C155,84.5831825 157.872117,88 164,88 Z" id="a"></path>
