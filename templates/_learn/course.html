@@ -1,3 +1,19 @@
-<pre>
-Course: {{ entry.title }}
-</pre>
+{% extends '_layout' %}
+
+{% set id = 'course' %}
+{% set title = entry.title %}
+
+{% set content %}
+<section class="section section--hero has-text-centered">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <h1 class="title is-2">{{ entry.title }}</h1>
+                    <h2 class="subtitle is-4">{{ entry.text }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endset %}
