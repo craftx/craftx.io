@@ -1,0 +1,22 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+hostname: craftx-vm
+name: craftx-vm
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: "/path/to/project/on/host/craftx.dev"
+      to: "/home/vagrant/craftx.dev"
+sites:
+    - map: craftx.dev
+      to: "/home/vagrant/craftx.dev/web"
+
+databases:
+    - craftxdev
