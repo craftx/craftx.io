@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.25.2",
+            "version": "3.25.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d513a8c5c993fc130e9592569ee9b148f5319107"
+                "reference": "fe98140a4811abbe9104477b167dc3c7f9a8391b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d513a8c5c993fc130e9592569ee9b148f5319107",
-                "reference": "d513a8c5c993fc130e9592569ee9b148f5319107",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fe98140a4811abbe9104477b167dc3c7f9a8391b",
+                "reference": "fe98140a4811abbe9104477b167dc3c7f9a8391b",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-04-03T20:12:57+00:00"
+            "time": "2017-04-07T20:21:45+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -531,16 +531,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.0-beta.9",
+            "version": "3.0.0-beta.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "06b7db452b9755699ee546d6092bad9becef98ba"
+                "reference": "e211e8e1e2cc762a543caa7bdbdf7ed9384c0e46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/06b7db452b9755699ee546d6092bad9becef98ba",
-                "reference": "06b7db452b9755699ee546d6092bad9becef98ba",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/e211e8e1e2cc762a543caa7bdbdf7ed9384c0e46",
+                "reference": "e211e8e1e2cc762a543caa7bdbdf7ed9384c0e46",
                 "shasum": ""
             },
             "require": {
@@ -604,20 +604,20 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2017-03-27T22:15:15+00:00"
+            "time": "2017-04-07T23:06:36+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/plugin-installer.git",
-                "reference": "6b0d12610d38012af22b285619f15e44c20b3a2a"
+                "reference": "1225df77db467ceb4b88b9a2443fee0fe1721957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/plugin-installer/zipball/6b0d12610d38012af22b285619f15e44c20b3a2a",
-                "reference": "6b0d12610d38012af22b285619f15e44c20b3a2a",
+                "url": "https://api.github.com/repos/craftcms/plugin-installer/zipball/1225df77db467ceb4b88b9a2443fee0fe1721957",
+                "reference": "1225df77db467ceb4b88b9a2443fee0fe1721957",
                 "shasum": ""
             },
             "require": {
@@ -645,7 +645,7 @@
                 "installer",
                 "plugin"
             ],
-            "time": "2017-03-24T17:41:30+00:00"
+            "time": "2017-04-04T21:29:54+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -2490,16 +2490,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "28fb243a2b5727774ca309ec2d92da240f1af0dd"
+                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/28fb243a2b5727774ca309ec2d92da240f1af0dd",
-                "reference": "28fb243a2b5727774ca309ec2d92da240f1af0dd",
+                "url": "https://api.github.com/repos/symfony/console/zipball/c30243cc51f726812be3551316b109a2f5deaf8d",
+                "reference": "c30243cc51f726812be3551316b109a2f5deaf8d",
                 "shasum": ""
             },
             "require": {
@@ -2549,20 +2549,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-06T19:30:27+00:00"
+            "time": "2017-04-04T14:33:42+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "b90c9f91ad8ac37d9f114e369042d3226b34dc1a"
+                "reference": "56f613406446a4a0a031475cfd0a01751de22659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/b90c9f91ad8ac37d9f114e369042d3226b34dc1a",
-                "reference": "b90c9f91ad8ac37d9f114e369042d3226b34dc1a",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/56f613406446a4a0a031475cfd0a01751de22659",
+                "reference": "56f613406446a4a0a031475cfd0a01751de22659",
                 "shasum": ""
             },
             "require": {
@@ -2606,20 +2606,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-18T17:28:00+00:00"
+            "time": "2017-03-28T21:38:24+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "68bfa8c83f24c0ac04ea7193bcdcda4519f41892"
+                "reference": "57fdaa55827ae14d617550ebe71a820f0a5e2282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/68bfa8c83f24c0ac04ea7193bcdcda4519f41892",
-                "reference": "68bfa8c83f24c0ac04ea7193bcdcda4519f41892",
+                "url": "https://api.github.com/repos/symfony/process/zipball/57fdaa55827ae14d617550ebe71a820f0a5e2282",
+                "reference": "57fdaa55827ae14d617550ebe71a820f0a5e2282",
                 "shasum": ""
             },
             "require": {
@@ -2655,7 +2655,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-04T12:23:14+00:00"
+            "time": "2017-03-27T18:07:02+00:00"
         }
     ],
     "aliases": [],
