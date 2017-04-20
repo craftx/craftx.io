@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.25.6",
+            "version": "3.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fe98140a4811abbe9104477b167dc3c7f9a8391b"
+                "reference": "514b86e97aa84cc7e30a218df4531ea758b9ba26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fe98140a4811abbe9104477b167dc3c7f9a8391b",
-                "reference": "fe98140a4811abbe9104477b167dc3c7f9a8391b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/514b86e97aa84cc7e30a218df4531ea758b9ba26",
+                "reference": "514b86e97aa84cc7e30a218df4531ea758b9ba26",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-04-07T20:21:45+00:00"
+            "time": "2017-04-19T19:45:48+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -243,16 +243,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.3.4.0",
+            "version": "3.3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/Inputmask.git",
-                "reference": "8a882bc471ba4077c4f8ecbe3d9d61c7558f3ef2"
+                "reference": "ed27356d1b22366be48c4e7b8d038b9649bd4ab0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/8a882bc471ba4077c4f8ecbe3d9d61c7558f3ef2",
-                "reference": "8a882bc471ba4077c4f8ecbe3d9d61c7558f3ef2",
+                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/ed27356d1b22366be48c4e7b8d038b9649bd4ab0",
+                "reference": "ed27356d1b22366be48c4e7b8d038b9649bd4ab0",
                 "shasum": null
             },
             "require": {
@@ -531,16 +531,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.0-beta.10",
+            "version": "3.0.0-beta.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "e211e8e1e2cc762a543caa7bdbdf7ed9384c0e46"
+                "reference": "7e5a89ea897477cfe4a71cf094435c471820ade7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/e211e8e1e2cc762a543caa7bdbdf7ed9384c0e46",
-                "reference": "e211e8e1e2cc762a543caa7bdbdf7ed9384c0e46",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/7e5a89ea897477cfe4a71cf094435c471820ade7",
+                "reference": "7e5a89ea897477cfe4a71cf094435c471820ade7",
                 "shasum": ""
             },
             "require": {
@@ -604,7 +604,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2017-04-07T23:06:36+00:00"
+            "time": "2017-04-18T22:42:31+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -1606,16 +1606,16 @@
         },
         {
             "name": "selvinortiz/doxter",
-            "version": "3.0.7",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/selvinortiz/craft-plugin-doxter.git",
-                "reference": "a446065aa9db3cd9b4261b27f15dc725fa5fc151"
+                "reference": "dac0afa8943b534bdb1dfdd619e6a911bd200fde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/selvinortiz/craft-plugin-doxter/zipball/a446065aa9db3cd9b4261b27f15dc725fa5fc151",
-                "reference": "a446065aa9db3cd9b4261b27f15dc725fa5fc151",
+                "url": "https://api.github.com/repos/selvinortiz/craft-plugin-doxter/zipball/dac0afa8943b534bdb1dfdd619e6a911bd200fde",
+                "reference": "dac0afa8943b534bdb1dfdd619e6a911bd200fde",
                 "shasum": ""
             },
             "require": {
@@ -1628,7 +1628,6 @@
                 "name": "Doxter",
                 "class": "selvinortiz\\doxter\\Doxter",
                 "handle": "doxter",
-                "version": "3.0.7",
                 "schemaVersion": "3.0.0",
                 "developer": "Selvin Ortiz",
                 "developerUrl": "https://selvinortiz.com",
@@ -1663,7 +1662,7 @@
                 "doxter",
                 "plugin"
             ],
-            "time": "2017-04-02T05:31:50+00:00"
+            "time": "2017-04-17T23:26:58+00:00"
         },
         {
             "name": "selvinortiz/patrol",
