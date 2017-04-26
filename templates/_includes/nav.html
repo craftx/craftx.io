@@ -1,51 +1,62 @@
+{% set inHangouts = craft.app.request.getSegment(1) == "hangouts" %}
+
 <nav id="nav" class="nav is-medium has-shadow nav--primary">
   <div class="container">
-  <div class="nav-left">
-    <a href="{{ safeUrl('/') }}" class="nav-item nav__brand" title="CraftX">
-      <img src="/dist/images/CraftX.svg?v=2.0" alt="CraftX Logo">
-    </a>
-  </div>
+    <div class="nav-left">
+      <a href="{{ safeUrl('/') }}" class="nav-item nav__brand" title="CraftX">
+        <img src="/dist/images/CraftX.svg?v=2.0" alt="CraftX Logo">
+      </a>
+    </div>
 
-  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-  <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-  <span class="nav-toggle" @click="toggleMobileNav">
-    <span></span>
-    <span></span>
-    <span></span>
-  </span>
+    <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+    <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+    <span class="nav-toggle" @click="toggleMobileNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
 
-  <!-- This "nav-menu" is hidden on mobile -->
-  <!-- Add the modifier "is-active" to display it on mobile -->
+    <!-- This "nav-menu" is hidden on mobile -->
+    <!-- Add the modifier "is-active" to display it on mobile -->
 
-  <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
-    {% if user %}
+    <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
+      {% if inHangouts %}
         <span class="nav-item">
-          <a href="/@{{ safeUrl(user.username) }}" class="button is-outlined is-info is-heavy" title="Dashboard">
-            <span class="icon"><i class="fa fa-terminal is-blinking"></i></span>
-            <span>Dashboard</span>
-          </a>
-        </span>
-        <span class="nav-item">
-          <a href="{{ safeUrl('/logout') }}" class="button is-outlined is-heavy" title="Logout">
-            <span>Logout</span>
-            <span class="icon"><i class="fa fa-sign-out"></i></span>
-          </a>
-        </span>
+            <a href="/hangouts" class="button is-outlined is-info is-heavy" title="Hangouts">
+              <span class="icon"><i class="fa fa-shield"></i></span>
+              <span>Hangouts</span>
+            </a>
+          </span>
       {% else %}
+        {% if user %}
+            <span class="nav-item">
+              <a href="/@{{ safeUrl(user.username) }}" class="button is-outlined is-info is-heavy" title="Dashboard">
+                <span class="icon"><i class="fa fa-terminal is-blinking"></i></span>
+                <span>Dashboard</span>
+              </a>
+            </span>
+            <span class="nav-item">
+              <a href="{{ safeUrl('/logout') }}" class="button is-outlined is-heavy" title="Logout">
+                <span>Logout</span>
+                <span class="icon"><i class="fa fa-sign-out"></i></span>
+              </a>
+            </span>
+          {% else %}
 
-        <span class="nav-item">
-          <a href="{{ safeUrl('/login') }}" class="button is-outlined is-primary is-heavy" title="Login">
-            <span class="icon"><i class="fa fa-sign-in"></i></span>
-            <span>Login</span>
-          </a>
-        </span>
-        <span class="nav-item">
-          <a href="{{ safeUrl('/join') }}" class="button is-outlined is-info is-heavy" title="Sign up today and start hacking Craft CMS">
-            <span class="icon"><i class="fa fa-graduation-cap"></i></span>
-            <span>Join</span>
-          </a>
-        </span>
+            <span class="nav-item">
+              <a href="{{ safeUrl('/login') }}" class="button is-outlined is-primary is-heavy" title="Login">
+                <span class="icon"><i class="fa fa-sign-in"></i></span>
+                <span>Login</span>
+              </a>
+            </span>
+            <span class="nav-item">
+              <a href="{{ safeUrl('/join') }}" class="button is-outlined is-info is-heavy" title="Sign up today and start hacking Craft CMS">
+                <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+                <span>Join</span>
+              </a>
+            </span>
+          {% endif %}
       {% endif %}
-  </div>
+    </div>
   </div>
 </nav>
