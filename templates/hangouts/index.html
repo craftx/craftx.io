@@ -8,7 +8,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column content">
-                    {% for entry in craft.entries.section('hangouts').find() %}
+                    {% for entry in craft.entries.section('hangouts').all() %}
                         {% if loop.first %}
                             {% include 'hangouts/_includes/entry' %}
                         {% endif %}
