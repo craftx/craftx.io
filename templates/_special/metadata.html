@@ -4,17 +4,20 @@
     <title>{{ siteName }}</title>
 {% endif %}
 
-{% set url = entry.url ?? siteUrl %}
-{% set type = entry is defined ? 'article' : 'website' %}
-{% set title = entry.title ?? title ?? siteName %}
+{% set url = siteUrl %}
+{% set type = 'website' %}
+{% set title = title is not empty ? title ~ ' | ' ~ siteName : siteName %}
 {% set description = "Craft Training for Busy Developers" %}
 
-
 {% if entry is defined and entry.section.handle == 'hangouts' %}
+    {% set url = entry.url %}
+    {% set type = 'article' %}
+    {% set title = entry.title %}
     {% set description = entry.hangoutNotes is not empty ? entry.hangoutNotes : entry.hangoutTopic %}
     {% set description = craft.hangouts.generateSummary(description) %}
 {% elseif craft.app.request.getSegment(1) == 'hangouts' %}
     {% set url = siteUrl ~ 'hangouts' %}
+    {% set title = 'CraftX Hangouts' %}
     {% set description = 'Lively hangouts held privately to talk about all things design, development, and Craft CMS' %}
 {% endif %}
 
