@@ -3,6 +3,8 @@ namespace selvinortiz\hangouts;
 
 use craft\base\Plugin;
 
+use selvinortiz\hangouts\variables\HangoutsVariable;
+
 /**
  * Class Hangouts
  *
@@ -12,6 +14,10 @@ use craft\base\Plugin;
  */
 class Hangouts extends Plugin
 {
+    public function defineTemplateComponent()
+    {
+        return HangoutsVariable::class;
+    }
 
 }
 

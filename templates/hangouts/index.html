@@ -7,11 +7,63 @@
     <div class="section">
         <div class="container">
             <div class="columns">
-                <div class="column">
-                    {% for entry in craft.entries.section('hangouts').find() %}
-                        <pre>{{ dump(entry.attributes) }}</pre>
-                    {% endfor %}
-                </div>
+                {% for entry in craft.entries.section('hangouts').find() %}
+                    {% if loop.first %}
+                        
+                        <div class="column content">
+                            <h2 class="title is-3 hangout__title">{{ entry.title }}</h2>
+                            <div class="hangout__topic">
+                                {{ entry.hangoutTopic }}
+                            </div>
+                            <h2 class="title is-3">Hangout Link</h2>
+                            <p class="title is-4">
+                                <a href="{{ entry.hangoutLink }}" title="Hangout Link">{{ entry.hangoutLink }}</a>
+                            </p>
+                            <h2 class="title is-3">Date/Time</h2>
+                            <div class="hangout__times">
+                                <table class="table is-bordered is-striped">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Zone</th>
+                                    </tr>
+                                    {% for date in craft.hangouts.translateDate(entry.hangoutDateTime) %}
+                                        <tr>
+                                            <td>{{ date.format("j F, Y") }}</td>
+                                            <td>{{ date.format("g:i A (l)") }}</td>
+                                            <td>{{ date.format("e (T)")|replace({"_": " "}) }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                            <h2 class="title is-3">Roster</h2>
+                            <div class="hangout__people">
+                                <ul>
+                                    {% for person in entry.hangoutPeople %}
+                                        <li>
+                                            <a href="{{ person.website }}">{{ person.name }}</a>
+                                            →
+                                            {% if person.host %}
+                                                Host
+                                            {% elseif person.presenter %}
+                                                Presenter
+                                            {% else %}
+                                                Guest
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <hr>
+
+                            <h3 class="title is-3">Summary</h3>
+                            <div class="hangout__notes">
+                                {{ entry.hangoutNotes }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
