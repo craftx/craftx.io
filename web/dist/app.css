@@ -325,6 +325,12 @@ body {
 .is-inline-block {
   display: inline-block; }
 
+.hangout--is-preview {
+  margin-top: 4em;
+  margin-bottom: 2em;
+  padding: 2em;
+  background-color: #e6e7e8; }
+
 /*
  ------------------------------------------------------------
  @media queries

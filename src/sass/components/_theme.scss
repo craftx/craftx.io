@@ -181,6 +181,12 @@ body {
     display: inline-block;
 }
 
+.hangout--is-preview {
+    margin-top: 4em;
+    margin-bottom: 2em;
+    padding: 2em;
+    background-color: $gray-e;
+}
 /*
  ------------------------------------------------------------
  @media queries
