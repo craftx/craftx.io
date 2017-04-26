@@ -1,0 +1,18 @@
+{% extends '_layout' %}
+
+{% set id = 'index' %}
+{% set title = 'Hangouts' %}
+
+{% set content %}
+    <div class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    {% for entry in craft.entries.section('hangouts').find() %}
+                        <pre>{{ dump(entry.attributes) }}</pre>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endset %}

@@ -1,0 +1,28 @@
+{
+    "name": "selvinortiz/hangouts",
+    "version": "1.0.0",
+    "description": "CraftX Hangouts Utility",
+    "type": "craft-plugin",
+    "authors": [
+        {
+            "name": "Selvin Ortiz",
+            "email": "selvin@selvin.co"
+        }
+    ],
+    "extra": {
+        "name": "Hangouts",
+        "handle": "hangouts",
+        "class": "selvinortiz\\hangouts\\Hangouts",
+        "developer": "Selvin Ortiz",
+        "developerUrl": "https://selvinortiz.com",
+        "schemaVersion": "1.0.0",
+        "components":{
+            "service": "selvinortiz\\hangouts\\services\\HangoutsService"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "selvinortiz\\hangouts\\": "src/"
+        }
+    }
+}
