@@ -4,7 +4,7 @@
     {{ entry.hangoutTopic }}
 </div>
 
-<h2 class="title is-3">Link</h2>
+<h2 class="title is-3">Event Link</h2>
 <p class="title is-4">
     <a href="{{ entry.hangoutLink }}" title="Hangout Link">{{ entry.hangoutLink }}</a>
 </p>
@@ -32,7 +32,11 @@
     <ul>
         {% for person in entry.hangoutPeople %}
             <li>
-                <a href="{{ person.website }}">{{ person.name }}</a>
+                {% if person.website is not empty %}
+                    <a href="{{ person.website }}">{{ person.name }}</a>
+                {% else %}
+                    {{ person.name }}
+                {% endif %}
                 →
                 {% if person.host %}
                     Host
