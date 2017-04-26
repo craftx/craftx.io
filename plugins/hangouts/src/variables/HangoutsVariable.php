@@ -18,7 +18,7 @@ class HangoutsVariable
         'Asia/Singapore',
     ];
 
-    public function generateSummary($text, $limit = 150, $break = ' ', $pad = '...')
+    public function generateSummary($text, $limit = 160, $break = ' ', $pad = '...')
     {
         $text = strip_tags($text);
 
