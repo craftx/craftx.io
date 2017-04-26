@@ -14,7 +14,11 @@
                         {% endif %}
 
                         {% if loop.last %}
-                            {% include 'hangouts/_includes/preview' %}
+                            <div class="hangout hangout--is-preview">
+                                <h1 class="title is-3 is-section-header">Past Hangouts</h1>
+                                <hr>
+                                {% include 'hangouts/_includes/preview' %}
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>
