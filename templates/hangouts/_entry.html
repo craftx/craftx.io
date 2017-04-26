@@ -8,6 +8,15 @@
         <div class="container">
             <div class="columns">
                 <div class="column content">
+                    <h2 class="title is-4">
+                        <a href="/hangouts" class="button" title="All Hangouts">
+                        <span class="icon">
+                            <i class="fa fa-hand-o-left"></i>
+                        </span>
+                        <span>
+                            All Hangouts</a>
+                        </span>
+                    </h2>
                     {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
                 </div>
             </div>
