@@ -4,15 +4,28 @@
     <title>{{ siteName }}</title>
 {% endif %}
 
-<meta property="og:title" content="CraftX">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ siteUrl }}">
+{% set url = entry.url ?? siteUrl %}
+{% set type = entry is defined ? 'article' : 'website' %}
+{% set title = entry.title ?? title ?? siteName %}
+{% set description = "Craft Training for Busy Developers" %}
+
+
+{% if entry is defined and entry.section.handle == 'hangouts' %}
+    {% set description = entry.hangoutNotes is not empty ? entry.hangoutNotes : entry.hangoutTopic %}
+    {% set description = craft.hangouts.generateSummary(description) %}
+{% elseif craft.app.request.getSegment(1) == 'hangouts' %}
+    {% set description = 'Lively hangouts held privately to talk about all things design, development, and Craft CMS' %}
+{% endif %}
+
+<meta property="og:title" content="{{ title }}">
+<meta property="og:type" content="{{ entry is defined ? 'article' : 'website' }}">
+<meta property="og:url" content="{{ entry.url ?? siteUrl }}">
 <meta property="og:image" content="{{ siteUrl }}dist/images/CraftX.png">
-<meta property="og:description" content="Craft Training for Busy Developers">
-<meta property="og:site_name" content="CraftX">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:site_name" content="{{ siteName }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@craftxio">
 <meta name="twitter:creator" content="@craftxio">
-<meta name="twitter:title" content="{{ siteUrl }}">
+<meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:image" content="{{ siteUrl }}dist/images/CraftX.png">
-<meta name="twitter:description" content="Craft Training for Busy Developers">
+<meta name="twitter:description" content="{{ description }}">

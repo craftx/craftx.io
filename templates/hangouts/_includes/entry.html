@@ -51,8 +51,8 @@
         {% for date in craft.hangouts.translateDate(entry.hangoutDateTime) %}
             <tr>
                 <td>{{ date.format("j F, Y") }}</td>
-                <td>{{ date.format("g:i A (l)") }}</td>
-                <td>{{ date.format("e (T)")|replace({"_": " "}) }}</td>
+                <td><strong>{{ date.format("g:i A") }}</strong> {{ date.format("l") }}</td>
+                <td> <strong>({{ date.format("T") }})</strong> {{ date.format("e")|replace({"_": " "}) }}</td>
             </tr>
         {% endfor %}
     </table>

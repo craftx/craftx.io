@@ -1,5 +1,7 @@
 <div class="hangout__preview">
     <h2 class="title is-4">
+        {{ entry.hangoutDateTime.format("j F, Y") }}
+        →
         <a href="{{ entry.url }}">{{ entry.title }}</a>
     </h2>
     <div class="hangout__notes">

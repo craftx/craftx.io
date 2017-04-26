@@ -18,6 +18,24 @@ class HangoutsVariable
         'Asia/Singapore',
     ];
 
+    public function generateSummary($text, $limit = 150, $break = ' ', $pad = '...')
+    {
+        $text = strip_tags($text);
+
+        // return with no change if string is shorter than $limit
+        if (strlen($text) <= $limit) {
+            return $text;
+        }
+
+        $text = substr($text, 0, $limit);
+
+        if (false !== ($breakpoint = strrpos($text, $break))) {
+            $text = substr($text, 0, $breakpoint);
+        }
+
+        return $text.$pad;
+    }
+
     /**
      * @return \DateTime[]
      */
