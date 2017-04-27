@@ -4,23 +4,41 @@
 {% set title = 'Hangouts' %}
 
 {% set content %}
+    {% set currentDateTimeForComparison = now.format('Y-m-d H:i') %}
+
+    {# Earlies previous hangouts #}
+    {% set nextHangout = craft.entries({
+        section: 'hangouts',
+        orderBy: 'hangoutDateTime asc',
+        hangoutDateTime: '> ' ~ currentDateTimeForComparison,
+        limit: 1
+    }).one() %}
+
+    {% set previousHangouts = craft.entries({
+        section: 'hangouts',
+        orderBy: 'hangoutDateTime desc',
+        hangoutDateTime: '< ' ~ currentDateTimeForComparison
+    }).all() %}
+
     <div class="section">
         <div class="container">
             <div class="columns">
                 <div class="column content">
-                    {% for entry in craft.entries.section('hangouts').all() %}
-                        {% if loop.first %}
-                            {% include 'hangouts/_includes/entry' %}
-                        {% endif %}
+                    {% if nextHangout %}
+                        {% include 'hangouts/_includes/entry' with {entry: nextHangout} only %}
+                    {% endif %}
 
-                        {% if loop.last %}
-                            <div class="hangout hangout--is-preview">
-                                <h1 class="title is-3 is-section-header">Past Hangouts</h1>
-                                <hr>
-                                {% include 'hangouts/_includes/preview' %}
+                    <h1 class="title is-3 has-text-centered is-section-header">
+                        <i class="fa fa-history"></i>
+                        Previous Hangouts
+                    </h1>
+                    <div class="hangout__previews">
+                        {% for previousHangout in previousHangouts %}
+                            <div class="hangout hangout__previews--preview">
+                                {% include 'hangouts/_includes/preview' with {entry: previousHangout} only %}
                             </div>
-                        {% endif %}
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

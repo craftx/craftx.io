@@ -8,14 +8,20 @@
     </h2>
 {% endif %}
 
-<div class="hangout__topic-or-notes">
+<div class="hangout__summary">
     {{ entry.hangoutNotes is not empty ? entry.hangoutNotes : entry.hangoutTopic }}
 </div>
 
-<h2 class="title is-3">Link</h2>
-<p class="title is-4">
-    <a href="{{ entry.hangoutLink }}" title="Hangout Link">{{ entry.hangoutLink }}</a>
-</p>
+{% if entry.hangoutDateTime > now %}
+    <h2>
+        <a href="{{ entry.hangoutLink }}" class="button is-info is-large is-heavy" title="Hangout Link" target="blank">
+            <span>Event → {{ entry.hangoutLink }}</span>
+            <span class="icon">
+                <i class="fa fa-external-link"></i>
+            </span>
+        </a>
+    </h2>
+{% endif %}
 
 <h2 class="title is-3">Roster</h2>
 <div class="hangout__people">

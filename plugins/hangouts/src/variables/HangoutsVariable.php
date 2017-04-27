@@ -5,6 +5,7 @@ class HangoutsVariable
 {
     const TIMEZONES = [
         'America/Chicago',
+        'America/Denver',
         'America/New_York',
         'America/Los_Angeles',
         'America/Sao_Paulo',
