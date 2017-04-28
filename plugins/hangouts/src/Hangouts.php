@@ -1,31 +1,37 @@
 <?php
 namespace selvinortiz\hangouts;
 
+use Yii;
 use yii\base\Event;
 
+use Craft;
 use craft\base\Plugin;
 use craft\web\UrlManager;
 use craft\events\RegisterUrlRulesEvent;
 
-use selvinortiz\hangouts\variables\HangoutsVariable;
-use selvinortiz\hangouts\controllers\HangoutsDefaultController;
+use selvinortiz\hangouts\twig\HangoutsExtension;
+use selvinortiz\hangouts\services\HangoutsService;
+use selvinortiz\hangouts\twig\HangoutsTemplateComponent;
+use selvinortiz\hangouts\controllers\HangoutsController;
 
 /**
  * Class Hangouts
  *
  * @package selvinortiz\hangouts
  *
- * @property selvinortiz\hangouts\services\HangoutsService $service
+ * @property HangoutsService
  */
 class Hangouts extends Plugin
 {
     public $controllerMap = [
-        'default' => HangoutsDefaultController::class
+        'default' => HangoutsController::class
     ];
 
     public function init()
     {
         parent::init();
+
+        Craft::$app->view->twig->addExtension(new HangoutsExtension());
 
         Event::on(
             UrlManager::class,
@@ -41,7 +47,7 @@ class Hangouts extends Plugin
 
     public function defineTemplateComponent()
     {
-        return HangoutsVariable::class;
+        return HangoutsTemplateComponent::class;
     }
 
 }

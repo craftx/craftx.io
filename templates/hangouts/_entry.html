@@ -1,33 +1,32 @@
 {% extends '_layout' %}
 
-{% set id = 'index' %}
+{% set id = 'hangout' %}
 {% set title = entry.title ~ ' | Hangouts' %}
+{% set scriptVars = {
+    hangoutSourceDateTime: entry.hangoutDateTime.format('Y-m-d H:i:s')
+} %}
+{% set scripts = ['/webpack/Hangouts.bundle.js'] %}
 
+{% set dateTime = now %}
+{% set currentDateTimeString = dateTime.format('Y-m-d H:i') %}
+{% set currentDateTimePlusDurationString = dateTime.modify('+2 hours').format('Y-m-d H:i') %}
+{% set currentDateTimeMinusDurationString = dateTime.modify('-4 hours').format('Y-m-d H:i') %}
+{% set isOngoingHangout = entry.hangoutDateTime < dateTime and entry.hangoutDateTime > dateTime.modify('-2 hours') %}
 {% set content %}
 
-    {% include 'hangouts/_includes/hero' with {entry: entry, ongoingEntry: null} only %}
+    {% include 'hangouts/_includes/hero' with {entry: entry} only %}
 
     <div class="section section--hangout" id="root">
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <div class="content is-large">
+                    <div class="content is-medium">
                         <h1 class="title is-2 is-white is-inset-inverted has-text-centered is-section-header">
                             <i class="fa fa-file-text"></i>
                             Hangout Details
                         </h1>
-                        <div class="hangout__previews">
+                        <div class="hangout__previews has-shadow">
                             <div class="hangout__previews--preview">
-                                <h2 class="title is-2">
-                                    <a href="/hangouts" class="button" title="All Hangouts">
-                                    <span class="icon">
-                                        <i class="fa fa-history"></i>
-                                    </span>
-                                    <span>
-                                        All Hangouts</a>
-                                    </span>
-                                </h2>
-
                                 {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
                             </div>
                         </div>

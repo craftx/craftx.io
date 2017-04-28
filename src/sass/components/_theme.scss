@@ -126,6 +126,9 @@ body {
 .is-inset-inverted {
     text-shadow: 1px 2px 0 #363738;
 }
+.has-shadow {
+    box-shadow: 0 5px 5px darken($primary, 5%);
+}
 
 .is-form-section-divider {
     padding: 0;
@@ -204,9 +207,9 @@ body {
 
 .hangout__previews--preview {
     padding: 40px;
-    margin: 20px 0;
+    margin: 40px 0;
     border: 1px solid $gray-e;
-    background: $gray-f;
+    background: #fff;
 }
 
 /*

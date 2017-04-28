@@ -7,6 +7,7 @@
 {% set currentDateTimeString = dateTime.format('Y-m-d H:i') %}
 {% set currentDateTimePlusDurationString = dateTime.modify('+2 hours').format('Y-m-d H:i') %}
 {% set currentDateTimeMinusDurationString = dateTime.modify('-4 hours').format('Y-m-d H:i') %}
+
 {% set ongoingHangout = craft.entries({
     section: 'hangouts',
     hangoutDateTime: [
@@ -32,20 +33,20 @@
 
 {% set content %}
 
-    {% include 'hangouts/_includes/hero' with {entry: null, ongoingEntry: ongoingHangout} only %}
+    {% include 'hangouts/_includes/hero' with {entry: ongoingHangout} only %}
 
     <div class="section section--hangouts">
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <div class="content is-large">
+                    <div class="content is-medium">
                         <h1 class="title is-2 is-white is-inset-inverted has-text-centered is-section-header">
                             <i class="fa fa-history"></i>
                             Previous Hangouts
                         </h1>
                         <div class="hangout__previews">
                             {% for previousHangout in previousHangouts %}
-                                <div class="hangout hangout__previews--preview">
+                                <div class="hangout hangout__previews--preview has-shadow">
                                     {% include 'hangouts/_includes/preview' with {entry: previousHangout} only %}
                                 </div>
                             {% endfor %}

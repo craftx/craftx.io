@@ -9,8 +9,8 @@
     {% include '_special/icons' %}
     {% include '_special/metadata' %}
 
-    <link rel="stylesheet" href="/dist/vendor.css?v=1.4.0"> 
-    <link rel="stylesheet" href="/dist/app.css?v=1.4.0">
+    <link rel="stylesheet" href="/dist/vendor.css?v=1.5.0"> 
+    <link rel="stylesheet" href="/dist/app.css?v=1.5.0">
 
     <script src="https://js.stripe.com/v3/"></script>
 
@@ -30,7 +30,15 @@
 
 {% include '_special/disqus' %}
 
-<script src="/webpack/App.bundle.js?v=1.4.0"></script>
+<script src="/webpack/App.bundle.js?v=1.5.0"></script>
+
+{% if scriptVars is defined and scriptVars is iterable %}
+    <script>
+        {% for name, value in scriptVars %}
+            window.{{ name }} = '{{ value }}';
+        {% endfor %}
+    </script>
+{% endif %}
 
 {% if scripts is defined and scripts is iterable %}
     {% for script in scripts %}

@@ -1,4 +1,4 @@
-{% set inHangouts = craft.app.request.getSegment(1) == "hangouts" %}
+{% set showOnlyHangoutsMenu = true %}
 
 <nav id="nav" class="nav is-medium has-shadow nav--primary">
   <div class="container">
@@ -20,7 +20,7 @@
     <!-- Add the modifier "is-active" to display it on mobile -->
 
     <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
-      {% if inHangouts %}
+      {% if showOnlyHangoutsMenu %}
         <span class="nav-item">
             <a href="/hangouts" class="button is-outlined is-info is-heavy" title="Hangouts">
               <span class="icon"><i class="fa fa-comments-o"></i></span>

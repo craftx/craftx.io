@@ -1,14 +1,23 @@
+{% set isPastHangout = entry ? isPastHangout(entry) : false %}
+{% set isOngoingHangout = entry ? isOngoingHangout(entry) : false %}
+{% set isUpcomingHangout = entry ? isUpcomingHangout(entry) : false %}
+
 {% set lead = entry.title ?? 'CraftX Hangouts' %}
 {% set text %}
-    A weekly meeting to discuss PHP, Craft CMS, Design, Development, Freelancing, and everything in between.
-    Hosted online by Selvin Ortiz and supported by talented members of the Craft and Web communities.
+    {{ 'An online gathering of friends and colleagues discussing [Craft CMS](https://craftcms.com), Design, Development, Freelancing, and everything in between.
+    Hosted by [Selvin Ortiz](https://selvinortiz.com) and supported by talented members of the Craft community.'|doxter }}
 {% endset %}
-{% set ctaUrl = entry.hangoutLink ?? ongoingEntry.hangoutLink ?? '/hangouts/next' %}
-{% set ctaText = entry ? entry.hangoutLink : ongoingEntry ? 'Join Ongoing Hangout' : 'Next Hangout' %}
-{% set ctaIconClasses = entry ? 'fa-comments-o' : ongoingEntry ? 'fa-comments-o is-blinking' : 'fa-clock-o' %}
 
-{% if entry %}
-    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('j F Y @ g:i A (T)') %}
+{% set ctaUrl = isOngoingHangout ? entry.hangoutLink : (isPastHangout or isUpcomingHangout) ? '/hangouts' : '/hangouts/next' %}
+{% set ctaText = isOngoingHangout ? 'Join Live Hangout' : (isPastHangout or isUpcomingHangout) ? 'All Hangouts' : 'Next Hangout' %}
+{% set ctaIconClasses = isOngoingHangout ? 'fa-comments-o is-blinking' : (isPastHangout or isUpcomingHangout) ? 'fa-comments-o' : 'fa-clock-o' %}
+
+{% if isUpcomingHangout or isOngoingHangout %}
+    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('l, F j, Y @ g:i A (T)') %}
+{% endif %}
+
+{% if isPastHangout %}
+    {% set text = 'Held on ' ~ entry.hangoutDateTime.format('l, F j, Y @ g:i A (T)') %}
 {% endif %}
 
 <section class="section section--hero has-text-centered">
@@ -17,16 +26,29 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <h1 class="title is-2">{{ lead }}</h1>
+
                     <h2 class="subtitle is-4">{{ text }}</h2>
+                    
+                    {% if entry and entry.hangoutCategories|length %}
+                        <h2 class="title is-2 is-inset-inverted">
+                            {% for category in entry.hangoutCategories.all() %}
+                                <span class="tag is-dark is-large">{{ category.title }}</span>
+                            {% endfor %}
+                        </h2>
+                    {% endif %}
+
                     <div class="hero-buttons has-text-centered">
                         <a href="{{ ctaUrl }}" class="button is-large is-info">
                             <i class="fa {{ ctaIconClasses}}"></i>
                             {{ ctaText }}
                         </a>
                     </div>
-                    <p class="is-5 has-top-margin">
-                        We use <a href="https://zoom.us">zoom.us</a> for our online meetings.
-                    </p>
+
+                    {% if not isPastHangout %}
+                        <p class="is-5 has-top-margin">
+                            We use <a href="https://zoom.us">zoom.us</a> for our online <strong>private</strong> meetings.
+                        </p>
+                    {% endif %}
                 </div>
             </div>
         </div>

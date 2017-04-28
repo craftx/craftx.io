@@ -18,3 +18,4 @@ Homestead.yaml
 /dbpull.sh
 /config/local/*
 !/config/local/general.example.php
+/npm-debug.log
