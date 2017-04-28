@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 167);
+/******/ 	return __webpack_require__(__webpack_require__.s = 163);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -29638,15 +29638,14 @@ module.exports = function normalizeComponent (
 /* 84 */,
 /* 85 */,
 /* 86 */,
-/* 87 */,
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(82)(
   /* script */
-  __webpack_require__(91),
+  __webpack_require__(90),
   /* template */
-  __webpack_require__(158),
+  __webpack_require__(156),
   /* scopeId */
   null,
   /* cssModules */
@@ -29673,14 +29672,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(82)(
   /* script */
-  __webpack_require__(92),
+  __webpack_require__(91),
   /* template */
-  __webpack_require__(159),
+  __webpack_require__(157),
   /* scopeId */
   null,
   /* cssModules */
@@ -29707,13 +29706,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports) {
 
 module.exports = Stripe;
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29782,7 +29781,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29850,6 +29849,7 @@ exports.default = {
 //
 
 /***/ }),
+/* 92 */,
 /* 93 */,
 /* 94 */,
 /* 95 */,
@@ -29913,9 +29913,7 @@ exports.default = {
 /* 153 */,
 /* 154 */,
 /* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29963,7 +29961,7 @@ if (false) {
 }
 
 /***/ }),
-/* 159 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -30011,14 +30009,12 @@ if (false) {
 }
 
 /***/ }),
+/* 158 */,
+/* 159 */,
 /* 160 */,
 /* 161 */,
 /* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30028,7 +30024,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stripe = __webpack_require__(90);
+var _stripe = __webpack_require__(89);
 
 var _stripe2 = _interopRequireDefault(_stripe);
 
@@ -30038,11 +30034,11 @@ var _vue2 = _interopRequireDefault(_vue);
 
 var _Utils = __webpack_require__(19);
 
-var _CXEmailInput = __webpack_require__(88);
+var _CXEmailInput = __webpack_require__(87);
 
 var _CXEmailInput2 = _interopRequireDefault(_CXEmailInput);
 
-var _CXUsernameInput = __webpack_require__(89);
+var _CXUsernameInput = __webpack_require__(88);
 
 var _CXUsernameInput2 = _interopRequireDefault(_CXUsernameInput);
 

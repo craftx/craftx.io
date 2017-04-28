@@ -103,6 +103,17 @@ body {
     border: 1px solid $danger;
     font-weight: bold;
 }
+
+/*
+ ------------------------------------------------------------
+ @content
+ ------------------------------------------------------------*/
+.content {
+    .is-white {
+        color: #fff;
+    }
+}
+
 /*
  ------------------------------------------------------------
  @utilities
@@ -194,8 +205,8 @@ body {
 .hangout__previews--preview {
     padding: 40px;
     margin: 20px 0;
-    border: 1px solid $gray-d;
-    background: $gray-e;
+    border: 1px solid $gray-e;
+    background: $gray-f;
 }
 
 /*

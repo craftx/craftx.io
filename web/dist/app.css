@@ -70,6 +70,9 @@
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
   border-top: 1px solid #c6c7c8; }
 
+.section--hangout, .section--hangouts {
+  background-color: #00966C; }
+
 .section--newsletter {
   border-top: 2px solid #d6d7d8;
   border-bottom: 2px solid #d6d7d8;
@@ -264,6 +267,13 @@ body {
 
 /*
  ------------------------------------------------------------
+ @content
+ ------------------------------------------------------------*/
+.content .is-white {
+  color: #fff; }
+
+/*
+ ------------------------------------------------------------
  @utilities
  ------------------------------------------------------------*/
 .is-inset, .section--about .title, .section--about .subtitle, .title,
@@ -336,8 +346,8 @@ body {
 .hangout__previews--preview {
   padding: 40px;
   margin: 20px 0;
-  border: 1px solid #d6d7d8;
-  background: #e6e7e8; }
+  border: 1px solid #e6e7e8;
+  background: #f6f7f8; }
 
 /*
  ------------------------------------------------------------

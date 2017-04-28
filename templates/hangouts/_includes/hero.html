@@ -1,18 +1,31 @@
+{% set lead = entry.title ?? 'CraftX Hangouts' %}
+{% set text %}
+    A weekly meeting to discuss PHP, Craft CMS, Design, Development, Freelancing, and everything in between.
+    Hosted online by Selvin Ortiz and supported by talented members of the Craft and Web communities.
+{% endset %}
+{% set ctaUrl = entry.hangoutLink ?? ongoingEntry.hangoutLink ?? '/hangouts/next' %}
+{% set ctaText = entry ? entry.hangoutLink : ongoingEntry ? 'Join Ongoing Hangout' : 'Next Hangout' %}
+{% set ctaIconClasses = entry ? 'fa-comments-o' : ongoingEntry ? 'fa-comments-o is-blinking' : 'fa-clock-o' %}
+
+{% if entry %}
+    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('j F Y @ g:i A (T)') %}
+{% endif %}
+
 <section class="section section--hero has-text-centered">
     <div class="hero-body">
         <div class="container">
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
-                    <h1 class="title is-2">CraftX Hangouts</h1>
-                    <h2 class="subtitle is-4">A weekly online meeting of Craft CMS users and freelancers in search of the best tools, workflows, and practices.</h2>
+                    <h1 class="title is-2">{{ lead }}</h1>
+                    <h2 class="subtitle is-4">{{ text }}</h2>
                     <div class="hero-buttons has-text-centered">
-                        <a href="/next" id="cta" class="button is-large is-info">
-                            <i class="fa fa-link"></i>
-                            Join Next Hangout
+                        <a href="{{ ctaUrl }}" class="button is-large is-info">
+                            <i class="fa {{ ctaIconClasses}}"></i>
+                            {{ ctaText }}
                         </a>
                     </div>
                     <p class="is-5 has-top-margin">
-                        We use <a href="https://zoom.us">Zoom</a> for our hangouts.
+                        We use <a href="https://zoom.us">zoom.us</a> for our online meetings.
                     </p>
                 </div>
             </div>

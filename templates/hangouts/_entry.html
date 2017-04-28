@@ -4,20 +4,34 @@
 {% set title = entry.title ~ ' | Hangouts' %}
 
 {% set content %}
-    <div class="section" id="root">
+
+    {% include 'hangouts/_includes/hero' with {entry: entry, ongoingEntry: null} only %}
+
+    <div class="section section--hangout" id="root">
         <div class="container">
             <div class="columns">
-                <div class="column content">
-                    <h2 class="title is-4">
-                        <a href="/hangouts" class="button" title="All Hangouts">
-                        <span class="icon">
-                            <i class="fa fa-history"></i>
-                        </span>
-                        <span>
-                            All Hangouts</a>
-                        </span>
-                    </h2>
-                    {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
+                <div class="column">
+                    <div class="content is-large">
+                        <h1 class="title is-2 is-white is-inset-inverted has-text-centered is-section-header">
+                            <i class="fa fa-file-text"></i>
+                            Hangout Details
+                        </h1>
+                        <div class="hangout__previews">
+                            <div class="hangout__previews--preview">
+                                <h2 class="title is-2">
+                                    <a href="/hangouts" class="button" title="All Hangouts">
+                                    <span class="icon">
+                                        <i class="fa fa-history"></i>
+                                    </span>
+                                    <span>
+                                        All Hangouts</a>
+                                    </span>
+                                </h2>
+
+                                {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

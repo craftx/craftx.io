@@ -52,6 +52,10 @@
         @extend .is-inset;
     }
 }
+.section--hangout, .section--hangouts {
+    background-color: $primary;
+}
+
 .section--newsletter {
     border-top: 2px solid $gray-d;
     border-bottom: 2px solid $gray-d;

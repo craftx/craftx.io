@@ -19,31 +19,7 @@
 {% set hasMeetingNotes = entry.hangoutNotes is not empty %}
 {% set isUpcomingHangout = entry.hangoutDateTime > now %}
 
-{% if isOnEntryPage %}
-    {% if isLoggedInAdmin %}
-        <h2 class="title is-3">
-            <a href="{{ entry.editUrl }}">{{ entry.title }}</a>
-        </h2>
-    {% else %}
-        <h2 class="title is-3">{{ entry.title }}</h2>
-    {% endif %}
-{% else %}
-    <h2 class="title is-3">
-        <a href="{{ entry.url }}">{{ entry.title }}</a>
-    </h2>
-{% endif %}
-
-{% if isUpcomingHangout %}
-    <p>
-        <a href="{{ entry.hangoutLink }}" class="button is-info is-heavy" title="Hangout Link" target="blank">
-            <span>Join → {{ entry.hangoutLink }}</span>
-            <span class="icon">
-                <i class="fa fa-link"></i>
-            </span>
-        </a>
-    </p>
-{% endif %}
-
+<h2 class="title is-3">Topic</h2>
 <div class="hangout__summary">
     {% if isUpcomingHangout %}
         {{ entry.hangoutTopic }}
@@ -77,20 +53,24 @@
     </ul>
 </div>
 
-<h2 class="title is-3">Date/Time (${timezone})</h2>
+<h2 class="title is-3">Date/Time</h2>
 <div class="hangout__times">
-    <table class="table is-bordered is-striped">
-        <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Zone</th>
-        </tr>
-        {% for date in craft.hangouts.translateDate(entry.hangoutDateTime) %}
+    <table class="table is-bordered">
+        <thead>
             <tr>
-                <td>{{ date.format("j F, Y") }}</td>
-                <td><strong>{{ date.format("g:i A") }}</strong> {{ date.format("l") }}</td>
-                <td> <strong>({{ date.format("T") }})</strong> {{ date.format("e")|replace({"_": " "}) }}</td>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Zone</th>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for date in craft.hangouts.translateDate(entry.hangoutDateTime) %}
+                <tr class="{{ loop.first ? 'is-selected' }}">
+                    <td>{{ date.format("j F Y") }}</td>
+                    <td><strong>{{ date.format("g:i A") }}</strong> {{ date.format("l") }}</td>
+                    <td> <strong>({{ date.format("T") }})</strong> {{ date.format("e")|replace({"_": " "}) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
