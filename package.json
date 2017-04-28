@@ -66,7 +66,10 @@
       }
     },
     "templates": {
-      "watch": ["templates/**/*.{js,css,html,php}", "plugins/**/*.{html,php}"],
+      "watch": [
+        "templates/**/*.{js,css,html,php}",
+        "plugins/**/*.{html,php}"
+      ],
       "source": "templates/**/*.html",
       "output": {
         "dir": "templates"
@@ -110,5 +113,8 @@
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "jstz": "^1.0.9"
   }
 }
