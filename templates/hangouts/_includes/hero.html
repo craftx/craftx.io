@@ -1,23 +1,38 @@
 {% set isPastHangout = entry ? isPastHangout(entry) : false %}
 {% set isOngoingHangout = entry ? isOngoingHangout(entry) : false %}
 {% set isUpcomingHangout = entry ? isUpcomingHangout(entry) : false %}
+{% set weAreOnEntryPage = craft.app.request.segments|length > 1 %}
 
-{% set lead = entry.title ?? 'CraftX Hangouts' %}
 {% set text %}
     {{ 'An online gathering of friends and colleagues discussing [Craft CMS](https://craftcms.com), Design, Development, Freelancing, and everything in between.
     Hosted by [Selvin Ortiz](https://selvinortiz.com) and supported by talented members of the Craft community.'|doxter }}
 {% endset %}
+{% set lead = entry.title ?? 'CraftX Hangouts' %}
+{% set ctaUrl = '/hangouts/next' %}
+{% set ctaText = 'Next Hangout' %}
+{% set ctaIconClasses = 'fa-clock-o' %}
 
-{% set ctaUrl = isOngoingHangout ? entry.hangoutLink : (isPastHangout or isUpcomingHangout) ? '/hangouts' : '/hangouts/next' %}
-{% set ctaText = isOngoingHangout ? 'Join Live Hangout' : (isPastHangout or isUpcomingHangout) ? 'All Hangouts' : 'Next Hangout' %}
-{% set ctaIconClasses = isOngoingHangout ? 'fa-comments-o is-blinking' : (isPastHangout or isUpcomingHangout) ? 'fa-comments-o' : 'fa-clock-o' %}
-
-{% if isUpcomingHangout or isOngoingHangout %}
-    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('l, F j, Y @ g:i A (T)') %}
+{% if isOngoingHangout %}
+    {% set ctaUrl = entry.hangoutLink %}
+    {% set ctaText = 'Join Live Hangout' %}
+    {% set ctaIconClasses = 'fa-comments-o is-blinking' %}
 {% endif %}
 
 {% if isPastHangout %}
     {% set text = 'Held on ' ~ entry.hangoutDateTime.format('l, F j, Y @ g:i A (T)') %}
+    {% set ctaUrl = '/hangouts' %}
+    {% set ctaText = 'All Hangouts' %}
+    {% set ctaIconClasses = 'fa-comments-o' %}
+{% endif %}
+
+{% if isUpcomingHangout and weAreOnEntryPage %}
+    {% set ctaUrl = entry.hangoutLink %}
+    {% set ctaText = 'Meeting Link' %}
+    {% set ctaIconClasses = 'fa-link' %}
+{% endif %}
+
+{% if isUpcomingHangout or isOngoingHangout %}
+    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('l, F j, Y @ g:i A (T)') %}
 {% endif %}
 
 <section class="section section--hero has-text-centered">
