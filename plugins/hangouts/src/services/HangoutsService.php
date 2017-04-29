@@ -4,6 +4,7 @@ namespace selvinortiz\hangouts\services;
 use Craft;
 use craft\base\Component;
 use craft\elements\Entry;
+use craft\helpers\Template;
 
 class HangoutsService extends Component
 {
@@ -108,7 +109,7 @@ class HangoutsService extends Component
      */
     public function generateSummary($text, $limit = 160, $break = ' ', $pad = '...')
     {
-        $text = strip_tags($text);
+        $text = $this->toPlainText($text);
 
         // return with no change if string is shorter than $limit
         if (strlen($text) <= $limit) {
@@ -140,5 +141,15 @@ class HangoutsService extends Component
         }
 
         return $dates;
+    }
+
+    /**
+     * HTML to plain text conversion
+     */
+    private function toPlainText($text)
+    {
+        $text = strip_tags($text);
+
+        return html_entity_decode($text, ENT_HTML5, Craft::$app->charset);
     }
 }

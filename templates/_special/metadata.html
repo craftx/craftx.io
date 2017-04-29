@@ -7,14 +7,14 @@
 {% set url = siteUrl %}
 {% set type = 'website' %}
 {% set title = title is not empty ? title ~ ' | ' ~ siteName : siteName %}
-{% set description = "Craft Training for Busy Developers" %}
+{% set description = "Unofficial Community for Craft CMS Professionals" %}
 
 {% if entry is defined and entry.section.handle == 'hangouts' %}
     {% set url = entry.url %}
     {% set type = 'article' %}
     {% set title = entry.title %}
     {% set description = entry.hangoutNotes is not empty ? entry.hangoutNotes : entry.hangoutTopic %}
-    {% set description = craft.hangouts.generateSummary(description) %}
+    {% set description = generateSummary(description) %}
 {% elseif craft.app.request.getSegment(1) == 'hangouts' %}
     {% set url = siteUrl ~ 'hangouts' %}
     {% set title = 'CraftX Hangouts' %}
