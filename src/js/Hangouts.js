@@ -8,14 +8,17 @@ new Vue({
     el: '#root',
     delimiters: ['${', '}'],
     data: {
+        day: null,
         date: null,
         time: null,
-        zone: null,
-        timezone: timezone.determine().name()
+        timezone: null,
+        zoneIdentifier: null,
+        zoneAbbreviation: null,
     },
     mounted() {
         this.$nextTick(() => {
-            console.log(window);
+            this.timezone = timezone.determine().name();
+
             if (this.timezone) {
                 postToController(
                     'hangouts/default/get-date-time-data',
@@ -25,9 +28,11 @@ new Vue({
                     },
                     (response) => {
                         if (response.data.success) {
+                            this.day = response.data.day;
                             this.date = response.data.date;
                             this.time = response.data.time;
-                            this.zone = response.data.zone;
+                            this.zoneIdentifier = response.data.zoneIdentifier;
+                            this.zoneAbbreviation = response.data.zoneAbbreviation;
                         } else {
                             this.timezone = null;
                         }

@@ -12,8 +12,8 @@
 {% set currentDateTimePlusDurationString = dateTime.modify('+2 hours').format('Y-m-d H:i') %}
 {% set currentDateTimeMinusDurationString = dateTime.modify('-4 hours').format('Y-m-d H:i') %}
 {% set isOngoingHangout = entry.hangoutDateTime < dateTime and entry.hangoutDateTime > dateTime.modify('-2 hours') %}
-{% set content %}
 
+{% set content %}
     {% include 'hangouts/_includes/hero' with {entry: entry} only %}
 
     <div class="section section--hangout" id="root">
@@ -21,7 +21,7 @@
             <div class="columns">
                 <div class="column">
                     <div class="content is-medium">
-                        <h1 class="title is-2 is-white is-inset-inverted has-text-centered is-section-header">
+                        <h1 class="title is-1 is-white is-inset-inverted has-text-centered">
                             <i class="fa fa-file-text"></i>
                             Hangout Details
                         </h1>

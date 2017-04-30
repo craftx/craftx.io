@@ -19,7 +19,7 @@
 {% set hasMeetingNotes = entry.hangoutNotes is not empty %}
 {% set isUpcomingHangout = entry.hangoutDateTime > now %}
 
-<h2 class="title is-3">About</h2>
+<h2 class="title is-2">About</h2>
 <div class="hangout__summary">
     {% if isUpcomingHangout %}
         {{ entry.hangoutTopic }}
@@ -28,7 +28,7 @@
     {% endif %}
 </div>
 
-<h2 class="title is-3">Roster</h2>
+<h2 class="title is-2">Roster</h2>
 <div class="hangout__people">
     <ul>
         {% set host = entry.hangoutHost.one() %}
@@ -63,9 +63,9 @@
     </ul>
 </div>
 
-<h2 class="title is-3">Date/Time</h2>
+<h2 class="title is-2">Date/Time</h2>
 <template v-if="timezone">
-    <h2 class="title is-5">
+    <h2 class="title is-4">
         <span class="icon">
             <i class="fa fa-bolt"></i>
         </span>
@@ -88,15 +88,21 @@
             <template v-if="timezone" v-cloack>
                 <tr class="is-selected">
                     <td>${date}</td>
-                    <td>${time}</td>
-                    <td>${zone}</td>
+                    <td>${time} <span class="is-hidden-mobile">${day}</span></td>
+                    <td>${zoneAbbreviation} <span class="is-hidden-mobile">${zoneIdentifier}</span></td>
                 </tr>
             </template>
             {% for date in craft.hangouts.translateDateTime(entry.hangoutDateTime) %}
                 <tr>
                     <td>{{ date.format("j F Y") }}</td>
-                    <td><strong>{{ date.format("g:i A") }}</strong> {{ date.format("l") }}</td>
-                    <td> <strong>({{ date.format("T") }})</strong> {{ date.format("e")|replace({"_": " "}) }}</td>
+                    <td>
+                        {{ date.format("g:i A") }}
+                        <span class="is-hidden-mobile">{{ date.format("l") }}</div>
+                    </td>
+                    <td>
+                        ({{ date.format("T") }})
+                        <span class="is-hidden-mobile">{{ date.format("e")|replace({"_": " "}) }}</span>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

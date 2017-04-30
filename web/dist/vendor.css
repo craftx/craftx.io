@@ -2109,7 +2109,7 @@ input[type="submit"].button {
 
 .title {
   color: #363636;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.125; }
   .title strong {
@@ -2119,21 +2119,21 @@ input[type="submit"].button {
   .title:not(.is-spaced) + .subtitle {
     margin-top: -1.5rem; }
   .title.is-1 {
-    font-size: 3rem; }
+    font-size: 2.25rem; }
   .title.is-2 {
-    font-size: 2.5rem; }
-  .title.is-3 {
     font-size: 2rem; }
-  .title.is-4 {
+  .title.is-3 {
     font-size: 1.5rem; }
-  .title.is-5 {
+  .title.is-4 {
     font-size: 1.25rem; }
-  .title.is-6 {
+  .title.is-5 {
     font-size: 1rem; }
+  .title.is-6 {
+    font-size: 0.75rem; }
 
 .subtitle {
   color: #4a4a4a;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.25; }
   .subtitle strong {
@@ -2141,17 +2141,17 @@ input[type="submit"].button {
   .subtitle:not(.is-spaced) + .title {
     margin-top: -1.5rem; }
   .subtitle.is-1 {
-    font-size: 3rem; }
+    font-size: 2.25rem; }
   .subtitle.is-2 {
-    font-size: 2.5rem; }
-  .subtitle.is-3 {
     font-size: 2rem; }
-  .subtitle.is-4 {
+  .subtitle.is-3 {
     font-size: 1.5rem; }
-  .subtitle.is-5 {
+  .subtitle.is-4 {
     font-size: 1.25rem; }
-  .subtitle.is-6 {
+  .subtitle.is-5 {
     font-size: 1rem; }
+  .subtitle.is-6 {
+    font-size: 0.75rem; }
 
 .block:not(:last-child) {
   margin-bottom: 1.5rem; }
@@ -2757,7 +2757,7 @@ input[type="submit"].button {
       flex-grow: 1;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1; }
 
 .modal-card-foot {
@@ -4781,8 +4781,7 @@ label.panel-block {
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
-          filter: none; }
+  filter: none; }
 
 .fa-stack {
   position: relative;

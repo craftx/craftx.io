@@ -32,7 +32,7 @@
 {% endif %}
 
 {% if isUpcomingHangout or isOngoingHangout %}
-    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('l, F j, Y @ g:i A (T)') %}
+    {% set text = 'Join us on ' ~ entry.hangoutDateTime.format('l, F j @ g:i A (T)') %}
 {% endif %}
 
 <section class="section section--hero has-text-centered">
@@ -41,27 +41,26 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <h1 class="title is-2">{{ lead }}</h1>
-
                     <h2 class="subtitle is-4">{{ text }}</h2>
-                    
+
                     {% if entry and entry.hangoutCategories|length %}
-                        <h2 class="title is-2 is-inset-inverted">
+                        <h2 class="title is-4 is-inset-inverted">
                             {% for category in entry.hangoutCategories.all() %}
-                                <span class="tag is-dark is-large">{{ category.title }}</span>
+                                <span class="tag is-dark is-medium">{{ category.title }}</span>
                             {% endfor %}
                         </h2>
                     {% endif %}
 
                     <div class="hero-buttons has-text-centered">
-                        <a href="{{ ctaUrl }}" class="button is-large is-info">
+                        <a href="{{ ctaUrl }}" class="button is-medium is-info">
                             <i class="fa {{ ctaIconClasses}}"></i>
                             {{ ctaText }}
                         </a>
                     </div>
 
-                    {% if not isPastHangout %}
-                        <p class="is-5 has-top-margin">
-                            We use <a href="https://zoom.us">zoom.us</a> for our online <strong>private</strong> meetings.
+                    {% if not isPastHangout and weAreOnEntryPage %}
+                        <p class="has-top-margin">
+                            We use <a href="https://zoom.us">zoom.us</a> for our meetings.
                         </p>
                     {% endif %}
                 </div>

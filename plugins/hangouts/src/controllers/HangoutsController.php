@@ -22,9 +22,6 @@ class HangoutsController extends Controller
 
         $response = [
             'success' => false,
-            'date' => null,
-            'time' => null,
-            'zone' => null,
         ];
 
         $sourceDateTime = $this->getDecodedParam('sourceDateTime');
@@ -34,11 +31,14 @@ class HangoutsController extends Controller
         {
             try {
                 $date = new \DateTime($sourceDateTime, new \DateTimeZone(Craft::$app->timezone));
+
                 $date->setTimeZone(new \DateTimeZone($destinationTimeZone));
 
+                $response['day'] = $date->format('l');
+                $response['time'] = $date->format('g:i A');
                 $response['date'] = $date->format('j F Y');
-                $response['time'] = $date->format('g:i A l');
-                $response['zone'] = $date->format('(T) e');
+                $response['zoneIdentifier'] = $date->format('e');
+                $response['zoneAbbreviation'] = $date->format('(T)');
                 $response['success'] = true;
             } catch (\Exception $e) {
                 $response['date'] = $sourceDateTime;
