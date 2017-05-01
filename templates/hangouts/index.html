@@ -40,13 +40,13 @@
             <div class="columns">
                 <div class="column">
                     <div class="content is-medium">
-                        <h1 class="title is-1 is-white is-inset-inverted has-text-centered is-section-header">
+                        <h1 class="title is-1 is-white is-inset-inverted has-text-centered">
                             <i class="fa fa-history"></i>
                             Previous Hangouts
                         </h1>
                         <div class="hangout__previews">
                             {% for previousHangout in previousHangouts %}
-                                <div class="hangout hangout__previews--preview has-shadow">
+                                <div class="hangout hangout__preview has-shadow">
                                     {% include 'hangouts/_includes/preview' with {entry: previousHangout} only %}
                                 </div>
                             {% endfor %}
