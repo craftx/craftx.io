@@ -9,10 +9,10 @@ use craft\base\Plugin;
 use craft\web\UrlManager;
 use craft\events\RegisterUrlRulesEvent;
 
-use selvinortiz\hangouts\twig\HangoutsExtension;
 use selvinortiz\hangouts\services\HangoutsService;
-use selvinortiz\hangouts\twig\HangoutsTemplateComponent;
 use selvinortiz\hangouts\controllers\HangoutsController;
+use selvinortiz\hangouts\twig\HangoutsTemplateExtension;
+use selvinortiz\hangouts\twig\HangoutsTemplateComponent;
 
 /**
  * Class Hangouts
@@ -31,7 +31,8 @@ class Hangouts extends Plugin
     {
         parent::init();
 
-        Craft::$app->view->twig->addExtension(new HangoutsExtension());
+        Craft::$app->view->hook('hangout', '\\selvinortiz\\hangouts\\twig\\HangoutsTemplateHooks::hangout');
+        Craft::$app->view->twig->addExtension(new HangoutsTemplateExtension());
 
         Event::on(
             UrlManager::class,

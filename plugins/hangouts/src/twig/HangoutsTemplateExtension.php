@@ -3,7 +3,7 @@ namespace selvinortiz\hangouts\twig;
 
 use function selvinortiz\hangouts\hangouts;
 
-class HangoutsExtension extends \Twig_Extension
+class HangoutsTemplateExtension extends \Twig_Extension
 {
     /**
      * @return array

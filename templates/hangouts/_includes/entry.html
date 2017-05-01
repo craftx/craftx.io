@@ -1,38 +1,24 @@
 {#
- # Since this template can be included from:
- # - index page /hangouts
- # - entry page /hangouts/_entry
- # We need a way to know which one, so that we may act accordingly.
+ # @see plugins/hangouts/src/twig/HangoutsTemplateHooks::hangout()
  #
- # Simplest way is to check for the total segments and:
- # - if > 1 
- # we can assume that we are not on the index page
- #
- # The title of the entry should behave as follows:
- # - if isOnEntryPage and isLoggedInAdmin : link to the CP entry edit URL
- # - if isOnEntryPage and not isLoggedInAdmin: display plain title
- # - if not isOnEntryPage : link to entry page URL
+ # Due to the logic requirements to determine the status of a hangout, I'm handing it off to PHP.
+ # That will allow me to keep the template clean and have consistent logic.
  #}
-
-{% set isOnEntryPage = craft.app.request.segments|length > 1 %}
-{% set isLoggedInAdmin = user.admin ?? false %}
-{% set hasMeetingNotes = entry.hangoutNotes is not empty %}
-{% set isUpcomingHangout = entry.hangoutDateTime > now %}
+{% hook 'hangout' %}
 
 <div class="hangout__preview has-shadow">
-    <h3>About</h3>
+    <h3>{{ isPastHangout and hasMeetingNotes ? 'Summary' : 'About' }}</h3>
     <div class="hangout__summary">
-        {% if isUpcomingHangout %}
-            {{ entry.hangoutTopic }}
+        {% if isPastHangout and hasMeetingNotes %}
+            {{ entry.hangoutNotes }}
         {% else %}
-            {{ hasMeetingNotes ? entry.hangoutNotes : entry.hangoutTopic }}
+            {{ entry.hangoutTopic }}
         {% endif %}
     </div>
 
     <h3>Roster</h3>
     <div class="hangout__people">
         <ul>
-            {% set host = entry.hangoutHost.one() %}
             <li>
                 {% if host.primaryWebsite is not empty %}
                     <a href="{{ host.primaryWebsite }}">{{ host.firstName }} {{ host.lastName}}</a>
@@ -41,7 +27,7 @@
                 {% endif %}
                 → Host
             </li>
-            {% for presenter in entry.hangoutPresenters.all() %}
+            {% for presenter in presenters %}
                 <li>
                     {% if presenter.primaryWebsite is not empty %}
                         <a href="{{ presenter.primaryWebsite }}">{{ presenter.firstName }} {{ presenter.lastName}}</a>
@@ -51,7 +37,7 @@
                     → Presenter
                 </li>
             {% endfor %}
-            {% for guest in entry.hangoutGuests.all() %}
+            {% for guest in guests %}
                 <li>
                     {% if guest.primaryWebsite is not empty %}
                         <a href="{{ guest.primaryWebsite }}">{{ guest.firstName }} {{ guest.lastName}}</a>
