@@ -30,15 +30,18 @@ class SwipeService extends Component
      *
      * @return Customer
      */
-    public function createCustomer(string $email, string $source) {
+    public function createCustomer(string $email, string $source)
+    {
         return Customer::create(compact('email', 'source'));
     }
 
-    public function createCharge(int $customer, int $amount, string $currency = 'usd'): Charge {
+    public function createCharge(int $customer, int $amount, string $currency = 'usd'): Charge
+    {
         return Charge::create(compact('customer', 'amount', 'currency'));
     }
 
-    public function createSubscription(string $customer, string $plan): Subscription {
+    public function createSubscription(string $customer, string $plan): Subscription
+    {
         return Subscription::create(compact('customer', 'plan'));
     }
 
@@ -47,7 +50,8 @@ class SwipeService extends Component
         return swipe()->getSettings();
     }
 
-    public function getPostLoginRedirect($identity) {
+    public function getPostLoginRedirect($identity)
+    {
         return Craft::$app->view->renderObjectTemplate(
             Craft::$app->config->general->postLoginRedirect,
             [
@@ -83,21 +87,13 @@ class SwipeService extends Component
      *
      * @return string
      */
-    public function getGravatar(string $email, $size = 96) {
+    public function getGravatar(string $email, $size = 96)
+    {
         return "https://www.gravatar.com/avatar/{$this->hash($email)}?s={$size}&d=mm&r=g";
     }
 
-    public function incognitoUrl($path) {
-        $appConfig = Craft::$app->config->general->app;
-
-        if ($appConfig['incognito'] ?? false && !empty($appConfig['code'])) {
-            return $path.'?code='.$appConfig['code'];
-        }
-
-        return $path;
-    }
-
-    public function error($message, array $vars = []) {
+    public function error($message, array $vars = [])
+    {
         $message = is_array($message) ? Craft::t(print_r($message, true), $vars) : $message;
 
         Craft::getLogger()->log($message, Logger::LEVEL_ERROR, 'swipe');
@@ -108,7 +104,8 @@ class SwipeService extends Component
      *
      * @return string
      */
-    private function hash(string $str): string {
+    private function hash(string $str): string
+    {
         return md5(strtolower(trim($str)));
     }
 }

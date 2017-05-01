@@ -5,7 +5,7 @@
             <input
                 type="text"
                 name="username"
-                class="input is-large"
+                class="input is-medium"
                 autocomplete="off"
                 required
                 :placeholder="placeholder"

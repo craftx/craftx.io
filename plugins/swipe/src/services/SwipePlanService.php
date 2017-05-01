@@ -7,10 +7,12 @@ use Stripe\Stripe;
 use craft\base\Component;
 use craft\helpers\ElementHelper;
 
-use function selvinortiz\swipe\swipe;
 use selvinortiz\swipe\models\SwipePlanModel;
 
-class SwipePlanService extends Component {
+use function selvinortiz\swipe\swipe;
+
+class SwipePlanService extends Component
+{
 
     public function init()
     {
@@ -51,7 +53,7 @@ class SwipePlanService extends Component {
                 'amount' => $plan->amount,
                 'currency' => $plan->currency,
                 'interval' => $plan->interval,
-                'intervalCount' => $plan->interval_count
+                'intervalCount' => $plan->interval_count,
             ]);
         }
 
@@ -74,7 +76,8 @@ class SwipePlanService extends Component {
         ]);
     }
 
-    public function createSubscription($user) {
+    public function createSubscription($user)
+    {
         $user;
     }
 

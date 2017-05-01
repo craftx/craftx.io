@@ -14,8 +14,7 @@ class SwipeExtension extends \Twig_Extension {
     private $_methods = [
         'setNotice',
         'hasNotice',
-        'getNotice',
-        'safeUrl'
+        'getNotice'
     ];
 
     public function getName() {
@@ -54,9 +53,5 @@ class SwipeExtension extends \Twig_Extension {
 
     public function getNotice() {
         return Craft::$app->session->getFlash(self::NOTICE_FLASH_KEY);
-    }
-
-    public function safeUrl($path) {
-        return swipe()->api->incognitoUrl($path);
     }
 }

@@ -28,11 +28,12 @@ use selvinortiz\swipe\controllers\SwipeNewsletterController;
  *
  * @package selvinortiz\swipe
  *
- * @property SwipeService $api
- * @property SwipePlanService $plans
+ * @property SwipeService      $api
+ * @property SwipePlanService  $plans
  * @property SwipeVideoService $videos
  */
-class Swipe extends Plugin {
+class Swipe extends Plugin
+{
 
     public $controllerMap = [
         'users' => SwipeUsersController::class,
@@ -41,7 +42,8 @@ class Swipe extends Plugin {
         'newsletter' => SwipeNewsletterController::class,
     ];
 
-    public function init() {
+    public function init()
+    {
         parent::init();
 
         Craft::$app->view->twig->addExtension(new SwipeExtension());
@@ -71,35 +73,42 @@ class Swipe extends Plugin {
         );
     }
 
-    public function registerCpRoutes(RegisterUrlRulesEvent $event) {
+    public function registerCpRoutes(RegisterUrlRulesEvent $event)
+    {
         $event->rules['swipe/plans/new'] = 'swipe/plans/edit';
         $event->rules['swipe/plans/edit/<id:[a-zA-Z\-]+>'] = 'swipe/plans/edit';
     }
 
-    public function registerSiteRoutes(RegisterUrlRulesEvent $event) {
+    public function registerSiteRoutes(RegisterUrlRulesEvent $event)
+    {
         $event->rules['@<username:[a-z0-9\-]+>'] = 'swipe/users/index';
         $event->rules['@<username:[a-z0-9\-]+>/<page:[^/]+>'] = 'swipe/users/page';
     }
 
-    public function handleAfterLogin(UserEvent $event) {
+    public function handleAfterLogin(UserEvent $event)
+    {
         Craft::$app->config->general->postLoginRedirect = swipe()->api->getPostLoginRedirect($event->identity);
     }
 
-    public function handleAfterSave(ModelEvent $event) {
+    public function handleAfterSave(ModelEvent $event)
+    {
         if ($event->isNew && $event->isValid) {
             return swipe()->plans->createSubscription($event->sender);
         }
     }
 
-    public function createSettingsModel(): SwipeSettingsModel {
+    public function createSettingsModel(): SwipeSettingsModel
+    {
         return new SwipeSettingsModel();
     }
 
-    public function defineTemplateComponent() {
+    public function defineTemplateComponent()
+    {
         return SwipeVariable::class;
     }
 
-    public static function t($text, array $vars = []): string {
+    public static function t($text, array $vars = []): string
+    {
         return Craft::t('swipe', $text, $vars);
     }
 }
@@ -107,6 +116,7 @@ class Swipe extends Plugin {
 /**
  * @return Swipe
  */
-function swipe() {
-    return  Yii::$app->loadedModules[Swipe::class] ?? null;
+function swipe()
+{
+    return Yii::$app->loadedModules[Swipe::class] ?? null;
 }

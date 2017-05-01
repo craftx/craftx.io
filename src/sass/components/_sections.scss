@@ -2,7 +2,7 @@
     background: #eee url(/dist/images/background-hero.svg) no-repeat left -51.25%;
     background-size: auto 150%;
     .hero-buttons {
-        margin-top: $column-pad2x;
+        margin-top: $column-pad;
         .button {
             display: inline-block;
             box-shadow: 0 5px 10px $gray-a;
@@ -12,13 +12,13 @@
 .section--blog-hero {
     color: #fff;
     background: $info;
-    padding-top: $column-pad2x;
-    padding-bottom: $column-pad2x;
+    padding-top: $column-pad;
+    padding-bottom: $column-pad;
     border-bottom: 2px solid $gray-d;
 }
 .section--blog-content {
     background-color: #f6f6f6;
-    margin-bottom: $column-pad2x;
+    margin-bottom: $column-pad;
     border-bottom: 2px solid $gray-c;
 }
 .section--features {
@@ -69,14 +69,13 @@
 .section--login {
     @include pattern-bg;
 }
-
 .section--dashboard {
     border-bottom: 2px solid $gray-d;
 }
 .dashboard-content-wrapper {
     background-color: #fff;
     border: 1px solid $gray-d;
-    padding: $column-pad $column-pad2x;
+    padding: $column-pad $column-pad;
 }
 #home {
     .title, .subtitle {

@@ -5,7 +5,7 @@
             <input
                 type="email"
                 name="email"
-                class="input is-large"
+                class="input is-medium"
                 autocomplete="off"
                 required
                 :placeholder="placeholder"

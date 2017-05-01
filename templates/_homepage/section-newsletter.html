@@ -6,31 +6,26 @@
                     <h2 class="title is-2 is-inset">CraftX Updates</h2>
                     <p class="subtitle is-5 is-inset">
                         <span class="icon"><i class="fa fa-bolt"></i></span>
-                        Be notified about early access and content updates. 
-                    </p>
-                    <p class="subtitle is-5 is-inset">
-                        My newsletter uses the <strong>Double Opt-in</strong> method.
-                        Meaning, you won't get subscribed by accident. 
-                        You&nbsp;are&nbsp;welcome&nbsp;<strong>;)</strong>
+                        Be notified about content updates and other noteworthy announcements
                     </p>
                 </div>
                 <form id="newsletter" method="post" @submit.prevent="subscribeToNewsletter($event)">
                     <input type="hidden" name="action" value="swipe/newsletter/subscribe">
                     <input type="hidden" name="redirect" value="/newsletter/next">
                     {{ csrfInput() }} 
-                    <div class="control is-grouped subscribe-fields">
-                        <div class="control has-icon is-expanded">
+                    <div class="field is-grouped subscribe-fields">
+                        <p class="control has-icon is-expanded">
                             <input v-model="email" class="input is-large" type="email" placeholder="Email">
-                            <span class="icon is-medium">
+                            <span class="icon is-large">
                                 <i class="fa fa-envelope-square"></i>
                             </span>
-                        </div>
-                        <div class="control">
+                        </p>
+                        <p class="control">
                             <button type="submit" class="button is-large is-primary is-not-modified" :class="{ 'is-loading': busy }">
                             <span class="icon"><i class="fa fa-check-circle"></i></span>
                             <span>Subscribe</span>
                             </button>
-                        </div>
+                        </p>
                     </div>
                 </form>
             </div>

@@ -31,7 +31,7 @@
   background: #eee url(/dist/images/background-hero.svg) no-repeat left -51.25%;
   background-size: auto 150%; }
   .section--hero .hero-buttons, .section--blog-hero .hero-buttons {
-    margin-top: 40px; }
+    margin-top: 20px; }
     .section--hero .hero-buttons .button, .section--blog-hero .hero-buttons .button {
       display: inline-block;
       box-shadow: 0 5px 10px #a6a7a8; }
@@ -39,13 +39,13 @@
 .section--blog-hero {
   color: #fff;
   background: #9642be;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 2px solid #d6d7d8; }
 
 .section--blog-content {
   background-color: #f6f6f6;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-bottom: 2px solid #c6c7c8; }
 
 .section--features {
@@ -91,7 +91,7 @@
 .dashboard-content-wrapper {
   background-color: #fff;
   border: 1px solid #d6d7d8;
-  padding: 20px 40px; }
+  padding: 20px 20px; }
 
 #home .title, #home .subtitle {
   text-align: center; }
@@ -223,6 +223,12 @@ body {
   margin-right: 1em;
   height: initial; }
 
+.nav-menu.is-active {
+  padding-bottom: 20px; }
+
+.title:not(.is-spaced) + .subtitle {
+  margin-top: -1.0rem; }
+
 .menu-label {
   padding-bottom: 10px;
   border-bottom: 1px dotted #d6d7d8; }
@@ -240,9 +246,6 @@ body {
 
 .subtitle {
   color: #565758; }
-
-.title + .subtitle {
-  margin-top: 20px; }
 
 .footer {
   background-color: inherit; }
@@ -371,19 +374,15 @@ body {
     font-size: 0.5rem; }
   .content.is-medium {
     font-size: 0.75rem; }
-  .control.is-grouped {
+  .field.is-grouped {
     display: block; }
-    .control.is-grouped .control {
+    .field.is-grouped .label {
+      margin-top: 20px; }
+    .field.is-grouped .control {
       margin: 0;
       margin-top: 20px; }
-    .control.is-grouped .button {
+    .field.is-grouped .button {
       min-width: 100%; }
-  .nav-menu.is-active {
-    padding-bottom: 20px; }
-  .control.is-grouped {
-    display: block; }
-    .control.is-grouped .label {
-      margin-top: 20px; }
   .control.is-expanded {
     min-width: 100%; } }
 
@@ -392,15 +391,15 @@ body {
     font-size: 2.5rem; } }
 
 @media all and (min-width: 1000px) {
-  .button.is-large, .title.is-1, .subtitle.is-1 {
+  .title.is-1, .subtitle.is-1 {
     font-size: 2.25rem; }
   .title.is-2, .subtitle.is-2 {
     font-size: 2.0rem; }
-  .button.is-medium, .title.is-3, .subtitle.is-3 {
+  .title.is-3, .subtitle.is-3 {
     font-size: 1.5rem; }
   .title.is-4, .subtitle.is-4 {
     font-size: 1.25rem; }
-  .button.is-small, .title.is-5, .subtitle.is-5 {
+  .title.is-5, .subtitle.is-5 {
     font-size: 1.0rem; }
   .title.is-6, .subtitle.is-6 {
     font-size: 0.75rem; } }

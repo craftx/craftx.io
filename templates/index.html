@@ -1,9 +1,13 @@
-{% set vars = {entry: entry ?? {}, currentUser: currentUser} %}
-{% set appConfig = craft.app.config.general.app %}
-{% set requestCode = craft.app.request.getQueryParam('code') %}
+{% extends '_layout' %}
 
-{% if craft.swipe.hasIncognitoAccess() %}
-    {% include '_index-public' with vars only %}
-{% else %}
-    {% include '_index-incognito' with vars only %}
-{% endif %}
+{% set id = 'index' %}
+{% set title = 'Unofficial Community for Craft CMS Professionals' %}
+{% set scripts = ['/webpack/Index.bundle.js?v=1.5.0'] %}
+
+{% set entry = entry ?? craft.entries({section: 'homepage'}).one() %}
+
+{% set content %}
+    {% include '_homepage/section-hero' with {block: entry.hero.one()} only %}
+    {% include '_homepage/section-features' with {blocks: entry.features.all()} only %}
+    {% include '_homepage/section-newsletter' %}
+{% endset %}

@@ -18,21 +18,27 @@
                         <form method="post" accept-charset="UTF-8">
                             {{ csrfInput() }}
                             <input type="hidden" name="action" value="users/login">
-                            <p class="control has-icon">
-                                <input class="input is-large" name="loginName" type="email" placeholder="Email" autofocus>
-                                <span class="icon">
-                                    <i class="fa fa-envelope"></i>
-                                </span>
-                            </p>
-                            <p class="control has-icon">
-                                <input class="input is-large" name="password" type="password" placeholder="Password" autocomplete="off">
-                                <span class="icon">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </p>
+                            
+                            <div class="field">
+                                <p class="control has-icon">
+                                    <input class="input is-medium" name="loginName" type="email" placeholder="Email" autofocus>
+                                    <span class="icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div class="field">
+                                <p class="control has-icon">
+                                    <input class="input is-medium" name="password" type="password" placeholder="Password" autocomplete="off">
+                                    <span class="icon">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </p>
+                            </div>
                             <hr>
                             <p class="control">
-                                <button type="submit" class="button is-primary is-large is-full-width">
+                                <button type="submit" class="button is-primary is-medium is-full-width">
                                     <span class="icon is-medium">
                                         <i class="fa fa-sign-in"></i>
                                     </span>

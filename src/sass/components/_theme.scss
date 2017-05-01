@@ -55,6 +55,14 @@ body {
     height: initial;
 }
 
+.nav-menu.is-active {
+    padding-bottom: $column-pad;
+}
+
+.title:not(.is-spaced) + .subtitle {
+    margin-top: -1.0rem;
+}
+
 .menu-label {
     padding-bottom: $column-pad/2;
     border-bottom: 1px dotted $gray-d;
@@ -78,10 +86,6 @@ body {
 .subtitle {
     color: $gray-dark;
 }
-.title+.subtitle {
-    margin-top: 20px;
-}
-
 .footer {
     background-color: inherit;
 }
@@ -239,24 +243,17 @@ body {
     .content.is-medium {
         font-size: 0.75rem;
     }
-    .control.is-grouped {
+    .field.is-grouped {
         display: block;
+        .label {
+            margin-top: $column-pad;
+        }
         .control {
             margin: 0;
             margin-top: $column-pad;
         }
         .button {
             min-width: 100%;
-        }
-    }
-
-    .nav-menu.is-active {
-        padding-bottom: $column-pad;
-    }
-    .control.is-grouped {
-        display: block;
-        .label {
-            margin-top: $column-pad;
         }
     }
     .control.is-expanded {
@@ -271,19 +268,19 @@ body {
 }
 
 @include lg() {
-    .button.is-large, .title.is-1, .subtitle.is-1 {
+    .title.is-1, .subtitle.is-1 {
         font-size: 2.25rem;
     }
     .title.is-2, .subtitle.is-2 {
         font-size: 2.0rem;
     }
-    .button.is-medium, .title.is-3, .subtitle.is-3 {
+    .title.is-3, .subtitle.is-3 {
         font-size: 1.5rem;
     }
     .title.is-4, .subtitle.is-4 {
         font-size: 1.25rem;
     }
-    .button.is-small, .title.is-5, .subtitle.is-5 {
+    .title.is-5, .subtitle.is-5 {
         font-size: 1.0rem;
     }
     .title.is-6, .subtitle.is-6 {

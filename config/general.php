@@ -12,13 +12,7 @@ $config = [
         'devMode' => false,
         'siteUrl' => 'https://craftx.io',
         'sitePath' => dirname(__DIR__, 1).'/web',
-        'cpTrigger' => 'studio',
-        #
-        # Site settings
-        'app' => [
-            'code' => 'ZvfcJjMfUNnuVAvruNHeVdeMxJgWQhqkRdPCfpHrRQDgHEbYcyNvDynjpAdmgiUb',
-            'incognito' => true,
-        ],
+        'cpTrigger' => ':-)',
         'defaultWeekStartDay' => 0, // 0 = Sunday, 1 = Monday
         'enableCsrfProtection' => true,
         'omitScriptNameInUrls' => true,
