@@ -5,7 +5,7 @@
 {% set scriptVars = {
     hangoutSourceDateTime: entry.hangoutDateTime.format('Y-m-d H:i:s')
 } %}
-{% set scripts = ['/webpack/Hangouts.bundle.js'] %}
+{% set scripts = ['/webpack/Hangouts.bundle.js?v=1.0.0'] %}
 
 {% set dateTime = now %}
 {% set currentDateTimeString = dateTime.format('Y-m-d H:i') %}
