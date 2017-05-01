@@ -19,92 +19,94 @@
 {% set hasMeetingNotes = entry.hangoutNotes is not empty %}
 {% set isUpcomingHangout = entry.hangoutDateTime > now %}
 
-<h2 class="title is-2">About</h2>
-<div class="hangout__summary">
-    {% if isUpcomingHangout %}
-        {{ entry.hangoutTopic }}
-    {% else %}
-        {{ hasMeetingNotes ? entry.hangoutNotes : entry.hangoutTopic }}
-    {% endif %}
-</div>
+<div class="hangout__preview has-shadow">
+    <h3>About</h3>
+    <div class="hangout__summary">
+        {% if isUpcomingHangout %}
+            {{ entry.hangoutTopic }}
+        {% else %}
+            {{ hasMeetingNotes ? entry.hangoutNotes : entry.hangoutTopic }}
+        {% endif %}
+    </div>
 
-<h2 class="title is-2">Roster</h2>
-<div class="hangout__people">
-    <ul>
-        {% set host = entry.hangoutHost.one() %}
-        <li>
-            {% if host.primaryWebsite is not empty %}
-                <a href="{{ host.primaryWebsite }}">{{ host.firstName }} {{ host.lastName}}</a>
-            {% else %}
-                {{ host.firstName }} {{ host.lastName}}
-            {% endif %}
-            → Host
-        </li>
-        {% for presenter in entry.hangoutPresenters.all() %}
+    <h3>Roster</h3>
+    <div class="hangout__people">
+        <ul>
+            {% set host = entry.hangoutHost.one() %}
             <li>
-                {% if presenter.primaryWebsite is not empty %}
-                    <a href="{{ presenter.primaryWebsite }}">{{ presenter.firstName }} {{ presenter.lastName}}</a>
+                {% if host.primaryWebsite is not empty %}
+                    <a href="{{ host.primaryWebsite }}">{{ host.firstName }} {{ host.lastName}}</a>
                 {% else %}
-                    {{ presenter.firstName }} {{ presenter.lastName}}
+                    {{ host.firstName }} {{ host.lastName}}
                 {% endif %}
-                → Presenter
+                → Host
             </li>
-        {% endfor %}
-        {% for guest in entry.hangoutGuests.all() %}
-            <li>
-                {% if guest.primaryWebsite is not empty %}
-                    <a href="{{ guest.primaryWebsite }}">{{ guest.firstName }} {{ guest.lastName}}</a>
-                {% else %}
-                    {{ guest.firstName }} {{ guest.lastName}}
-                {% endif %}
-                → Guest
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-
-<h2 class="title is-2">Date/Time</h2>
-<template v-if="timezone">
-    <h2 class="title is-4">
-        <span class="icon">
-            <i class="fa fa-bolt"></i>
-        </span>
-        <span>
-            Highlighted row is my best guess at your timezone.
-        </span>
-    </h2>
-</template>
-
-<div class="hangout__times">
-    <table class="table is-striped">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Zone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <template v-if="timezone" v-cloack>
-                <tr class="is-selected">
-                    <td>${date}</td>
-                    <td>${time} <span class="is-hidden-mobile">${day}</span></td>
-                    <td>${zoneAbbreviation} <span class="is-hidden-mobile">${zoneIdentifier}</span></td>
-                </tr>
-            </template>
-            {% for date in craft.hangouts.translateDateTime(entry.hangoutDateTime) %}
-                <tr>
-                    <td>{{ date.format("j F Y") }}</td>
-                    <td>
-                        {{ date.format("g:i A") }}
-                        <span class="is-hidden-mobile">{{ date.format("l") }}</div>
-                    </td>
-                    <td>
-                        ({{ date.format("T") }})
-                        <span class="is-hidden-mobile">{{ date.format("e")|replace({"_": " "}) }}</span>
-                    </td>
-                </tr>
+            {% for presenter in entry.hangoutPresenters.all() %}
+                <li>
+                    {% if presenter.primaryWebsite is not empty %}
+                        <a href="{{ presenter.primaryWebsite }}">{{ presenter.firstName }} {{ presenter.lastName}}</a>
+                    {% else %}
+                        {{ presenter.firstName }} {{ presenter.lastName}}
+                    {% endif %}
+                    → Presenter
+                </li>
             {% endfor %}
-        </tbody>
-    </table>
+            {% for guest in entry.hangoutGuests.all() %}
+                <li>
+                    {% if guest.primaryWebsite is not empty %}
+                        <a href="{{ guest.primaryWebsite }}">{{ guest.firstName }} {{ guest.lastName}}</a>
+                    {% else %}
+                        {{ guest.firstName }} {{ guest.lastName}}
+                    {% endif %}
+                    → Guest
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <h3>Date/Time</h3>
+    <template v-if="timezone">
+        <h5>
+            <span class="icon">
+                <i class="fa fa-bolt"></i>
+            </span>
+            <span>
+                Highlighted row is my best guess at your timezone.
+            </span>
+        </h5>
+    </template>
+
+    <div class="hangout__times">
+        <table class="table is-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Zone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-if="timezone" v-cloack>
+                    <tr class="is-selected">
+                        <td>${date}</td>
+                        <td>${time} <span class="is-hidden-mobile">${day}</span></td>
+                        <td>${zoneAbbreviation} <span class="is-hidden-mobile">${zoneIdentifier}</span></td>
+                    </tr>
+                </template>
+                {% for date in craft.hangouts.translateDateTime(entry.hangoutDateTime) %}
+                    <tr>
+                        <td>{{ date.format("j F Y") }}</td>
+                        <td>
+                            {{ date.format("g:i A") }}
+                            <span class="is-hidden-mobile">{{ date.format("l") }}</div>
+                        </td>
+                        <td>
+                            ({{ date.format("T") }})
+                            <span class="is-hidden-mobile">{{ date.format("e")|replace({"_": " "}) }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>

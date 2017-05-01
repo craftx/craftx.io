@@ -343,14 +343,14 @@ body {
   padding-left: 40px;
   margin: 0; }
 
-.hangout__previews {
+.hangout__entry, .hangout__previews {
   margin-top: 40px; }
 
-.hangout__preview {
+.hangout__entry, .hangout__preview {
   padding: 40px;
-  margin: 40px 0;
-  border: 1px solid #e6e7e8;
-  background: #fff; }
+  margin-bottom: 40px;
+  background: #fff;
+  border: 1px solid #e6e7e8; }
 
 /*
  ------------------------------------------------------------

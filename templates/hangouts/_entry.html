@@ -21,15 +21,12 @@
             <div class="columns">
                 <div class="column">
                     <div class="content is-medium">
-                        <h1 class="title is-1 is-white is-inset-inverted has-text-centered">
+                        <h2 class="title is-2 is-white is-inset-inverted has-text-centered">
                             <i class="fa fa-file-text"></i>
                             Hangout Details
-                        </h1>
-                        <div class="hangout__previews has-shadow">
-                            <div class="hangout__preview">
-                                {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
-                            </div>
-                        </div>
+                        </h2>
+
+                        {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
                     </div>
                 </div>
             </div>

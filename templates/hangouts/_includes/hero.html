@@ -44,11 +44,11 @@
                     <h2 class="subtitle is-4">{{ text }}</h2>
 
                     {% if entry and entry.hangoutCategories|length %}
-                        <h2 class="title is-4 is-inset-inverted">
+                        <p class="hangout__tags is-inset-inverted">
                             {% for category in entry.hangoutCategories.all() %}
                                 <span class="tag is-dark is-medium">{{ category.title }}</span>
                             {% endfor %}
-                        </h2>
+                        </p>
                     {% endif %}
 
                     <div class="hero-buttons has-text-centered">
@@ -60,7 +60,7 @@
 
                     {% if not isPastHangout and weAreOnEntryPage %}
                         <p class="has-top-margin">
-                            We use <a href="https://zoom.us">zoom.us</a> for our meetings.
+                            Our <a href="/hangouts">hangouts</a> are hosted via <a href="https://zoom.us" title="Zoom">zoom.us</a>
                         </p>
                     {% endif %}
                 </div>
