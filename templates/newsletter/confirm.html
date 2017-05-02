@@ -1,6 +1,19 @@
-<pre>
-You should get an email ({{ craft.app.request.getParam('email') }}) soon, asking you to confirm.
-I chose this double opt-in method because I want to make sure your subscription was intentional.
+{# Redirect to the homepage if no email was received #}
+{% set email = craft.app.request.getParam('email') %}
+{% if email is empty %}{% redirect siteUrl %}{% endif %}
 
--Selvin Ortiz
-</pre>
+{% extends '_layout' %}
+
+{% set id = 'newsletter-subscribed' %}
+{% set title = 'Subscribed' %}
+
+{% set content %}
+    {#
+     # The variable notice is set to a string that uses twig string interpolation.
+     # Just another way of doing 'Part one ' ~ someVar ~ ' part two'.
+     # Yes, double quotes are required for string interpolation.
+    #}
+    {% set notice = "Please confirm by clicking on the link in the email sent to #{email} ✓" %}
+
+    {% include '_special/notice' with {notice: notice} only %}
+{% endset %}

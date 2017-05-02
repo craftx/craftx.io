@@ -1,8 +1,19 @@
-<pre>
-Sorry to you see you go but I understand, newsletters can be such a pain to keep up with.
+{# Redirect to the homepage if no email was received #}
+{% set email = craft.app.request.getParam('email') %}
+{% if email is empty %}{% redirect siteUrl %}{% endif %}
 
-Your will not get any email from at this address ({{ craft.app.request.getParam('email') }}).
-I hope you have an amazing day and keep on Hacking Craft CMS;)
+{% extends '_layout' %}
 
--Selvin Ortiz
-</pre>
+{% set id = 'newsletter-unsubscribed' %}
+{% set title = 'Subscribed' %}
+
+{% set content %}
+    {#
+     # The variable notice is set to a string that uses twig string interpolation.
+     # Just another way of doing 'Part one ' ~ someVar ~ ' part two'.
+     # Yes, double quotes are required for string interpolation.
+    #}
+    {% set error = "You are free, no more emails sent to #{email} 😉" %}
+
+    {% include '_special/error' with {error: error} only %}
+{% endset %}
