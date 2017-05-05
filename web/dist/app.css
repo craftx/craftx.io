@@ -190,7 +190,7 @@ body {
   border-top: 2px solid #00966C; }
 
 [v-cloak] {
-  visibility: hidden; }
+  display: none; }
 
 /*
  ------------------------------------------------------------
