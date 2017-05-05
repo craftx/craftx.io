@@ -1,43 +1,29 @@
 # CraftX
-> Craft Training for Busy Developers
+> Unofficial Community for Craft CMS Professionals
 
 ## Hero
-Craft Training for Busy Developers
-> Master Craft CMS in record time and become part of the growing community of Craft Professionals. One screencast at a time.
+Unofficial Community for Craft CMS Professionals
 
-`[Start Crafting]`
+> CraftX is an open source website and a community building experiment.
+
+## CTA
+`[> Join Us]`
 
 ## Features
-### Clear Code
-No squinting. Just large, beautiful text and concise snippets for maximum readability.
-### Clean Audio
-No pops, hiss or monotone. Just clean, normalized audio for smooth, distraction free listening.
-### Quick Pace
-No dozing off. Lessons are optimized to get you writing code and mastering Craft as quickly as possible.
 
-## Target Audience
-### Who is this for?
-Developers like you who have web development experience and want to build complete plugins and powerful sites with Craft CMS.
+### Open Source
+The source code for this website is up on github and you're welcome to take a peak and see what you can reuse. You can also contribute and join us for our learning sessions, if you're into that sort thing;)
+
+### Weekly Hangouts
+We are a small group of Craft CMS developers and CraftX contributors and we enjoy getting together once a week to talk about code, design, freelancing, and work/life balance. You're welcome to join us or eavesdrop, if that's how you roll.
+
+### Mise en place
+We want to give Craft CMS developers, plugins, projects, and articles, a place to shine. Bring every everything together into a beautiful and digestible pile of Craft goodness.
 
 ## About CraftX
-### Who is behind this?
-A passionate Web Developer based in Minnesota.
-
-Who led the development of many commercial plugins at Barrel Strength and helped launch the plugin store at Straight Up Craft
-
-Currently, leading the development and maintenance of all online properties at Kingdom Advisors, Inc.
-
-## Shouts
-### What are people saying?
-> A quick sound bite to reinforce my experience, leadership, talent, or character.
-
-First Last  
-Role `/` [Company]()
+### CraftX Team
 
 ## Newsletter
-### CraftX Announcements
-Be notified about early access and the official launch.
+### CraftX Updates
+Get notifications about content updates and upcoming hangouts.
 
-> _My newsletter uses the Double Opt-in method.
-Meaning, you will have to confirm you get added to the list.
-You are welcome ;)_

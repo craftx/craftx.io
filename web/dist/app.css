@@ -49,22 +49,18 @@
   border-bottom: 2px solid #c6c7c8; }
 
 .section--features {
-  background: #f6f6f6;
+  background: #00966C;
   border-top: 1px solid #c6c7c8; }
   .section--features .title, .section--features .subtitle {
+    color: #fff;
     text-align: center; }
   .section--features .icon-block {
     min-height: 128px;
     background-size: 128px;
     background-color: transparent;
     background-repeat: no-repeat;
-    background-position: 50% 50%; }
-  .section--features .icon-block--clear-code {
-    background-image: url(/dist/images/icon-clear-code.svg); }
-  .section--features .icon-block--clean-sound {
-    background-image: url(/dist/images/icon-clean-sound.svg); }
-  .section--features .icon-block--quick-pace {
-    background-image: url(/dist/images/icon-quick-pace.svg); }
+    background-position: 50% 50%;
+    margin-bottom: 20px; }
 
 .section--about {
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
@@ -283,7 +279,7 @@ body {
 .subtitle {
   text-shadow: 1px 2px 0 #fff; }
 
-.is-inset-inverted {
+.is-inset-inverted, .section--features .title, .section--features .subtitle {
   text-shadow: 1px 2px 0 #363738; }
 
 .has-shadow {

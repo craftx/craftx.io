@@ -1,15 +1,15 @@
 <section class="section is-medium section--features">
     <div class="container">
-        <div class="columns has-vertically-centered-items">
+        <div class="columns">
             {% for block in blocks %}
                 <div class="column is-4-desktop">
-                    <div class="columns is-multiline">
-                        <div class="column is-12 icon-block icon-block--{{ block.featureIconClass }}"></div>
-                        <div class="column is-12">
-                            <h2 class="title is-2">{{ block.featureLead }}</h2>
-                            <p class="subtitle is-4">{{ block.featureText }}</p>
-                        </div>
+                    <div
+                        class="icon-block"
+                        style="background-image: url({{ block.featureImagePath }});"
+                        >
                     </div>
+                    <h2 class="title is-2">{{ block.featureLead }}</h2>
+                    <h2 class="subtitle is-4">{{ block.featureText }}</h2>
                 </div>
             {% endfor %}
         </div>

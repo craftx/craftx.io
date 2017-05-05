@@ -23,9 +23,11 @@
 }
 .section--features {
     .title, .subtitle {
+        color: #fff;
         text-align: center;
+        @extend .is-inset-inverted;
     }
-    background: #f6f6f6;
+    background: $primary;
     border-top: 1px solid $gray-c;
 
     .icon-block {
@@ -34,15 +36,7 @@
         background-color: transparent;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-    }
-    .icon-block--clear-code {
-        background-image: url(/dist/images/icon-clear-code.svg);
-    }
-    .icon-block--clean-sound {
-        background-image: url(/dist/images/icon-clean-sound.svg);
-    }
-    .icon-block--quick-pace {
-        background-image: url(/dist/images/icon-quick-pace.svg);
+        margin-bottom: $column-pad;
     }
 }
 .section--about {
