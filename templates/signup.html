@@ -1,16 +1,17 @@
-{% do craft.swipe.requireIncognito() %}
-
+{#
+ # Legacy page to show how one could use Stripe and Stripe Elements for subscriptions
+ #}
 {% extends '_layout' %}
 
 {% set id = 'sign-up' %}
-{% set title = 'Craft Training for Busy Developers' %}
+{% set title = 'Sign Up' %}
 {% set coupon = craft.app.request.getQueryParam('coupon') %}
-{% set scripts = ['/webpack/Join.bundle.js?v=1.1.0'] %}
+{% set scripts = ['/app/js/SignUp.bundle.js?v=1.1.0'] %}
 
 {% set content %}
     {#
       Can use:
-      - is-control-container to group labes and field to add a little space around
+      - is-control-container to group labels and field to add a little space around
       - has-option-field on a label to mark the control as (Optional)
     #}
     <section class="section section--signup">
@@ -18,7 +19,7 @@
             <div class="columns">
                 <div class="column is-8-desktop is-offset-2-desktop">
                     <div class="form-container">
-                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8" v-cloak>
+                        <form @submit.prevent="checkout" id="signup" method="post" class="has-colorful-inputs" accept-charset="UTF-8">
                             <input type="hidden" name="action" :value="action">
                             <input type="hidden" name="redirect" :value="redirect">
                             <input type="hidden" name="fields[subscriptionJson]" :value="token">
@@ -28,7 +29,7 @@
                             <div class="is-control-container">
                                 {# Outside of control to align with label(less) input #}
                                 <label class="label">Name</label>
-                                <div class="control is-grouped">
+                                <div class="field is-grouped">
                                     <p class="control is-expanded">
                                         <input v-model="firstName" name="firstName" class="input is-large" type="text" :placeholder="us('Brad', 'First')" >
                                     </p>
@@ -48,7 +49,7 @@
                             </div>
 
                             <div class="is-control-container">
-                                <div class="control is-grouped">
+                                <div class="field is-grouped">
                                     <p class="control is-expanded">
                                         <label class="label">Address</label>
                                         <input v-model="address1" name="fields[billingAddress1]" class="input is-large" type="text" :placeholder="us('123 Baker St.')">
@@ -61,7 +62,7 @@
                             </div>
 
                             <div class="is-control-container">
-                                <div class="control is-grouped">
+                                <div class="field is-grouped">
                                     <p class="control is-expanded">
                                         <label class="label">City</label>
                                         <input v-model="city" name="fields[billingCity]" class="input is-large" type="text" :placeholder="us('New York')">
@@ -113,18 +114,6 @@
                             </div>
 
                             <cx-coupon></cx-coupon>
-                            {#<div class="is-control-container">
-                                <label class="label">Have a Coupon?</label>
-                                <div class="control is-grouped">
-                                    <p class="control is-expanded">
-                                        <input v-model="coupon" value="{{ coupon }}" class="input is-expanded is-large" type="text" placeholder="CRAFTXCOUPON">
-                                        <span v-if="hint('coupon')" class="help">@{ hints.coupon }</span>
-                                    </p>
-                                    <p class="control">
-                                        <button @click.prevent="applyCoupon" class="button is-primary" :class="{ 'is-loading': applyingCoupon }">Apply</button>
-                                    </p>
-                                </div>
-                            </div>#}
 
                             <hr class="is-form-section-divider"/>
 

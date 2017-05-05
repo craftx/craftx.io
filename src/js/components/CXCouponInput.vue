@@ -1,7 +1,7 @@
 <template>
     <div class="is-control-container">
         <label class="label">Have a Coupon?</label>
-        <div class="control is-grouped">
+        <div class="field is-grouped">
             <p class="control is-expanded">
                 <input
                     type="text"
@@ -16,7 +16,7 @@
                 <span v-if="hint" class="help">{{ hint }}</span>
             </p>
             <p class="control">
-                <button type="button" @click.prevent="applyCoupon" class="button is-primary" :class="{ 'is-loading': busy, 'is-disabled': !ready }">Apply</button>
+                <button type="button" @click.prevent="applyCoupon" class="button is-primary is-large" :class="{ 'is-loading': busy, 'is-disabled': !ready }">Apply</button>
             </p>
         </div>
     </div>
