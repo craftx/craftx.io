@@ -5,11 +5,12 @@ module.exports = {
         App: './src/js/App.js',
         Join: './src/js/Join.js',
         Index: './src/js/Index.js',
+        SignUp: './src/js/SignUp.js',
         Player: './src/js/Player.js',
         Hangouts: './src/js/Hangouts.js'
     },
     output: {
-        path: __dirname + '/web/webpack',
+        path: __dirname + '/web/app/js',
         filename: '[name].bundle.js'
     },
     externals: {

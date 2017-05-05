@@ -65,7 +65,7 @@ gulp.task('watch', (callback) => {
   gulp.watch(config.sass.watch.vendor, ['sass:vendor', 'templates:noop']);
   gulp.watch(config.images.source, ['images']);
   gulp.watch(config.templates.watch, ['templates']);
-  gulp.watch('./web/webpack/*', ['templates']);
+  gulp.watch('./web/app/*', ['templates']);
 });
 
 gulp.task('default', (callback) => {
