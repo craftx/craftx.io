@@ -54,6 +54,10 @@
   .section--features .title, .section--features .subtitle {
     color: #fff;
     text-align: center; }
+  .section--features .title, .section--features .subtitle {
+    text-shadow: none; }
+  .section--features .subtitle {
+    opacity: 0.9; }
   .section--features .icon-block {
     min-height: 128px;
     background-size: 128px;
@@ -279,7 +283,7 @@ body {
 .subtitle {
   text-shadow: 1px 2px 0 #fff; }
 
-.is-inset-inverted, .section--features .title, .section--features .subtitle {
+.is-inset-inverted {
   text-shadow: 1px 2px 0 #363738; }
 
 .has-shadow {

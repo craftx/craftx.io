@@ -25,7 +25,12 @@
     .title, .subtitle {
         color: #fff;
         text-align: center;
-        @extend .is-inset-inverted;
+    }
+    .title, .subtitle {
+        text-shadow: none;
+    }
+    .subtitle {
+        opacity: 0.9;
     }
     background: $primary;
     border-top: 1px solid $gray-c;
