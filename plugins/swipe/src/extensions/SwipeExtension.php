@@ -19,6 +19,7 @@ class SwipeExtension extends \Twig_Extension
         'setNotice',
         'hasNotice',
         'getNotice',
+        'signedUrl',
     ];
 
     public function getName()
@@ -86,5 +87,10 @@ class SwipeExtension extends \Twig_Extension
     public function getNotice()
     {
         return Craft::$app->session->getFlash(self::NOTICE_FLASH_KEY);
+    }
+
+    public function signedUrl($assetOrUrl)
+    {
+        return swipe()->videos->getSignedUrl($assetOrUrl);
     }
 }
