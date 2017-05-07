@@ -1,10 +1,10 @@
-{% set showOnlyHangoutsMenu = false %}
+{% set firstSegment = craft.app.request.segment(1) %}
 
 <nav id="nav" class="nav is-medium has-shadow nav--primary">
   <div class="container">
     <div class="nav-left">
-      <a href="/" class="nav-item nav__brand" title="CraftX">
-        <img src="/dist/images/CraftX.svg?v=2.0" alt="CraftX Logo">
+      <a href="/" class="nav-item is-tab nav__brand" title="CraftX">
+        <img src="/dist/images/CraftX.svg?v=2.1" alt="CraftX Logo">
       </a>
     </div>
 
@@ -20,50 +20,40 @@
     <!-- Add the modifier "is-active" to display it on mobile -->
 
     <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
-      {% if showOnlyHangoutsMenu %}
-        <span class="nav-item">
-            <a href="/hangouts" class="button is-outlined is-info is-heavy" title="Hangouts">
-              <span class="icon"><i class="fa fa-comments-o"></i></span>
-              <span>Hangouts</span>
-            </a>
-          </span>
-      {% else %}
-        {% if user %}
-            <a href="/hangouts" class="nav-item" title="Hangouts">
-              <span class="icon"><i class="fa fa-comments-o"></i></span>
-              <span>Hangouts</span>
-            </a>
-            <span class="nav-item">
-              <a href="/@{{ user.username }}" class="button is-outlined is-info is-heavy" title="Dashboard">
-                <span class="icon"><i class="fa fa-terminal is-blinking"></i></span>
-                <span>Dashboard</span>
-              </a>
+      <a href="/hangouts" class="nav-item is-tab {{ firstSegment == 'hangouts' ? 'is-active' }}" title="Hangouts">
+        <span class="icon">
+          <i class="fa fa-comments-o"></i>
+        </span>
+        <span>Hangouts</span>
+      </a>
+      {% if user %}
+          <a href="/@{{ user.username }}" class="nav-item is-tab {{ firstSegment == '@' ~ user.username ? 'is-active' }}" title="Dashboard">
+            <span class="icon">
+              <i class="fa fa-cog"></i>
             </span>
-            <span class="nav-item">
-              <a href="/logout" class="button is-outlined is-heavy" title="Logout">
-                <span>Logout</span>
-                <span class="icon"><i class="fa fa-sign-out"></i></span>
-              </a>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="/logout" class="nav-item is-tab" title="Logout">
+            <span class="icon">
+              <i class="fa fa-sign-out"></i>
             </span>
-          {% else %}
-            <a href="/hangouts" class="nav-item" title="Hangouts">
-              <span class="icon"><i class="fa fa-comments-o"></i></span>
-              <span>Hangouts</span>
-            </a>
-            <span class="nav-item">
-              <a href="/login" class="button is-outlined is-primary is-heavy" title="Login">
-                <span class="icon"><i class="fa fa-sign-in"></i></span>
-                <span>Login</span>
-              </a>
+            <span>Logout</span>
+          </a>
+        {% else %}
+          <a href="/join" class="nav-item is-tab {{ firstSegment == 'join' ? 'is-active' }}" title="Join our Community">
+            <span class="icon">
+              <i class="fa fa-heart-o"></i>
             </span>
-            <span class="nav-item">
-              <a href="/join" class="button is-outlined is-info is-heavy" title="Sign up today and start hacking Craft CMS">
-                <span class="icon"><i class="fa fa-graduation-cap"></i></span>
-                <span>Join</span>
-              </a>
+            <span>Join</span>
+          </a>
+          <a href="/login" class="nav-item is-tab {{ firstSegment == 'login' ? 'is-active' }}" title="Login">
+            <span class="icon">
+              <i class="fa fa-sign-in"></i>
             </span>
-          {% endif %}
-      {% endif %}
+            <span>Login</span>
+          </a>
+        {% endif %}
     </div>
   </div>
 </nav>
