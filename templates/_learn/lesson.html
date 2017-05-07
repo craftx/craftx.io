@@ -1,0 +1,36 @@
+{% extends '_layout' %}
+
+{% set id = 'lesson' %}
+{% set title = entry.title ~ ' | ' ~ entry.parent.title %}
+{% set scripts = ['/app/js/Player.bundle.js?v=2.0.0'] %}
+{#{% set videoUrl = craft.swipe.secureUrl(entry.lessonVideo) %}#}
+
+{% set content %}
+    <section class="section section--hero has-text-centered">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-8-desktop is-offset-2-desktop">
+                        <h1 class="title is-2">{{ entry.parent.title }}</h1>
+                        <h2 class="subtitle is-4">{{ entry.title }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section--player">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    {% include '_special/video' with {
+                        classes: "video-js-craftx",
+                        sources: [{
+                            src: craft.swipe.getSecureUrl(entry.lessonVideo.one().url()),
+                            type: "video/mp4"
+                        }]
+                    } %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endset %}
