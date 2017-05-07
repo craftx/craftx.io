@@ -2,8 +2,9 @@
 
 {% set id = 'lesson' %}
 {% set title = entry.title ~ ' | ' ~ entry.parent.title %}
-{% set scripts = ['/app/js/Player.bundle.js?v=2.0.0'] %}
+{% set scripts = ['/app/js/Player.bundle.js?v=2.1.0'] %}
 {% set resource = entry.lessonVideo.one() %}
+
 {% set content %}
     <section class="section section--hero has-text-centered">
         <div class="hero-body">

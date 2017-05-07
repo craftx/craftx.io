@@ -34,9 +34,13 @@ class SwipeVideoService extends Component {
     }
 
     public function getSignedUrl($assetOrUrl): string {
-
-        $resourceUrl = self::BASE_URL.$resource;
         $ip = $this->getClientIp();
+
+        if (!is_string($assetOrUrl)) {
+            $assetOrUrl = $assetOrUrl->folderPath.$assetOrUrl->filename;
+        }
+
+        $resourceUrl = self::BASE_URL.$assetOrUrl;
 
         $policyVars = [
             'resourceUrl' => $resourceUrl,
