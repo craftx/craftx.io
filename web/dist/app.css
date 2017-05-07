@@ -168,9 +168,8 @@ label.has-optional-input:after {
   .control.has-no-label .input {
     margin-top: 20px; }
   .is-full-width-mobile {
-    display: block;
-    min-width: 100%;
-    max-width: 100%; } }
+    width: 100%;
+    display: block; } }
 
 @media all and (min-width: 769px) {
   .form-container {
@@ -215,6 +214,9 @@ body {
   z-index: 99;
   min-height: 5rem;
   background-color: transparent; }
+
+.nav-item .icon {
+  padding-right: 10px; }
 
 .nav-item img {
   max-height: 3rem; }
@@ -336,8 +338,8 @@ body {
   text-align: right; }
 
 .is-full-width {
-  min-width: 100%;
-  max-width: 100%; }
+  width: 100%;
+  display: block; }
 
 .is-inline-block {
   display: inline-block; }

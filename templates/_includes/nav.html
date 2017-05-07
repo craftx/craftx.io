@@ -3,7 +3,7 @@
 <nav id="nav" class="nav is-medium has-shadow nav--primary">
   <div class="container">
     <div class="nav-left">
-      <a href="/" class="nav-item is-tab nav__brand" title="CraftX">
+      <a href="/" class="nav-item is-tab nav__brand {{ firstSegment is empty ? 'is-active' }}" title="CraftX">
         <img src="/dist/images/CraftX.svg?v=2.1" alt="CraftX Logo">
       </a>
     </div>
@@ -29,7 +29,7 @@
       {% if user %}
           <a href="/@{{ user.username }}" class="nav-item is-tab {{ firstSegment == '@' ~ user.username ? 'is-active' }}" title="Dashboard">
             <span class="icon">
-              <i class="fa fa-cog"></i>
+              <i class="fa fa-desktop"></i>
             </span>
             <span>Dashboard</span>
           </a>

@@ -44,7 +44,9 @@ body {
     min-height: 5rem;
     background-color: transparent;
 }
-
+.nav-item .icon {
+    padding-right: 10px;
+}
 .nav-item img {
     max-height: 3rem;
 }
@@ -58,7 +60,6 @@ body {
 .nav-menu.is-active {
     padding-bottom: $column-pad;
 }
-
 .title:not(.is-spaced) + .subtitle {
     margin-top: -1.0rem;
 }
@@ -191,8 +192,8 @@ body {
 }
 
 .is-full-width {
-    min-width: 100%;
-    max-width: 100%;
+    width: 100%;
+    display: block;
 }
 
 .is-inline-block {
