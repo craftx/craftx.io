@@ -1,6 +1,8 @@
 {% extends 'users/_layout' %}
 {% set id = 'users' %}
-{% set title = 'Craft Training for Busy Developers' %}
+{% set title = '@' ~ username %}
+
+{% set hideSidebar = true %}
 
 {% set content %}
     <div class="users-content-wrapper">
