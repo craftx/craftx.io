@@ -54,7 +54,7 @@ $config = [
         'verificationCodeDuration' => 'P1D', // Very short
         #
         # Uploads
-        'maxUploadFileSize' => 16777216, // @todo Revisit this and update as necessary
+        'maxUploadFileSize' => 268435456, // @todo Revisit this and update as necessary
         'allowedFileExtensions' => 'mp3,mp4,mov,mpeg,webm,jpg,jpeg,png,gif',
     ],
     'dev.' => [
