@@ -168,6 +168,7 @@ label.has-optional-input:after {
   .control.has-no-label .input {
     margin-top: 20px; }
   .is-full-width-mobile {
+    display: block;
     min-width: 100%;
     max-width: 100%; } }
 

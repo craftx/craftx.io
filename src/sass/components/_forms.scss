@@ -14,7 +14,6 @@ label.has-optional-input {
 .is-form-section-title, .is-form-section-title:not(:last-child) {
     margin-bottom: 0;
 }
-
 /*
  ------------------------------------------------------------
  @stripe
@@ -69,6 +68,7 @@ label.has-optional-input {
         }
     }
     .is-full-width-mobile {
+        display: block;
         min-width: 100%;
         max-width: 100%;
     }
