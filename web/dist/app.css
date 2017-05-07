@@ -73,6 +73,12 @@
 .section--hangout, .section--hangouts {
   background-color: #00966C; }
 
+.section--player {
+  color: #fff;
+  background-color: #292d41; }
+  .section--player .title, .section--player .subtitle {
+    color: #fff; }
+
 .section--newsletter {
   border-top: 2px solid #d6d7d8;
   border-bottom: 2px solid #d6d7d8;
