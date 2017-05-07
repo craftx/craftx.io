@@ -12,7 +12,7 @@ $config = [
         'devMode' => false,
         'siteUrl' => 'https://craftx.io',
         'sitePath' => dirname(__DIR__, 1).'/web',
-        'cpTrigger' => ':-)',
+        'cpTrigger' => 'studio',
         'defaultWeekStartDay' => 0, // 0 = Sunday, 1 = Monday
         'enableCsrfProtection' => true,
         'omitScriptNameInUrls' => true,
@@ -48,7 +48,7 @@ $config = [
         'verificationCodeDuration' => 'P1D', // Very short
         #
         # Uploads
-        'maxUploadFileSize' => 16777216, // @todo Revisit this and update as necessary
+        'maxUploadFileSize' => 268435456, // 256M
         'allowedFileExtensions' => 'mp3,mp4,mov,mpeg,webm,jpg,jpeg,png,gif',
     ],
     'dev.' => [
