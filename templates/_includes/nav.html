@@ -1,4 +1,4 @@
-{% set showOnlyHangoutsMenu = true %}
+{% set showOnlyHangoutsMenu = false %}
 
 <nav id="nav" class="nav is-medium has-shadow nav--primary">
   <div class="container">
@@ -29,6 +29,10 @@
           </span>
       {% else %}
         {% if user %}
+            <a href="/hangouts" class="nav-item" title="Hangouts">
+              <span class="icon"><i class="fa fa-comments-o"></i></span>
+              <span>Hangouts</span>
+            </a>
             <span class="nav-item">
               <a href="/@{{ user.username }}" class="button is-outlined is-info is-heavy" title="Dashboard">
                 <span class="icon"><i class="fa fa-terminal is-blinking"></i></span>
@@ -42,7 +46,10 @@
               </a>
             </span>
           {% else %}
-
+            <a href="/hangouts" class="nav-item" title="Hangouts">
+              <span class="icon"><i class="fa fa-comments-o"></i></span>
+              <span>Hangouts</span>
+            </a>
             <span class="nav-item">
               <a href="/login" class="button is-outlined is-primary is-heavy" title="Login">
                 <span class="icon"><i class="fa fa-sign-in"></i></span>
