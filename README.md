@@ -1,5 +1,5 @@
 # CraftX
-> Unofficial Community CMS Community
+> Unofficial Craft CMS Community
 
 ## Setup
 To get [craftx.io][craftx] set up locally, you can follow the instructions below and make adjustments for your specific environment as you need.
