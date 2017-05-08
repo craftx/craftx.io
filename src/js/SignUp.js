@@ -109,7 +109,6 @@ export default new Vue({
                     return app.hint('coupon', response.data.message);
                 },
                 (response) => {
-                    console.log(response);
                     this.applyingCoupon = false;
                     return app.hint('coupon', 'Unable to verify the coupon');
                 }
@@ -166,16 +165,15 @@ export default new Vue({
                 }
             };
 
-            console.log(params);
             let signUp = debounce(() => {
                 postToController(
                     'swipe/users/save-user',
                     params,
                     (response) => {
-                        console.log(response.data);
+                        // console.log(response.data);
                     },
                     (response) => {
-                        console.log(response.data);
+                        // console.log(response.data);
                     }
                 );
             }, 500);
@@ -196,7 +194,6 @@ export default new Vue({
                         app.hint('email', '');
                     },
                     (response) => {
-                        console.log(response);
                         app.hint('email', 'Unable to validate email');
                     }
                 );
@@ -221,7 +218,6 @@ export default new Vue({
                         app.hint('username', '');
                     },
                     (response) => {
-                        console.log(response);
                         app.hint('username', 'Unable to validate username');
                     }
                 );

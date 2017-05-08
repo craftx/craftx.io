@@ -44,12 +44,10 @@
                                 email: vm.email
                             },
                             (response) => {
-                                console.log(response.data.success ? 'Success' : 'Error');
                                 vm.hint = response.data.message;
                                 vm.busy = false;
                             },
                             (response) => {
-                                console.log('Error');
                                 vm.hint = response.data.message;
                                 vm.busy = false;
                             }

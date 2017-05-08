@@ -6,14 +6,14 @@
 {% set id = 'sign-up' %}
 {% set title = 'Sign Up' %}
 {% set coupon = craft.app.request.getQueryParam('coupon') %}
-{% set scripts = ['/app/js/SignUp.bundle.js?v=1.1.0'] %}
+{% set scripts = ['/app/js/SignUp.bundle.js?v=2.0.0'] %}
 
 {% set content %}
     {#
-      Can use:
-      - is-control-container to group labels and field to add a little space around
-      - has-option-field on a label to mark the control as (Optional)
-    #}
+     # Can use:
+     # - is-control-container to group labels and field to add a little space around
+     #- has-option-field on a label to mark the control as (Optional)
+     #}
     <section class="section section--signup">
         <div class="container">
             <div class="columns">

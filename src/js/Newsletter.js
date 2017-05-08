@@ -44,7 +44,6 @@ export default new Vue({
                 // Error
                 (response) => {
                     displayErrorMessage('I\'m sorry!', 'Looks like I could not get you subscribed;(');
-                    console.log(response);
 
                     vm.busy = false;
                 }
