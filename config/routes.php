@@ -20,5 +20,7 @@
 
 return [
     '@<username:[a-zA-Z0-9\-]+>' => ['template' => '_profile/index'],
-    '@<username:[a-zA-Z0-9\-]+>/settings' => ['template' => '_profile/settings']
+    '@<username:[a-zA-Z0-9\-]+>/plugins' => ['template' => '_profile/plugins'],
+    '@<username:[a-zA-Z0-9\-]+>/hangouts' => ['template' => '_profile/hangouts'],
+    '@<username:[a-zA-Z0-9\-]+>/settings' => ['template' => '_profile/settings'],
 ];

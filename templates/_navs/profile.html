@@ -3,13 +3,13 @@
 <nav class="nav">
     <div class="container">
         <div class="nav-left">
-            <a href="@{{ username }}" class="nav-item is-tab {{ secondSegment is empty ? 'is-active' }}">Overview</a>
-            <a href="@{{ username }}/plugins" class="nav-item is-tab {{ secondSegment == 'plugins' ? 'is-active' }} is-hidden-mobile">Plugins (3)</a>
-            <a href="@{{ username }}/hangouts" class="nav-item is-tab {{ secondSegment == 'hangouts' ? 'is-active' }} is-hidden-mobile">Hangouts (6)</a>
+            <a href="/@{{ username }}" class="nav-item is-tab {{ secondSegment is empty ? 'is-active' }}">Overview</a>
+            <a href="/@{{ username }}/plugins" class="nav-item is-tab {{ secondSegment == 'plugins' ? 'is-active' }} is-hidden-mobile">Plugins (3)</a>
+            <a href="/@{{ username }}/hangouts" class="nav-item is-tab {{ secondSegment == 'hangouts' ? 'is-active' }} is-hidden-mobile">Hangouts (6)</a>
         </div>
         {% if user %}
             <div class="nav-right">
-                <a href="@{{ username }}/settings" class="nav-item is-tab {{ secondSegment == 'settings' ? 'is-active' }}">
+                <a href="/@{{ username }}/settings" class="nav-item is-tab {{ secondSegment == 'settings' ? 'is-active' }}">
                     <span class="icon">
                         <i class="fa fa-cog"></i>
                     </span>
