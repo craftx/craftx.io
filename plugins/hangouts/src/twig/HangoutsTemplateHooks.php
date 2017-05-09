@@ -31,7 +31,7 @@ class HangoutsTemplateHooks
 
         if (!$loggedInUser) {
             if ($username) {
-                $requestedUser = Craft::$app->users->getUserByUsername($username);
+                $requestedUser = Craft::$app->users->getUserByUsernameOrEmail($username);
             }
         }
 
