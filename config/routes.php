@@ -19,5 +19,5 @@
  */
 
 return [
-    'code/<code:[a-zA-Z0-9\-]+>' => ['template' => 'index']
+    '@<username:[a-zA-Z0-9\-]+>' => ['template' => '_profile/index']
 ];

@@ -81,8 +81,8 @@ class Swipe extends Plugin
 
     public function registerSiteRoutes(RegisterUrlRulesEvent $event)
     {
-        $event->rules['@<username:[a-z0-9\-]+>'] = 'swipe/users/index';
-        $event->rules['@<username:[a-z0-9\-]+>/<page:[^/]+>'] = 'swipe/users/page';
+        // $event->rules['@<username:[a-z0-9\-]+>'] = 'swipe/users/index';
+        // $event->rules['@<username:[a-z0-9\-]+>/<page:[^/]+>'] = 'swipe/users/page';
     }
 
     public function handleAfterLogin(UserEvent $event)

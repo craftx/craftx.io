@@ -1,0 +1,110 @@
+{% extends '_layouts/profile' %}
+
+{% set id = 'users' %}
+{% set title = 'Profile Page' %}
+
+{% set content %}
+    <section class="section section-profile">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3">
+                    <aside class=" profile-sidebar">
+                        <div class="profile-avatar">
+                            <figure class="image is-square">
+                                <img src="{{ craft.swipe.gravatar('selvin@selvin.co', 512) }}" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="profile-details">
+                            <h2 class="title is-2">Selvin Ortiz</h2>
+                            <h2 class="subtitle is-4">@selvinortiz</h2>
+                            <p class="profile-bio">
+                                Creator of CraftX. Software developer, photography enthusiast, aspiring developer.
+                            </p>
+                            <hr>
+                            <p class="profile-company">
+                                <span class="icon">
+                                    <i class="fa fa-building-o"></i>
+                                </span>
+                                <span>
+                                    Kingdom Advisors, Inc.
+                                </span>
+                            </p>
+                            <p class="profile-location">
+                                <span class="icon">
+                                    <i class="fa fa-location-arrow"></i>
+                                </span>
+                                <span>
+                                    Minnesota, USA 🇺🇸
+                                </span>
+                            </p>
+                            <p class="profile-email">
+                                <span class="icon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                                <span>
+                                    selvin@selvin.co
+                                </span>
+                            </p>
+                            <p class="profile-links">
+                                <span class="icon">
+                                    <i class="fa fa-globe"></i>
+                                </span>
+                                <span>
+                                    <a href="https://selvinortiz.com">https://selvinortiz.com</a>
+                                </span>
+                            </p>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="column is-9 profile-content">
+                    <nav class="nav">
+                        <div class="container">
+                            <div class="nav-left">
+                                <a class="nav-item is-tab is-active">Overview</a>
+                                <a class="nav-item is-tab is-hidden-mobile">Plugins (3)</a>
+                                <a class="nav-item is-tab is-hidden-mobile">Hangouts (6)</a>
+                            </div>
+                            <div class="nav-right">
+                                <a class="nav-item is-tab">
+                                    <span class="icon">
+                                        <i class="fa fa-cog"></i>
+                                    </span>
+                                    <span>
+                                        Settings
+                                    </span>
+                                </a>
+                                <a class="nav-item is-tab" href="/logout">
+                                    <span class="icon">
+                                        <i class="fa fa-sign-out"></i>
+                                    </span>
+                                    <span>
+                                        Logout
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endset %}
+
+{% set css %}
+    <style>
+        .profile-avatar img {
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+        .profile-details {
+            margin-top: 20px;
+        }
+        .profile-bio {
+            color: #666;            
+        }
+        .profile-content .nav {
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+{% endset %}

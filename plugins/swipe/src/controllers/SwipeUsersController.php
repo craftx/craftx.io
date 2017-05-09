@@ -29,7 +29,6 @@ class SwipeUsersController extends Controller {
 
     public function actionIndex(string $username = '') {
         $template = $this->_userTemplates.'/_index';
-        $userSegment = Craft::$app->request->getSegment(1);
 
         if (!Craft::$app->user->getIsGuest()) {
             $identity = Craft::$app->user->getIdentity();
@@ -38,13 +37,13 @@ class SwipeUsersController extends Controller {
             // If redirected here from login page because they were logged in
             // We need to update the URL to the proper username
             // Comparison: '@username' == '@selvinortiz'
-            if ($userSegment == '@username') {
+            if ($username == '@username') {
                 Craft::$app->response->redirect(UrlHelper::siteUrl($postLoginRedirect));
-            } else if ($userSegment == $postLoginRedirect) {
+            } else if ($username == $postLoginRedirect) {
                 $template = $this->_dashboardTemplates.'/profile';
             }
         } else {
-            if ($userSegment == '@username' || ! ($identity = Craft::$app->users->getUserByUsernameOrEmail($username))) {
+            if ($username == '@username' || ! ($identity = Craft::$app->users->getUserByUsernameOrEmail($username))) {
                 throw new HttpException(404, 'User with that username does not exist');
             }
         }

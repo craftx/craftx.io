@@ -19,4 +19,9 @@ class SwipeVariable
     {
         return swipe()->api->settings();
     }
+
+    public function getGravatar(string $email, int $size = 96): string
+    {
+        return swipe()->api->getGravatar($email, $size);
+    }
 }

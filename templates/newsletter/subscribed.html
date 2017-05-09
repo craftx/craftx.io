@@ -2,7 +2,7 @@
 {% set email = craft.app.request.getParam('email') %} 
 {% if email is empty %}{% redirect siteUrl %}{% endif %} 
 
-{% extends '_layout' %} 
+{% extends '_layouts/site' %} 
  
 {% set id = 'newsletter-subscribed' %} 
 {% set title = 'Subscribed' %} 

@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js theme-base" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Unofficial Community for Craft CMS Professionals">
+
+    {% include '_special/icons' %}
+    {% include '_special/metadata' %}
+
+    <link rel="stylesheet" href="/dist/vendor.css?v=1.6.2"> 
+    <link rel="stylesheet" href="/dist/app.css?v=1.6.2">
+
+    {% if css is defined and css is not empty %}
+        {{ css }}
+    {% endif %}
+
+    {# Will remove after operating model is determined #}
+    <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+<body id="{{ id }}">
+
+{% include '_includes/nav' %}
+
+{% if content is defined %}
+    {{ content }}
+{% endif %}
+
+{% include '_includes/footer' %}
+
+<script type="text/javascript">
+    window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName|e('js') }}";
+    window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";
+</script>
+
+{% include '_special/disqus' %}
+
+<script src="/app/js/App.bundle.js?v=1.6.2"></script>
+
+{% if scriptVars is defined and scriptVars is iterable %}
+    <script>
+        {% for name, value in scriptVars %}
+            window.{{ name }} = '{{ value }}';
+        {% endfor %}
+    </script>
+{% endif %}
+
+{% if scripts is defined and scripts is iterable %}
+    {% for script in scripts %}
+        <script src="{{ script }}"></script>
+    {% endfor %}
+{% endif %}
+
+{% if js is defined and js is not empty %}
+    {{ js }}
+{% endif %}
+
+</body>
+</html>

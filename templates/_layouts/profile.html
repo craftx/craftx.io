@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Unofficial Community for Craft CMS Professionals">
+    <meta name="description" content="Unofficial Craft CMS Community">
 
     {% include '_special/icons' %}
     {% include '_special/metadata' %}
@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="/dist/vendor.css?v=1.6.2"> 
     <link rel="stylesheet" href="/dist/app.css?v=1.6.2">
 
-    {# Will remove after operating model is determined #}
-    <script src="https://js.stripe.com/v3/"></script>
+    {% if css is defined and css is not empty %}
+        {{ css }}
+    {% endif %}
 
 </head>
+
 <body id="{{ id }}">
 
 {% include '_includes/nav' %}
@@ -30,8 +32,6 @@
     window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName|e('js') }}";
     window.csrfTokenValue = "{{ craft.app.request.getCsrfToken()|e('js') }}";
 </script>
-
-{% include '_special/disqus' %}
 
 <script src="/app/js/App.bundle.js?v=1.6.2"></script>
 
