@@ -185,6 +185,25 @@ label.has-optional-input:after {
   .button:not(.is-not-modified) {
     padding: .5em 1em; } }
 
+.section-profile {
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #ddd; }
+  .section-profile .nav-item a, .section-profile a.nav-item {
+    color: #363636; }
+
+.profile-avatar img {
+  border-radius: 5px; }
+
+.profile-details {
+  margin-top: 20px; }
+
+.profile-bio {
+  color: #666; }
+
+.profile-content .nav {
+  background-color: transparent;
+  border-bottom: 1px solid #ddd; }
+
 /*
  ------------------------------------------------------------
  @base
@@ -222,10 +241,15 @@ body {
   background-color: transparent; }
 
 .nav-item .icon {
-  padding-right: 10px; }
+  padding-right: 5px; }
 
 .nav-item img {
   max-height: 3rem; }
+
+.nav-item a {
+  color: #9642be; }
+  .nav-item a.is-active {
+    color: #363636; }
 
 .nav-toggle {
   padding: 2em;

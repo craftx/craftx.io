@@ -32,6 +32,7 @@ class Hangouts extends Plugin
         parent::init();
 
         Craft::$app->view->hook('hangout', '\\selvinortiz\\hangouts\\twig\\HangoutsTemplateHooks::hangout');
+        Craft::$app->view->hook('profile', '\\selvinortiz\\hangouts\\twig\\HangoutsTemplateHooks::profile');
         Craft::$app->view->twig->addExtension(new HangoutsTemplateExtension());
 
         Event::on(

@@ -22,4 +22,19 @@ class HangoutsTemplateHooks
             $context['presenters'] = $hangout->hangoutPresenters->all() ?? [];
         }
     }
+
+    public static function profile(&$context)
+    {
+        $username = $context['username'] ?? null;
+        $loggedInUser = $context['user'] ?? null;
+        $requestedUser = null;
+
+        if (!$loggedInUser) {
+            if ($username) {
+                $requestedUser = Craft::$app->users->getUserByUsername($username);
+            }
+        }
+
+        $context['isSessionOwner'] = $loggedInUser && $requestedUser && $loggedInUser->username === $requestedUser->username;
+    }
 }

@@ -45,10 +45,16 @@ body {
     background-color: transparent;
 }
 .nav-item .icon {
-    padding-right: 10px;
+    padding-right: 5px;
 }
 .nav-item img {
     max-height: 3rem;
+}
+.nav-item a {
+    color: $info;
+    &.is-active {
+        color: #363636;
+    }
 }
 
 .nav-toggle {

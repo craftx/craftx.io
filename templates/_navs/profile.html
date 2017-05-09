@@ -1,0 +1,32 @@
+{% set secondSegment = craft.app.request.segment(2) %}
+
+<nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a href="@{{ username }}" class="nav-item is-tab {{ secondSegment is empty ? 'is-active' }}">Overview</a>
+            <a href="@{{ username }}/plugins" class="nav-item is-tab {{ secondSegment == 'plugins' ? 'is-active' }} is-hidden-mobile">Plugins (3)</a>
+            <a href="@{{ username }}/hangouts" class="nav-item is-tab {{ secondSegment == 'hangouts' ? 'is-active' }} is-hidden-mobile">Hangouts (6)</a>
+            <a href="@{{ username }}/articles" class="nav-item is-tab {{ secondSegment == 'articles' ? 'is-active' }} is-hidden-mobile">Articles (12)</a>
+        </div>
+        {% if user %}
+            <div class="nav-right">
+                <a href="@{{ username }}/settings" class="nav-item is-tab {{ secondSegment == 'settings' ? 'is-active' }}">
+                    <span class="icon">
+                        <i class="fa fa-cog"></i>
+                    </span>
+                    <span>
+                        Settings
+                    </span>
+                </a>
+                <a href="/logout" class="nav-item is-tab">
+                    <span class="icon">
+                        <i class="fa fa-sign-out"></i>
+                    </span>
+                    <span>
+                        Log Out
+                    </span>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</nav>

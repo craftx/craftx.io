@@ -1,0 +1,20 @@
+.section-profile {
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+    .nav-item a, a.nav-item {
+        color: #363636;
+    }
+}
+.profile-avatar img {
+    border-radius: 5px;
+}
+.profile-details {
+    margin-top: 20px;
+}
+.profile-bio {
+    color: #666;
+}
+.profile-content .nav {
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+}

@@ -19,5 +19,6 @@
  */
 
 return [
-    '@<username:[a-zA-Z0-9\-]+>' => ['template' => '_profile/index']
+    '@<username:[a-zA-Z0-9\-]+>' => ['template' => '_profile/index'],
+    '@<username:[a-zA-Z0-9\-]+>/settings' => ['template' => '_profile/settings']
 ];

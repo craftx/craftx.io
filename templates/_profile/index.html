@@ -1,5 +1,7 @@
 {% extends '_layouts/profile' %}
 
+{% hook 'profile' %}
+
 {% set id = 'users' %}
 {% set title = 'Profile Page' %}
 
@@ -8,103 +10,91 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-3">
-                    <aside class=" profile-sidebar">
-                        <div class="profile-avatar">
-                            <figure class="image is-square">
-                                <img src="{{ craft.swipe.gravatar('selvin@selvin.co', 512) }}" alt="Image">
-                            </figure>
+                    <div class="columns">
+                        <div class="column">
+                            {% include '_profile/sidebar' with {user: user, username: username} only %}
                         </div>
-                        <div class="profile-details">
-                            <h2 class="title is-2">Selvin Ortiz</h2>
-                            <h2 class="subtitle is-4">@selvinortiz</h2>
-                            <p class="profile-bio">
-                                Creator of CraftX. Software developer, photography enthusiast, aspiring developer.
-                            </p>
-                            <hr>
-                            <p class="profile-company">
-                                <span class="icon">
-                                    <i class="fa fa-building-o"></i>
-                                </span>
-                                <span>
-                                    Kingdom Advisors, Inc.
-                                </span>
-                            </p>
-                            <p class="profile-location">
-                                <span class="icon">
-                                    <i class="fa fa-location-arrow"></i>
-                                </span>
-                                <span>
-                                    Minnesota, USA 🇺🇸
-                                </span>
-                            </p>
-                            <p class="profile-email">
-                                <span class="icon">
-                                    <i class="fa fa-envelope-o"></i>
-                                </span>
-                                <span>
-                                    selvin@selvin.co
-                                </span>
-                            </p>
-                            <p class="profile-links">
-                                <span class="icon">
-                                    <i class="fa fa-globe"></i>
-                                </span>
-                                <span>
-                                    <a href="https://selvinortiz.com">https://selvinortiz.com</a>
-                                </span>
-                            </p>
-                        </div>
-                    </aside>
+                    </div>
                 </div>
 
                 <div class="column is-9 profile-content">
-                    <nav class="nav">
-                        <div class="container">
-                            <div class="nav-left">
-                                <a class="nav-item is-tab is-active">Overview</a>
-                                <a class="nav-item is-tab is-hidden-mobile">Plugins (3)</a>
-                                <a class="nav-item is-tab is-hidden-mobile">Hangouts (6)</a>
-                            </div>
-                            <div class="nav-right">
-                                <a class="nav-item is-tab">
-                                    <span class="icon">
-                                        <i class="fa fa-cog"></i>
-                                    </span>
-                                    <span>
-                                        Settings
-                                    </span>
-                                </a>
-                                <a class="nav-item is-tab" href="/logout">
-                                    <span class="icon">
-                                        <i class="fa fa-sign-out"></i>
-                                    </span>
-                                    <span>
-                                        Logout
-                                    </span>
-                                </a>
-                            </div>
+                    {% include '_navs/profile' with {user: user, username: username} only %}
+                    <div class="columns is-multiline" style="margin-top: 40px;">
+                        <div class="column is-6">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128">
+                                        <img src="http://bulma.io/images/placeholders/128x128.png">
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>Doxter</strong>
+                                            <br>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                    </nav>
+                        <div class="column is-6">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128">
+                                        <img src="http://bulma.io/images/placeholders/128x128.png">
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>Patrol</strong>
+                                            <br>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="column is-6">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128">
+                                        <img src="http://bulma.io/images/placeholders/128x128.png">
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>Doxter</strong>
+                                            <br>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="column is-6">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="image is-128x128">
+                                        <img src="http://bulma.io/images/placeholders/128x128.png">
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <strong>Patrol</strong>
+                                            <br>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-{% endset %}
-
-{% set css %}
-    <style>
-        .profile-avatar img {
-            border: 1px solid #bbb;
-            border-radius: 5px;
-        }
-        .profile-details {
-            margin-top: 20px;
-        }
-        .profile-bio {
-            color: #666;            
-        }
-        .profile-content .nav {
-            border-bottom: 1px solid #ddd;
-        }
-    </style>
 {% endset %}

@@ -1,0 +1,64 @@
+{% set firstSegment = craft.app.request.segment(1) %}
+
+<nav id="nav" class="nav is-medium has-shadow nav--primary">
+    <div class="container">
+        <div class="nav-left">
+            <a href="/" class="nav-item nav__brand" title="CraftX">
+                <img src="/dist/images/CraftX.svg?v=2.1" alt="CraftX Logo">
+            </a>
+        </div>
+
+        <span class="nav-toggle" @click="toggleMobileNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+        <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
+            <span class="nav-item">
+                <a href="/" class="{{ firstSegment is empty ? 'is-active' }}" title="Homepage">
+                    <span class="icon">
+                        <i class="fa fa-home"></i>
+                    </span>
+                    <span>Home</span>
+                </a>
+            </span>
+            <span class="nav-item">
+                <a href="/hangouts" class="{{ firstSegment == 'hangouts' ? 'is-active' }}" title="Hangouts">
+                    <span class="icon">
+                        <i class="fa fa-comments-o"></i>
+                    </span>
+                    <span>Hangouts</span>
+                </a>
+            </span>
+
+            {% if user %}
+                <span class="nav-item">
+                    <a href="/@{{ user.username }}" class="{{ firstSegment == '@' ~ user.username ? 'is-active' }}" title="Dashboard">
+                        <span class="icon">
+                            <i class="fa fa-tachometer"></i>
+                        </span>
+                        <span>Dashboard</span>
+                    </a>
+                </span>
+            {% else %}
+                <span class="nav-item">
+                    <a href="/join" class="{{ firstSegment == 'join' ? 'is-active' }}" title="Join our Community">
+                        <span class="icon">
+                            <i class="fa fa-heart-o"></i>
+                        </span>
+                        <span>Join</span>
+                    </a>
+                </span>
+                <span class="nav-item">
+                    <a href="/login" class="{{ firstSegment == 'login' ? 'is-active' }}" title="Log In">
+                        <span class="icon">
+                            <i class="fa fa-sign-in"></i>
+                        </span>
+                        <span>Log In</span>
+                    </a>
+                </span>
+            {% endif %}
+        </div>
+    </div>
+</nav>

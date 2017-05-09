@@ -1,0 +1,22 @@
+{% extends '_layouts/profile' %}
+
+{% hook 'profile' %}
+
+{% set id = 'users' %}
+{% set title = user.getFullName() %}
+
+{% set content %}
+    <section class="section section-profile">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3">
+                    {% include '_profile/sidebar' with {user: user} only %}
+                </div>
+
+                <div class="column is-9 profile-content">
+                    {% include '_navs/profile' with {user: user} only %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endset %}
