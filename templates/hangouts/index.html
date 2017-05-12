@@ -5,8 +5,8 @@
 
 {% set dateTime = now %}
 {% set currentDateTimeString = dateTime.format('Y-m-d H:i') %}
-{% set currentDateTimePlusDurationString = dateTime.modify('+2 hours').format('Y-m-d H:i') %}
-{% set currentDateTimeMinusDurationString = dateTime.modify('-4 hours').format('Y-m-d H:i') %}
+{% set currentDateTimePlusDurationString = dateTime.modify('+1 hour').format('Y-m-d H:i') %}
+{% set currentDateTimeMinusDurationString = dateTime.modify('-2 hours').format('Y-m-d H:i') %}
 
 {% set ongoingHangout = craft.entries({
     section: 'hangouts',
