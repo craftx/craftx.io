@@ -15,23 +15,20 @@
         </span>
 
         <div class="nav-right nav-menu" :class="{ 'is-active': mobileNavIsActive }">
-            <span class="nav-item">
-                <a href="/" class="{{ firstSegment is empty ? 'is-active' }}" title="Homepage">
-                    <span class="icon">
-                        <i class="fa fa-home"></i>
-                    </span>
-                    <span>Home</span>
-                </a>
-            </span>
-            <span class="nav-item">
-                <a href="/hangouts" class="{{ firstSegment == 'hangouts' ? 'is-active' }}" title="Hangouts">
-                    <span class="icon">
-                        <i class="fa fa-comments-o"></i>
-                    </span>
-                    <span>Hangouts</span>
-                </a>
-            </span>
+            <a href="/" class="nav-item {{ firstSegment is empty ? 'is-active' }}" title="Homepage">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+                <span>Home</span>
+            </a>
+            <a href="/hangouts" class="nav-item {{ firstSegment == 'hangouts' ? 'is-active' }}" title="Hangouts">
+                <span class="icon">
+                    <i class="fa fa-comments-o"></i>
+                </span>
+                <span>Hangouts</span>
+            </a>
 
+            {# Hiding until we can properly communicate what the point of joining is
             {% if user %}
                 <span class="nav-item">
                     <a href="/@{{ user.username }}" class="{{ firstSegment == '@' ~ user.username ? 'is-active' }}" title="Dashboard">
@@ -59,6 +56,8 @@
                     </a>
                 </span>
             {% endif %}
+            #}
+
         </div>
     </div>
 </nav>

@@ -63,9 +63,9 @@ body {
 .nav-item img {
     max-height: 3rem;
 }
-.nav-item a {
-    color: $info;
-    &.is-active {
+.nav-item a, a.nav-item {
+    color: $primary;
+    &:hover, &:active, .is-active {
         color: #363636;
     }
 }

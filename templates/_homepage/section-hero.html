@@ -7,9 +7,11 @@
                     <h2 class="subtitle is-4">{{ block.heroText }}</h2>
                     <div class="hero-buttons has-text-centered">
                         <a href="{{ block.heroCtaUrl }}" id="cta" class="button is-medium is-info">
-                            <span class="icon">
-                                <i class="fa fa-heart-o is-blinking"></i>
-                            </span>
+                            {% if block.heroCtaIconClasses is defined and block.heroCtaIconClasses is not empty %}
+                                <span class="icon">
+                                    <i class="fa {{ block.heroCtaIconClasses }}"></i>
+                                </span>
+                            {% endif %}
                             <span>{{ block.heroCtaText }}</span>
                         </a>
                     </div>

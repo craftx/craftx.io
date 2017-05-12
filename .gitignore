@@ -10,6 +10,7 @@
 .env
 vendor
 web/cpr/*
+web/assets/*
 config/local/*
 !config/local/general.example.php
 dbpull.sh
