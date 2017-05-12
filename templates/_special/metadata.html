@@ -8,7 +8,7 @@
 {% set type = 'website' %}
 {% set title = title is not empty ? title ~ ' | ' ~ siteName : siteName %}
 {% set imageUrl = siteUrl ~ 'dist/images/CraftX.png' %}
-{% set description = "Unofficial Community for Craft CMS Professionals" %}
+{% set description = "CraftX is an open source website and a community building experiment." %}
 
 {% if entry is defined and entry.section.handle == 'hangouts' %}
     {% set url = entry.url %}
@@ -22,7 +22,7 @@
 {% elseif craft.app.request.getSegment(1) == 'hangouts' %}
     {% set url = siteUrl ~ 'hangouts' %}
     {% set title = 'CraftX Hangouts' %}
-    {% set description = 'Lively hangouts held privately to talk about all things design, development, and Craft CMS.' %}
+    {% set description = 'An online gathering of friends and colleagues discussing Craft CMS, Design, Development, Freelancing, and everything in between.' %}
 {% endif %}
 
 <meta property="og:title" content="{{ title }}">
