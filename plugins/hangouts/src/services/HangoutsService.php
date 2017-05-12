@@ -42,7 +42,7 @@ class HangoutsService extends Component
     /**
      * Default duration for hangouts
      */
-    const HANGOUT_DEFAULT_DURATION = '2 hours';
+    const HANGOUT_DEFAULT_DURATION = '1 hour';
 
     /**
      * Default status for hangouts
