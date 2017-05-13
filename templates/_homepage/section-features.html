@@ -10,6 +10,19 @@
                     </div>
                     <h2 class="title is-2">{{ block.featureLead }}</h2>
                     <h2 class="subtitle is-4">{{ block.featureText }}</h2>
+
+                    {% if (block.featureCtaText ?? false) and (block.featureCtaUrl ?? false) %}
+                        <div class="buttons-container has-text-centered">
+                            <p>
+                                <a href="{{ block.featureCtaUrl }}" class="button is-large is-primary is-outlined is-inverted">
+                                    {% if block.featureCtaIconClasses ?? false %}
+                                        <span class="icon"><i class="fa {{ block.featureCtaIconClasses}}"></i></span>
+                                    {% endif %}
+                                    <span>{{ block.featureCtaText }}<span>
+                                </a>
+                            </p>
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
