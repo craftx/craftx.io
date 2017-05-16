@@ -99,7 +99,6 @@ body {
 }
 .title,
 .subtitle {
-    @extend .is-inset;
     color: inherit;
     line-height: 1.4;
 }

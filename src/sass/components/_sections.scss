@@ -47,9 +47,6 @@
 .section--about {
     background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
     border-top: 1px solid $gray-c;
-    .title, .subtitle {
-        @extend .is-inset;
-    }
 }
 .section--hangout, .section--hangouts {
     background-color: $primary;
