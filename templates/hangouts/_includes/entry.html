@@ -55,49 +55,51 @@
      #}
     {% if isOngoingHangout or isUpcomingHangout %}
         <h3>Date/Time</h3>
-        <template v-if="timezone">
-            <h6>
-                <span class="icon">
-                    <i class="fa fa-bolt"></i>
-                </span>
-                <span>
-                    Highlighted row is our best guess at your timezone.
-                </span>
-            </h6>
-        </template>
+        <div id="dateTimeTable">
+            <template v-if="timezone">
+                <h6>
+                    <span class="icon">
+                        <i class="fa fa-bolt"></i>
+                    </span>
+                    <span>
+                        Highlighted row is our best guess at your timezone.
+                    </span>
+                </h6>
+            </template>
 
-        <div class="hangout__times">
-            <table class="table is-bordered">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Zone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <template v-if="timezone" v-cloak>
-                        <tr class="is-selected">
-                            <td>${date}</td>
-                            <td>${time} <span class="is-hidden-mobile">${day}</span></td>
-                            <td>${zoneAbbreviation} <span class="is-hidden-mobile">${zoneIdentifier}</span></td>
-                        </tr>
-                    </template>
-                    {% for date in craft.hangouts.translateDateTime(entry.hangoutDateTime) %}
+            <div class="hangout__times">
+                <table class="table is-bordered">
+                    <thead>
                         <tr>
-                            <td>{{ date.format("j F Y") }}</td>
-                            <td>
-                                {{ date.format("g:i A") }}
-                                <span class="is-hidden-mobile">{{ date.format("l") }}</div>
-                            </td>
-                            <td>
-                                ({{ date.format("T") }})
-                                <span class="is-hidden-mobile">{{ date.format("e")|replace({"_": " "}) }}</span>
-                            </td>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Zone</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        <template v-if="timezone" v-cloak>
+                            <tr class="is-selected">
+                                <td>${date}</td>
+                                <td>${time} <span class="is-hidden-mobile">${day}</span></td>
+                                <td>${zoneAbbreviation} <span class="is-hidden-mobile">${zoneIdentifier}</span></td>
+                            </tr>
+                        </template>
+                        {% for date in craft.hangouts.translateDateTime(entry.hangoutDateTime) %}
+                            <tr>
+                                <td>{{ date.format("j F Y") }}</td>
+                                <td>
+                                    {{ date.format("g:i A") }}
+                                    <span class="is-hidden-mobile">{{ date.format("l") }}</div>
+                                </td>
+                                <td>
+                                    ({{ date.format("T") }})
+                                    <span class="is-hidden-mobile">{{ date.format("e")|replace({"_": " "}) }}</span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- #dateTimeTable -->
     {% endif %}
 </div>

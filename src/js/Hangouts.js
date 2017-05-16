@@ -5,7 +5,7 @@ import timezone from 'jstz';
 import {postToController} from './Utils';
 
 new Vue({
-    el: '#HangoutsApp',
+    el: '#dateTimeTable',
     delimiters: ['${', '}'],
     data: {
         day: null,
@@ -27,7 +27,6 @@ new Vue({
                         destinationTimeZone: this.timezone
                     },
                     (response) => {
-                            console.log(response);
                         if (response.data.success) {
                             this.day = response.data.day;
                             this.date = response.data.date;
