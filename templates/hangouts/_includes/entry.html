@@ -56,18 +56,18 @@
     {% if isOngoingHangout or isUpcomingHangout %}
         <h3>Date/Time</h3>
         <template v-if="timezone">
-            <h5>
+            <h6>
                 <span class="icon">
                     <i class="fa fa-bolt"></i>
                 </span>
                 <span>
-                    Highlighted row is my best guess at your timezone.
+                    Highlighted row is our best guess at your timezone.
                 </span>
-            </h5>
+            </h6>
         </template>
 
         <div class="hangout__times">
-            <table class="table is-striped">
+            <table class="table is-bordered">
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -100,4 +100,4 @@
             </table>
         </div>
     {% endif %}
-</div>
+</div

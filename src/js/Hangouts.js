@@ -27,6 +27,7 @@ new Vue({
                         destinationTimeZone: this.timezone
                     },
                     (response) => {
+                            console.log(response);
                         if (response.data.success) {
                             this.day = response.data.day;
                             this.date = response.data.date;

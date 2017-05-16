@@ -34,7 +34,6 @@
 {% include '_special/disqus' %}
 
 <script src="/app/js/App.bundle.js?v=2.0.0"></script>
-<script src="/app/js/Hangouts.bundle.js?v=2.0.0"></script>
 
 {% if scriptVars is defined and scriptVars is iterable %}
     <script>
@@ -43,6 +42,8 @@
         {% endfor %}
     </script>
 {% endif %}
+
+<script src="/app/js/Hangouts.bundle.js?v=2.0.0"></script>
 
 {% if scripts is defined and scripts is iterable %}
     {% for script in scripts %}
