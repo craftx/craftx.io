@@ -16,7 +16,7 @@
 {% set content %}
     {% include 'hangouts/_includes/hero' with {entry: entry} only %}
 
-    <div class="section section--hangouts">
+    <div class="section section--hangout" id="HangoutsApp">
         <div class="container">
             <div class="columns">
                 <div class="column">
@@ -26,10 +26,6 @@
                             Hangout Details
                         </h2>
                         {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
-
-                        <hr>
-
-                        {% include 'hangouts/_includes/preview' with {entry: entry, onEntryPage: true} only %}
                     </div>
                 </div>
             </div>

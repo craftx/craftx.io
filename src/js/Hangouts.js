@@ -5,7 +5,7 @@ import timezone from 'jstz';
 import {postToController} from './Utils';
 
 new Vue({
-    el: '#root',
+    el: '#HangoutsApp',
     delimiters: ['${', '}'],
     data: {
         day: null,
