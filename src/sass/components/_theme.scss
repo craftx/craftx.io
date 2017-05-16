@@ -283,6 +283,13 @@ body {
     .control.is-expanded {
         min-width: 100%;
     }
+    .hangout__entry, .hangout__previews {
+        margin-top: 20px;
+    }
+    .hangout__entry, .hangout__preview {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 }
 
 @include md {

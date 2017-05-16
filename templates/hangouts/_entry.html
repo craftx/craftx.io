@@ -25,8 +25,11 @@
                             <i class="fa fa-file-text"></i>
                             Hangout Details
                         </h2>
-
                         {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
+
+                        <hr>
+
+                        {% include 'hangouts/_includes/preview' with {entry: entry, onEntryPage: true} only %}
                     </div>
                 </div>
             </div>
