@@ -322,6 +322,10 @@ body {
 .content .is-white {
   color: #fff; }
 
+.content a.anchor {
+  color: #ddd;
+  font-style: normal; }
+
 /*
  ------------------------------------------------------------
  @utilities

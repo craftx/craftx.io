@@ -5,6 +5,6 @@
         <a href="{{ entry.url }}">{{ entry.title }}</a>
     </h3>
     <div class="hangout__notes">
-        {{ entry.hangoutNotes }}
+        {{ entry.hangoutNotes.html({addHeaderAnchors: false}) }}
     </div>
 </div>
