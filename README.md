@@ -66,9 +66,14 @@ cd ../hangouts && composer install
 ## Dashboard
 If you'd like to access the dashboard locally, to see how fields/channels/sections have been set up.
 
-1. Create an account at `https://dev.craftx.io/join`
-1. Request developer privileges and the the latest db from *Selvin*.
-1. Import latest db dump into your local db and login at `/studio` with the credentials you joined with.
+1. Import `db/latest.sql` into your database
+1. Use the following credentials:
+
+```
+email: support@craftx.io
+username: craftx
+password: 89F3H3n76QVuAM9RC[4[Y66X
+```
 
 ## Running
 This project is configured to be easy to set up if you want to use Vagrant/Homestead to host/serve locally.
