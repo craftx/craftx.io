@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>webpack</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.500000,0.500000),scale(1.000000,0.866025),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#93B4E7" offset="0%"></stop>
+            <stop stop-color="#B9D1F8" offset="59.2733578%"></stop>
+            <stop stop-color="#9CB6E0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="webpack" fill-rule="nonzero">
+            <g id="group" transform="translate(17.000000, 0.000000)">
+                <polygon id="Shape" fill="url(#radialGradient-1)" points="110.730674 0.393959796 0.257649706 64.1756568 0.257649706 191.739051 110.730674 255.521142 221.204092 191.739051 221.204092 64.1756568"></polygon>
+                <polygon id="Shape" fill="#6F95DB" points="110.731856 65.0920074 55.9482005 96.7214634 55.9482005 159.98077 110.731856 191.61062 165.516299 159.98077 165.516299 96.7214634"></polygon>
+                <polygon id="Shape" fill-opacity="0.1" fill="#FFFFFF" points="110.702703 131.764451 0 190.464461 110.702703 254.285948 221.011446 190.070501"></polygon>
+                <polygon id="Shape" fill-opacity="0.1" fill="#FFFFFF" points="110.702703 0 0 64.2154467 110.702703 124.491295 221.405405 64.6094065"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

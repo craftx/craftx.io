@@ -156,7 +156,6 @@ body {
 .is-inset {
     text-shadow: 1px 2px 0 #fff;
 }
-
 .is-inset-inverted {
     text-shadow: 1px 2px 0 #363738;
 }
@@ -229,7 +228,26 @@ body {
     width: 100%;
     display: block;
 }
-
+.is-block {
+    display: block;
+}
+.has-background-icon {
+    display: block;
+    min-height: 128px;
+    background-size: 128px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-bottom: $column-pad;
+}
+.has-opacity-states {
+    &:link, &:visited {
+        opacity: 0.5;
+    }
+    &:hover, &:active {
+        opacity: 1;
+    }
+}
 .is-inline-block {
     display: inline-block;
 }
