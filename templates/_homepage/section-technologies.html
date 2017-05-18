@@ -1,0 +1,20 @@
+<section class="section is-medium section--technologies">
+    <div class="container">
+        <div class="columns is-multiline is-mobile">
+            <div class="column is-12">
+                <h2 class="title is-1">Technologies</h2>
+            </div>
+            {% for block in blocks %}
+                <div class="column is-6-mobile is-4-tablet is-3-desktop">
+                    <a
+                        href="{{ block.technologyUrl }}"
+                        title="{{ block.technologyName }}"
+                        class="is-block has-opacity-states has-background-icon"
+                        style="background-image: url({{ block.technologyImagePath }});"
+                        >
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -48,23 +48,28 @@
   margin-bottom: 20px;
   border-bottom: 2px solid #c6c7c8; }
 
-.section--features {
+.section--features, .section--technologies {
   background: #00966C;
   border-top: 1px solid #c6c7c8; }
-  .section--features .title, .section--features .subtitle {
+  .section--features .title, .section--features .subtitle, .section--technologies .title, .section--technologies .subtitle {
     color: #fff;
     text-align: center; }
-  .section--features .title, .section--features .subtitle {
+  .section--features .title, .section--features .subtitle, .section--technologies .title, .section--technologies .subtitle {
     text-shadow: none; }
-  .section--features .subtitle {
+  .section--features .subtitle, .section--technologies .subtitle {
     opacity: 0.9; }
-  .section--features .icon-block {
+  .section--features .icon-block, .section--technologies .icon-block {
     min-height: 128px;
     background-size: 128px;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     margin-bottom: 20px; }
+
+.section--technologies {
+  background-color: #fff; }
+  .section--technologies .title, .section--technologies .subtitle {
+    color: #565758; }
 
 .section--about {
   background: #f6f7f8 url(/dist/images/pattern-crossword.png) repeat;
@@ -387,6 +392,24 @@ body {
 .is-full-width {
   width: 100%;
   display: block; }
+
+.is-block {
+  display: block; }
+
+.has-background-icon {
+  display: block;
+  min-height: 128px;
+  background-size: 128px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin-bottom: 20px; }
+
+.has-opacity-states:link, .has-opacity-states:visited {
+  opacity: 0.5; }
+
+.has-opacity-states:hover, .has-opacity-states:active {
+  opacity: 1; }
 
 .is-inline-block {
   display: inline-block; }

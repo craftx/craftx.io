@@ -21,7 +21,7 @@
     margin-bottom: $column-pad;
     border-bottom: 2px solid $gray-c;
 }
-.section--features {
+.section--features, .section--technologies {
     .title, .subtitle {
         color: #fff;
         text-align: center;
@@ -34,7 +34,6 @@
     }
     background: $primary;
     border-top: 1px solid $gray-c;
-
     .icon-block {
         min-height: 128px;
         background-size: 128px;
@@ -42,6 +41,12 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
         margin-bottom: $column-pad;
+    }
+}
+.section--technologies {
+    background-color: #fff;
+    .title, .subtitle {
+        color: $gray-dark;
     }
 }
 .section--about {
@@ -58,6 +63,7 @@
         color: #fff;
     }
 }
+
 .section--newsletter {
     border-top: 2px solid $gray-d;
     border-bottom: 2px solid $gray-d;
