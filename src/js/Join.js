@@ -1,6 +1,5 @@
 'use strict';
 
-import Stripe from 'stripe';
 import Vue from 'vue';
 
 import {postToController, debounce} from './Utils';
