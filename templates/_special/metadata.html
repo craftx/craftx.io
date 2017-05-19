@@ -18,6 +18,11 @@
     {% set description = generateSummary(description) %}
     {% if entry.hangoutImage.one() ?? false %}
         {% set imageUrl = entry.hangoutImage.one().url %}
+
+        {% set versionKey = craft.app.request.getQueryParam('v') %}
+        {% if versionKey is not empty %}
+            {% set imageUrl = imageUrl ~ '?' ~ versionKey %}
+        {% endif %}
     {% endif %}
 {% elseif craft.app.request.getSegment(1) == 'hangouts' %}
     {% set url = siteUrl ~ 'hangouts' %}
