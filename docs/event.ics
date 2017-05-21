@@ -26,9 +26,10 @@ STATUS:
 SUMMARY:Taking PHP & Craft By Storm
 DESCRIPTION:Gary Hockin is a Developer Advocate for PhpStorm at JetBra
  ins and a prolific technical writer and educator. He will be joining u
- s to talk about how PhpStorm...
-URL:http://craftx.dev/hangouts/taking-php-and-craft-by-storm
-DTSTAMP:20170521T024550Z
+ s to talk about how PhpStorm... http://craftx.dev/hangouts/taking-php-
+ and-craft-by-storm
+URL:https://zoom.us/j/304873613
+DTSTAMP:20170521T030546Z
 ATTENDEE;CN=Gary Hockin:mailto:support@craftx.io
 ORGANIZER;CN=Selvin Ortiz;LANGUAGE=en:mailto:selvin@craftx.io
 END:VEVENT

@@ -99,6 +99,10 @@ class HangoutsService extends Component
         return $this->getHangoutStatus($hangout) === self::HANGOUT_STATUS_ENDED;
     }
 
+    public function renderIcsFromHangout(Entry $hangout)
+    {
+        return (new \selvinortiz\hangouts\models\HangoutsEvent($hangout))->render();
+    }
     /**
      * @param string $text  Can be an object that implements __toString()
      * @param int    $limit

@@ -48,11 +48,11 @@ class HangoutsEvent extends Model
             ->setName('Gary Hockin');
 
         $this->event = (new CalendarEvent())
-            ->setUrl($hangout->getUrl())
+            ->setUrl($hangout->hangoutLink)
             ->setStart($hangout->hangoutDateTime)
             ->setEnd((clone $hangout->hangoutDateTime)->modify('+1 hour'))
             ->setSummary($hangout->title)
-            ->setDescription(hangouts()->service->generateSummary($hangout->hangoutTopic->getHtml()))
+            ->setDescription(hangouts()->service->generateSummary($hangout->hangoutTopic->getHtml(), 160, ' ', '... ' . $hangout->getUrl()))
             ->setUid(base64_encode($hangout->id))
             ->setOrganizer($this->host)
             ->addAttendee($this->guest);
