@@ -3,55 +3,36 @@
 {% set id = 'hangouts' %}
 {% set title = 'Hangouts' %}
 
-{% set dateTime = now %}
-{% set currentDateTimeString = dateTime.format('Y-m-d H:i') %}
-{% set currentDateTimePlusDurationString = dateTime.modify('+1 hour').format('Y-m-d H:i') %}
-{% set currentDateTimeMinusDurationString = dateTime.modify('-2 hours').format('Y-m-d H:i') %}
-
-{% set ongoingHangout = craft.entries({
-    section: 'hangouts',
-    hangoutDateTime: [
-        'and',
-        '> ' ~ currentDateTimeMinusDurationString,
-        '< ' ~ currentDateTimeString
-    ],
-    limit: 1
-}).one() %}
-
-{% set nextHangout = craft.entries({
-    section: 'hangouts',
-    orderBy: 'hangoutDateTime asc',
-    hangoutDateTime: '> ' ~ currentDateTimePlusDurationString,
-    limit: 1
-}).one() %}
-
-{% set previousHangouts = craft.entries({
-    section: 'hangouts',
-    orderBy: 'hangoutDateTime desc',
-    hangoutDateTime: '< ' ~ currentDateTimeMinusDurationString
-}).all() %}
+{% hook 'hangouts' %}
 
 {% set content %}
 
     {% include 'hangouts/_includes/hero' with {entry: ongoingHangout} only %}
 
-    <div class="section section--hangouts">
+    <section class="section section--hangouts">
         <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <div class="content is-medium">
-                        <h2 class="title is-2 is-white has-text-centered">
-                            <i class="fa fa-history"></i>
-                            Previous Hangouts
-                        </h2>
-                        <div class="hangout__previews">
-                            {% for previousHangout in previousHangouts %}
-                                {% include 'hangouts/_includes/preview' with {entry: previousHangout} only %}
-                            {% endfor %}
-                        </div>
-                    </div>
+            <div class="columns is-multiline">
+                <div class="column is-12">
+                    <h2 class="title is-2 is-white has-text-centered">
+                        <span class="icon is-medium">
+                            <i class="fa fa-comments-o"></i>
+                        </span>
+                        <span>Hangout Index</span>
+                    </h2>
                 </div>
+
+                {% for upcomingHangout in upcomingHangouts %}
+                    <div class="column is-12-tablet is-6-desktop">
+                        {% include 'hangouts/_includes/preview' with {entry: upcomingHangout, isUpcoming: true} only %}
+                    </div>
+                {% endfor %}
+
+                {% for previousHangout in previousHangouts %}
+                    <div class="column is-12-tablet is-6-desktop">
+                        {% include 'hangouts/_includes/preview' with {entry: previousHangout} only %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
+    </section>
 {% endset %}

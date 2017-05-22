@@ -1,7 +1,7 @@
 {% set isPastHangout = entry ? isPastHangout(entry) : false %}
 {% set isOngoingHangout = entry ? isOngoingHangout(entry) : false %}
 {% set isUpcomingHangout = entry ? isUpcomingHangout(entry) : false %}
-{% set weAreOnEntryPage = craft.app.request.segments|length > 1 %}
+{% set isEntryPage = isEntryPage ?? false %}
 
 {% set text %}
     {{ 'An online gathering of friends and colleagues discussing [Craft CMS](https://craftcms.com), Design, Development, Freelancing, and everything in between.
@@ -25,7 +25,7 @@
     {% set ctaIconClasses = 'fa-comments-o' %}
 {% endif %}
 
-{% if isUpcomingHangout and weAreOnEntryPage %}
+{% if isUpcomingHangout and isEntryPage %}
     {% set ctaUrl = entry.hangoutLink %}
     {% set ctaText = 'Meeting Link' %}
     {% set ctaIconClasses = 'fa-link' %}
@@ -60,7 +60,7 @@
                         </a>
                     </div>
 
-                    {% if not isPastHangout and weAreOnEntryPage %}
+                    {% if not isPastHangout and isEntryPage %}
                         <p class="has-top-margin">
                             Our <a href="/hangouts">hangouts</a> are hosted via <a href="https://zoom.us" title="Zoom">zoom.us</a>
                         </p>

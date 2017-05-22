@@ -319,9 +319,6 @@ body {
  ------------------------------------------------------------
  @content
  ------------------------------------------------------------*/
-.content .is-white {
-  color: #fff; }
-
 .content a.anchor {
   color: #ddd;
   font-style: normal; }
@@ -338,6 +335,9 @@ body {
 
 .has-shadow {
   box-shadow: 0 5px 5px #007d5a; }
+
+.has-content {
+  margin-top: 20px; }
 
 .is-form-section-divider {
   padding: 0;
@@ -396,14 +396,29 @@ body {
   padding-left: 40px;
   margin: 0; }
 
-.hangout__entry, .hangout__previews {
+.is-white {
+  color: #fff; }
+
+.is-primary {
+  color: #00966C; }
+
+.is-info {
+  color: #9642be; }
+
+.is-meta {
+  color: #999; }
+
+.hangout__previews {
   margin-top: 40px; }
 
-.hangout__entry, .hangout__preview {
+.hangout__preview {
   padding: 40px;
   margin-bottom: 40px;
   background: #fff;
-  border: 1px solid #e6e7e8; }
+  border: 2px solid #e6e7e8; }
+
+.is-upcoming {
+  border-color: #9642be; }
 
 /*
  ------------------------------------------------------------

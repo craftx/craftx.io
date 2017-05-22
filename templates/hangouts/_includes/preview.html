@@ -1,10 +1,33 @@
-<div class="hangout__preview has-shadow">
-    <h3>
-        {{ entry.hangoutDateTime.format("j F Y") }}
-        →
+{% set format = 'Y / M / D j @ H:iA (T)' %}
+
+<div class="hangout__preview has-shadow has-text-centered {{ (isUpcoming ?? false) ? 'is-upcoming' }}">
+    <h2 class="title is-3">
         <a href="{{ entry.url }}">{{ entry.title }}</a>
-    </h3>
+    </h2>
+
+    {% if isUpcoming ?? false %}
+        <p class="subtitle is-5 is-info">
+            <span class="icon">
+                <i class="fa fa-clock-o"></i>
+            </span>
+            <span>
+                {{ entry.hangoutDateTime.format(format) }}
+            </span>
+        </p>
+    {% else %}
+        <p class="subtitle is-5 is-meta">
+            <span class="icon">
+                <i class="fa fa-history"></i>
+            </span>
+            <span>
+                {{ entry.hangoutDateTime.format(format) }}
+            </span>
+        </p>
+    {% endif %}
+
     <div class="hangout__notes">
-        {{ entry.hangoutNotes.html({addHeaderAnchors: false}) }}
+        <div class="content is-medium">
+            {{ generateSummary(isUpcoming ?? false ? entry.hangoutTopic.html : entry.hangoutNotes.html) }}
+        </div>
     </div>
 </div>

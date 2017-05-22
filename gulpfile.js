@@ -66,6 +66,8 @@ gulp.task('watch', (callback) => {
   gulp.watch(config.images.source, ['images']);
   gulp.watch(config.templates.watch, ['templates']);
   gulp.watch('./web/app/*', ['templates']);
+
+  return callback;
 });
 
 gulp.task('default', (callback) => {
