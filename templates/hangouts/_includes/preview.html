@@ -11,7 +11,7 @@
                 <i class="fa fa-clock-o"></i>
             </span>
             <span>
-                {{ entry.hangoutDateTime.format(format) }}
+                {{ entry.hangoutDateTime.format('M / D j @ H:iA (T)') }}
             </span>
         </p>
     {% else %}
@@ -20,14 +20,30 @@
                 <i class="fa fa-history"></i>
             </span>
             <span>
-                {{ entry.hangoutDateTime.format(format) }}
+                {{ entry.hangoutDateTime.format('Y / M / D j @ H:iA (T)') }}
             </span>
         </p>
     {% endif %}
 
-    <div class="hangout__notes">
-        <div class="content is-medium">
-            {{ generateSummary(isUpcoming ?? false ? entry.hangoutTopic.html : entry.hangoutNotes.html) }}
+    {% if isUpcoming is defined and isUpcoming and entry.hangoutGuest.one() ?? false %}
+        {% set guest = entry.hangoutGuest.one() %}
+        <div class="hangout__guest">
+            {% if guest.photo.one() ?? false %}
+                {% set guestName = [guest.firstName, guest.lastName]|join(' ')|trim %}
+                {% set photo = guest.photo.one() %}
+                <img class="is-avatar" src="{{ photo.url }}" alt="{{ guestName }}">
+            {% endif %}
+            <h2 class="title is-2">{{ guestName }}</h2>
+            <p class="subtitle is-4">
+                {{ guest.role }}<br>
+                {{ guest.company }}
+            </p>
         </div>
-    </div>
+    {% else %}
+        <div class="hangout__notes">
+            <div class="content is-medium">
+                {{ generateSummary(isUpcoming ?? false ? entry.hangoutTopic.html : entry.hangoutNotes.html) }}
+            </div>
+        </div>
+    {% endif %}
 </div>

@@ -262,11 +262,28 @@ body {
     background: #fff;
     border: 2px solid $gray-e;
 }
-
+.hangout__guest.is-on-entry {
+    margin-bottom: $column-pad2x;
+}
 .is-upcoming {
     border-color: $info;
 }
 
+.is-avatar {
+    width: 256px;
+    height: auto;
+    display: block;
+    padding: 2px;
+    margin: $column-pad auto;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid $gray-dark;
+    box-shadow: 0 1px 2px lighten($gray-dark, 5%);
+}
+.is-avatar.is-on-entry {
+    border: 2px solid #fff;
+    box-shadow: 0 3px 5px lighten($primary, 5%);
+}
 /*
  ------------------------------------------------------------
  @media queries

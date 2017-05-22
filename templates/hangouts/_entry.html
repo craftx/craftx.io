@@ -12,14 +12,30 @@
 
     <div class="section section--hangout">
         <div class="container">
-            <div class="columns">
+            <div class="columns is-multiline">
                 <div class="column is-offset-1-desktop is-10-desktop is-offset-2-widescreen is-8-widescreen">
-                    <h2 class="title is-2 is-white has-text-centered">
-                        <span class="icon is-medium">
-                            <i class="fa fa-file-text"></i>
-                        </span>
-                        <span>Hangout Details</span>
-                    </h2>
+                    {% if entry.hangoutGuest.one() ?? false %}
+                        {% set guest = entry.hangoutGuest.one() %}
+                        <div class="hangout__guest is-on-entry has-text-centered">
+                            {% if guest.photo.one() ?? false %}
+                                {% set guestName = [guest.firstName, guest.lastName]|join(' ')|trim %}
+                                {% set photo = guest.photo.one() %}
+                                <img class="is-avatar is-on-entry" src="{{ photo.url }}" alt="{{ guestName }}">
+                            {% endif %}
+                            <h2 class="title is-2 is-white">{{ guestName }}</h2>
+                            <p class="subtitle is-4 is-white">
+                                {{ guest.role }}<br>
+                                {{ guest.company }}
+                            </p>
+                        </div>
+                    {% else %}
+                        <h2 class="title is-2 is-white has-text-centered">
+                            <span class="icon is-medium">
+                                <i class="fa fa-file-text"></i>
+                            </span>
+                            <span>Hangout Details</span>
+                        </h2>
+                    {% endif %}
                     {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
                 </div>
             </div>

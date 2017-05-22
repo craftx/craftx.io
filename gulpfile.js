@@ -67,7 +67,7 @@ gulp.task('watch', (callback) => {
   gulp.watch(config.templates.watch, ['templates']);
   gulp.watch('./web/app/*', ['templates']);
 
-  return callback;
+  return callback();
 });
 
 gulp.task('default', (callback) => {
