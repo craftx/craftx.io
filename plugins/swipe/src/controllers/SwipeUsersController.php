@@ -103,6 +103,7 @@ class SwipeUsersController extends Controller {
                 'message' => 'Username is required'
             ]);
         }
+
         if (($user = Craft::$app->users->getUserByUsernameOrEmail($username))) {
             return $this->asJson([
                 'status' => '__TAKEN',
@@ -111,11 +112,30 @@ class SwipeUsersController extends Controller {
             ]);
         }
 
-        if (!preg_match('/^[a-z0-9\-]{5,25}$/', $username)) {
+        // 5-25 characters
+        if (!preg_match('/^.{5,25}$/', $username)) {
             return $this->asJson([
                 'status' => '__INVALID',
                 'success' => false,
-                'message' => 'Hint > [a-z0-9-]{5,25}'
+                'message' => 'Username must be 5 - 25 characters'
+            ]);
+        }
+
+        // Only letters, numbers, and hyphens
+        if (!preg_match('/^[a-zA-Z\d\-]*$/', $username)) {
+            return $this->asJson([
+                'status' => '__INVALID',
+                'success' => false,
+                'message' => 'Username must only contain letters, numbers, and hyphens'
+            ]);
+        }
+
+        // Must contain at least one letter
+        if (!preg_match('/[a-zA-Z]+/', $username)) {
+            return $this->asJson([
+                'status' => '__INVALID',
+                'success' => false,
+                'message' => 'Username must contain at least one letter'
             ]);
         }
 
