@@ -258,7 +258,7 @@ body {
 
 .hangout__preview {
     padding: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     background: #fff;
     border: 2px solid $gray-e;
 }
@@ -268,7 +268,11 @@ body {
 .is-upcoming {
     border-color: $info;
 }
-
+.is-on-dark {
+    padding: .15em 1em;
+    display: inline-block;
+    background-color: #fff;
+}
 .is-avatar {
     width: 256px;
     height: auto;
@@ -327,12 +331,12 @@ body {
     .control.is-expanded {
         min-width: 100%;
     }
-    .hangout__entry, .hangout__previews {
+    .hangout__previews {
         margin-top: 20px;
     }
-    .hangout__entry, .hangout__preview {
+    .hangout__preview {
         padding: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 }
 

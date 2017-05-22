@@ -33,9 +33,12 @@
                 {% set photo = guest.photo.one() %}
                 <img class="is-avatar" src="{{ photo.url }}" alt="{{ guestName }}">
             {% endif %}
-            <h2 class="title is-2">{{ guestName }}</h2>
+            <h2 class="title is-2">
+                <a href="{{ guest.primaryWebsite }}" title="{{ guestName }}">{{ guestName }}</a>
+            </h2>
             <p class="subtitle is-4">
-                {{ guest.role }}<br>
+                {{ guest.role }}
+                <br>
                 {{ guest.company }}
             </p>
         </div>
