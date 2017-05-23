@@ -48,15 +48,14 @@ class Hangouts extends Plugin
     public function registerSiteRoutes(RegisterUrlRulesEvent $event)
     {
         $event->rules['hangouts/next'] = 'hangouts/default/next';
-        $event->rules['hangouts.ics'] = 'hangouts/calendar/render-calendar';
-        $event->rules['hangouts/<slug:{slug}>.ics'] = 'hangouts/calendar/render-event';
+        $event->rules['cal/hangouts.ics'] = 'hangouts/calendar/render-calendar';
+        $event->rules['cal/hangouts/<slug:{slug}>.ics'] = 'hangouts/calendar/render-event';
     }
 
     public function defineTemplateComponent()
     {
         return HangoutsTemplateComponent::class;
     }
-
 }
 
 

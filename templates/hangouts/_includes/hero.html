@@ -58,6 +58,14 @@
                             </span>
                             <span>{{ ctaText }}</span>
                         </a>
+                        {% if isUpcomingHangout and onEntryPage %}
+                            <a href="{{ craft.hangouts.getCalendarEventUrl(entry) }}" class="button is-medium">
+                                <span class="icon">
+                                    <i class="fa fa-download"></i>
+                                </span>
+                                <span>iCal Event</span>
+                            </a>
+                        {% endif %}
                     </div>
 
                     {% if not isPastHangout and onEntryPage %}

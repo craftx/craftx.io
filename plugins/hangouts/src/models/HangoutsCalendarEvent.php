@@ -15,7 +15,7 @@ use Jsvrcek\ICS\CalendarExport;
 
 use function selvinortiz\hangouts\hangouts;
 
-class HangoutsEvent extends Model
+class HangoutsCalendarEvent extends Model
 {
     /**
      * @var Organizer
@@ -55,7 +55,7 @@ class HangoutsEvent extends Model
             ->setStart($hangout->hangoutDateTime)
             ->setEnd((clone $hangout->hangoutDateTime)->modify('+1 hour'))
             ->setSummary($hangout->title)
-            ->setDescription(hangouts()->service->generateSummary($hangout->hangoutTopic->getHtml(), 160, ' ', '... ' . $hangout->getUrl()))
+            ->setDescription(hangouts()->service->generateSummary($hangout->hangoutTopic->getHtml(), 160, ' ', '... '.$hangout->getUrl()))
             ->setUid(sprintf('craftx-hangout-%s', $hangout->slug))
             ->setOrganizer($this->host)
             ->addAttendee($this->guest);

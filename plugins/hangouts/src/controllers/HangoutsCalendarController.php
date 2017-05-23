@@ -34,7 +34,7 @@ class HangoutsCalendarController extends Controller
 
         $response = new Response();
         $headers  = $response->headers;
-        $content  = hangouts()->service->renderIcsFromHangout($hangout);
+        $content  = hangouts()->service->getCalendarEventFromHangout($hangout);
         // $response->content = $content;
         $headers->set('Content-Type', 'text/calendar; charset=utf-8');
 
@@ -56,7 +56,7 @@ class HangoutsCalendarController extends Controller
 
         $response = new Response();
         $headers  = $response->headers;
-        $content  = hangouts()->service->renderCalendarFromHangout($hangouts);
+        $content  = hangouts()->service->getCalendarFromHangouts($hangouts);
 
         $headers->set('Content-Type', 'text/calendar; charset=utf-8');
 
