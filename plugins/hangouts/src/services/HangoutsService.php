@@ -103,6 +103,12 @@ class HangoutsService extends Component
     {
         return (new \selvinortiz\hangouts\models\HangoutsEvent($hangout))->render();
     }
+
+    public function renderCalendarFromHangout(array $hangouts)
+    {
+        return (new \selvinortiz\hangouts\models\HangoutsCalendar($hangouts))->render();
+    }
+
     /**
      * @param string $text  Can be an object that implements __toString()
      * @param int    $limit

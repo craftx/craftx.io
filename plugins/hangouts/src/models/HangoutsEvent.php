@@ -1,6 +1,7 @@
 <?php
 namespace selvinortiz\hangouts\models;
 
+use Craft;
 use craft\base\Model;
 use craft\elements\Entry;
 
@@ -43,9 +44,11 @@ class HangoutsEvent extends Model
             ->setName('Selvin Ortiz')
             ->setLanguage('en');
 
-        $this->guest = (new Attendee(new Formatter()))
-            ->setValue('support@craftx.io')
-            ->setName('Gary Hockin');
+        if (($hangoutGuest = $hangout->hangoutGuest->one()))
+        {
+            $this->guest = (new Attendee(new Formatter()))
+                ->setName(implode(' ', [$hangoutGuest->firstName, $hangoutGuest->lastName]));
+        }
 
         $this->event = (new CalendarEvent())
             ->setUrl($hangout->hangoutLink)
@@ -53,12 +56,13 @@ class HangoutsEvent extends Model
             ->setEnd((clone $hangout->hangoutDateTime)->modify('+1 hour'))
             ->setSummary($hangout->title)
             ->setDescription(hangouts()->service->generateSummary($hangout->hangoutTopic->getHtml(), 160, ' ', '... ' . $hangout->getUrl()))
-            ->setUid(base64_encode($hangout->id))
+            ->setUid(sprintf('craftx-hangout-%s', $hangout->slug))
             ->setOrganizer($this->host)
             ->addAttendee($this->guest);
 
         $this->calendar = (new Calendar())
             ->setProdId('-//CraftX//Hangouts//EN')
+            ->setTimezone(new \DateTimeZone(Craft::$app->timeZone))
             ->addEvent($this->event);
 
         return $this;
@@ -69,6 +73,6 @@ class HangoutsEvent extends Model
         $export = new CalendarExport(new CalendarStream(), new Formatter());
         $export->addCalendar($this->calendar);
 
-        echo '<pre>', $export->getStream(), '</pre>'; exit;
+        return $export->getStream();
     }
 }
