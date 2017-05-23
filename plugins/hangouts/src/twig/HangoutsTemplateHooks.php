@@ -2,7 +2,9 @@
 namespace selvinortiz\hangouts\twig;
 
 use Craft;
+use craft\elements\db\EntryQuery;
 
+use craft\records\Entry;
 use function selvinortiz\hangouts\hangouts;
 
 class HangoutsTemplateHooks
@@ -17,10 +19,38 @@ class HangoutsTemplateHooks
             $context['isOngoingHangout'] = hangouts()->service->isOngoingHangout($hangout);
             $context['isUpcomingHangout'] = hangouts()->service->isUpcomingHangout($hangout);
             $context['hasMeetingNotes'] = mb_strlen((string) $hangout->hangoutNotes);
-            $context['host'] = $hangout->hangoutHost->one();
-            $context['guests'] = $hangout->hangoutGuests->all() ?? [];
-            $context['presenters'] = $hangout->hangoutPresenters->all() ?? [];
         }
+    }
+
+    public static function hangouts(&$context)
+    {
+        $start = new \DateTime('now', new \DateTimeZone(Craft::$app->timeZone));
+        $ending = (clone $start)->modify('+1 hour');
+        $format = 'Y-m-d H:i:s';
+
+        $context['upcomingHangouts'] = (new EntryQuery(\craft\elements\Entry::class))
+            ->section('hangouts')
+            ->orderBy('hangoutDateTime asc')
+            ->hangoutDateTime('> '.$ending->format($format))
+            ->limit(null)
+            ->all();
+
+        $context['previousHangouts'] = (new EntryQuery(\craft\elements\Entry::class))
+            ->section('hangouts')
+            ->orderBy('hangoutDateTime desc')
+            ->hangoutDateTime('< '.$ending->format($format))
+            ->limit(null)
+            ->all();
+
+        $context['ongoingHangout'] = (new EntryQuery(\craft\elements\Entry::class))
+            ->section('hangouts')
+            ->hangoutDateTime([
+                'and',
+                '> '.$start->format($format),
+                '< '.$ending->format($format)
+            ])
+            ->limit(1)
+            ->one();
     }
 
     public static function profile(&$context)

@@ -7,26 +7,47 @@
     hangoutSourceDateTime: entry.hangoutDateTime.format('Y-m-d H:i:s')
 } %}
 
-{% set dateTime = now %}
-{% set currentDateTimeString = dateTime.format('Y-m-d H:i') %}
-{% set currentDateTimePlusDurationString = dateTime.modify('+1 hour').format('Y-m-d H:i') %}
-{% set currentDateTimeMinusDurationString = dateTime.modify('-2 hours').format('Y-m-d H:i') %}
-{% set isOngoingHangout = entry.hangoutDateTime < dateTime and entry.hangoutDateTime > dateTime.modify('-1 hour') %}
-
 {% set content %}
-    {% include 'hangouts/_includes/hero' with {entry: entry} only %}
+    {% include 'hangouts/_includes/hero' with {entry: entry, onEntryPage: true} only %}
 
     <div class="section section--hangout">
         <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <div class="content is-medium">
+            <div class="columns is-multiline">
+                <div class="column is-offset-1-desktop is-10-desktop is-offset-2-widescreen is-8-widescreen">
+                    {% if entry.hangoutGuest.one() ?? false %}
+                        {% set guest = entry.hangoutGuest.one() %}
+                        <div class="hangout__guest is-on-entry has-text-centered">
+                            {% if guest.photo.one() ?? false %}
+                                {% set guestName = [guest.firstName, guest.lastName]|join(' ')|trim %}
+                                {% set photo = guest.photo.one() %}
+                                <img class="is-avatar is-on-entry" src="{{ photo.url }}" alt="{{ guestName }}">
+                            {% endif %}
+                            <h2 class="title is-2">
+                                <a class="is-on-dark" href="{{ guest.primaryWebsite }}" title="{{ guestName }}">{{ guestName }}</a>
+                            </h2>
+                            <p class="subtitle is-4 is-white">
+                                <a class="button is-small" href="https://twitter.com/{{ guest.twitterUsername }}">
+                                    <span class="icon"><i class="fa fa-twitter"></i></span>
+                                </a>
+                                <a class="button is-small" href="https://github.com/{{ guest.githubUsername }}">
+                                    <span class="icon"><i class="fa fa-github"></i></span>
+                                </a>
+                            </p>
+                            <p class="subtitle is-3 is-white">
+                                {{ guest.role }}
+                                <br>
+                                {{ guest.company }}
+                            </p>
+                        </div>
+                    {% else %}
                         <h2 class="title is-2 is-white has-text-centered">
-                            <i class="fa fa-file-text"></i>
-                            Hangout Details
+                            <span class="icon is-medium">
+                                <i class="fa fa-file-text"></i>
+                            </span>
+                            <span>Hangout Details</span>
                         </h2>
-                        {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
-                    </div>
+                    {% endif %}
+                    {% include 'hangouts/_includes/entry' with {entry: entry, onEntryPage: true} only %}
                 </div>
             </div>
         </div>

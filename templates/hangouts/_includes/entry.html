@@ -8,45 +8,13 @@
 
 <div class="hangout__preview has-shadow">
     <div class="hangout__summary">
-        {% if isPastHangout and hasMeetingNotes %}
-            {{ entry.hangoutNotes }}
-        {% else %}
-            {{ entry.hangoutTopic }}
-        {% endif %}
-    </div>
-
-    <h3>Roster</h3>
-    <div class="hangout__people">
-        <ul>
-            <li>
-                {% if host.primaryWebsite is not empty %}
-                    <a href="{{ host.primaryWebsite }}">{{ host.firstName }} {{ host.lastName}}</a>
-                {% else %}
-                    {{ host.firstName }} {{ host.lastName}}
-                {% endif %}
-                → Host
-            </li>
-            {% for presenter in presenters %}
-                <li>
-                    {% if presenter.primaryWebsite is not empty %}
-                        <a href="{{ presenter.primaryWebsite }}">{{ presenter.firstName }} {{ presenter.lastName}}</a>
-                    {% else %}
-                        {{ presenter.firstName }} {{ presenter.lastName}}
-                    {% endif %}
-                    → Special Guest
-                </li>
-            {% endfor %}
-            {% for guest in guests %}
-                <li>
-                    {% if guest.primaryWebsite is not empty %}
-                        <a href="{{ guest.primaryWebsite }}">{{ guest.firstName }} {{ guest.lastName}}</a>
-                    {% else %}
-                        {{ guest.firstName }} {{ guest.lastName}}
-                    {% endif %}
-                    → Guest
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="content is-medium">
+            {% if isPastHangout and hasMeetingNotes %}
+                {{ entry.hangoutNotes }}
+            {% else %}
+                {{ entry.hangoutTopic }}
+            {% endif %}
+        </div>
     </div>
 
     {#
@@ -54,17 +22,17 @@
      # But would it make the statement clearer?
      #}
     {% if isOngoingHangout or isUpcomingHangout %}
-        <h3>Date/Time</h3>
-        <div id="dateTimeTable">
+        <div class="has-content" id="dateTimeTable">
+            <h3 class="title is-3">Date/Time</h3>
             <template v-if="timezone">
-                <h6>
+                <h4 class="subtitle is-5">
                     <span class="icon">
                         <i class="fa fa-bolt"></i>
                     </span>
                     <span>
                         Highlighted row is our best guess at your timezone.
                     </span>
-                </h6>
+                </h4>
             </template>
 
             <div class="hangout__times">

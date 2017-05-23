@@ -1,36 +1,52 @@
 <?php
+
+$baseUrl = 'https://craftx.io/assets/';
+$basePath = dirname(__DIR__, 1).'/web/assets/';
+
 return [
     // Production
     '*' => [
         'blog' => [
-            'url' => 'https://craftx.io/assets/blog/',
-            'path' => dirname(__DIR__, 1).'/web/assets/blog/'
+            'url' => $baseUrl.'blog/',
+            'path' => $basePath.'blog/'
         ],
         'hangouts' => [
-            'url' => 'https://craftx.io/assets/hangouts/',
-            'path' => dirname(__DIR__, 1).'/web/assets/hangouts/'
+            'url' => $baseUrl.'hangouts/',
+            'path' => $basePath.'hangouts/'
         ],
+        'people' => [
+            'url' => $baseUrl.'people/',
+            'path' => $basePath.'people/'
+        ]
     ],
     // Staging
     'dev.' => [
         'blog' => [
-            'url' => 'https://dev.craftx.io/assets/blog/',
-            'path' => dirname(__DIR__, 1).'/web/assets/blog/'
+            'url' => $baseUrl.'blog/',
+            'path' => $basePath.'blog/'
         ],
         'hangouts' => [
-            'url' => 'https://dev.craftx.io/assets/hangouts/',
-            'path' => dirname(__DIR__, 1).'/web/assets/hangouts/'
+            'url' => $baseUrl.'hangouts/',
+            'path' => $basePath.'hangouts/'
         ],
+        'people' => [
+            'url' => $baseUrl.'people/',
+            'path' => $basePath.'people/'
+        ]
     ],
     // Local
     '.dev' => [
         'blog' => [
-            'url' => 'http://craftx.dev/assets/blog/',
-            'path' => dirname(__DIR__, 1).'/web/assets/blog/'
+            'url' => $baseUrl.'blog/',
+            'path' => $basePath.'blog/'
         ],
         'hangouts' => [
-            'url' => 'http://craftx.dev/assets/hangouts/',
-            'path' => dirname(__DIR__, 1).'/web/assets/hangouts/'
+            'url' => $baseUrl.'hangouts/',
+            'path' => $basePath.'hangouts/'
         ],
+        'people' => [
+            'url' => $baseUrl.'people/',
+            'path' => $basePath.'people/'
+        ]
     ]
 ];
