@@ -19,6 +19,11 @@ class SwipeSettingsModel extends Model {
      */
     public $stripePublicKey;
 
+    /**
+     * @var string
+     */
+    public $usernameBlacklist = ['admin'];
+
     public function rules(): array {
         return [
             [['stripeSecretKey', 'stripePublicKey'], 'required'],
