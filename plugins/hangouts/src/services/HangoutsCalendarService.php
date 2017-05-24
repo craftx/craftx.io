@@ -143,7 +143,7 @@ class HangoutsCalendarService extends Component
         $events = $this->events;
         $event  = array_shift($events);
 
-        return $event->getUid();
+        return $event->getUid().'.ics';
     }
 
     private function generateDescription(Entry $hangout)
