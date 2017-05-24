@@ -102,31 +102,11 @@ class HangoutsService extends Component
     }
 
     /**
-     * @param array $hangouts
-     *
      * @return string
      */
-    public function getCalendarFromHangouts(array $hangouts)
+    public function getCalendarFeedUrl()
     {
-        return (new \selvinortiz\hangouts\models\HangoutsCalendar($hangouts))->render();
-    }
-
-    /**
-     * @param Entry $hangout
-     *
-     * @return string
-     */
-    public function getCalendarEventFromHangout(Entry $hangout)
-    {
-        return (new \selvinortiz\hangouts\models\HangoutsCalendarEvent($hangout))->render();
-    }
-
-    /**
-     * @return string
-     */
-    public function getCalendarUrl()
-    {
-        return Craft::$app->sites->primarySite->baseUrl.'cal/hangouts.ics';
+        return Craft::$app->sites->primarySite->baseUrl.'hangouts.ics';
     }
 
     /**
@@ -136,7 +116,7 @@ class HangoutsService extends Component
      */
     public function getCalendarEventUrl(Entry $hangout)
     {
-        return Craft::$app->sites->primarySite->baseUrl.'cal/'.$hangout->slug.'.ics';
+        return Craft::$app->sites->primarySite->baseUrl.'hangouts/'.$hangout->slug.'.ics';
     }
 
     /**

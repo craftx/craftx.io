@@ -10,6 +10,7 @@ use craft\web\UrlManager;
 use craft\events\RegisterUrlRulesEvent;
 
 use selvinortiz\hangouts\services\HangoutsService;
+use selvinortiz\hangouts\services\HangoutsCalendarService;
 use selvinortiz\hangouts\twig\HangoutsTemplateComponent;
 use selvinortiz\hangouts\twig\HangoutsTemplateExtension;
 use selvinortiz\hangouts\controllers\HangoutsController;
@@ -21,6 +22,7 @@ use selvinortiz\hangouts\controllers\HangoutsCalendarController;
  * @package selvinortiz\hangouts
  *
  * @property HangoutsService $service
+ * @property HangoutsCalendarService $calendar
  */
 class Hangouts extends Plugin
 {
@@ -48,8 +50,8 @@ class Hangouts extends Plugin
     public function registerSiteRoutes(RegisterUrlRulesEvent $event)
     {
         $event->rules['hangouts/next'] = 'hangouts/default/next';
-        $event->rules['cal/hangouts.ics'] = 'hangouts/calendar/render-calendar';
-        $event->rules['cal/hangouts/<slug:{slug}>.ics'] = 'hangouts/calendar/render-event';
+        $event->rules['hangouts.ics'] = 'hangouts/calendar/serve-calendar-feed';
+        $event->rules['hangouts/<slug:{slug}>.ics'] = 'hangouts/calendar/serve-calendar-event';
     }
 
     public function defineTemplateComponent()

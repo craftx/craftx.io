@@ -17,7 +17,8 @@
         "developerUrl": "https://selvinortiz.com",
         "schemaVersion": "1.0.0",
         "components":{
-            "service": "selvinortiz\\hangouts\\services\\HangoutsService"
+            "service": "selvinortiz\\hangouts\\services\\HangoutsService",
+            "calendar": "selvinortiz\\hangouts\\services\\HangoutsCalendarService"
         }
     },
     "autoload": {

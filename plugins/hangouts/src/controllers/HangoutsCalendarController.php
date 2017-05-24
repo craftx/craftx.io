@@ -14,13 +14,12 @@ use function selvinortiz\hangouts\hangouts;
 class HangoutsCalendarController extends Controller
 {
     protected $allowAnonymous = [
-        'render-event',
-        'render-calendar'
+        'serve-calendar-feed',
+        'serve-calendar-event',
     ];
 
-    public function actionRenderEvent(string $slug)
+    public function actionServeCalendarEvent(string $slug)
     {
-        // $now = (new \DateTime('now', new \DateTimeZone(Craft::$app->timeZone)));
         $hangout = (new EntryQuery(Entry::class))
             ->section('hangouts')
             ->slug($slug)
@@ -32,16 +31,10 @@ class HangoutsCalendarController extends Controller
             throw new HttpException(404);
         }
 
-        $response = new Response();
-        $headers  = $response->headers;
-        $content  = hangouts()->service->getCalendarEventFromHangout($hangout);
-        // $response->content = $content;
-        $headers->set('Content-Type', 'text/calendar; charset=utf-8');
-
-        return $response->sendContentAsFile($content, sprintf('craftx-hangout-%s.ics', $hangout->slug));
+        return hangouts()->calendar->addEvent($hangout)->sendToDownload();
     }
 
-    public function actionRenderCalendar()
+    public function actionServeCalendarFeed()
     {
         $now = (new \DateTime('now', new \DateTimeZone(Craft::$app->timeZone)));
         $hangouts = (new EntryQuery(Entry::class))
@@ -54,12 +47,6 @@ class HangoutsCalendarController extends Controller
             throw new HttpException(404);
         }
 
-        $response = new Response();
-        $headers  = $response->headers;
-        $content  = hangouts()->service->getCalendarFromHangouts($hangouts);
-
-        $headers->set('Content-Type', 'text/calendar; charset=utf-8');
-
-        return $response->sendContentAsFile($content, 'craftx-hangouts.ics');
+        return hangouts()->calendar->addEvents($hangouts)->sendToBrowser();
     }
 }
