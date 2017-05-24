@@ -106,22 +106,25 @@ class HangoutsCalendarService extends Component
             ->setSentBy(self::ORGANIZER_EMAIL)
             ->setLanguage('en');
 
-        if (($hangoutGuest = $hangout->hangoutGuest->one()))
-        {
-            $guest = (new Attendee(new Formatter()))
-                ->setValue(self::SPECIAL_GUEST_EMAIL)
-                ->setName(implode(' ', [$hangoutGuest->firstName, $hangoutGuest->lastName]));
-        }
-
-        return (new CalendarEvent())
+        $event = (new CalendarEvent())
             ->setUrl($hangout->getUrl())
             ->setStart($hangout->hangoutDateTime)
             ->setEnd((clone $hangout->hangoutDateTime)->modify(self::HANGOUT_DURATION))
             ->setSummary($hangout->title)
             ->setDescription($this->generateDescription($hangout))
             ->setUid('craftx-hangout-'.$hangout->slug)
-            ->setOrganizer($host)
-            ->addAttendee($guest);
+            ->setOrganizer($host);
+
+        if (($hangoutGuest = $hangout->hangoutGuest->one()))
+        {
+            $guest = (new Attendee(new Formatter()))
+                ->setValue(self::SPECIAL_GUEST_EMAIL)
+                ->setName(implode(' ', [$hangoutGuest->firstName, $hangoutGuest->lastName]));
+
+            $event->addAttendee($guest);
+        }
+
+        return $event;
     }
 
     /**

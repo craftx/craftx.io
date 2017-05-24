@@ -40,6 +40,7 @@ class HangoutsCalendarController extends Controller
         $hangouts = (new EntryQuery(Entry::class))
             ->section('hangouts')
             ->hangoutDateTime('>= '.$now->format('Y-m-d H:i:s'))
+            ->orderBy('hangoutDateTime desc')
             ->all();
 
         if (!$hangouts)
