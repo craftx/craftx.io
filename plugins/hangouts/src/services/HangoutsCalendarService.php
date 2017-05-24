@@ -132,7 +132,7 @@ class HangoutsCalendarService extends Component
         /**
          * @var CalendarEvent $event
          */
-        if ($this->events > 1)
+        if (count($this->events) > 1)
         {
             return 'craftx-hangouts.ics';
         }
@@ -145,7 +145,7 @@ class HangoutsCalendarService extends Component
 
     private function generateDescription(Entry $hangout)
     {
-        $description = hangouts()->service->generateSummary($hangout->hangoutTopic, 160, '', '...');
+        $description = hangouts()->service->generateSummary($hangout->hangoutTopic, 255, '', '...');
 
         $break = PHP_EOL.PHP_EOL;
 
