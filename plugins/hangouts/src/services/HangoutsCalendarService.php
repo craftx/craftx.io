@@ -1,7 +1,6 @@
 <?php
 namespace selvinortiz\hangouts\services;
 
-use craft\web\Response;
 use Jsvrcek\ICS\Model\Calendar;
 use Jsvrcek\ICS\Model\CalendarEvent;
 use Jsvrcek\ICS\Model\Relationship\Attendee;
@@ -11,10 +10,13 @@ use Jsvrcek\ICS\CalendarStream;
 use Jsvrcek\ICS\CalendarExport;
 
 use Craft;
+use craft\web\Response;
 use craft\base\Component;
 use craft\elements\Entry;
 
 use function selvinortiz\hangouts\hangouts;
+
+use selvinortiz\hangouts\common\HangoutsCalendarExporter;
 
 class HangoutsCalendarService extends Component
 {
@@ -37,7 +39,8 @@ class HangoutsCalendarService extends Component
     {
         $this->calendar = (new Calendar())
             ->setProdId('-//CraftX//Hangouts//EN')
-            ->setTimezone(new \DateTimeZone(Craft::$app->timeZone));
+            ->setTimezone(new \DateTimeZone(Craft::$app->timeZone))
+            ->setCustomHeaders(['X-WR-CALNAME' => 'CraftX']);
     }
 
     /**
@@ -113,6 +116,8 @@ class HangoutsCalendarService extends Component
             ->setSummary($hangout->title)
             ->setDescription($this->generateDescription($hangout))
             ->setUid('craftx-hangout-'.$hangout->slug)
+            ->setPriority(5)
+            ->setStatus('CONFIRMED')
             ->setOrganizer($host);
 
         if (($hangoutGuest = $hangout->hangoutGuest->one()))
@@ -165,7 +170,7 @@ class HangoutsCalendarService extends Component
             $this->calendar->addEvent($event);
         }
 
-        return (new CalendarExport(new CalendarStream(), new Formatter()))
+        return (new HangoutsCalendarExporter(new CalendarStream(), new Formatter()))
             ->addCalendar($this->calendar)
             ->getStream();
     }
