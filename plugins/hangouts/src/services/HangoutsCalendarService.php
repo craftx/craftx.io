@@ -147,7 +147,9 @@ class HangoutsCalendarService extends Component
     {
         $description = hangouts()->service->generateSummary($hangout->hangoutTopic, 160, '', '...');
 
-        return sprintf('%s [ %s ]%s Join at %s', $description, $hangout->getUrl(), PHP_EOL, $hangout->hangoutLink);
+        $break = PHP_EOL.PHP_EOL;
+
+        return "{$description}{$break}Join via {$hangout->hangoutLink}";
     }
 
     /**

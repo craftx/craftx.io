@@ -47,6 +47,6 @@ class HangoutsCalendarController extends Controller
             throw new HttpException(404);
         }
 
-        return hangouts()->calendar->addEvents($hangouts)->sendToBrowser();
+        return hangouts()->calendar->addEvents($hangouts)->sendToDownload();
     }
 }
