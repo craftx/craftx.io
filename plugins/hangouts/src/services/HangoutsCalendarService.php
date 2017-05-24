@@ -118,6 +118,7 @@ class HangoutsCalendarService extends Component
             ->setUid('craftx-hangout-'.$hangout->slug)
             ->setPriority(5)
             ->setStatus('CONFIRMED')
+            ->setLastModified(new \DateTime('now', new \DateTimeZone('America/Chicago')))
             ->setOrganizer($host);
 
         if (($hangoutGuest = $hangout->hangoutGuest->one()))
