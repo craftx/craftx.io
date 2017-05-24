@@ -137,7 +137,7 @@ class HangoutsCalendarService extends Component
             return 'craftx-hangouts.ics';
         }
 
-        $events = clone $this->events;
+        $events = $this->events;
         $event  = array_shift($events);
 
         return $event->getUid();
