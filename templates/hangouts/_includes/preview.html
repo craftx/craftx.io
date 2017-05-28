@@ -20,12 +20,12 @@
                 <i class="fa fa-history"></i>
             </span>
             <span>
-                {{ entry.hangoutDateTime.format('Y / M / D j @ H:iA (T)') }}
+                {{ entry.hangoutDateTime.format('Y / M / D j @ g:iA (T)') }}
             </span>
         </p>
     {% endif %}
 
-    {% if isUpcoming is defined and isUpcoming and entry.hangoutGuest.one() ?? false %}
+    {% if entry.hangoutGuest.one() ?? false %}
         {% set guest = entry.hangoutGuest.one() %}
         <div class="hangout__guest">
             {% if guest.photo.one() ?? false %}

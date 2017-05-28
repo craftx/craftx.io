@@ -4,7 +4,6 @@ namespace selvinortiz\hangouts\twig;
 use Craft;
 use craft\elements\db\EntryQuery;
 
-use craft\records\Entry;
 use function selvinortiz\hangouts\hangouts;
 
 class HangoutsTemplateHooks
