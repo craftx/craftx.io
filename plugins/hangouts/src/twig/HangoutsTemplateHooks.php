@@ -17,27 +17,29 @@ class HangoutsTemplateHooks
             $context['isPastHangout'] = hangouts()->service->isPastHangout($hangout);
             $context['isOngoingHangout'] = hangouts()->service->isOngoingHangout($hangout);
             $context['isUpcomingHangout'] = hangouts()->service->isUpcomingHangout($hangout);
-            $context['hasMeetingNotes'] = mb_strlen((string) $hangout->hangoutNotes);
+            $context['hasMeetingNotes'] = mb_strlen((string)$hangout->hangoutNotes);
         }
     }
 
     public static function hangouts(&$context)
     {
-        $start = new \DateTime('now', new \DateTimeZone(Craft::$app->timeZone));
-        $ending = (clone $start)->modify('+1 hour');
         $format = 'Y-m-d H:i:s';
+
+        // Dates to determine previous, ongoing, and upcoming hangouts
+        $current = new \DateTime('now', new \DateTimeZone(Craft::$app->getTimeZone()));
+        $before = (clone $current)->modify('-1 hour');
 
         $context['upcomingHangouts'] = (new EntryQuery(\craft\elements\Entry::class))
             ->section('hangouts')
             ->orderBy('hangoutDateTime asc')
-            ->hangoutDateTime('> '.$ending->format($format))
+            ->hangoutDateTime('> '.$before->format($format))
             ->limit(null)
             ->all();
 
         $context['previousHangouts'] = (new EntryQuery(\craft\elements\Entry::class))
             ->section('hangouts')
             ->orderBy('hangoutDateTime desc')
-            ->hangoutDateTime('< '.$ending->format($format))
+            ->hangoutDateTime('< '.$current->format($format))
             ->limit(null)
             ->all();
 
@@ -45,8 +47,8 @@ class HangoutsTemplateHooks
             ->section('hangouts')
             ->hangoutDateTime([
                 'and',
-                '> '.$start->format($format),
-                '< '.$ending->format($format)
+                '> '.$before->format($format),
+                '< '.$current->format($format),
             ])
             ->limit(1)
             ->one();
