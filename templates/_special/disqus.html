@@ -1,4 +1,4 @@
-{% set handle = craft.app.config.general.env == 'live' ? 'craftx' : 'dev-craftx' %}
+{% set handle = craft.app.config.general.env == '*' ? 'craftx' : 'dev-craftx' %}
 
 {% if entry is defined and entry.section.handle in ['hangouts'] and entry.status == 'live' %}
     <script>
