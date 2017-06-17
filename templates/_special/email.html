@@ -229,32 +229,33 @@
                         </div>
 
 
+                        {% if link is defined and link is not empty %}
+                            <div align="center" class="button-container center" style="Margin-right: 10px;Margin-left: 10px;">
+                                <div style="line-height:15px;font-size:1px">&nbsp;</div>
+                                <a href="{{link}}" target="_blank" style="color: #ffffff; text-decoration: none;">
+                                    <!--[if mso]>
+                                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{link}}" style="height:56px; v-text-anchor:middle; width:218px;" arcsize="6%" strokecolor="#00966c" fillcolor="#00966c" >
+                                        <w:anchorlock/><center style="color:#ffffff; font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; font-size:18px;">
+                                    <![endif]-->
+                                    <!--[if !mso]><!--><div style="color: #ffffff; background-color: #00966c; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; max-width: 198px; width: 40%; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 10px; padding-right: 25px; padding-bottom: 10px; padding-left: 25px; font-family: 'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; text-align: center;"><!--<![endif]-->
+                                        <span style="font-size:12px;line-height:24px;"><span style="font-size: 18px; line-height: 36px;" data-mce-style="font-size: 18px; line-height: 32px;">Activate</span></span>
+                                        <!--[if !mso]><!--></div><!--<![endif]-->
+                                    <!--[if mso]>
+                                    </center>
+                                    </v:roundrect>
+                                    <![endif]-->
+                                </a>
+                                <div style="line-height:10px;font-size:1px">&nbsp;</div>
+                            </div>
 
-                        <div align="center" class="button-container center" style="Margin-right: 10px;Margin-left: 10px;">
-                            <div style="line-height:15px;font-size:1px">&nbsp;</div>
-                            <a href="{{link}}" target="_blank" style="color: #ffffff; text-decoration: none;">
-                                <!--[if mso]>
-                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{link}}" style="height:56px; v-text-anchor:middle; width:218px;" arcsize="6%" strokecolor="#00966c" fillcolor="#00966c" >
-                                    <w:anchorlock/><center style="color:#ffffff; font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; font-size:18px;">
-                                <![endif]-->
-                                <!--[if !mso]><!--><div style="color: #ffffff; background-color: #00966c; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; max-width: 198px; width: 40%; border-top: 0px solid transparent; border-right: 0px solid transparent; border-bottom: 0px solid transparent; border-left: 0px solid transparent; padding-top: 10px; padding-right: 25px; padding-bottom: 10px; padding-left: 25px; font-family: 'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif; text-align: center;"><!--<![endif]-->
-                                    <span style="font-size:12px;line-height:24px;"><span style="font-size: 18px; line-height: 36px;" data-mce-style="font-size: 18px; line-height: 32px;">Activate</span></span>
-                                    <!--[if !mso]><!--></div><!--<![endif]-->
-                                <!--[if mso]>
-                                </center>
-                                </v:roundrect>
-                                <![endif]-->
-                            </a>
-                            <div style="line-height:10px;font-size:1px">&nbsp;</div>
-                        </div>
 
+                            <div style="Margin-right: 10px; Margin-left: 10px;">
+                                <div style="line-height: 10px; font-size: 1px">&nbsp;</div>
+                                <div style="font-size:12px;line-height:14px;color:#555555;font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif;text-align:left;"><p style="margin: 0;font-size: 12px;line-height: 14px;text-align: center"><span style="font-size: 14px; line-height: 16px;">Button not working? Try the link below.</span></p><p style="margin: 0;font-size: 12px;line-height: 14px;text-align: center"><span style="font-size: 14px; line-height: 16px;">{{link}}</span></p></div>
 
-                        <div style="Margin-right: 10px; Margin-left: 10px;">
-                            <div style="line-height: 10px; font-size: 1px">&nbsp;</div>
-                            <div style="font-size:12px;line-height:14px;color:#555555;font-family:'Source Sans Pro', Tahoma, Verdana, Segoe, sans-serif;text-align:left;"><p style="margin: 0;font-size: 12px;line-height: 14px;text-align: center"><span style="font-size: 14px; line-height: 16px;">Button not working? Try the link below.</span></p><p style="margin: 0;font-size: 12px;line-height: 14px;text-align: center"><span style="font-size: 14px; line-height: 16px;">{{link}}</span></p></div>
-
-                            <div style="line-height: 10px; font-size: 1px">&nbsp;</div>
-                        </div>
+                                <div style="line-height: 10px; font-size: 1px">&nbsp;</div>
+                            </div>
+                        {% endif %}
 
                         <div style="line-height: 30px; font-size: 1px">&nbsp;</div>
                         <!--[if !mso]><!--></div>

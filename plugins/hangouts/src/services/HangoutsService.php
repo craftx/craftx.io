@@ -48,8 +48,8 @@ class HangoutsService extends Component
      * Default status for hangouts
      */
     const HANGOUT_STATUS_UPCOMING = 'upcoming';
-    const HANGOUT_STATUS_ONGOING = 'ongoing';
-    const HANGOUT_STATUS_ENDED = 'ended';
+    const HANGOUT_STATUS_ONGOING  = 'ongoing';
+    const HANGOUT_STATUS_ENDED    = 'ended';
 
     /**
      * Hangout date/time field handle used in hangout entries
@@ -69,15 +69,17 @@ class HangoutsService extends Component
      */
     public function getHangoutStatus(Entry $hangout, $duration = self::HANGOUT_DEFAULT_DURATION): string
     {
-        $currentDateTime = new \DateTime('now', new \DateTimeZone(Craft::$app->timeZone));
-        $hangoutDateTime = $hangout->hangoutDateTime;
+        $currentDateTime             = new \DateTime('now', new \DateTimeZone(Craft::$app->timeZone));
+        $hangoutDateTime             = $hangout->hangoutDateTime;
         $hangoutDateTimePlusDuration = (clone $hangoutDateTime)->modify(sprintf('+%s', $duration));
 
-        if ($currentDateTime > $hangoutDateTime && $currentDateTime < $hangoutDateTimePlusDuration) {
+        if ($currentDateTime > $hangoutDateTime && $currentDateTime < $hangoutDateTimePlusDuration)
+        {
             return self::HANGOUT_STATUS_ONGOING;
         }
 
-        if ($hangoutDateTimePlusDuration > $currentDateTime) {
+        if ($hangoutDateTimePlusDuration > $currentDateTime)
+        {
             return self::HANGOUT_STATUS_UPCOMING;
         }
 
@@ -100,7 +102,25 @@ class HangoutsService extends Component
     }
 
     /**
-     * @param string $text  Can be an object that implements __toString()
+     * @return string
+     */
+    public function getCalendarFeedUrl()
+    {
+        return Craft::$app->sites->primarySite->baseUrl.'hangouts.ics';
+    }
+
+    /**
+     * @param Entry $hangout
+     *
+     * @return string
+     */
+    public function getCalendarEventUrl(Entry $hangout)
+    {
+        return Craft::$app->sites->primarySite->baseUrl.'hangouts/'.$hangout->slug.'.ics';
+    }
+
+    /**
+     * @param string $text Can be an object that implements __toString()
      * @param int    $limit
      * @param string $break
      * @param string $pad
@@ -112,13 +132,15 @@ class HangoutsService extends Component
         $text = $this->toPlainText($text);
 
         // return with no change if string is shorter than $limit
-        if (strlen($text) <= $limit) {
+        if (strlen($text) <= $limit)
+        {
             return $text;
         }
 
         $text = substr($text, 0, $limit);
 
-        if (false !== ($breakpoint = strrpos($text, $break))) {
+        if (false !== ($breakpoint = strrpos($text, $break)))
+        {
             $text = substr($text, 0, $breakpoint);
         }
 

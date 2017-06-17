@@ -14,11 +14,11 @@
                     {% if (block.featureCtaText ?? false) and (block.featureCtaUrl ?? false) %}
                         <div class="buttons-container has-text-centered">
                             <p>
-                                <a href="{{ block.featureCtaUrl }}" class="button is-medium is-primary is-outlined is-inverted">
+                                <a href="{{ block.featureCtaUrl }}" class="button is-medium is-primary is-inverted">
                                     {% if block.featureCtaIconClasses ?? false %}
                                         <span class="icon"><i class="fa {{ block.featureCtaIconClasses}}"></i></span>
                                     {% endif %}
-                                    <span>{{ block.featureCtaText }}<span>
+                                    <span>{{ block.featureCtaText }}</span>
                                 </a>
                             </p>
                         </div>

@@ -1,0 +1,1 @@
+http://www.google.com/calendar/event?action=TEMPLATE&text=By%20Storm&dates=20170525T170000Z/20170525T180000Z&details=Gary%20Hockin%20is%20an%20awesome%20guy&location=https%3A%2F%2Fzoom.us%2Fj12345&add=guest@selvin.co&add=other@selvin.co&trp=true&sprop=https%3A%2F%2Fcraftx.io&sprop=name:CraftX

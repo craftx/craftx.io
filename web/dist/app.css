@@ -319,9 +319,6 @@ body {
  ------------------------------------------------------------
  @content
  ------------------------------------------------------------*/
-.content .is-white {
-  color: #fff; }
-
 .content a.anchor {
   color: #ddd;
   font-style: normal; }
@@ -338,6 +335,9 @@ body {
 
 .has-shadow {
   box-shadow: 0 5px 5px #007d5a; }
+
+.has-content {
+  margin-top: 20px; }
 
 .is-form-section-divider {
   padding: 0;
@@ -396,14 +396,52 @@ body {
   padding-left: 40px;
   margin: 0; }
 
-.hangout__entry, .hangout__previews {
+.is-white {
+  color: #fff; }
+
+.is-primary {
+  color: #00966C; }
+
+.is-info {
+  color: #9642be; }
+
+.is-meta {
+  color: #999; }
+
+.hangout__previews {
   margin-top: 40px; }
 
-.hangout__entry, .hangout__preview {
+.hangout__preview {
   padding: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   background: #fff;
-  border: 1px solid #e6e7e8; }
+  border: 2px solid #e6e7e8; }
+
+.hangout__guest.is-on-entry {
+  margin-bottom: 40px; }
+
+.is-upcoming {
+  border-color: #9642be; }
+
+.is-on-dark {
+  padding: .15em 1em;
+  display: inline-block;
+  background-color: #fff; }
+
+.is-avatar {
+  width: 256px;
+  height: auto;
+  display: block;
+  padding: 2px;
+  margin: 20px auto;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2px solid #565758;
+  box-shadow: 0 1px 2px #636465; }
+
+.is-avatar.is-on-entry {
+  border: 2px solid #fff;
+  box-shadow: 0 3px 5px #00b07e; }
 
 /*
  ------------------------------------------------------------
@@ -435,11 +473,11 @@ body {
       min-width: 100%; }
   .control.is-expanded {
     min-width: 100%; }
-  .hangout__entry, .hangout__previews {
+  .hangout__previews {
     margin-top: 20px; }
-  .hangout__entry, .hangout__preview {
+  .hangout__preview {
     padding: 20px;
-    margin-bottom: 20px; } }
+    margin-bottom: 10px; } }
 
 @media all and (min-width: 769px) {
   .hero-buttons .button.is-large {

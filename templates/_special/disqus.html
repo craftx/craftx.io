@@ -1,15 +1,15 @@
-{% set showThread = entry is defined and entry.section.handle in ['blog', 'series'] and entry.status == 'live' and craft.app.config.general.env in ['staging', 'dev'] %}
+{% set handle = craft.app.config.general.env == '*' ? 'craftx' : 'dev-craftx' %}
 
-{% if showThread %}
+{% if entry is defined and entry.section.handle in ['hangouts'] and entry.status == 'live' %}
     <script>
          var disqus_config = function () {
             this.page.url = '{{  entry.url }}';
             this.page.identifier = '{{ entry.id }}';
          };
-        (function() { // DON'T EDIT BELOW THIS LINE
+        (function() {
             var d = document, s = d.createElement('script');
 
-            s.src = 'https://dev-craftx.disqus.com/embed.js';
+            s.src = 'https://{{ handle }}.disqus.com/embed.js';
 
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
