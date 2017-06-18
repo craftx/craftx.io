@@ -7,15 +7,17 @@ use craft\web\Controller;
 
 use yii\web\HttpException;
 
+use selvinortiz\swipe\models\SwipeUserModel;
 use function selvinortiz\swipe\swipe;
+
 
 class SwipeUsersController extends Controller {
     /**
-     * Not method names but action ids
-     * - actionResetPassword() > reset-password
-     *
-     * @var bool|string[]
-     */
+    * Not method names but action ids
+    * - actionResetPassword() > reset-password
+    *
+    * @var bool|string[]
+    */
     protected $allowAnonymous = [
         'index',
         'save-user',
@@ -68,61 +70,53 @@ class SwipeUsersController extends Controller {
     }
 
     public function actionValidateEmail() {
-        $email = swipe()->api->getDecodedParam('email');
+        $status = '__EMPTY';
+        $success = false;
+        $message = 'There was an error with validation, please try again later';
 
-        if (($user = Craft::$app->users->getUserByUsernameOrEmail($email))) {
-            return $this->asJson([
-                'status' => '__TAKEN',
-                'success' => false,
-                'message' => 'Email address already in use'
-            ]);
-        }
+        $userModel = new SwipeUserModel([
+            'email' => swipe()->api->getDecodedParam('email')
+        ]);
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return $this->asJson([
-                'status' => '__INVALID',
-                'success' => false,
-                'message' => 'Email address must be valid'
-            ]);
+        if ( $userModel->validate(['email']) ) {
+            $status = '__OK';
+            $success = true;
+            $message = 'Email looks good';
+        } else {
+            $status = '__INVALID';
+            $message = $userModel->getFirstError('email');
         }
 
         return $this->asJson([
-            'status' => '__OK',
-            'success' => true,
-            'message' => 'Email address looks good'
+            'status' => $status,
+            'success' => $success,
+            'message' => $message
         ]);
     }
 
     public function actionValidateUsername() {
-        $username = swipe()->api->getDecodedParam('username');
 
-        if (empty($username)) {
-            return $this->asJson([
-                'status' => '__EMPTY',
-                'success' => false,
-                'message' => 'Username is required'
-            ]);
-        }
-        if (($user = Craft::$app->users->getUserByUsernameOrEmail($username))) {
-            return $this->asJson([
-                'status' => '__TAKEN',
-                'success' => false,
-                'message' => 'Username is already taken'
-            ]);
-        }
+        $status = '__EMPTY';
+        $success = false;
+        $message = 'There was an error with validation, please try again later';
 
-        if (!preg_match('/^[a-z0-9\-]{5,25}$/', $username)) {
-            return $this->asJson([
-                'status' => '__INVALID',
-                'success' => false,
-                'message' => 'Hint > [a-z0-9-]{5,25}'
-            ]);
+        $userModel = new SwipeUserModel([
+            'username' => swipe()->api->getDecodedParam('username')
+        ]);
+
+        if ( $userModel->validate(['username']) ) {
+            $status = '__OK';
+            $success = true;
+            $message = 'Username looks good';
+        } else {
+            $status = '__INVALID';
+            $message = $userModel->getFirstError('username');
         }
 
         return $this->asJson([
-            'status' => '__OK',
-            'success' => true,
-            'message' => 'Username looks good'
+            'status' => $status,
+            'success' => $success,
+            'message' => $message
         ]);
     }
 

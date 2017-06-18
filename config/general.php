@@ -9,7 +9,7 @@
 $config = [
     '*' => [
         'env' => '*',
-        'devMode' => false,
+        'devMode' => true,
         'siteUrl' => 'https://craftx.io',
         'sitePath' => dirname(__DIR__, 1).'/web',
         'cpTrigger' => 'studio',
