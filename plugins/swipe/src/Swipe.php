@@ -46,7 +46,7 @@ class Swipe extends Plugin
     {
         parent::init();
 
-        Craft::$app->view->twig->addExtension(new SwipeExtension());
+        Craft::$app->view->registerTwigExtension(new SwipeExtension());
 
         Event::on(
             UrlManager::class,
