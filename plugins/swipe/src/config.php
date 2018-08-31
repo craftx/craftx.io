@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'stripeSecretKey' => 'sk_test_FzNfjQkjCfGRWzV3k3QSBj6d',
-    'stripePublicKey' => 'pk_test_ivZFpjEGRxj38UYz4CYQUk4t',
-    'usernameBlacklist' => include 'etc/SwipeUsernameBlacklist.php';
+    'stripeSecretKey'   => getenv('SWIPE_STRIPE_SECRET_KEY'),
+    'stripePublicKey'   => getenv('SWIPE_STRIPE_PUBLIC_KEY'),
+    'usernameBlacklist' => [],
 ];
