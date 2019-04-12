@@ -10,9 +10,9 @@
     <div class="hangout__summary">
         <div class="content is-medium">
             {% if isPastHangout and hasMeetingNotes %}
-                {{ entry.hangoutNotes }}
+                {{ entry.hangoutNotes.html }}
             {% else %}
-                {{ entry.hangoutTopic }}
+                {{ entry.hangoutTopic.html }}
             {% endif %}
         </div>
     </div>
