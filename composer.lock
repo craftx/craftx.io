@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c83daa323df9cc24f44a4e2be54c418",
+    "content-hash": "cae4feb8fc76bf57a1252ad915843833",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1351,6 +1351,54 @@
             "time": "2018-12-04T20:46:45+00:00"
         },
         {
+            "name": "jsvrcek/ics",
+            "version": "0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jasvrcek/ICS.git",
+                "reference": "c93b8dba37b35dd0b65d7b76c7d5b8bc38ecc74c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jasvrcek/ICS/zipball/c93b8dba37b35dd0b65d7b76c7d5b8bc38ecc74c",
+                "reference": "c93b8dba37b35dd0b65d7b76c7d5b8bc38ecc74c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jsvrcek\\ICS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Svrcek",
+                    "homepage": "https://github.com/jasvrcek"
+                }
+            ],
+            "description": "abstraction layer for creating multi-byte safe RFC 5545 compliant .ics files",
+            "homepage": "https://github.com/jasvrcek/ICS",
+            "keywords": [
+                ".ics",
+                "RFC 5545",
+                "calendar",
+                "export",
+                "ical",
+                "multi-byte safe"
+            ],
+            "time": "2017-02-01T20:10:20+00:00"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.8",
             "source": {
@@ -2570,6 +2618,43 @@
                 "plugin"
             ],
             "time": "2019-01-11T18:09:32+00:00"
+        },
+        {
+            "name": "selvinortiz/hangouts",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./madebyselvin/plugins/hangouts",
+                "reference": "ca0aadb5940a6a2e11445b1c990acd01503c27a0"
+            },
+            "require": {
+                "jsvrcek/ics": "^0.5.1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Hangouts",
+                "handle": "hangouts",
+                "class": "selvinortiz\\hangouts\\Hangouts",
+                "developer": "Selvin Ortiz",
+                "developerUrl": "https://selvinortiz.com",
+                "schemaVersion": "1.0.0",
+                "components": {
+                    "service": "selvinortiz\\hangouts\\services\\HangoutsService",
+                    "calendar": "selvinortiz\\hangouts\\services\\HangoutsCalendarService"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "selvinortiz\\hangouts\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Selvin Ortiz",
+                    "email": "selvin@selvin.co"
+                }
+            ],
+            "description": "CraftX Hangouts Utility"
         },
         {
             "name": "selvinortiz/patrol",
